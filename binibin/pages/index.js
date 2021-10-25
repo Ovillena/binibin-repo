@@ -15,9 +15,9 @@ display:flex;
 export default function Home() {
   return <Container>
 
-  {/* <Hero></Hero> */}
+  <Hero></Hero>
   {/* <Footer></Footer> */}
-  <Side></Side>
+  {/* <Side></Side> */}
   </Container>
   
   
