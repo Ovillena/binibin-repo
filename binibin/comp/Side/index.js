@@ -15,6 +15,7 @@ height:10px;
 
 
 
+
 const Side = ({})=>{
     return<Container>
     
