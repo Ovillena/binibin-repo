@@ -13,17 +13,17 @@ justify-content:center;
 const Title = styled.h3`
 color:#00000;
 display:flex;
-align-items:center;
-text-align:center;
+position: absolute;
 `
 
 
 const Hero = ({})=>{
     return<Container>
     
-    <Title>
-        <Image src={Herro} width={2000} alt="idk"/>
-    </Title>
+    
+        <Image src={Herro} width={2000} alt="idk">
+        </Image>
+    
         
     </Container>    
   }
