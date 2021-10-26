@@ -1,15 +1,18 @@
 import styled from 'styled-components';
 import { Image, Menu, Button} from 'semantic-ui-react';
+import MyButton from '../Button';
 
 
 const NavCont = styled.div`
     display:flex;
-    min-width:1000px;
+    min-width:200px;
     height:130px;
     background-color:white;
     box-shadow:0px 3px 30px grey; 
     justify-content:space-between;
     align-items:center;
+    flex-wrap:wrap;
+    flex:1;
 `
 
 const LogoCont = styled.div`
@@ -42,6 +45,9 @@ const GuestNavBar = ({
         </NavItems>
         <NavItems>
             <TextCont>Learn More</TextCont>
+        </NavItems>
+        <NavItems>
+            <MyButton></MyButton>
         </NavItems>
     </NavCont>
     
