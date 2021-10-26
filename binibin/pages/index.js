@@ -15,9 +15,9 @@ flex-direction:column;
 export default function Home() {
   return <Container>
 
-  <Hero></Hero>
-  <Footer></Footer>
-  {/* <Side></Side> */}
+  {/* <Hero></Hero> */}
+  {/*<Footer></Footer> */}
+  <Side></Side>
   </Container>
   
   
