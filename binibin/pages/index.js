@@ -10,6 +10,7 @@ import GuestNavBar from '../comps/GuestNavBar';
 import HeaderText from '../comps/HeaderText';
 import HeroImage from '../comps/Hero'
 import CircleIcon from '../comps/CircleImage';
+import MyButton from '../comps/Button';
 
 
 const PageCont = styled.div`
@@ -35,6 +36,7 @@ const ParagraphSec = styled.div`
   justify-content:center;
   flex-direction:column;
   text-align:center;
+  padding:20px;
 `
 const Subhead = styled.h1`
   font-size:36px;
@@ -43,7 +45,11 @@ const Subhead = styled.h1`
 const BodyText = styled.p`
   width:50%;
 `
-
+const ButtonCont = styled.div`
+  display:flex;
+  justify-content:center;
+  padding:20px;
+`
 
 export default function Home() {
   return (
@@ -72,6 +78,10 @@ export default function Home() {
       <Subhead>You can make a difference</Subhead>
       <BodyText>We encourage schools to promote waste reduction awareness to their students by providing a visual tool to track the quantity and the breakdown of the waste produced by their schools.</BodyText>
     </ParagraphSec>
+
+    <ButtonCont>
+      <MyButton width="200px" height="60px" bgcolor="#FFC800" text="Learn More"></MyButton>
+    </ButtonCont>
 
     
   <Footer></Footer>

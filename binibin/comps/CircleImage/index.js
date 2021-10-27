@@ -9,6 +9,7 @@ const Cont = styled.div`
     flex:1;
     justify-content:space-around;
     flex-direction:row;
+    padding:20px;
 `
 
 const MissionCont = styled.div`

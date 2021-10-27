@@ -3,20 +3,20 @@ import React from 'react';
 
 const Container = styled.div`
     display:flex;
-    height:80px;
     background-color:#95AFBA;
-`
-
-const TitleCont = styled.div`
     display:flex;
     flex:1;
+    height:80px;
     justify-content:center;
     align-items:center;
 `
 
+const TitleCont = styled.div`
+    padding:20px;
+`
+
 const Title = styled.h3`
     color:#ffffff;
-    background-color:red;
 `
 
 
@@ -25,7 +25,13 @@ const Footer = ({})=>{
 
         <TitleCont>
             <Title>Learn more</Title>
+        </TitleCont>
+
+        <TitleCont>
             <Title>About us</Title>
+        </TitleCont>
+
+        <TitleCont>
             <Title>Contact us</Title>
         </TitleCont>
            
