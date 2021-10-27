@@ -8,7 +8,7 @@ import React from 'react';
 
 import GuestNavBar from '../comps/GuestNavBar';
 import HeaderText from '../comps/HeaderText';
-import Hero from '../comps/hero'
+import HeroImage from '../comps/Hero'
 import Side from '../comps/Side'
 
 
@@ -32,9 +32,10 @@ export default function Home() {
         <GuestNavBar></GuestNavBar>
       </TopRow>
     
-  <Hero></Hero>
+    <HeroImage></HeroImage>
   <Footer></Footer>
   {/* <Side></Side> */}
       </PageCont>
     //</div>
   )
+}
