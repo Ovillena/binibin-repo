@@ -9,6 +9,8 @@ const Container = styled.div`
     justify-content:center;
     align-items: center;
     background-image:url(Hero.png);
+    background-repeat:no-repeat;
+    background-size:cover;
     padding:10%;
 `
 const TitleCont = styled.div`
