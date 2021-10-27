@@ -28,6 +28,22 @@ const MissionCont = styled.div`
 
 `
 
+const ParagraphSec = styled.div`
+  display:flex;
+  flex:1;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  text-align:center;
+`
+const Subhead = styled.h1`
+  font-size:36px;
+  color:#95AFBA;
+`
+const BodyText = styled.p`
+  width:50%;
+`
+
 
 export default function Home() {
   return (
@@ -46,6 +62,17 @@ export default function Home() {
     <MissionCont>
       <CircleIcon></CircleIcon>
     </MissionCont>
+
+    <ParagraphSec>
+      <Subhead>Recycling Problems</Subhead>
+      <BodyText>Many people don’t know what to recycle or people are throwing away things that are recyclable. People are not aware of how much garbage they are sending to the landfill when portions of it may be compostable or recyclable.</BodyText>
+    </ParagraphSec>
+
+    <ParagraphSec>
+      <Subhead>You can make a difference</Subhead>
+      <BodyText>We encourage schools to promote waste reduction awareness to their students by providing a visual tool to track the quantity and the breakdown of the waste produced by their schools.</BodyText>
+    </ParagraphSec>
+
     
   <Footer></Footer>
       </PageCont>
