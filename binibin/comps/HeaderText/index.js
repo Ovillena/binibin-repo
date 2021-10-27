@@ -3,10 +3,8 @@ import React from "react";
 
 
 const HeaderCont = styled.div`
-    display:flex;
+    
 `
-
-
 
 const Heading = styled.h1`
     font-size:48px;
@@ -21,7 +19,6 @@ const Header = ({
     return <HeaderCont>
         <Heading>{text}</Heading>
     </HeaderCont>
-
 }
 
 export default Header;

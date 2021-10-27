@@ -9,8 +9,6 @@ const Container = styled.div`
     justify-content:center;
     align-items: center;
     background-image:url(Hero.png);
-    flex-direction:row;
-    flex-wrap:wrap;
     padding:10%;
 `
 const TitleCont = styled.div`
@@ -39,9 +37,6 @@ const HeroImage = ({})=>{
             </ButtonCont>
         </TitleCont>
         
-
-
-    
     </Container>    
   }
   

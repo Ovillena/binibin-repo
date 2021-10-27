@@ -9,20 +9,25 @@ import React from 'react';
 import GuestNavBar from '../comps/GuestNavBar';
 import HeaderText from '../comps/HeaderText';
 import HeroImage from '../comps/Hero'
-import Side from '../comps/Side'
+import CircleIcon from '../comps/CircleImage';
 
 
 const PageCont = styled.div`
-    flex:1;
+
 `
 
 const TopRow = styled.div`
   display:flex;
 `
-const Container = styled.div`
-display:flex;
-flex-direction:column;
+
+const HeaderCont = styled.div`
+  display:flex;
+  justify-content:center;
 `
+const MissionCont = styled.div`
+
+`
+
 
 export default function Home() {
   return (
@@ -32,10 +37,19 @@ export default function Home() {
         <GuestNavBar></GuestNavBar>
       </TopRow>
     
-    <HeroImage></HeroImage>
+      <HeroImage></HeroImage>
+
+    <HeaderCont>
+      <HeaderText>Our Mission</HeaderText>
+    </HeaderCont>
+
+    <MissionCont>
+      <CircleIcon></CircleIcon>
+    </MissionCont>
+    
   <Footer></Footer>
-  {/* <Side></Side> */}
       </PageCont>
+
     //</div>
   )
 }

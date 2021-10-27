@@ -2,27 +2,33 @@ import styled from 'styled-components';
 import React from 'react';
 
 const Container = styled.div`
-display:flex;
-flex-grow:1;
-width:100%;
-height:80px;
-justify-content:center;
-background-color:#95AFBA;
-
+    display:flex;
+    height:80px;
+    background-color:#95AFBA;
 `
+
+const TitleCont = styled.div`
+    display:flex;
+    flex:1;
+    justify-content:center;
+    align-items:center;
+`
+
 const Title = styled.h3`
-display:flex;
-flex-direction:row;
-margin-left:140px;
-color:#ffffff;
+    color:#ffffff;
+    background-color:red;
 `
 
 
 const Footer = ({})=>{
     return<Container>
-        <Title>Learn more</Title>
-        <Title>About us</Title>
-        <Title>Contact us</Title>
+
+        <TitleCont>
+            <Title>Learn more</Title>
+            <Title>About us</Title>
+            <Title>Contact us</Title>
+        </TitleCont>
+           
     </Container>
   }
   
