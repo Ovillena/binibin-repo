@@ -20,15 +20,15 @@ const ClickButton = styled.div`
 `
 
 const MyButton = ({
-    width="193px",
-    height="64px",
+    width="150px",
+    height="50px",
     bgcolor="#598B2C",
     text="Login",
     textcolor="black"
 
 }) =>{
     return <ButtonCont>
-        <ClickButton onClick={()=>{}} width="150px" height="50px" bgcolor="#598B2C" textcolor="white">Login</ClickButton>
+        <ClickButton onClick={()=>{}} width={width} height={height} bgcolor={bgcolor} textcolor="white">{text}</ClickButton>
     </ButtonCont>
 
 }
