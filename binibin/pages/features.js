@@ -1,12 +1,7 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
 import styled from 'styled-components';
 import React from 'react';
 
-import GuestNavBar from '../comps/GuestNavBar';
-import HeaderText from '../comps/HeaderText';
-
+import GuestNavBar from '../comps/GuestNavBar'
 
 const PageCont = styled.div`
     flex:1;

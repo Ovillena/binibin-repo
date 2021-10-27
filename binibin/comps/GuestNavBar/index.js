@@ -13,6 +13,7 @@ const NavCont = styled.div`
     align-items:center;
     flex-wrap:wrap;
     flex:1;
+    padding:50px;
 `
 
 const LogoCont = styled.div`
@@ -21,7 +22,8 @@ const LogoCont = styled.div`
 `
 
 const TextCont = styled.div`
-
+    color:#598B2C;
+    font-weight:bold;
 `
 
 const NavItems = styled.div`
@@ -49,6 +51,7 @@ const GuestNavBar = ({
         <NavItems>
             <MyButton></MyButton>
         </NavItems>
+        
     </NavCont>
     
 }
