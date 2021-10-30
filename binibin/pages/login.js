@@ -7,54 +7,67 @@ import MyButton from '../comps/Button';
 import Footer from '../comps/footer';
 import InputPasswordComp from '../comps/InputPassword';
 import InputTextComp from '../comps/InputText';
+import Image from 'next/image';
+import loginImage from '../public/login_image.png';
 
 const PageCont = styled.div`
-    flex:1;
+    display:flex;
+    flex-wrap:wrap;
+    flex-direction:column;
 `
 
 const TopRow = styled.div`
-  display:flex;
+    display:flex;
+    flex:1;
+`
+const MidCont = styled.div`
+    display:flex;
+    height:500px;
+
 `
 
-const HeaderCont = styled.div`
-  display:flex;
-  justify-content:center;
+const LeftCont = styled.div`
+    display:flex;
+    flex:1;
+    justify-content:center;
+    align-items:center;
 `
 
-const FeaturesCont = styled.div`
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-wrap:wrap;
-`;
-
-const ButtonCont = styled.div`
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:10px;
+const RightCont = styled.div`
+    display:flex;
+    flex-direction:column;
+    flex:1;
+    justify-content:center;
+    align-items:center;
 `
+
+
 
 export default function Home() {
   return (
     //<div className={styles.container}>
       <PageCont>
+
       <TopRow>
         <GuestNavBar></GuestNavBar>
       </TopRow>
-      <HeaderCont>
-        <Header text="Features"></Header>
-      </HeaderCont>
 
-    <InputTextComp></InputTextComp>
-    <InputPasswordComp></InputPasswordComp>
+    <MidCont>
+      <LeftCont>
+          <Image src={loginImage} width={500} height={300}/>
+      </LeftCont>
 
+      <RightCont>
+          <Header text="Login"></Header>
+          <InputTextComp></InputTextComp>
+          <InputPasswordComp></InputPasswordComp>
+          <MyButton bgcolor="#95AFBA"></MyButton>
+      </RightCont>
 
-      <ButtonCont>
-        <MyButton width="200px" height="65px" bgcolor="#FFC800" text="Register"></MyButton>
-      </ButtonCont>
-      
-      <Footer></Footer>
+    </MidCont>
+
+    <Footer></Footer>
+
       </PageCont>
     //</div>
   )
