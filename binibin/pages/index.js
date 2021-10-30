@@ -80,7 +80,7 @@ export default function Home() {
     </ParagraphSec>
 
     <ButtonCont>
-      <MyButton width="200px" height="60px" bgcolor="#FFC800" text="Learn More"></MyButton>
+      <MyButton width="200px" height="65px" bgcolor="#FFC800" text="Learn More"></MyButton>
     </ButtonCont>
 
     

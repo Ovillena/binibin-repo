@@ -7,7 +7,7 @@ const ButtonCont = styled.div`
 
 `
 
-const ClickButton = styled.div`
+const ClickButton = styled.button`
     width:${props=>props.width};
     height:${props=>props.height};
     background-color:${props=>props.bgcolor};
@@ -17,6 +17,7 @@ const ClickButton = styled.div`
     align-items:center;
     border-radius:10px;
     box-shadow:0px 4px 4px grey; 
+    border:none;
 `
 
 const MyButton = ({
