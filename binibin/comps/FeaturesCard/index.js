@@ -13,6 +13,7 @@ const CardCont = styled.div`
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   padding:60px 40px 60px 40px;
   margin:10px;
+  text-align:center;
 `;
 
 const SmallHeading = styled.h2`
