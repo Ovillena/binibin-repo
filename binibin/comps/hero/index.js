@@ -35,7 +35,7 @@ const HeroImage = ({})=>{
         <TitleCont>
             <Title>See how your actions have an impact</Title>
             <ButtonCont>
-            <MyButton width="200px" height="60px" bgcolor="#FFC800" text="Explore Features"></MyButton>
+            <MyButton width="200px" height="65px" bgcolor="#FFC800" text="Explore Features"></MyButton>
             </ButtonCont>
         </TitleCont>
         
