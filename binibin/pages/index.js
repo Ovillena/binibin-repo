@@ -37,4 +37,4 @@ export default function Home() {
   {/* <Side></Side> */}
       </PageCont>
     //</div>
-  )
+  )}
