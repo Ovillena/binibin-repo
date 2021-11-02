@@ -1,7 +1,12 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import Footer from '../comps/footer'
+import Footer from '../comps/Footer'
 import styles from '../styles/Home.module.css'
+import styled from 'styled-components'
+import Hero from '../comps/Hero'
+import Side from '../comps/Side'
+import Card from '../comps/Card'
+
 
 import styled from 'styled-components';
 import React from 'react';
@@ -51,7 +56,7 @@ const ButtonCont = styled.div`
   padding:20px;
 `
 
-export default function Home() {
+
   return (
     //<div className={styles.container}>
       <PageCont>
@@ -90,3 +95,4 @@ export default function Home() {
     //</div>
   )
 }
+
