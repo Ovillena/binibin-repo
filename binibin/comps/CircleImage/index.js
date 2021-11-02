@@ -41,7 +41,7 @@ const CircleIcon = ({
         <MissionCont>
             <Image src='https://react.semantic-ui.com/images/wireframe/square-image.png' size='small' circular/>
             <Heading>Educate</Heading>
-            <BodyText>Learn where your garbage should be going to lessen harmful impacts to the waste system. </BodyText>
+            <BodyText>Learn where your garbage should be going to lessen harmful impacts to the waste system.</BodyText>
         </MissionCont>
 
         <MissionCont>
