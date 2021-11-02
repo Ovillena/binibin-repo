@@ -8,7 +8,6 @@ const InputCont = styled.div`
 
 const InputText = styled.input.attrs(props => ({
     type:"text",
-    placeholder:"Username"
 
 }))
 `
@@ -20,17 +19,18 @@ border: 5px solid #95AFBA;
 border-radius: 10px;
 padding:10px;
 
+
 `
 
 const InputTextComp = ({
     width="400px",
     height="52px",
-    
+    placeholder="placeholder"
 
 }) =>{
 
     return <InputCont>
-        <InputText width={width} height={height}></InputText>
+        <InputText width={width} height={height} placeholder={placeholder}></InputText>
     </InputCont>
 }
 
