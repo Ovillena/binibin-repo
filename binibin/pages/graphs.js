@@ -4,8 +4,10 @@ import React from 'react';
 import GuestNavBar from '../comps/GuestNavBar'
 import Header from '../comps/HeaderText';
 import Footer from '../comps/footer';
-import DoughnutChart from '../comps/GraphsPie';
+import PieChart from '../comps/GraphsPie';
 import GarbageBar from '../comps/GraphsGarbage';
+import CompostBar from '../comps/GraphsCompost';
+import RecycleBar from '../comps/GraphsRecycle';
 
 const PageCont = styled.div`
     flex:1;
@@ -20,7 +22,7 @@ const HeaderCont = styled.div`
   justify-content:center;
 `
 
-export default function Dog() {
+export default function Graphs() {
   return (
     //<div className={styles.container}>
       <PageCont>
@@ -32,11 +34,14 @@ export default function Dog() {
         <Header text="Waste Tracked for November"></Header>
       </HeaderCont>
 
-      <DoughnutChart></DoughnutChart>
+      <PieChart></PieChart>
 
       <GarbageBar></GarbageBar>
 
-      
+      <CompostBar></CompostBar>
+
+      <RecycleBar></RecycleBar>
+
       <Footer></Footer>
       </PageCont>
     //</div>

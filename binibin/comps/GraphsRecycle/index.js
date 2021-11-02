@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Pie } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 
 import Subhead from '../SubheadText';
 
@@ -31,6 +31,18 @@ const data = {
   ],
 };
 
+const options = {
+  scales: {
+    yAxes: [
+      {
+        ticks: {
+          beginAtZero: true,
+        },
+      },
+    ],
+  },
+};
+
 const GraphCont = styled.div`
   display:flex;
   width:500px;
@@ -38,15 +50,15 @@ const GraphCont = styled.div`
 
 `
 
-const PieChart = () => (
+const RecycleBar = () => (
   <>
     <div className='header'>
-      <Subhead text="Recyling Accuracy"></Subhead>
+      <Subhead text="Recylings"></Subhead>
     </div>
     <GraphCont>
-      <Pie data={data} />
+    <Bar data={data} options={options} />
     </GraphCont>
   </>
 );
 
-export default PieChart;
+export default RecycleBar;
