@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import React from 'react';
 import Image from 'next/image';
-
+import Setting from '/public/settings.png'
+import User from '/public/User.png'
 
 const Container = styled.div`
 display:flex;
-flex-grow:1;
 flex-direction:column;
 background-color:#95AFBA;
 width:350px;
@@ -16,12 +16,13 @@ const Bar = styled.div`
 background-color:white;
 width:310px;
 height:60px;
+display:flex;
 margin-top:40px;
 margin-left:20px;
-display:flex;
 justify-content:center;
 align-items:center;
 position:static;
+gap:33px;
 `
 const Head = styled.h1`
 color:white;
@@ -46,8 +47,14 @@ justify-content:center;
 const Side = ({})=>{
     return<Container>
         <Head>Account setting</Head>
-        <Bar><Text>Enterprise Info</Text></Bar>
-        <Bar><Text>Manage Account</Text></Bar>
+        <Bar>
+        <Image src={Setting} alt="settings"/>
+            <Text>Enterprise Info</Text>
+        </Bar>
+        <Bar>
+        <Image src={User} alt="settings"/>
+        <Text>Manage Account</Text>
+        </Bar>
         <Signout>Sign out</Signout>
      </Container>    
   }

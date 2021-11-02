@@ -15,10 +15,10 @@ flex-direction:column;
 
 export default function Home() {
   return <Container>
-    <Card></Card>
+    {/* <Card></Card> */}
   {/* <Hero></Hero> */}
   {/*<Footer></Footer> */}
-  {/* <Side></Side> */}
+  <Side></Side>
   </Container>
   
   
