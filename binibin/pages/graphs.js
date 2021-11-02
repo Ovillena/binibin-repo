@@ -5,6 +5,7 @@ import GuestNavBar from '../comps/GuestNavBar'
 import Header from '../comps/HeaderText';
 import Footer from '../comps/footer';
 import DoughnutChart from '../comps/GraphsPie';
+import GarbageBar from '../comps/GraphsGarbage';
 
 const PageCont = styled.div`
     flex:1;
@@ -19,22 +20,6 @@ const HeaderCont = styled.div`
   justify-content:center;
 `
 
-const FeaturesCont = styled.div`
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-wrap:wrap;
-`;
-
-const ButtonCont = styled.div`
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:10px;
-`
-
-
-
 export default function Dog() {
   return (
     //<div className={styles.container}>
@@ -42,10 +27,15 @@ export default function Dog() {
       <TopRow>
         <GuestNavBar></GuestNavBar>
       </TopRow>
+
       <HeaderCont>
-        <Header text="Features"></Header>
+        <Header text="Waste Tracked for November"></Header>
       </HeaderCont>
+
       <DoughnutChart></DoughnutChart>
+
+      <GarbageBar></GarbageBar>
+
       
       <Footer></Footer>
       </PageCont>

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+
 import { Doughnut } from 'react-chartjs-2';
 
 import Subhead from '../SubheadText';
@@ -31,7 +32,7 @@ const data = {
   ],
 };
 
-const PieCont = styled.div`
+const GraphCont = styled.div`
   display:flex;
   width:100px;
   height:100px;
@@ -42,23 +43,15 @@ const DoughnutChart = () => (
   <>
     <div className='header'>
       <Subhead text="Recyling Accuracy"></Subhead>
-      <div className='links'>
-        <a
-          className='btn btn-gh'
-          href='https://github.com/reactchartjs/react-chartjs-2/blob/master/example/src/charts/Doughnut.js'
-        >
-          Github Source
-        </a>
-      </div>
     </div>
-    <PieCont>
+    <GraphCont>
     <Doughnut 
     data={data}
     width={100}
     height={100}
     options={{ maintainAspectRatio: false }}
     />
-    </PieCont>
+    </GraphCont>
   </>
 );
 

@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { Bar } from 'react-chartjs-2';
 
+import Subhead from '../SubheadText';
+
 const data = {
   labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
   datasets: [
@@ -41,21 +43,22 @@ const options = {
   },
 };
 
-const VerticalBar = () => (
+const GraphCont = styled.div`
+  display:flex;
+  width:500px;
+  height:500px;
+
+`
+
+const GarbageBar = () => (
   <>
     <div className='header'>
-      <h1 className='title'>Vertical Bar Chart</h1>
-      <div className='links'>
-        <a
-          className='btn btn-gh'
-          href='https://github.com/reactchartjs/react-chartjs-2/blob/master/example/src/charts/VerticalBar.js'
-        >
-          Github Source
-        </a>
-      </div>
+      <Subhead text="Garbage"></Subhead>
     </div>
+    <GraphCont>
     <Bar data={data} options={options} />
+    </GraphCont>
   </>
 );
 
-export default VerticalBar;
+export default GarbageBar;
