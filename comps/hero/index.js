@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 import React from 'react';
-import Image from 'next/image';
-import Hero from '/public/hero.png'
 import MyButton from '../Button';
 
 const Container = styled.div`
