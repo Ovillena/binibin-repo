@@ -35,14 +35,13 @@ color:black;
 `
 
 
+
 const Signout = styled.h2`
 color:White;
 display:flex;
 margin-top:250px;
 justify-content:center;
 `
-
-
 
 const Side = ({})=>{
     return<Container>
