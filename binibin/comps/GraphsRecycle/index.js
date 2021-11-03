@@ -5,7 +5,7 @@ import { Bar } from 'react-chartjs-2';
 import Subhead from '../SubheadText';
 
 const data = {
-  labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange', 'black'],
+  labels: ['Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'],
   datasets: [
     {
       label: '# of Recycles',

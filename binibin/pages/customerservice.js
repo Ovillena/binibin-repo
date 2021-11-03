@@ -8,7 +8,7 @@ import HeaderText from '../comps/HeaderText';
 import Subhead from '../comps/SubheadText';
 import InputTextComp from '../comps/InputText';
 import MyButton from '../comps/Button';
-
+import MessageBoxComp from '../comps/MessageBox';
 
 const PageCont = styled.div`
   display:flex;
@@ -64,12 +64,9 @@ export default function CustomerService() {
     <InputCont>
         <InputTextComp placeholder="Name"></InputTextComp>
         <InputTextComp placeholder="Email"></InputTextComp>
-        <InputTextComp placeholder="Enter your message" width="403px" height="202px"></InputTextComp>
+        <MessageBoxComp placeholder="Enter your message" width="403px" height="202px" ></MessageBoxComp>
         <MyButton text="Submit" bgcolor="#95AFBA"></MyButton>
     </InputCont>
-
-   
-
 
     <FooterCont>
       <Footer></Footer>
