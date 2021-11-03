@@ -78,7 +78,7 @@ const ButtonCont = styled.div`
     display:flex;
     margin-top:10px;
 `
-
+// button
 const ClickButton = styled.button`
     width:${props=>props.width};
     height:${props=>props.height};
@@ -100,7 +100,7 @@ position:absolute;
 const Div = styled.div`
  display:flex;
  flex-direction:column;
- margin-left:330px;
+ margin-left:329px;
 `
 
 const Entrydiv = styled.div`
