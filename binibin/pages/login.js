@@ -43,7 +43,7 @@ const RightCont = styled.div`
 
 
 
-export default function Home() {
+export default function Login() {
   return (
     //<div className={styles.container}>
       <PageCont>

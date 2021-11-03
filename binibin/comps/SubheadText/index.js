@@ -7,18 +7,19 @@ const SubheadCont = styled.div`
 `
 
 const Subheader = styled.h1`
-    font-size:24px;
+    font-size:${props=>props.fontsize};
     color:${props=>props.color};
 `
 
 const Subhead = ({
     text="Our Mission",
-    color="#95AFBA"
+    color="#95AFBA",
+    fontsize="36px"
 
 }) =>{
 
     return <SubheadCont>
-        <Subheader color={color}>{text}</Subheader>
+        <Subheader color={color} fontsize={fontsize}>{text}</Subheader>
     </SubheadCont>
 }
 

@@ -5,9 +5,9 @@ import React from 'react';
 
 import GuestNavBar from '../comps/GuestNavBar';
 import HeaderText from '../comps/HeaderText';
-import HeroImage from '../comps/Hero'
 import CircleIcon from '../comps/CircleImage';
 import MyButton from '../comps/Button';
+import IconComp from '../comps/Icon';
 
 
 const PageCont = styled.div`
@@ -57,12 +57,11 @@ export default function Home() {
       </TopRow>
 
     <HeaderCont>
-      <HeaderText>Our Mission</HeaderText>
+      <HeaderText text="User's Dashboard"></HeaderText>
     </HeaderCont>
 
-    <MissionCont>
-      <CircleIcon></CircleIcon>
-    </MissionCont>
+    <IconComp></IconComp>
+
 
     
   <Footer></Footer>

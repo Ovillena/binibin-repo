@@ -38,24 +38,7 @@ const CircleIcon = ({
 }) =>{
 
     return <Cont>
-        <MissionCont>
-            <Image src='https://react.semantic-ui.com/images/wireframe/square-image.png' size='small' circular/>
-            <Heading>Educate</Heading>
-            <BodyText>Learn where your garbage should be going to lessen harmful impacts to the waste system.</BodyText>
-        </MissionCont>
-
-        <MissionCont>
-            <Image src='https://react.semantic-ui.com/images/wireframe/square-image.png' size='small' circular/>
-            <Heading>Track</Heading>
-            <BodyText>A simple way for schools to track your garbage, compost, and recycling with a quick input system and clear graphs. </BodyText>
-        </MissionCont>
-
-        <MissionCont>
-            <Image src='https://react.semantic-ui.com/images/wireframe/square-image.png' size='small' circular/>
-            <Heading>Reduce</Heading>
-            <BodyText>Increase the awareness of waste management and recycling amongst their students.</BodyText>
-        </MissionCont>
-
+        <Image src='https://react.semantic-ui.com/images/wireframe/square-image.png' size='small' circular/>
     </Cont>
 }
 
