@@ -14,7 +14,7 @@ const InputPassword = styled.input.attrs(props => ({
 `
 width:${props=>props.width};
 height:${props=>props.height};
-color: palevioletred;
+color: black;
 font-size: 18px;
 border: 5px solid #95AFBA;
 border-radius: 10px;

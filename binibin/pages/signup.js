@@ -9,7 +9,6 @@ import InputPasswordComp from '../comps/InputPassword';
 import InputTextComp from '../comps/InputText';
 import Image from 'next/image';
 import loginImage from '../public/login_image.png';
-import Subhead from '../comps/SubheadText';
 
 const PageCont = styled.div`
     display:flex;
@@ -29,6 +28,7 @@ const MidCont = styled.div`
 
 const LeftCont = styled.div`
     display:flex;
+    flex-direction:column;
     flex:1;
     justify-content:center;
     align-items:center;
@@ -36,15 +36,13 @@ const LeftCont = styled.div`
 
 const RightCont = styled.div`
     display:flex;
-    flex-direction:column;
     flex:1;
     justify-content:center;
     align-items:center;
 `
 
 
-
-export default function Login() {
+export default function Signup() {
   return (
     //<div className={styles.container}>
       <PageCont>
@@ -55,14 +53,17 @@ export default function Login() {
 
     <MidCont>
       <LeftCont>
-          <Image src={loginImage} width={500} height={300}/>
+        <Header text="Sign Up"></Header>
+        <InputTextComp placeholder="First Name"></InputTextComp>
+        <InputTextComp placeholder="Last Name"></InputTextComp>
+        <InputTextComp placeholder="Email"></InputTextComp>
+        <InputTextComp placeholder="Enterprise Name"></InputTextComp>
+        <InputPasswordComp></InputPasswordComp>
+        <MyButton bgcolor="#95AFBA"></MyButton>
       </LeftCont>
 
       <RightCont>
-          <Header text="Login"></Header>
-          <InputTextComp placeholder="Username"></InputTextComp>
-          <InputPasswordComp></InputPasswordComp>
-          <MyButton bgcolor="#95AFBA"></MyButton>
+        <Image src={loginImage} width={500} height={300}/>
       </RightCont>
 
     </MidCont>
