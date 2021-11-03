@@ -2,9 +2,7 @@ import Footer from '../comps/Footer'
 import styles from '../styles/Home.module.css'
 import Hero from '../comps/Hero'
 import Side from '../comps/Side'
-import Card from '../comps/Quickaccess'
-import Input from '../comps/Quickaccess'
-import Garbages from '../comps/Garbage'
+
 
 import styled from 'styled-components';
 import React from 'react';
@@ -17,6 +15,8 @@ import MyButton from '../comps/Button';
 import Login from './login'
 import { Image } from 'semantic-ui-react';
 import Subhead from '../comps/SubheadText';
+import Garbages from '../comps/Garbage'
+import Recycles from '../comps/Recycle';
 
 
 const PageCont = styled.div`
@@ -76,12 +76,10 @@ const ButtonCont = styled.div`
   padding:20px;
 `
 
-<<<<<<< HEAD
-export default function Home() {
-  return <Container>
-    {/* <Input></Input> */}
-  {/* <Hero></Hero> */}
-  {/*<Footer></Footer> */}
-  {/* <Side></Side> */}
-  <Garbages></Garbages>
-  </Container>
+export default function Home(){
+  return (
+    // <Garbages></Garbages>
+    <Recycles></Recycles>
+  )
+}
+
