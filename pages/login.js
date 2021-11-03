@@ -9,7 +9,7 @@ import InputPasswordComp from '../comps/InputPassword';
 import InputTextComp from '../comps/InputText';
 import Image from 'next/image';
 import loginImage from '../public/login_image.png';
-import Subhead from '../comps/SubheadText';
+
 
 const PageCont = styled.div`
     display:flex;
