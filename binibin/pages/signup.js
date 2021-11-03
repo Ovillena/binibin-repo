@@ -42,7 +42,7 @@ const RightCont = styled.div`
 `
 
 
-export default function Home() {
+export default function Signup() {
   return (
     //<div className={styles.container}>
       <PageCont>

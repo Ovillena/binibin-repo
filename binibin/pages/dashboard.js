@@ -5,13 +5,14 @@ import React from 'react';
 
 import GuestNavBar from '../comps/GuestNavBar';
 import HeaderText from '../comps/HeaderText';
-import HeroImage from '../comps/Hero'
-import CircleIcon from '../comps/CircleImage';
-import MyButton from '../comps/Button';
+import IconComp from '../comps/Icon';
+import Subhead from '../comps/SubheadText';
 
 
 const PageCont = styled.div`
-
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
 `
 
 const TopRow = styled.div`
@@ -22,33 +23,29 @@ const HeaderCont = styled.div`
   display:flex;
   justify-content:center;
 `
-const MissionCont = styled.div`
 
-`
-
-const ParagraphSec = styled.div`
+const FooterCont = styled.div`
   display:flex;
   flex:1;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  text-align:center;
-  padding:20px;
-`
-const Subhead = styled.h1`
-  font-size:36px;
-  color:#95AFBA;
-`
-const BodyText = styled.p`
-  width:50%;
-`
-const ButtonCont = styled.div`
-  display:flex;
-  justify-content:center;
-  padding:20px;
+  align-items:flex-end;
 `
 
-export default function Home() {
+const TopIcons = styled.div`
+    display:flex;
+    justify-content:space-evenly;
+    flex:1;
+`
+
+const BotRow = styled.div`
+    display:flex;
+    justify-content:space-evenly;
+`
+
+const IconDiv = styled.div`
+  text-align:center;
+`
+
+export default function Dashboard() {
   return (
     //<div className={styles.container}>
       <PageCont>
@@ -57,15 +54,45 @@ export default function Home() {
       </TopRow>
 
     <HeaderCont>
-      <HeaderText>Our Mission</HeaderText>
+      <HeaderText text="User's Dashboard"></HeaderText>
     </HeaderCont>
 
-    <MissionCont>
-      <CircleIcon></CircleIcon>
-    </MissionCont>
+    <TopIcons>
+      <IconDiv>
+        <IconComp iconSymbol='chart bar'></IconComp>
+        <Subhead text='View Graphs' fontsize='24px'></Subhead>
+      </IconDiv>
+      <IconDiv>
+        <IconComp iconSymbol='calendar check outline'></IconComp>
+        <Subhead text='Inputs' fontsize='24px'></Subhead>
+      </IconDiv>
+      <IconDiv>
+        <IconComp iconSymbol='list'></IconComp>
+        <Subhead text='List of Past Entries' fontsize='24px'></Subhead>
+      </IconDiv>
+    </TopIcons>
 
-    
-  <Footer></Footer>
+    <BotRow>
+      <IconDiv>
+        <IconComp iconSymbol='wrench'></IconComp>
+        <Subhead text='Account Settings' fontsize='24px'></Subhead>
+      </IconDiv>
+      <IconDiv>
+        <IconComp iconSymbol='file text'></IconComp>
+        <Subhead text='Learn More' fontsize='24px'></Subhead>
+      </IconDiv>
+      <IconDiv>
+        <IconComp iconSymbol='headphones'></IconComp>
+        <Subhead text='Customer Support' fontsize='24px'></Subhead>
+      </IconDiv>
+
+    </BotRow>  
+
+
+    <FooterCont>
+      <Footer></Footer>
+    </FooterCont>    
+
       </PageCont>
 
     //</div>

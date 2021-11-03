@@ -9,6 +9,7 @@ import InputPasswordComp from '../comps/InputPassword';
 import InputTextComp from '../comps/InputText';
 import Image from 'next/image';
 import loginImage from '../public/login_image.png';
+import Subhead from '../comps/SubheadText';
 
 const PageCont = styled.div`
     display:flex;
@@ -43,7 +44,7 @@ const RightCont = styled.div`
 
 
 
-export default function Home() {
+export default function Login() {
   return (
     //<div className={styles.container}>
       <PageCont>
@@ -59,7 +60,7 @@ export default function Home() {
 
       <RightCont>
           <Header text="Login"></Header>
-          <InputTextComp></InputTextComp>
+          <InputTextComp placeholder="Username"></InputTextComp>
           <InputPasswordComp></InputPasswordComp>
           <MyButton bgcolor="#95AFBA"></MyButton>
       </RightCont>

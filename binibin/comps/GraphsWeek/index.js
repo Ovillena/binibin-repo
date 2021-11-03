@@ -11,8 +11,8 @@ const Subheader = styled.h1`
     color:${props=>props.color};
 `
 
-const Subhead = ({
-    text="Our Mission",
+const WeekOfComp = ({
+    text="Week of November",
     color="#95AFBA",
     fontsize="36px"
 
@@ -23,4 +23,4 @@ const Subhead = ({
     </SubheadCont>
 }
 
-export default Subhead;
+export default WeekOfComp;

@@ -5,26 +5,28 @@ import { Bar } from 'react-chartjs-2';
 import Subhead from '../SubheadText';
 
 const data = {
-  labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+  labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange', 'black'],
   datasets: [
     {
-      label: '# of Votes',
-      data: [12, 19, 3, 5, 2, 3],
+      label: '# of Composts',
+      data: [12, 19, 3, 5, 2, 3, 8],
       backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(255, 159, 64, 0.2)',
+        '#3A7A1C',
+        '#3A7A1C',
+        '#3A7A1C',
+        '#3A7A1C',
+        '#3A7A1C',
+        '#3A7A1C',
+        '#3A7A1C',
       ],
       borderColor: [
-        'rgba(255, 99, 132, 1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)',
+        '#3A7A1C',
+        '#3A7A1C',
+        '#3A7A1C',
+        '#3A7A1C',
+        '#3A7A1C',
+        '#3A7A1C',
+        '#3A7A1C',
       ],
       borderWidth: 1,
     },
@@ -45,15 +47,15 @@ const options = {
 
 const GraphCont = styled.div`
   display:flex;
-  width:500px;
-  height:500px;
+  width:489px;
+  height:228px;
 
 `
 
 const CompostBar = () => (
   <>
     <div className='header'>
-      <Subhead text="Compost"></Subhead>
+      <Subhead text="Compost" fontsize="24px"></Subhead>
     </div>
     <GraphCont>
     <Bar data={data} options={options} />

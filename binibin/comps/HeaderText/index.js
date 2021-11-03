@@ -3,7 +3,7 @@ import React from "react";
 
 
 const HeaderCont = styled.div`
-    
+
 `
 
 const Heading = styled.h1`

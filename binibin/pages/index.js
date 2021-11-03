@@ -1,8 +1,5 @@
-import Head from 'next/head'
-import Image from 'next/image'
 import Footer from '../comps/Footer'
 import styles from '../styles/Home.module.css'
-import styled from 'styled-components'
 import Hero from '../comps/Hero'
 import Side from '../comps/Side'
 import Card from '../comps/Card'
@@ -16,10 +13,15 @@ import HeaderText from '../comps/HeaderText';
 import HeroImage from '../comps/Hero'
 import CircleIcon from '../comps/CircleImage';
 import MyButton from '../comps/Button';
+import Login from './login'
+import { Image } from 'semantic-ui-react';
+import Subhead from '../comps/SubheadText';
 
 
 const PageCont = styled.div`
-
+display:flex;
+flex-direction:column;
+min-height:100vh;
 `
 
 const TopRow = styled.div`
@@ -30,8 +32,28 @@ const HeaderCont = styled.div`
   display:flex;
   justify-content:center;
 `
-const MissionCont = styled.div`
 
+const FooterCont = styled.div`
+  display:flex;
+  flex:1;
+  align-items:flex-end;
+`
+
+const MissionCont = styled.div`
+  width:273px;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+`
+
+const MissionRow = styled.div`
+  display:flex;
+  flex:1;
+  justify-content:space-around;
+  flex-direction:row;
+  padding:20px;
+  flex-wrap:wrap;
 `
 
 const ParagraphSec = styled.div`
@@ -43,10 +65,7 @@ const ParagraphSec = styled.div`
   text-align:center;
   padding:20px;
 `
-const Subhead = styled.h1`
-  font-size:36px;
-  color:#95AFBA;
-`
+
 const BodyText = styled.p`
   width:50%;
 `
@@ -56,7 +75,7 @@ const ButtonCont = styled.div`
   padding:20px;
 `
 
-
+export default function Home(){
   return (
     //<div className={styles.container}>
       <PageCont>
@@ -70,9 +89,27 @@ const ButtonCont = styled.div`
       <HeaderText>Our Mission</HeaderText>
     </HeaderCont>
 
-    <MissionCont>
-      <CircleIcon></CircleIcon>
-    </MissionCont>
+
+    <MissionRow>
+      <MissionCont>
+        <CircleIcon></CircleIcon>
+        <Subhead text="Educate"></Subhead>
+        <BodyText>Learn where your garbage should be going to lessen harmful impacts to the waste system.</BodyText>
+      </MissionCont>
+
+      <MissionCont>
+        <CircleIcon></CircleIcon>
+        <Subhead text="Educate"></Subhead>
+        <BodyText>Learn where your garbage should be going to lessen harmful impacts to the waste system.</BodyText>
+      </MissionCont>
+
+      <MissionCont>
+        <CircleIcon></CircleIcon>
+        <Subhead text="Educate"></Subhead>
+        <BodyText>Learn where your garbage should be going to lessen harmful impacts to the waste system.</BodyText>
+      </MissionCont>
+
+    </MissionRow>
 
     <ParagraphSec>
       <Subhead>Recycling Problems</Subhead>
@@ -89,7 +126,11 @@ const ButtonCont = styled.div`
     </ButtonCont>
 
     
-  <Footer></Footer>
+    <FooterCont>
+      <Footer></Footer>
+    </FooterCont> 
+
+
       </PageCont>
 
     //</div>
