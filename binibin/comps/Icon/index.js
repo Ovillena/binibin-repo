@@ -8,11 +8,12 @@ const IconCont = styled.div`
 `
 
 const IconComp = ({
+    iconSymbol="users",
+    bgcolor="teal"
 
 }) => {
-    return <IconCont>
-        <Icon circular inverted color='teal' name='users' size='huge' />
-
+    return <IconCont>    
+        <Icon circular inverted color={bgcolor} name={iconSymbol} size='huge' />
     </IconCont>
 
 }

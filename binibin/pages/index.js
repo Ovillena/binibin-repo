@@ -19,7 +19,9 @@ import Subhead from '../comps/SubheadText';
 
 
 const PageCont = styled.div`
-
+display:flex;
+flex-direction:column;
+min-height:100vh;
 `
 
 const TopRow = styled.div`
@@ -30,6 +32,13 @@ const HeaderCont = styled.div`
   display:flex;
   justify-content:center;
 `
+
+const FooterCont = styled.div`
+  display:flex;
+  flex:1;
+  align-items:flex-end;
+`
+
 const MissionCont = styled.div`
   width:273px;
   text-align:center;
@@ -117,7 +126,11 @@ export default function Home(){
     </ButtonCont>
 
     
-  <Footer></Footer>
+    <FooterCont>
+      <Footer></Footer>
+    </FooterCont> 
+
+
       </PageCont>
 
     //</div>

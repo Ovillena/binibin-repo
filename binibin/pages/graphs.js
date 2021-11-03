@@ -12,7 +12,9 @@ import Subhead from '../comps/SubheadText';
 import WeekOfComp from '../comps/GraphsWeek';
 
 const PageCont = styled.div`
-    flex:1;
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
 `
 
 const TopRow = styled.div`
@@ -27,6 +29,7 @@ const HeaderCont = styled.div`
 const FooterCont = styled.div`
   display:flex;
   align-items:flex-end;
+  flex:1;
 `
 
 const WeekCont = styled.div`

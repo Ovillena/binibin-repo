@@ -9,7 +9,9 @@ import MyButton from '../comps/Button';
 import Footer from '../comps/footer';
 
 const PageCont = styled.div`
-    flex:1;
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
 `
 
 const TopRow = styled.div`
