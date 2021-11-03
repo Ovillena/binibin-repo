@@ -7,6 +7,7 @@ import Hero from '../comps/Hero'
 import Side from '../comps/Side'
 import Card from '../comps/Quickaccess'
 import Input from '../comps/Quickaccess'
+import Garbages from '../comps/Garbage'
 
 
 const Container = styled.div`
@@ -16,10 +17,11 @@ flex-direction:column;
 
 export default function Home() {
   return <Container>
-    <Input></Input>
+    {/* <Input></Input> */}
   {/* <Hero></Hero> */}
   {/*<Footer></Footer> */}
   {/* <Side></Side> */}
+  <Garbages></Garbages>
   </Container>
   
 }
