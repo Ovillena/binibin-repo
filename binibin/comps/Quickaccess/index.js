@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import React from 'react';
-import JuiceBox from '/public/juiceBox.png';
+import Image from 'next/image';
 
 //inputs
 const Container = styled.div`
@@ -15,6 +15,8 @@ const Bottom = styled.div`
 display:flex;
 flex-direction:row;
 position:absolute;
+justify-content:center;
+align-items:center;
 `
 // The Main container
 const Inside = styled.div`
@@ -71,9 +73,9 @@ text-align:center;
 const Inputs = styled.div`
 width:506px;
 height:200px;
-background-color:blue;
 display:flex;
 flex-direction:column;
+box-shadow:0px 3px 30px grey; 
 `
 // Buttons and click Button
 const ButtonCont = styled.div`
@@ -97,6 +99,10 @@ const Items = styled.image`
 width:300px;
 height:200px;
 position:absolute;
+display:flex;
+align-content:center;
+align-items:center;
+justify-content:center;
 `
 const Div = styled.div`
  display:flex;
@@ -120,13 +126,18 @@ const Ml = styled.h3`
 color:black;
 `
 
+const myLoader = ({src}) => {
+  return `${src}`
+}
+
 
 const Input = ({
   width="158px",
   height="56px",
   bgcolor="#95AFBA",
   text="Add Entry",
-  textcolor="white"
+  textcolor="white",
+  src="juicebox.png",
 })=>{
   return<Inside>
     <Bottom>
@@ -138,7 +149,9 @@ const Input = ({
     <Container>
     <Inputs>
 
-    <Items></Items>
+    <Items>
+    <Image loader={myLoader} src={src} width={98} height={143}/>
+    </Items>
 
     <Div>
     <Headers>Juice box</Headers>
@@ -150,12 +163,16 @@ const Input = ({
     </Div>
     </Inputs>
     <Inputs>
-    <Items src={JuiceBox}></Items>
+    <Items>
+    <Image loader={myLoader} src={src} width={98} height={143}/>
+    </Items>
 
     <Div>
     <Headers>Juice box</Headers>
     <Ml>250ml</Ml>
-    <Entrydiv></Entrydiv>
+    <Entrydiv>
+
+    </Entrydiv>
     <ButtonCont>
         <ClickButton width={width} height={height} bgcolor={bgcolor} textcolor="white">{text}</ClickButton>
     </ButtonCont>
