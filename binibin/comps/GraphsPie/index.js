@@ -33,15 +33,15 @@ const data = {
 
 const GraphCont = styled.div`
   display:flex;
-  width:500px;
-  height:500px;
+  width:489px;
+  height:228px;
 
 `
 
 const PieChart = () => (
   <>
     <div className='header'>
-      <Subhead text="Recyling Accuracy"></Subhead>
+      <Subhead text="Recyling Accuracy" fontsize="24px"></Subhead>
     </div>
     <GraphCont>
       <Pie data={data} />

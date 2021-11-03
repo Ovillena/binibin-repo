@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import React from "react";
 import { Image } from 'semantic-ui-react';
-import Header from '../../comps/HeaderText';
-
 
 const Cont = styled.div`
     display:flex;
@@ -12,26 +10,6 @@ const Cont = styled.div`
     padding:20px;
     flex-wrap:wrap;
 `
-
-const MissionCont = styled.div`
-    width:273px;
-    text-align:center;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-`
-
-const Heading = styled.h1`
-    font-size:36px;
-    color:#95AFBA;
-
-`
-
-const BodyText = styled.p`
-
-`
-
-
 
 const CircleIcon = ({
 

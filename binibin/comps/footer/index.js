@@ -9,6 +9,7 @@ const Container = styled.div`
     height:80px;
     justify-content:center;
     align-items:center;
+    flex-wrap:wrap;
 `
 
 const TitleCont = styled.div`
