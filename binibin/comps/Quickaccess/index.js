@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import React from 'react';
+import JuiceBox from '/public/juiceBox.png';
 
 //inputs
 const Container = styled.div`
@@ -18,7 +19,7 @@ position:absolute;
 // The Main container
 const Inside = styled.div`
 display:flex;
-width:1200px;
+width:1206px;
 height:688px;
 border:solid #95AFBA;
 box-shadow:0px 3px 30px grey; 
@@ -60,6 +61,7 @@ align-items:center;
 const Text = styled.h2`
 color:#FFFFFF;
 text-align:center;
+margin-top:10px;
 `
 const Select = styled.h2`
 color:#95AFBA;
@@ -92,7 +94,6 @@ const ClickButton = styled.button`
 `
 
 const Items = styled.image`
-background-color:red;
 width:300px;
 height:200px;
 position:absolute;
@@ -149,8 +150,11 @@ const Input = ({
     </Div>
     </Inputs>
     <Inputs>
-    <Items></Items>
+    <Items src={JuiceBox}></Items>
+
     <Div>
+    <Headers>Juice box</Headers>
+    <Ml>250ml</Ml>
     <Entrydiv></Entrydiv>
     <ButtonCont>
         <ClickButton width={width} height={height} bgcolor={bgcolor} textcolor="white">{text}</ClickButton>
