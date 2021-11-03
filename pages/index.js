@@ -2,8 +2,8 @@ import Footer from '../comps/Footer'
 import styles from '../styles/Home.module.css'
 import Hero from '../comps/Hero'
 import Side from '../comps/Side'
-import Card from '../comps/Card'
-
+import Card from '../comps/Quickaccess'
+import Input from '../comps/Quickaccess'
 
 import styled from 'styled-components';
 import React from 'react';
@@ -136,4 +136,3 @@ export default function Home(){
     //</div>
   )
 }
-
