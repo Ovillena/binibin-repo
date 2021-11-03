@@ -21,7 +21,7 @@ const Title = styled.h3`
 `
 
 
-const Footer = ({})=>{
+const FooterComp = ({})=>{
     return<Container>
 
         <TitleCont>
@@ -39,4 +39,4 @@ const Footer = ({})=>{
     </Container>
   }
   
-  export default Footer;
+  export default FooterComp;

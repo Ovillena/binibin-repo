@@ -1,4 +1,4 @@
-import Footer from '../comps/Footer'
+import FooterComp from '../comps/footer'
 import styles from '../styles/Home.module.css'
 import Hero from '../comps/Hero'
 import Side from '../comps/Side'
@@ -127,7 +127,7 @@ export default function Home(){
 
     
     <FooterCont>
-      <Footer></Footer>
+      <FooterComp></FooterComp>
     </FooterCont> 
 
 
