@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import React from "react";
+import router, { useRouter } from "next/router";
 
 
 const ButtonCont = styled.div`
@@ -25,11 +26,12 @@ const MyButton = ({
     height="50px",
     bgcolor="#598B2C",
     text="Login",
-    textcolor="black"
+    textcolor="white",
+    routeTo="/"
 
 }) =>{
     return <ButtonCont>
-        <ClickButton onClick={()=>{}} width={width} height={height} bgcolor={bgcolor} textcolor="white">{text}</ClickButton>
+        <ClickButton onClick={()=>router.push(routeTo)} width={width} height={height} bgcolor={bgcolor} textcolor={textcolor}>{text}</ClickButton>
     </ButtonCont>
 
 }

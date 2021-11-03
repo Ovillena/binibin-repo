@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { Image, Menu, Button} from 'semantic-ui-react';
 import MyButton from '../Button';
+import React from 'react';
+import {useRouter} from 'next/router';
 
 
 const NavCont = styled.div`
@@ -34,22 +36,26 @@ const NavItems = styled.div`
 
 const GuestNavBar = ({
 
+    router = useRouter()
+
 }) =>{
     return <NavCont>
         <LogoCont>
-            <Image src="/binibinlogo.png" alt="BiniBin Logo" width={204} height={52} />
+            <Image src="/binibinlogo.png" alt="BiniBin Logo" width={204} height={52} 
+            onClick={()=>router.push("/")}
+            />
         </LogoCont>
         <NavItems>
-            <TextCont>About Us</TextCont>
+            <TextCont onClick={()=>router.push("/aboutus")}>About Us</TextCont>
         </NavItems>
         <NavItems>
-            <TextCont>Features</TextCont>
+            <TextCont onClick={()=>router.push("/features")}>Features</TextCont>
         </NavItems>
         <NavItems>
-            <TextCont>Learn More</TextCont>
+            <TextCont onClick={()=>router.push("/learnmore")} >Learn More</TextCont>
         </NavItems>
         <NavItems>
-            <MyButton></MyButton>
+            <MyButton routeTo="/login"></MyButton>
         </NavItems>
         
     </NavCont>

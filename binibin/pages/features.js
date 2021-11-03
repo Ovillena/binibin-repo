@@ -37,7 +37,7 @@ const ButtonCont = styled.div`
   padding:10px;
 `
 
-export default function Home() {
+export default function Features() {
   return (
     //<div className={styles.container}>
       <PageCont>
