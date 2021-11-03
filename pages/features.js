@@ -3,7 +3,6 @@ import React from 'react';
 
 import GuestNavBar from '../comps/GuestNavBar'
 import FeaturesCard from '../comps/FeaturesCard';
-import icon2 from '/public/icon_throw_away.png';
 import Header from '../comps/HeaderText';
 import MyButton from '../comps/Button';
 import Footer from '../comps/footer';

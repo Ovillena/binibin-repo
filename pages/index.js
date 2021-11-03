@@ -5,7 +5,7 @@ import React from 'react';
 
 import GuestNavBar from '../comps/GuestNavBar';
 import HeaderText from '../comps/HeaderText';
-import HeroImage from '../comps/HeroComp'
+import HeroComp from '../comps/HeroComp'
 import CircleIcon from '../comps/CircleImage';
 import MyButton from '../comps/Button';
 import Subhead from '../comps/SubheadText';
@@ -76,7 +76,7 @@ export default function Home(){
         <GuestNavBar></GuestNavBar>
       </TopRow>
     
-      <HeroImage></HeroImage>
+      <HeroComp></HeroComp>
 
     <HeaderCont>
       <HeaderText>Our Mission</HeaderText>

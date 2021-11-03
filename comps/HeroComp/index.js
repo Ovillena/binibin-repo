@@ -26,7 +26,7 @@ const ButtonCont = styled.div`
     justify-content:center;
 `
 
-const HeroImage = ({})=>{
+const HeroComp = ({})=>{
 
     return<Container>
 
@@ -40,4 +40,4 @@ const HeroImage = ({})=>{
     </Container>    
   }
   
-  export default HeroImage;
+  export default HeroComp;
