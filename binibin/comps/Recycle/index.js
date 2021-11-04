@@ -27,7 +27,6 @@ width:1206px;
 height:688px;
 border:solid #95AFBA;
 box-shadow:0px 3px 30px grey; 
-flex-direction:
 `
 //Quick access
 const Side = styled.div`
@@ -76,7 +75,8 @@ width:506px;
 height:200px;
 display:flex;
 flex-direction:row;
-position:absolute;`
+position:absolute;
+`
 // Buttons and click Button
 const ButtonCont = styled.div`
     display:flex;
@@ -108,14 +108,15 @@ const Div = styled.div`
  display:flex;
  flex-direction:row;
  align-items:flex-end;
- gap:20px;
+ gap:30px;
+ margin-bottom:30px;
 `
 
-// const Entrydiv = styled.div`
-// width:158px;
-// height:56px;
-// background-color:orange;
-// `
+const Entrydiv = styled.div`
+width:158px;
+height:56px;
+background-color:orange;
+`
 
 // const Headers = styled.h2`
 // color:black;
@@ -149,12 +150,15 @@ const Recycles = ({
     
 
     <Container>
+      
     <Inputs>
     <Title>Type of Waste</Title>
     <InputTextComp placeholder="Search..." width="400px"></InputTextComp>
     <Title>Size</Title>
     <InputTextComp placeholder="eg. 250" width="200px"></InputTextComp>
+    <Entrydiv></Entrydiv>
     </Inputs>
+
     <Div>
     <ButtonCont>
         <ClickButton onClick={()=>{}} width={width} height={height} bgcolor={bgcolor} textcolor={textcolor}>{text="Add Entry"}</ClickButton>
