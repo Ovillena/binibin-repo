@@ -55,7 +55,7 @@ export default function Home(){
 
 
     <ButtonCont>
-      <MyButton routeTo="/" width="200px" height="65px" bgcolor="#FFC800" text="Back Home"></MyButton>
+      <MyButton routeTo="/" width="200px" height="65px" bgcolor="#FFC800" text="Back Home" routeTo="/"></MyButton>
     </ButtonCont>
 
     
