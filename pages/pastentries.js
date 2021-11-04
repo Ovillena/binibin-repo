@@ -56,36 +56,23 @@ const fakeData = [
     item_count: 500,
     unit: "g",
     waste_type: "garbage"
-  },{
-    entry_id: 3,
-    entry_date: "November 1",
-    item_name: "Compost",
-    item_count: 400,
-    unit: "g",
-    waste_type: "compost"
-  },{
-    entry_id: 4,
-    entry_date: "November 1",
-    item_name: "Milk Carton (1 L)",
-    item_count: 2,
-    unit: "units",
-    waste_type: "recycling"
   }
 ]
+//"entry_id": 1,
+// "item_name": "Can (200 mL)",
+// "item_count": 5,
+// "unit": "unit",
+// "waste_type": "recycling",
 
 export default function Home() {
   const [entries, setEntries] = useState(fakeData);
-  // const GetEntries = async ()=>{
-  //   const result = await axios.get("https://binibin-server.herokuapp.com/api/entries");
-  //   console.log(result.data)
-  // }
+
   // useEffect(()=>{
   //   const GetEntries = async()=>{
   //     const result = await axios.get("https://binibin-server.herokuapp.com/api/entries")
   //     console.log(result);
   //     setEntries(result.data);
   //   }
-
   //   GetEntries()
   // }, [])
   return(
@@ -111,8 +98,3 @@ export default function Home() {
     </Cont>
   )
 }
-//"entry_id": 1,
-// "item_name": "Can (200 mL)",
-// "item_count": 5,
-// "unit": "unit",
-// "waste_type": "recycling"
