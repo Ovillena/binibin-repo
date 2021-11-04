@@ -21,6 +21,7 @@ const EntryDayList = styled.div`
   background-color:#eee;
   margin:5px 20px 0px 20px;
 `;
+
 const ListSection = styled.div`
   display:flex;
   margin:10px;
