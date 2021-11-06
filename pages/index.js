@@ -10,6 +10,7 @@ import CircleIcon from '../comps/CircleImage';
 import MyButton from '../comps/Button';
 import Subhead from '../comps/SubheadText';
 
+
 const PageCont = styled.div`
 display:flex;
 flex-direction:column;

@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import React from 'react';
 
+import { useState } from 'react';
+
+
 import GuestNavBar from '../comps/GuestNavBar'
 import Header from '../comps/HeaderText';
 import Footer from '../comps/footer';
@@ -8,8 +11,8 @@ import PieChart from '../comps/GraphsPie';
 import GarbageBar from '../comps/GraphsGarbage';
 import CompostBar from '../comps/GraphsCompost';
 import RecycleBar from '../comps/GraphsRecycle';
-import Subhead from '../comps/SubheadText';
 import WeekOfComp from '../comps/GraphsWeek';
+
 
 const PageCont = styled.div`
   display:flex;
@@ -56,6 +59,9 @@ const BottomGraphs = styled.div`
 `
 
 export default function Graphs() {
+
+
+
   return (
     //<div className={styles.container}>
       <PageCont>
@@ -68,7 +74,13 @@ export default function Graphs() {
       </HeaderCont>
 
       <WeekCont>
-        <WeekOfComp></WeekOfComp>
+        <WeekOfComp onPrevInteract={()=>{
+          
+        }}
+        onNextInteract={()=>{
+
+        }}
+        ></WeekOfComp>
       </WeekCont>
       
       <TopGraphs>
@@ -89,6 +101,7 @@ export default function Graphs() {
       </GraphDiv>
       </BottomGraphs>
 
+      
       <FooterCont>
         <Footer></Footer>
       </FooterCont>

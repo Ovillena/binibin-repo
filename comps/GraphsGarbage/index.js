@@ -5,14 +5,14 @@ import { Bar } from 'react-chartjs-2';
 import Subhead from '../SubheadText';
 
 const data = {
-  labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange', 'black'],
+  labels: ['Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'],
   datasets: [
     {
-      label: '# of Votes',
-      data: [12, 19, 3, 5, 2, 3, 10],
+      label: '# of Garbage',
+      data: [12, 19, 3, 5, 2, 3, 8],
       backgroundColor: [
         '#000000',
-        '#000000',
+        '#000000',       
         '#000000',
         '#000000',
         '#000000',
@@ -21,7 +21,7 @@ const data = {
       ],
       borderColor: [
         '#000000',
-        '#000000',
+        '#000000',       
         '#000000',
         '#000000',
         '#000000',
@@ -49,6 +49,7 @@ const GraphCont = styled.div`
   display:flex;
   width:489px;
   height:228px;
+
 `
 
 const GarbageBar = () => (

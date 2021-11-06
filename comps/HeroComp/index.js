@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 import React from 'react';
-import Image from 'next/image';
-import Hero from '/public/hero.png'
 import MyButton from '../Button';
 
 const Container = styled.div`
@@ -28,7 +26,7 @@ const ButtonCont = styled.div`
     justify-content:center;
 `
 
-const HeroImage = ({})=>{
+const HeroComp = ({})=>{
 
     return<Container>
 
@@ -42,4 +40,4 @@ const HeroImage = ({})=>{
     </Container>    
   }
   
-  export default HeroImage;
+  export default HeroComp;
