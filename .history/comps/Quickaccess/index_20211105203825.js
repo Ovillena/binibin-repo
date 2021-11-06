@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import React from 'react';
 import Image from 'next/image';
-import { Button } from 'semantic-ui-react';
-import { useState } from 'react';
 
 //inputs
 const Container = styled.div`
@@ -27,27 +25,24 @@ width:1206px;
 height:688px;
 border:solid #95AFBA;
 box-shadow:0px 3px 30px grey; 
+flex-direction:
 `
 //Quick access
 const Side = styled.div`
 width:400px;
 height:88px;
 background-color:white;
-display:flex;
+display;flex;
 flex-direction:row;
 border-radius: 20px 20px 0px 0px;
 border:solid #95AFBA;
-justify-content:center;
-align-items:center;
 `
 //Garbage
 const Garbage = styled.div`
 width:400px;
 height:88px;
 background-color:#95AFBA;
-display:flex;
-justify-content:center;
-align-items:center;
+display;flex;
 flex-direction:row;
 border-radius: 20px 20px 0px 0px;
 border:solid #95AFBA;
@@ -58,13 +53,12 @@ const Recycle = styled.div`
 width:400px;
 height:88px;
 background-color:#95AFBA;
-display:flex;
+display;flex;
 flex-direction:row;
 border-radius: 20px 20px 0px 0px;
 border:solid #95AFBA;
 justify-content:center;
 align-items:center;
-
 `
 const Text = styled.h2`
 color:#FFFFFF;
@@ -80,6 +74,7 @@ const Inputs = styled.div`
 width:506px;
 height:200px;
 display:flex;
+flex-direction:column;
 box-shadow:0px 3px 30px grey; 
 `
 // Buttons and click Button
@@ -99,7 +94,7 @@ const ClickButton = styled.button`
     box-shadow:0px 4px 4px grey; 
     border:none;
 `
-// This is where the images goes
+
 const Items = styled.image`
 width:300px;
 height:200px;
@@ -112,18 +107,13 @@ justify-content:center;
 const Div = styled.div`
  display:flex;
  flex-direction:column;
-  margin-left:300px;
-  justify-content:center;
+ margin-left:329px;
 `
 
 const Entrydiv = styled.div`
 width:158px;
 height:56px;
 background-color:orange;
-flex-direction:row;
-display:flex;
-justify-content:center;
-align-items:center;
 `
 
 const Headers = styled.h2`
@@ -136,8 +126,12 @@ const Ml = styled.h3`
 color:black;
 `
 
+const myLoader = ({src}) => {
+  return `${src}`
+}
 
-const Quick = ({
+
+const Input = ({
   width="158px",
   height="56px",
   bgcolor="#95AFBA",
@@ -153,42 +147,35 @@ const Quick = ({
     </Bottom>
 
     <Container>
-    
-   <Inputs>
+    <Inputs>
+
     <Items>
+    <Image loader={myLoader} src={src} width={98} height={143}/>
     </Items>
 
     <Div>
     <Headers>Juice box</Headers>
     <Ml>250ml</Ml>
-    <Entrydiv>
-      <Button>-</Button>
-      <span>0</span>
-      <Button>+</Button>
-    </Entrydiv>
+    <Entrydiv></Entrydiv>
     <ButtonCont>
         <ClickButton onClick={()=>{}} width={width} height={height} bgcolor={bgcolor} textcolor={textcolor}>{text}</ClickButton>
     </ButtonCont>
     </Div>
     </Inputs>
-    
-    
     <Inputs>
     <Items>
+    <Image loader={myLoader} src={src} width={98} height={143}/>
     </Items>
 
     <Div>
     <Headers>Juice box</Headers>
     <Ml>250ml</Ml>
     <Entrydiv>
-      <Button>-</Button>
-      <span>0</span>
-      <Button>+</Button>
+
     </Entrydiv>
     <ButtonCont>
         <ClickButton width={width} height={height} bgcolor={bgcolor} textcolor="white">{text}</ClickButton>
     </ButtonCont>
-
     </Div>
     </Inputs>
     </Container>
@@ -197,4 +184,4 @@ const Quick = ({
     
   }
   
-  export default Quick;
+  export default Input;

@@ -99,7 +99,7 @@ const ClickButton = styled.button`
     box-shadow:0px 4px 4px grey; 
     border:none;
 `
-// This is where the images goes
+
 const Items = styled.image`
 width:300px;
 height:200px;
@@ -135,6 +135,10 @@ margin-top:-1px;
 const Ml = styled.h3`
 color:black;
 `
+
+const myLoader = ({src, width, height}) => {
+  return `${src}?w=${width}?q=${height}`
+}
 
 
 const Quick = ({
@@ -175,6 +179,7 @@ const Quick = ({
     
     <Inputs>
     <Items>
+    <Image loader={myLoader} src={src} width={98} height={143}/>
     </Items>
 
     <Div>
