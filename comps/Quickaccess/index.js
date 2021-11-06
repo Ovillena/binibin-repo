@@ -4,7 +4,6 @@ import Image from 'next/image';
 import { Button } from 'semantic-ui-react';
 import { useState } from 'react';
 
-
 //inputs
 const Container = styled.div`
 display:flex;
@@ -28,9 +27,6 @@ width:1206px;
 height:688px;
 border:solid #95AFBA;
 box-shadow:0px 3px 30px grey; 
-
-flex-direction:
-
 `
 //Quick access
 const Side = styled.div`
@@ -43,21 +39,15 @@ border-radius: 20px 20px 0px 0px;
 border:solid #95AFBA;
 justify-content:center;
 align-items:center;
-display;flex;
-flex-direction:row;
-border-radius: 20px 20px 0px 0px;
-border:solid #95AFBA;
 `
 //Garbage
 const Garbage = styled.div`
 width:400px;
 height:88px;
 background-color:#95AFBA;
-
 display:flex;
 justify-content:center;
 align-items:center;
-display:flex;
 flex-direction:row;
 border-radius: 20px 20px 0px 0px;
 border:solid #95AFBA;
@@ -69,12 +59,12 @@ width:400px;
 height:88px;
 background-color:#95AFBA;
 display:flex;
-display;flex;
 flex-direction:row;
 border-radius: 20px 20px 0px 0px;
 border:solid #95AFBA;
 justify-content:center;
 align-items:center;
+
 `
 const Text = styled.h2`
 color:#FFFFFF;
@@ -90,7 +80,6 @@ const Inputs = styled.div`
 width:506px;
 height:200px;
 display:flex;
-flex-direction:column;
 box-shadow:0px 3px 30px grey; 
 `
 // Buttons and click Button
@@ -110,7 +99,7 @@ const ClickButton = styled.button`
     box-shadow:0px 4px 4px grey; 
     border:none;
 `
-// This is where the images goes
+
 const Items = styled.image`
 width:300px;
 height:200px;
@@ -125,7 +114,6 @@ const Div = styled.div`
  flex-direction:column;
   margin-left:300px;
   justify-content:center;
- margin-left:329px;
 `
 
 const Entrydiv = styled.div`
@@ -149,15 +137,9 @@ color:black;
 `
 
 
+
+
 const Quick = ({
-
-const myLoader = ({src}) => {
-  return `${src}`
-}
-
-
-const Input = ({
-
   width="158px",
   height="56px",
   bgcolor="#95AFBA",
@@ -173,33 +155,26 @@ const Input = ({
     </Bottom>
 
     <Container>
-
     
    <Inputs>
-
-    <Inputs>
-
-
     <Items>
     </Items>
 
     <Div>
     <Headers>Juice box</Headers>
     <Ml>250ml</Ml>
-
     <Entrydiv>
       <Button>-</Button>
       <span>0</span>
       <Button>+</Button>
     </Entrydiv>
-
-    <Entrydiv></Entrydiv>
-
     <ButtonCont>
         <ClickButton onClick={()=>{}} width={width} height={height} bgcolor={bgcolor} textcolor={textcolor}>{text}</ClickButton>
     </ButtonCont>
     </Div>
     </Inputs>
+    
+    
     <Inputs>
     <Items>
     </Items>
@@ -215,6 +190,7 @@ const Input = ({
     <ButtonCont>
         <ClickButton width={width} height={height} bgcolor={bgcolor} textcolor="white">{text}</ClickButton>
     </ButtonCont>
+
     </Div>
     </Inputs>
     </Container>
@@ -222,5 +198,5 @@ const Input = ({
     </Inside>
     
   }
+  
   export default Quick;
-
