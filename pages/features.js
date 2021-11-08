@@ -52,7 +52,7 @@ export default function Features() {
         <FeaturesCard src="/icon_combo_chart.png" alt="chart" h="Reduce" p="Increase awareness of the environment to encourage the appropriate disposal of waste"></FeaturesCard>
       </FeaturesCont>
       <ButtonCont>
-        <MyButton width="200px" height="65px" bgcolor="#FFC800" text="Register"></MyButton>
+        <MyButton width="200px" height="65px" bgcolor="#FFC800" text="Register" routeTo="signup"></MyButton>
       </ButtonCont>
       <Footer></Footer>
       </PageCont>
