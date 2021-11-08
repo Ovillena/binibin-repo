@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import React from 'react';
+import router, { useRouter } from "next/router";
 
 const Container = styled.div`
     display:flex;
@@ -22,18 +23,21 @@ const Title = styled.h3`
 
 
 const FooterComp = ({})=>{
+
+   // routeTo = "/"
+
     return<Container>
 
         <TitleCont>
-            <Title>Learn more</Title>
+            <Title onClick={()=>router.push("/learnmore")}>Learn more</Title>
         </TitleCont>
 
         <TitleCont>
-            <Title>About us</Title>
+            <Title onClick={()=>router.push("/aboutus")}>About us</Title>
         </TitleCont>
 
         <TitleCont>
-            <Title>Contact us</Title>
+            <Title onClick={()=>router.push("/customerservice")}>Contact us</Title>
         </TitleCont>
            
     </Container>

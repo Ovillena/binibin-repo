@@ -1,20 +1,13 @@
 import FooterComp from '../comps/footer'
-import styles from '../styles/Home.module.css'
-import Hero from '../comps/Hero'
-import Side from '../comps/Side'
-import Card from '../comps/Quickaccess'
-import Input from '../comps/Quickaccess'
 
 import styled from 'styled-components';
 import React from 'react';
 
 import GuestNavBar from '../comps/GuestNavBar';
 import HeaderText from '../comps/HeaderText';
-import HeroImage from '../comps/Hero'
+import HeroComp from '../comps/HeroComp'
 import CircleIcon from '../comps/CircleImage';
 import MyButton from '../comps/Button';
-import Login from './login'
-import { Image } from 'semantic-ui-react';
 import Subhead from '../comps/SubheadText';
 
 
@@ -83,7 +76,7 @@ export default function Home(){
         <GuestNavBar></GuestNavBar>
       </TopRow>
     
-      <HeroImage></HeroImage>
+      <HeroComp></HeroComp>
 
     <HeaderCont>
       <HeaderText>Our Mission</HeaderText>
@@ -122,7 +115,7 @@ export default function Home(){
     </ParagraphSec>
 
     <ButtonCont>
-      <MyButton width="200px" height="65px" bgcolor="#FFC800" text="Learn More"></MyButton>
+      <MyButton routeTo="learnmore" width="200px" height="65px" bgcolor="#FFC800" text="Learn More"></MyButton>
     </ButtonCont>
 
     

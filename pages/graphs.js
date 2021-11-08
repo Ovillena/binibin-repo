@@ -11,7 +11,6 @@ import PieChart from '../comps/GraphsPie';
 import GarbageBar from '../comps/GraphsGarbage';
 import CompostBar from '../comps/GraphsCompost';
 import RecycleBar from '../comps/GraphsRecycle';
-import Subhead from '../comps/SubheadText';
 import WeekOfComp from '../comps/GraphsWeek';
 
 

@@ -3,9 +3,12 @@ import React from 'react';
 
 import GuestNavBar from '../comps/GuestNavBar'
 import FeaturesCard from '../comps/FeaturesCard';
+import icon2 from '/public/icon_throw_away.png';
 import Header from '../comps/HeaderText';
 import MyButton from '../comps/Button';
 import Footer from '../comps/footer';
+import Garbages from '../comps/Garbage';
+import Quick from '../comps/Quickaccess';
 
 const PageCont = styled.div`
   display:flex;
@@ -20,6 +23,7 @@ const TopRow = styled.div`
 const HeaderCont = styled.div`
   display:flex;
   justify-content:center;
+  margin-top:30px;
 `
 
 const FeaturesCont = styled.div`
@@ -27,6 +31,7 @@ const FeaturesCont = styled.div`
   justify-content:center;
   align-items:center;
   flex-wrap:wrap;
+  margin-bottom:30px;
 `;
 
 const ButtonCont = styled.div`
@@ -36,7 +41,7 @@ const ButtonCont = styled.div`
   padding:10px;
 `
 
-export default function Features() {
+export default function Home() {
   return (
     //<div className={styles.container}>
       <PageCont>
@@ -44,20 +49,14 @@ export default function Features() {
         <GuestNavBar></GuestNavBar>
       </TopRow>
       <HeaderCont>
-        <Header text="Features"></Header>
+        <Header text="Input Data"></Header>
       </HeaderCont>
       <FeaturesCont>
-        <FeaturesCard></FeaturesCard>
-        <FeaturesCard src="/icon_throw_away.png" alt="throw away" h="Track" p="A visual tool to track the quantity and the breakdown of the waste produced the school"></FeaturesCard>
-        <FeaturesCard src="/icon_combo_chart.png" alt="chart" h="Reduce" p="Increase awareness of the environment to encourage the appropriate disposal of waste"></FeaturesCard>
+        <Quick></Quick>
       </FeaturesCont>
-      <ButtonCont>
-        <MyButton width="200px" height="65px" bgcolor="#FFC800" text="Register"></MyButton>
-      </ButtonCont>
       <Footer></Footer>
       </PageCont>
     //</div>
   )
 }
-
 

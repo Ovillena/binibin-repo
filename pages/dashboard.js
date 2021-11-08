@@ -59,30 +59,30 @@ export default function Dashboard() {
 
     <TopIcons>
       <IconDiv>
-        <IconComp iconSymbol='chart bar'></IconComp>
+        <IconComp iconSymbol='chart bar' routeTo="graphs"></IconComp>
         <Subhead text='View Graphs' fontsize='24px'></Subhead>
       </IconDiv>
       <IconDiv>
-        <IconComp iconSymbol='calendar check outline'></IconComp>
+        <IconComp iconSymbol='calendar check outline' routeTo="input"></IconComp>
         <Subhead text='Inputs' fontsize='24px'></Subhead>
       </IconDiv>
       <IconDiv>
-        <IconComp iconSymbol='list'></IconComp>
+        <IconComp iconSymbol='list' routeTo="pastentries"></IconComp>
         <Subhead text='List of Past Entries' fontsize='24px'></Subhead>
       </IconDiv>
     </TopIcons>
 
     <BotRow>
       <IconDiv>
-        <IconComp iconSymbol='wrench'></IconComp>
+        <IconComp iconSymbol='wrench' routeTo="accountsetting"></IconComp>
         <Subhead text='Account Settings' fontsize='24px'></Subhead>
       </IconDiv>
       <IconDiv>
-        <IconComp iconSymbol='file text'></IconComp>
+        <IconComp iconSymbol='file text' routeTo="learnmore"></IconComp>
         <Subhead text='Learn More' fontsize='24px'></Subhead>
       </IconDiv>
       <IconDiv>
-        <IconComp iconSymbol='headphones'></IconComp>
+        <IconComp iconSymbol='headphones' routeTo="customerservice"></IconComp>
         <Subhead text='Customer Support' fontsize='24px'></Subhead>
       </IconDiv>
 
