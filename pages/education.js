@@ -7,7 +7,7 @@ import GuestNavBar from '../comps/GuestNavBar';
 import HeaderText from '../comps/HeaderText';
 import HelpfulResource from '../comps/HelpfulResource';
 import Subhead from '../comps/SubheadText';
-
+import EduGarbage from '../comps/EduGarbage';
 
 
 const PageCont = styled.div`
@@ -36,6 +36,7 @@ const TopLinks = styled.div`
   min-width:100vw;
   flex-wrap:wrap;
   justify-content:space-around;
+  padding:10px;
 `
 
 const BotLinks = styled.div`
@@ -43,13 +44,18 @@ const BotLinks = styled.div`
   justify-content:space-around;
   flex-wrap:wrap;
   min-width:100vw;
+  padding:10px;
 `
 
 const CatCont = styled.div`
-  
+  width:33.3%;
 `
 
+const TabCont = styled.div`
+  display:flex;
+  justify-content:center;
 
+`
 
 
 export default function Education(){
@@ -63,6 +69,11 @@ export default function Education(){
     <HeaderCont>
       <HeaderText text ="What Goes Where?"></HeaderText>
     </HeaderCont>
+
+    <TabCont>
+      <EduGarbage></EduGarbage>
+    </TabCont>
+
 
     <HeaderCont>
       <HeaderText text ="Links to Helpful Resource"></HeaderText>
@@ -105,7 +116,7 @@ export default function Education(){
       
       <CatCont></CatCont>
     </BotLinks>
-    
+
 
     <FooterCont>
       <FooterComp></FooterComp>
