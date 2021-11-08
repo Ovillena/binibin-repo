@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 
 const ItemCont = styled.div`
-display:flex;
-margin:10px;
-padding:5px;
-background-color:#ccc;
-align-items:center;
+  display:flex;
+  margin:10px;
+  padding:5px;
+  align-items:center;
 `;
 
 const Square = styled.div`

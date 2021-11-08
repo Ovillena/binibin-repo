@@ -1,10 +1,7 @@
 import styled from 'styled-components';
+import BoldText from '../BoldText';
 
 const DateCont = styled.div`
-
-`;
-
-const Date = styled.h4`
 
 `;
 
@@ -12,9 +9,7 @@ const EntryDate = ({
   entry_date="November 4"
 }) => {
   return <DateCont>
-      <Date>
-        {entry_date}
-      </Date>
+      <BoldText text={entry_date}/>
     </DateCont>
 }
 
