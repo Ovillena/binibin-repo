@@ -31,7 +31,7 @@ const ItemName = styled.p`
 `;
 
 const EntryLegend  = ({
-  color="#3C64B1",
+  color="#2C5489",
 }) => {
   return <LegendCont>
     <BoldText text="Colour Key"></BoldText>

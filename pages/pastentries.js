@@ -59,7 +59,7 @@ const fakeData = [
   {
     entry_id: 1,
     entry_date: "November 3",
-    item_name: "Sample Can (200 mL)",
+    item_name: "Tin Can (200 mL)",
     item_count: 5,
     unit: "units",
     waste_type: "recycling"
@@ -77,6 +77,20 @@ const fakeData = [
     item_count: 50,
     unit: "g",
     waste_type: "compost"
+  },{
+    entry_id: 4,
+    entry_date: "November 1",
+    item_name: "Juice Box (100mL)",
+    item_count: 2,
+    unit: "units",
+    waste_type: "recycling"
+  },{
+    entry_id: 5,
+    entry_date: "November 3",
+    item_name: "Garbage",
+    item_count: 10,
+    unit: "g",
+    waste_type: "garbage"
   }
 ]
 //"entry_id": 1,
@@ -102,28 +116,7 @@ export default function Home() {
       console.log(result);
       // setEntries(result.data);
     }
-    GetEntries()
-    // for (let o.waste_type in fakeData){
-    //   if (o.waste_type = "garbage"){
-    //     EntryItem.color = "#000";
-    //   } else if (o.waste_type = "compost"){
-    //     EntryItem.color = "#598B2C";
-    //   } else {
-    //     EntryItem.color = "#2C5489";
-    //   }
-    // }
-
-    // check the date of the entry
-    // if the date does not already exist on the page
-        // add a div component on the page (EntryDayList)
-        // add an EntryItem component in the EntryDayList div
-        // assign the properties of the entry to the EntryItem component
-        // move on to the next item
-    // if the date already exists on the page
-        // add an EntryItem component in the EntryDayList div
-        // assign the properties of the entry to the EntryItem component
-        // move on to the next item
-        
+    GetEntries()        
     // sort all entries by date
     // create a new div (EntryDayList) for each new day
     // it there are entries with the same date, put them under the same div
@@ -143,6 +136,15 @@ export default function Home() {
                 <EntryDayList>
                   <ListSection>
                       <EntryItem entry_id={o.entry_id} item_name={o.item_name} item_count={o.item_count} unit={o.unit} waste_type={o.waste_type}/>
+                      {/* <EntryItem entry_id={o.entry_id} item_name={o.item_name} item_count={o.item_count} unit={o.unit} waste_type={o.waste_type}/>
+                      <EntryItem entry_id={o.entry_id} item_name={o.item_name} item_count={o.item_count} unit={o.unit} waste_type={o.waste_type}/>
+                      <EntryItem entry_id={o.entry_id} item_name={o.item_name} item_count={o.item_count} unit={o.unit} waste_type={o.waste_type}/>
+                      <EntryItem entry_id={o.entry_id} item_name={o.item_name} item_count={o.item_count} unit={o.unit} waste_type={o.waste_type}/>
+                      <EntryItem entry_id={o.entry_id} item_name={o.item_name} item_count={o.item_count} unit={o.unit} waste_type={o.waste_type}/>
+                      <EntryItem entry_id={o.entry_id} item_name={o.item_name} item_count={o.item_count} unit={o.unit} waste_type={o.waste_type}/>
+                      <EntryItem entry_id={o.entry_id} item_name={o.item_name} item_count={o.item_count} unit={o.unit} waste_type={o.waste_type}/>
+                      <EntryItem entry_id={o.entry_id} item_name={o.item_name} item_count={o.item_count} unit={o.unit} waste_type={o.waste_type}/>
+                      <EntryItem entry_id={o.entry_id} item_name={o.item_name} item_count={o.item_count} unit={o.unit} waste_type={o.waste_type}/> */}
                   </ListSection>
                   <SideSection>
                     <EntryEdit>Edit</EntryEdit>
