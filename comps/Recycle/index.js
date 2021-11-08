@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import React from 'react';
 import Image from 'next/image';
-import { Button } from 'semantic-ui-react';
-import { useState } from 'react';
+import InputTextComp from '../InputText';
+import MyButton from '../Button';
 
 //inputs
 const Container = styled.div`
@@ -23,48 +23,45 @@ align-items:center;
 // The Main container
 const Inside = styled.div`
 display:flex;
-width:1206px;
+width:1203px;
 height:688px;
 border:solid #95AFBA;
 box-shadow:0px 3px 30px grey; 
+border-radius: 30px 30px 20px 20px;
+justify-content:center;
+align-content:center;
 `
 //Quick access
 const Side = styled.div`
 width:400px;
 height:88px;
-background-color:white;
-display:flex;
+background-color:#95AFBA;
+display;flex;
 flex-direction:row;
 border-radius: 20px 20px 0px 0px;
 border:solid #95AFBA;
-justify-content:center;
-align-items:center;
 `
 //Garbage
 const Garbage = styled.div`
 width:400px;
 height:88px;
 background-color:#95AFBA;
-display:flex;
-justify-content:center;
-align-items:center;
+display;flex;
 flex-direction:row;
 border-radius: 20px 20px 0px 0px;
 border:solid #95AFBA;
-
 `
 //Recycle
 const Recycle = styled.div`
 width:400px;
 height:88px;
-background-color:#95AFBA;
-display:flex;
+background-color:white;
+display;flex;
 flex-direction:row;
 border-radius: 20px 20px 0px 0px;
 border:solid #95AFBA;
 justify-content:center;
 align-items:center;
-
 `
 const Text = styled.h2`
 color:#FFFFFF;
@@ -80,7 +77,8 @@ const Inputs = styled.div`
 width:506px;
 height:200px;
 display:flex;
-box-shadow:0px 3px 30px grey; 
+align-items:center;
+flex-direction:row;
 `
 // Buttons and click Button
 const ButtonCont = styled.div`
@@ -100,103 +98,91 @@ const ClickButton = styled.button`
     border:none;
 `
 
-const Items = styled.image`
-width:300px;
-height:200px;
-position:absolute;
-display:flex;
-align-content:center;
-align-items:center;
-justify-content:center;
-`
+// const Items = styled.image`
+// width:300px;
+// height:200px;
+// position:absolute;
+// display:flex;
+// align-content:center;
+// align-items:center;
+// justify-content:center;
+// `
+
 const Div = styled.div`
  display:flex;
- flex-direction:column;
-  margin-left:300px;
-  justify-content:center;
+ align-items:flex-end;
+ gap:30px;
+ margin-bottom:30px;
 `
 
-const Entrydiv = styled.div`
+const Entry = styled.div`
 width:158px;
 height:56px;
 background-color:orange;
-flex-direction:row;
 display:flex;
-justify-content:center;
-align-items:center;
 `
 
-const Headers = styled.h2`
-color:black;
-margin-bottom:-20px;
-margin-top:-1px;
+// const Headers = styled.h2`
+// color:black;
+// margin-bottom:-20px;
+// margin-top:-1px;
+// `
+
+// const Ml = styled.h3`
+// color:black;
+// `
+
+const Title = styled.h2`
+color:#95AFBA;
+display:flex;
+align-items:flex-start;
+
 `
+const myLoader = ({src}) => {
+  return `${src}`
+}
 
-const Ml = styled.h3`
-color:black;
-`
-
-
-
-
-const Quick = ({
+const Recycles = ({
   width="158px",
   height="56px",
   bgcolor="#95AFBA",
-  text="Add Entry",
+  text="Search....",
   textcolor="white",
-  src="juicebox.png",
+  src="plus.png",
 })=>{
   return<Inside>
     <Bottom>
-    <Side><Select>Quick Access</Select></Side>
+    <Side><Text>Quick Access</Text></Side>
     <Garbage><Text>Garbage/Compost</Text></Garbage>
-    <Recycle><Text>Recyclable/Search</Text></Recycle>
+    <Recycle><Select>Recyclable/Search</Select></Recycle>
     </Bottom>
+    
 
     <Container>
-    
-   <Inputs>
-    <Items>
-    </Items>
-
-    <Div>
-    <Headers>Juice box</Headers>
-    <Ml>250ml</Ml>
-    <Entrydiv>
-      <Button>-</Button>
-      <span>0</span>
-      <Button>+</Button>
-    </Entrydiv>
-    <ButtonCont>
-        <ClickButton onClick={()=>{}} width={width} height={height} bgcolor={bgcolor} textcolor={textcolor}>{text}</ClickButton>
-    </ButtonCont>
-    </Div>
-    </Inputs>
-    
-    
+      
     <Inputs>
-    <Items>
-    </Items>
+    <Title>Type of Waste</Title>
+    <InputTextComp placeholder="Search..." width="400px"></InputTextComp>
+    <Title>Size</Title>
+    <Entry>
+    <Image loader={myLoader} src={src} width={28} height={1}/>
+    </Entry>
+    <InputTextComp placeholder="eg. 250" width="200px"></InputTextComp>
+    </Inputs>
+   
 
     <Div>
-    <Headers>Juice box</Headers>
-    <Ml>250ml</Ml>
-    <Entrydiv>
-      <Button>-</Button>
-      <span>0</span>
-      <Button>+</Button>
-    </Entrydiv>
     <ButtonCont>
-        <ClickButton width={width} height={height} bgcolor={bgcolor} textcolor="white">{text}</ClickButton>
+        <ClickButton onClick={()=>{}} width={width} height={height} bgcolor={bgcolor} textcolor={textcolor}>{text="Add Entry"}</ClickButton>
     </ButtonCont>
-
+    <ButtonCont>
+        <ClickButton width={"273px"} height={height} bgcolor={bgcolor} textcolor="white">{text="Save to Quick Access"}</ClickButton>
+    </ButtonCont>
     </Div>
-    </Inputs>
+    
     </Container>
 
     </Inside>
     
   }
-  
-  export default Quick;
+  export default Recycles;
