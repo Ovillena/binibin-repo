@@ -1,22 +1,40 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Grid, Tab } from 'semantic-ui-react';
 import MyButton from '../Button';
+import { Grid, Tab } from 'semantic-ui-react';
 
+//Testing Semantic tab api
 
 const Cont = styled.div`
     display:flex;
+    background-color:pink;
+    width:500px;
+    height:200px;
 `
 
-
 const panes = [
-    { menuItem: 'Garbage', pane: <MyButton></MyButton> },
-    { menuItem: 'Recyclable', pane: 'Tab 2 Content' },
-    { menuItem: 'Compost', pane: 'Tab 3 Content' },
-    { grid: 'paneWidth:12'}
-  ]
+    { 
+    menuItem: 'Garbage', 
+    pane: '1' ,
+    
+    
+    },
 
+    { 
+    menuItem: 'Recyclable', 
+    pane: 'Tab 2 Content' 
+    },
 
+    { 
+    menuItem: 'Compost', 
+    pane: 'Tab 3 Content' 
+    }, 
+
+    { 
+    grid: 'paneWidth:12'
+    }
+
+]
 
 const EduTabs = ({
     width="200px",
@@ -30,7 +48,16 @@ const EduTabs = ({
     return <Cont>
         <Grid columns={1}>
             <Grid.Column width={16}>
-                <Tab panes={panes} renderActiveOnly={false} menu={{ fluid: true, widths:1 }} />
+                <Tab panes={panes} renderActiveOnly={false} menu={{
+        attached: true,
+        tabular: true,
+        style: {
+          display: "flex",
+          justifyContent: "center",
+        }
+      }}
+      
+      />
             </Grid.Column>
         </Grid>
     </Cont>

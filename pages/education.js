@@ -8,7 +8,7 @@ import HeaderText from '../comps/HeaderText';
 import HelpfulResource from '../comps/HelpfulResource';
 import Subhead from '../comps/SubheadText';
 import EduTabs from '../comps/EduTabs';
-import { Tab } from 'semantic-ui-react';
+import EducationTab from '../comps/EducationTab';
 
 
 const PageCont = styled.div`
@@ -58,6 +58,10 @@ const TabCont = styled.div`
 `
 
 
+// {/* <TabCont>
+// <EduTabs></EduTabs>
+// </TabCont> */}
+
 export default function Education(){
   return (
     //<div className={styles.container}>
@@ -72,7 +76,7 @@ export default function Education(){
 
 
     <TabCont>
-      <EduTabs></EduTabs>
+      <EducationTab></EducationTab>
     </TabCont>
 
 
