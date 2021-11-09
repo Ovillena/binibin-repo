@@ -59,7 +59,7 @@ export default function Signup() {
         <InputTextComp placeholder="Email"></InputTextComp>
         <InputTextComp placeholder="Enterprise Name"></InputTextComp>
         <InputPasswordComp></InputPasswordComp>
-        <MyButton bgcolor="#95AFBA"></MyButton>
+        <MyButton bgcolor="#95AFBA" text="Submit" routeTo="thankyou_register"></MyButton>
       </LeftCont>
 
       <RightCont>

@@ -52,7 +52,7 @@ const GuestNavBar = ({
             <TextCont onClick={()=>router.push("/features")}>Features</TextCont>
         </NavItems>
         <NavItems>
-            <TextCont onClick={()=>router.push("/learnmore")} >Learn More</TextCont>
+            <TextCont onClick={()=>router.push("/education")} >Learn More</TextCont>
         </NavItems>
         <NavItems>
             <MyButton routeTo="/login"></MyButton>

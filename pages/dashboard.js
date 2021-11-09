@@ -63,7 +63,7 @@ export default function Dashboard() {
         <Subhead text='View Graphs' fontsize='24px'></Subhead>
       </IconDiv>
       <IconDiv>
-        <IconComp iconSymbol='calendar check outline' routeTo="input"></IconComp>
+        <IconComp iconSymbol='calendar check outline' routeTo="inputdata"></IconComp>
         <Subhead text='Inputs' fontsize='24px'></Subhead>
       </IconDiv>
       <IconDiv>
@@ -78,7 +78,7 @@ export default function Dashboard() {
         <Subhead text='Account Settings' fontsize='24px'></Subhead>
       </IconDiv>
       <IconDiv>
-        <IconComp iconSymbol='file text' routeTo="learnmore"></IconComp>
+        <IconComp iconSymbol='file text' routeTo="education"></IconComp>
         <Subhead text='Learn More' fontsize='24px'></Subhead>
       </IconDiv>
       <IconDiv>

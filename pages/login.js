@@ -62,7 +62,7 @@ export default function Login() {
           <Header text="Login"></Header>
           <InputTextComp placeholder="Username"></InputTextComp>
           <InputPasswordComp></InputPasswordComp>
-          <MyButton bgcolor="#95AFBA"></MyButton>
+          <MyButton bgcolor="#95AFBA" routeTo="dashboard"></MyButton>
       </RightCont>
 
     </MidCont>

@@ -7,7 +7,8 @@ import GuestNavBar from '../comps/GuestNavBar';
 import HeaderText from '../comps/HeaderText';
 import HelpfulResource from '../comps/HelpfulResource';
 import Subhead from '../comps/SubheadText';
-import EduGarbage from '../comps/EduGarbage';
+import EduTabs from '../comps/EduTabs';
+import { Tab } from 'semantic-ui-react';
 
 
 const PageCont = styled.div`
@@ -54,7 +55,6 @@ const CatCont = styled.div`
 const TabCont = styled.div`
   display:flex;
   justify-content:center;
-
 `
 
 
@@ -70,8 +70,9 @@ export default function Education(){
       <HeaderText text ="What Goes Where?"></HeaderText>
     </HeaderCont>
 
+
     <TabCont>
-      <EduGarbage></EduGarbage>
+      <EduTabs></EduTabs>
     </TabCont>
 
 
