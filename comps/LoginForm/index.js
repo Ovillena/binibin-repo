@@ -22,19 +22,25 @@ const LoginForm = () => {
   };
   // get functions to build form with useForm() hook
 
-  async function onSubmit({ username, password }) {
-    console.log("hello");
+  async function onSubmit(e) {
+    e.preventDefault();
+    console.log(e.target.username.value);
     const result = await fetch(
-      `https://binibin-server.herokuapp.com/auth/login`,
+      // `https://binibin-server.herokuapp.com/auth/login`,
+      "http://localhost:8080/auth/login",
       {
         method: "POST",
-        body: JSON.stringify({ username: username, password: password }),
+        body: JSON.stringify({
+          username: e.target.username.value,
+          password: e.target.password.value,
+        }),
         headers: { "Content-Type": "application/json" },
       }
     ).then((response) => {
       console.log(response);
     });
-    console.log(result);
+    console.log("--------------------------------------------");
+
     // get return url from query parameters or default to '/'
     // const returnUrl = router.query.returnUrl || "/";
     // router.push(returnUrl);
