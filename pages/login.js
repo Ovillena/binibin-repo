@@ -3,7 +3,6 @@ import React from "react";
 
 import GuestNavBar from "../comps/GuestNavBar";
 import Header from "../comps/HeaderText";
-import MyButton from "../comps/ButtonLoginForm";
 import Footer from "../comps/footer";
 import InputPasswordComp from "../comps/InputPassword";
 import InputTextComp from "../comps/InputText";
@@ -54,7 +53,6 @@ export default function Login() {
         <LeftCont>
           <Image src={loginImage} width={500} height={300} />
         </LeftCont>
-
         <RightCont>
           <LoginForm></LoginForm>
         </RightCont>
