@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 
 const ItemCont = styled.div`
-display:flex;
-margin:10px;
-padding:5px;
-background-color:#ccc;
-align-items:center;
+  display:flex;
+  margin:10px;
+  padding:5px;
+  align-items:center;
 `;
 
 const Square = styled.div`
@@ -14,12 +13,16 @@ const Square = styled.div`
   min-height:30px;
   max-height:30px;
   border-radius:5px;
-  background-color:${props=>props.color};
+  background-color:${({color}) =>
+    color === "garbage" && "#000" ||
+    color === "compost" && "#598B2C" ||
+    color === "recycling" && "#2C5489"
+  };
 `;
   
 const ItemName = styled.p`
   font-weight:bold;
-  margin:10px;
+  margin:10px 5px 10px 10px;
 `;
   
 const ItemQuantity = styled.p`
@@ -34,13 +37,13 @@ const ItemQuantity = styled.p`
 // how to change color based on waste_type
 
 const EntryItem = ({
-  color="#3C64B1",
+  waste_type="recycling",
   item_name="Component Can (200mL)",
   item_count="0",
   unit="u"
 }) => {
   return <ItemCont>
-    <Square color={color}/>
+    <Square color={waste_type}/>
     <ItemName>{item_name}</ItemName>
     <ItemQuantity>&times; {item_count} {unit}</ItemQuantity>
   </ItemCont>
