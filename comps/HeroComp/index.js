@@ -6,7 +6,7 @@ const Container = styled.div`
     display:flex;
     justify-content:center;
     align-items: center;
-    background-image:url(Hero.png);
+    background-image:url('/hero.png');
     background-repeat:no-repeat;
     background-size:cover;
     padding:10%;

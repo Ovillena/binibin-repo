@@ -28,7 +28,7 @@ const TextCont = styled.div`
     font-weight:bold;
 `
 
-const NavItems = styled.div`
+const NavItems = styled.a`
     font-size:24px;
     padding:10px;
 `
