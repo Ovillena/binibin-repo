@@ -7,7 +7,6 @@ import GuestNavBar from '../comps/GuestNavBar';
 import HeaderText from '../comps/HeaderText';
 import HelpfulResource from '../comps/HelpfulResource';
 import Subhead from '../comps/SubheadText';
-import EduTabs from '../comps/EduTabs';
 import EducationTab from '../comps/EducationTab';
 
 
@@ -55,12 +54,9 @@ const CatCont = styled.div`
 const TabCont = styled.div`
   display:flex;
   justify-content:center;
+  align-items:center;
 `
 
-
-// {/* <TabCont>
-// <EduTabs></EduTabs>
-// </TabCont> */}
 
 export default function Education(){
   return (

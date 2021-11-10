@@ -7,6 +7,7 @@ import EntryItem from '../comps/EntryItem';
 import EntryDate from '../comps/EntryDate';
 // import EntryList from '../comps/EntryList';
 
+
 const Cont = styled.div`
   display:flex;
   flex-direction:column;

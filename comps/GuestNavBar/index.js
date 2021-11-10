@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import { Image, Menu, Button} from 'semantic-ui-react';
 import MyButton from '../Button';
 import React from 'react';
-import {useRouter} from 'next/router';
+import {Router, useRouter} from 'next/router';
+
 
 
 const NavCont = styled.div`
@@ -39,6 +40,8 @@ const GuestNavBar = ({
     router = useRouter()
 
 }) =>{
+
+
     return <NavCont>
         <LogoCont>
             <Image src="/binibinlogo.png" alt="BiniBin Logo" width={204} height={52} 
@@ -57,7 +60,8 @@ const GuestNavBar = ({
         <NavItems>
             <MyButton routeTo="/login"></MyButton>
         </NavItems>
-        
+
+
     </NavCont>
     
 }

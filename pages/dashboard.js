@@ -7,6 +7,7 @@ import GuestNavBar from '../comps/GuestNavBar';
 import HeaderText from '../comps/HeaderText';
 import IconComp from '../comps/Icon';
 import Subhead from '../comps/SubheadText';
+import UserNav from '../comps/UserNav';
 
 
 const PageCont = styled.div`
@@ -50,7 +51,7 @@ export default function Dashboard() {
     //<div className={styles.container}>
       <PageCont>
       <TopRow>
-        <GuestNavBar></GuestNavBar>
+        <UserNav></UserNav>
       </TopRow>
 
     <HeaderCont>

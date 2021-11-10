@@ -1,7 +1,7 @@
 import FooterComp from '../comps/footer'
 
 import styled from 'styled-components';
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 
 import GuestNavBar from '../comps/GuestNavBar';
 import HeaderText from '../comps/HeaderText';
@@ -9,6 +9,7 @@ import HeroComp from '../comps/HeroComp'
 import CircleIcon from '../comps/CircleImage';
 import MyButton from '../comps/Button';
 import Subhead from '../comps/SubheadText';
+import userNav from '../comps/UserNav';
 
 
 
