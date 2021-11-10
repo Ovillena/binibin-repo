@@ -23,55 +23,58 @@ const LoginForm = () => {
   };
   // get functions to build form with useForm() hook
 
-  // async function onSubmit(e) {
-  //   e.preventDefault();
-  //   console.log(e.target.username.value);
-  //   const result = await fetch(
-  //     // `https://binibin-server.herokuapp.com/auth/login`,
-  //     "http://localhost:8080/auth/login",
-  //     {
-  //       credentials: "same-origin",
-  //       method: "POST",
-  //       body: JSON.stringify({
-  //         username: e.target.username.value,
-  //         password: e.target.password.value,
-  //       }),
-  //       headers: { "Content-Type": "application/json" },
-  //     }
-  //   ).then((response) => {
-  //     console.log(response);
-  //   });
-  //   console.log("--------------------------------------------");
-
-  //   // get return url from query parameters or default to '/'
-  //   // const returnUrl = router.query.returnUrl || "/";
-  //   // router.push(returnUrl);
-  // }
-
   async function onSubmit(e) {
-    debugger;
     e.preventDefault();
     console.log(e.target.username.value);
-    axios.post;
-    const result = await axios({
+    const result = await fetch(
       // `https://binibin-server.herokuapp.com/auth/login`,
-      url: "http://localhost:8080/auth/login",
-      withCredentials: true,
-      method: "POST",
-      body: {
-        username: e.target.username.value,
-        password: e.target.password.value,
-      },
-      // headers: { "Content-Type": "application/json" },
+      "http://localhost:8080/auth/login",
+      {
+        credentials: "include",
+        method: "POST",
+        body: JSON.stringify({
+          username: e.target.username.value,
+          password: e.target.password.value,
+        }),
+        headers: { "Content-Type": "application/json" },
+      }
+    ).then((response) => {
+      console.log(response);
     });
-    debugger;
-    console.log(result.data);
     console.log("--------------------------------------------");
 
     // get return url from query parameters or default to '/'
     // const returnUrl = router.query.returnUrl || "/";
     // router.push(returnUrl);
   }
+
+  // async function onSubmit(e) {
+  //   debugger;
+  //   e.preventDefault();
+  //   console.log(e.target.username.value);
+  //   axios.post;
+  //   const result = await axios({
+  //     // `https://binibin-server.herokuapp.com/auth/login`,
+  //     url: "http://localhost:8080/auth/login",
+  //     withCredentials: true,
+  //     method: "POST",
+  //     body: {
+  //       username: e.target.username.value,
+  //       password: e.target.password.value,
+  //     },
+  //     headers: {
+  //       "Access-Control-Allow-Origin": "*",
+  //     },
+  //     // headers: { "Content-Type": "application/json" },
+  //   });
+  //   debugger;
+  //   console.log(result.data);
+  //   console.log("--------------------------------------------");
+
+  //   // get return url from query parameters or default to '/'
+  //   // const returnUrl = router.query.returnUrl || "/";
+  //   // router.push(returnUrl);
+  // }
 
   return (
     <form onSubmit={onSubmit} method="post">
