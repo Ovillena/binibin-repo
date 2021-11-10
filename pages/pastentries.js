@@ -102,7 +102,7 @@ const fakeData = [
 // "waste_type": "recycling",
 
 export default function Home() {
-  const [entries, setEntries] = useState(fakeData);
+  const [entries, setEntries] = useState(null);
   // const axios = require('axios');
 
   useEffect(() => {
@@ -110,7 +110,7 @@ export default function Home() {
       // const result = await axios.get("https://ghibliapi.herokuapp.com/films")
       // const result = await axios.get("https://binibin-server.herokuapp.com/api/entries")
       await axios
-        .get("http://localhost:8080/api/entries")
+        .get("https://binibin-server.herokuapp.com/api/entries")
         .then((resp) => {
           console.log(resp.data);
           setEntries(resp.data);
@@ -133,7 +133,8 @@ export default function Home() {
       </HeaderCont>
       <PageCont>
         <Cont>
-          {entries.map((o, i) => (
+          {entries? 
+          entries.map((o, i) => (
             <AllDaysList key={i}>
               <EntryDate entry_date={o.entry_date} />
               <EntryDayList>
@@ -160,7 +161,7 @@ export default function Home() {
                 </SideSection>
               </EntryDayList>
             </AllDaysList>
-          ))}
+          )): <p>Make your first entry!</p>}
         </Cont>
         <EntryLegend />
       </PageCont>
