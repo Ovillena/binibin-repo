@@ -24,13 +24,17 @@ const LoginForm = () => {
 
   async function onSubmit({ username, password }) {
     console.log("hello");
-    await fetch(`https://binibin-server.herokuapp.com/auth/login`, {
-      method: "POST",
-      body: JSON.stringify({ username: username, password: password }),
-      headers: { "Content-Type": "application/json" },
-    }).then((response) => {
+    const result = await fetch(
+      `https://binibin-server.herokuapp.com/auth/login`,
+      {
+        method: "POST",
+        body: JSON.stringify({ username: username, password: password }),
+        headers: { "Content-Type": "application/json" },
+      }
+    ).then((response) => {
       console.log(response);
     });
+    console.log(result);
     // get return url from query parameters or default to '/'
     // const returnUrl = router.query.returnUrl || "/";
     // router.push(returnUrl);
