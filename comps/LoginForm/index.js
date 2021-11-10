@@ -72,7 +72,7 @@ const LoginForm = () => {
     // const returnUrl = router.query.returnUrl || "/";
     // router.push(returnUrl);
   }
-  
+
   return (
     <form onSubmit={onSubmit} method="post">
       <div className="form-group">
