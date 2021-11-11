@@ -8,8 +8,10 @@ import EduCompost from '../../pages/edu_compost';
 //Testing MUI tabs api 
 
 const Cont = styled.div`
-    background-color:pink;
     width:70%;
+    background-color:pink;
+    border: 5px solid #95AFBA;
+    border-radius:10px;
 `
 
 //<Box sx={{ bgcolor: 'green', width:'50%' }}>
@@ -26,7 +28,7 @@ const EducationTab = ({
     return <Cont>
         
         <AppBar position='relative' >
-            <Tabs value={selectedTab} onChange={handleChange} centered >
+            <Tabs value={selectedTab} onChange={handleChange} centered textColor='black' indicatorColor="secondary">
                 <Tab label="Garbage" />
                 <Tab label="Recycle" />
                 <Tab label="Compost" />

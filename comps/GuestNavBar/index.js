@@ -41,7 +41,7 @@ const GuestNavBar = ({
 
 }) =>{
 
-
+// if(){
     return <NavCont>
         <LogoCont>
             <Image src="/binibinlogo.png" alt="BiniBin Logo" width={204} height={52} 
@@ -63,7 +63,9 @@ const GuestNavBar = ({
 
 
     </NavCont>
-    
 }
+// else()
+//     return 
+// }
 
 export default GuestNavBar;
