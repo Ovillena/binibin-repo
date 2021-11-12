@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import React from 'react';
 import Image from 'next/image';
+import { Button } from 'semantic-ui-react';
 
 //inputs
 const Container = styled.div`
@@ -39,7 +40,7 @@ border:solid #95AFBA;
 `
 //Garbage
 const Garbage = styled.div`
-width:400px;
+width:600px;
 height:88px;
 background-color:white;
 display;flex;
@@ -49,7 +50,7 @@ border:solid #95AFBA;
 `
 //Recycle
 const Recycle = styled.div`
-width:400px;
+width:600px;
 height:88px;
 background-color:#95AFBA;
 display;flex;
@@ -113,7 +114,12 @@ const Entrydiv = styled.div`
 width:158px;
 height:56px;
 background-color:orange;
+display:flex;
+align-items:center;
+align-content:center;
+justify-content:center;
 `
+
 
 const Headers = styled.h2`
 color:black;
@@ -140,7 +146,6 @@ const Garbages = ({
 })=>{
   return<Inside>
     <Bottom>
-    <Side><Text>Quick Access</Text></Side>
     <Garbage><Select>Garbage/Compost</Select></Garbage>
     <Recycle><Text>Recyclable/Search</Text></Recycle>
     </Bottom>
@@ -149,13 +154,15 @@ const Garbages = ({
     <Inputs>
 
     <Items>
-    <Image loader={myLoader} src={src}/>
     </Items>
 
     <Div>
     <Headers>Garbage</Headers>
     <Ml>Number of bags</Ml>
     <Entrydiv>
+    <Button>-</Button>
+      <span>0</span>
+    <Button>+</Button>
     </Entrydiv>
     <ButtonCont>
         <ClickButton onClick={()=>{}} width={width} height={height} bgcolor={bgcolor} textcolor={textcolor}>{text}</ClickButton>
@@ -170,7 +177,9 @@ const Garbages = ({
     <Headers>Compost</Headers>
     <Ml>Number of Bags</Ml>
     <Entrydiv>
-
+    <Button>-</Button>
+      <span>0</span>
+    <Button>+</Button>
     </Entrydiv>
     <ButtonCont>
         <ClickButton width={width} height={height} bgcolor={bgcolor} textcolor="white">{text}</ClickButton>

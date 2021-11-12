@@ -53,7 +53,7 @@ export default function Home() {
         <Header text="Input Data"></Header>
       </HeaderCont>
       <FeaturesCont>
-        <Quick></Quick>
+        <Garbages></Garbages>
       </FeaturesCont>
       <Footer></Footer>
       </PageCont>
