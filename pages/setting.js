@@ -5,7 +5,7 @@ import React from 'react';
 
 import GuestNavBar from '../comps/GuestNavBar';
 import HeaderText from '../comps/HeaderText';
-import Side from '../comps/Side';
+//import Side from '../comps/Side';
 
 
 
@@ -43,7 +43,7 @@ export default function Setting(){
       <HeaderText>Our Mission</HeaderText>
     </HeaderCont>
 
-    <Side></Side>
+  
 
     
     <FooterCont>
