@@ -4,7 +4,7 @@ import router, { useRouter } from "next/router";
 
 const Container = styled.div`
     display:flex;
-    background-color:#95AFBA;
+    background-color:#42B3F0;
     display:flex;
     flex:1;
     height:80px;

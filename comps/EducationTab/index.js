@@ -10,7 +10,7 @@ import { Item } from 'semantic-ui-react';
 
 const Cont = styled.div`
     width:70%;
-    border: 5px solid #95AFBA;
+    border: 5px solid #42B3F0;
     border-radius:10px;
 `
 
@@ -31,7 +31,7 @@ const EducationTab = ({
         <AppBar position='relative' 
         sx={{
             height:'88px', 
-            backgroundColor:'#95AFBA',
+            backgroundColor:'#42B3F0',
             justifyContent:'center',
             }}>
             <Tabs value={selectedTab} onChange={handleChange} centered textColor='black' indicatorColor="secondary"
