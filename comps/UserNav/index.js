@@ -10,7 +10,7 @@ import React from 'react';
 const NavCont = styled.div`
     display:flex;
     min-width:200px;
-    min-height:130px;
+    height:130px;
     background-color:white;
     box-shadow:0px 3px 30px grey; 
     justify-content:space-between;
@@ -48,8 +48,9 @@ const ItemsDiv = styled.div`
     display:flex;
 `
 
-const SubHeader = styled.span`
-  font-size:18px;
+const SubHeader = styled.h2`
+  font-size:24px;
+  color:#598B2C;
 `;
 
 

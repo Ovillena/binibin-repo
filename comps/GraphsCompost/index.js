@@ -35,6 +35,11 @@ const data = {
 
 const options = {
   scales: {
+    x:{
+      grid:{
+        display:false
+      },
+    },
     yAxes: [
       {
         ticks: {
@@ -49,7 +54,6 @@ const GraphCont = styled.div`
   display:flex;
   width:489px;
   height:228px;
-
 `
 
 const CompostBar = () => (

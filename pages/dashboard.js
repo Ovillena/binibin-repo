@@ -76,24 +76,6 @@ const fakeData = [{
 ]
 
 export default function Dashboard() {
-  const router = useRouter();
-  // console.log(router.query); router.query.id is the last part of the url
-
-  //const [status, setStatus ] = useState(fakeData);
-
-  //useEffect(()=>{
-  //     if(router.query.id){ //if this exists
-  //         const GetStatusById = async()=>{
-  //             const result = await axios.get("https://binibin-server.herokuapp.com/api"+router.query.id);
-  //             console.log(result);
-  //             setStatus(result.data);
-  //         }
-
-  //         GetStatusById();
-  //     }
-  // }, [router.query.id])
-
-
 
   const [user, setUser] = useState(fakeData);
 
@@ -112,22 +94,24 @@ export default function Dashboard() {
     };
 
     GetUser();
-  }, [])
-
-
+  }, []);
 
   return (
     //<div className={styles.container}>
       <PageCont>
 
-      {
+    <TopRow>
+      <UserNav></UserNav>
+    </TopRow>
+
+      {/* {
         user.map((o,i)=>(
           <CardWrapper key={i}>
             <UserNav display_name={o.display_name}/>
           </CardWrapper>
           )
         )
-      }
+      } */}
       
     <HeaderCont>
       <HeaderText text="User's Dashboard"></HeaderText>
@@ -150,7 +134,7 @@ export default function Dashboard() {
 
     <BotRow>
       <IconDiv>
-        <IconComp iconSymbol='wrench' routeTo="accountsetting"></IconComp>
+        <IconComp iconSymbol='wrench' routeTo="setting"></IconComp>
         <Subhead text='Account Settings' fontsize='24px'></Subhead>
       </IconDiv>
       <IconDiv>
@@ -161,7 +145,6 @@ export default function Dashboard() {
         <IconComp iconSymbol='headphones' routeTo="customerservice"></IconComp>
         <Subhead text='Customer Support' fontsize='24px'></Subhead>
       </IconDiv>
-
     </BotRow>  
 
 

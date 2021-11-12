@@ -6,10 +6,11 @@ import Subhead from '../comps/SubheadText';
 
 
 const PageCont = styled.div`
-display:flex;
-flex-direction:column;
-min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
 `
+
 const RowCont = styled.div`
   display:flex;
   justify-content:space-around;
@@ -43,18 +44,19 @@ export default function EduCompost(){
           </ItemCont>
         </RowCont>
 
+
         <RowCont>
           <ItemCont>
-            <EduImage src="fried-egg.png"></EduImage>
-            <Subhead text="Egg Shell" color="black"></Subhead>
+            <EduImage src="tea-bag.png"></EduImage>
+            <Subhead text="Tea Bag" color="black"></Subhead>
           </ItemCont>
           <ItemCont>
-            <EduImage src="fish-bone.png"></EduImage>
-            <Subhead text="Bones" color="black"></Subhead>
+            <EduImage src="fruits.png"></EduImage>
+            <Subhead text="Fruits" color="black"></Subhead>
           </ItemCont>
           <ItemCont>
-            <EduImage src="popsicle.png"></EduImage>
-            <Subhead text="Popsicle Sticks" color="black"></Subhead>
+            <EduImage src="vegetable.png"></EduImage>
+            <Subhead text="Vegetables" color="black"></Subhead>
           </ItemCont>
         </RowCont>
 

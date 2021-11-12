@@ -37,7 +37,6 @@ const MyButton = ({
     return <ButtonCont>
         <ClickButton onClick={()=>router.push(routeTo)} width={width} height={height} bgcolor={bgcolor} textcolor={textcolor} hoverbg={hoverbg}>{text}</ClickButton>
     </ButtonCont>
-
 }
 
 export default MyButton;

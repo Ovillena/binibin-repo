@@ -6,10 +6,11 @@ import React, {useState, useEffect} from 'react';
 import GuestNavBar from '../comps/GuestNavBar';
 import HeaderText from '../comps/HeaderText';
 import HeroComp from '../comps/HeroComp'
-import CircleIcon from '../comps/CircleImage';
+import CircleImage from '../comps/CircleImage';
 import MyButton from '../comps/Button';
 import Subhead from '../comps/SubheadText';
 import userNav from '../comps/UserNav';
+import EduImage from '../comps/EduImage';
 
 
 
@@ -87,19 +88,19 @@ export default function Home(){
 
     <MissionRow>
       <MissionCont>
-        <CircleIcon></CircleIcon>
+        <EduImage src="image 46.png"></EduImage>
         <Subhead text="Educate"></Subhead>
         <BodyText>Learn where your garbage should be going to lessen harmful impacts to the waste system.</BodyText>
       </MissionCont>
 
       <MissionCont>
-        <CircleIcon></CircleIcon>
+        <EduImage src="bar-graph.png"></EduImage>
         <Subhead text="Track"></Subhead>
         <BodyText>Learn where your garbage should be going to lessen harmful impacts to the waste system.</BodyText>
       </MissionCont>
 
       <MissionCont>
-        <CircleIcon></CircleIcon>
+        <EduImage src="reducing.png"></EduImage>
         <Subhead text="Reduce"></Subhead>
         <BodyText>Learn where your garbage should be going to lessen harmful impacts to the waste system.</BodyText>
       </MissionCont>

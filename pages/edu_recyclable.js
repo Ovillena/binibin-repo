@@ -39,22 +39,23 @@ export default function EduRecycle(){
           </ItemCont>
           <ItemCont>
             <EduImage src="wine-bottles.png"></EduImage>
-            <Subhead text="Glass Bottles" color="black"></Subhead>
+            <Subhead text="Glass Bottle" color="black"></Subhead>
           </ItemCont>
         </RowCont>
 
+
         <RowCont>
           <ItemCont>
-            <EduImage src="newspaper.png"></EduImage>
-            <Subhead text="Newspaper" color="black"></Subhead>
+            <EduImage src="eggs.png"></EduImage>
+            <Subhead text="Egg Carton" color="black"></Subhead>
           </ItemCont>
           <ItemCont>
-            <EduImage src="open-box.png"></EduImage>
-            <Subhead text="Cardboard" color="black"></Subhead>
+            <EduImage src="milk-box.png"></EduImage>
+            <Subhead text="Milk Container" color="black"></Subhead>
           </ItemCont>
           <ItemCont>
-            <EduImage src="wine-bottles.png"></EduImage>
-            <Subhead text="Glass Bottles" color="black"></Subhead>
+            <EduImage src="water.png"></EduImage>
+            <Subhead text="Water Bottle" color="black"></Subhead>
           </ItemCont>
         </RowCont>
 

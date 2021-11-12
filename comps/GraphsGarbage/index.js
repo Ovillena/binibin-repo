@@ -35,23 +35,29 @@ const data = {
 
 const options = {
   scales: {
-    xAxes:[{
-      gridLines:{
+    x:{
+      grid:{
         display:false
-      }
+      },
+    },
+    xAxes:[{
     }],
+    // y:{
+    //   grid:{
+    //     display:false
+    //   },
+    // },
     yAxes: [
       {
         ticks: {
           beginAtZero: true,
         },
-        gridLines:{
-          display:false
-        }
       },
     ],
   },
 };
+
+
 
 
 
@@ -63,7 +69,10 @@ const GraphCont = styled.div`
 
 `
 
+
+
 const GarbageBar = () => (
+  
   <>
     <div className='header'>
       <Subhead text="Garbage" fontsize="24px"></Subhead>

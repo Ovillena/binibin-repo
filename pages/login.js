@@ -15,6 +15,7 @@ const PageCont = styled.div`
     display:flex;
     flex-wrap:wrap;
     flex-direction:column;
+    min-height:100vh;
 `
 
 const TopRow = styled.div`
@@ -42,7 +43,11 @@ const RightCont = styled.div`
     align-items:center;
 `
 
-
+const FooterCont = styled.div`
+  display:flex;
+  flex:1;
+  align-items:flex-end;
+`
 
 export default function Login() {
   return (
@@ -54,20 +59,25 @@ export default function Login() {
       </TopRow>
 
     <MidCont>
-      <LeftCont>
-          <Image src={loginImage} width={500} height={300}/>
-      </LeftCont>
 
-      <RightCont>
+    <RightCont>
           <Header text="Login"></Header>
           <InputTextComp placeholder="Username"></InputTextComp>
           <InputPasswordComp></InputPasswordComp>
           <MyButton bgcolor="#95AFBA" routeTo="dashboard"></MyButton>
       </RightCont>
 
+      <LeftCont>
+          <Image src={loginImage} width={500} height={300}/>
+      </LeftCont>
+
+
+
     </MidCont>
 
-    <Footer></Footer>
+    <FooterCont>
+      <Footer></Footer>
+    </FooterCont>
 
       </PageCont>
     //</div>

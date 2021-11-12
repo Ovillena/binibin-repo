@@ -14,6 +14,7 @@ const PageCont = styled.div`
     display:flex;
     flex-wrap:wrap;
     flex-direction:column;
+    min-height:100vh;
 `
 
 const TopRow = styled.div`
@@ -39,6 +40,12 @@ const RightCont = styled.div`
     flex:1;
     justify-content:center;
     align-items:center;
+`
+
+const FooterCont = styled.div`
+  display:flex;
+  flex:1;
+  align-items:flex-end;
 `
 
 
@@ -68,7 +75,9 @@ export default function Signup() {
 
     </MidCont>
 
-    <Footer></Footer>
+    <FooterCont>
+      <Footer></Footer>
+    </FooterCont>
 
       </PageCont>
     //</div>

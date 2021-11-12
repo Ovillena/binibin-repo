@@ -5,7 +5,6 @@ import EduImage from '../comps/EduImage';
 import Subhead from '../comps/SubheadText';
 
 
-
 const PageCont = styled.div`
   display:flex;
   flex-direction:column;
@@ -46,18 +45,19 @@ export default function EduGarbage(){
           </ItemCont>
         </RowCont>
 
+
         <RowCont>
           <ItemCont>
-            <EduImage src="plastic-bag.png"></EduImage>
-            <Subhead text="Plastic Bags" color="black"></Subhead>
+            <EduImage src="snacks.png"></EduImage>
+            <Subhead text="Chip Bags" color="black"></Subhead>
           </ItemCont>
           <ItemCont>
-            <EduImage src="bubble-wrap.png"></EduImage>
-            <Subhead text="Bubble Wrap" color="black"></Subhead>
+            <EduImage src="face-mask.png"></EduImage>
+            <Subhead text="Face Mask" color="black"></Subhead>
           </ItemCont>
           <ItemCont>
-            <EduImage src="candy-wrapper.png"></EduImage>
-            <Subhead text="Candy Wrapper" color="black"></Subhead>
+            <EduImage src="straw.png"></EduImage>
+            <Subhead text="Plastic Straws" color="black"></Subhead>
           </ItemCont>
         </RowCont>
 

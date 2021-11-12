@@ -5,7 +5,8 @@ import React from 'react';
 
 import GuestNavBar from '../comps/GuestNavBar';
 import HeaderText from '../comps/HeaderText';
-import CircleImage from '../comps/CircleImage';
+import Side from '../comps/Side';
+
 
 
 const PageCont = styled.div`
@@ -21,7 +22,6 @@ const TopRow = styled.div`
 const HeaderCont = styled.div`
   display:flex;
   justify-content:center;
-  align-items:center;
 `
 
 const FooterCont = styled.div`
@@ -30,36 +30,21 @@ const FooterCont = styled.div`
   align-items:flex-end;
 `
 
-const ImageCont = styled.div`
-  display:flex;
-  justify-content:center;
-  
-`
-
-export default function AboutUs(){
+export default function Setting(){
   return (
     //<div className={styles.container}>
       <PageCont>
       <TopRow>
         <GuestNavBar></GuestNavBar>
       </TopRow>
-    
+
 
     <HeaderCont>
-      <HeaderText text="Meet Our Team"></HeaderText>
+      <HeaderText>Our Mission</HeaderText>
     </HeaderCont>
 
-    <ImageCont>
-      <CircleImage></CircleImage>
-      <CircleImage></CircleImage>
-      <CircleImage></CircleImage>
-    </ImageCont>
+    <Side></Side>
 
-    <ImageCont>
-      <CircleImage></CircleImage>
-      <CircleImage></CircleImage>
-      <CircleImage></CircleImage>
-    </ImageCont>
     
     <FooterCont>
       <FooterComp></FooterComp>
