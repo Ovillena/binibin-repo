@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import React from 'react';
 import Image from 'next/image';
 import Setting from '/public/settings.png'
-import User from '/public/User.png'
+import User from '/public/user.png'
 
 const Container = styled.div`
 display:flex;
