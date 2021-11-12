@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import { Image, Menu, Button} from 'semantic-ui-react';
 import MyButton from '../Button';
-import React from 'react';
 import {Router, useRouter} from 'next/router';
 
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 
 
 const NavCont = styled.div`
@@ -36,10 +37,10 @@ const NavItems = styled.a`
 
 
 const GuestNavBar = ({
-
     router = useRouter()
 
 }) =>{
+
 
 // if(){
     return <NavCont>
@@ -61,10 +62,10 @@ const GuestNavBar = ({
             <MyButton routeTo="/login"></MyButton>
         </NavItems>
 
-
     </NavCont>
 }
-// else()
+// else {
+    
 //     return 
 // }
 

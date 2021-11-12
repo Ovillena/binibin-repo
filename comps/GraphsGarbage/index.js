@@ -35,15 +35,26 @@ const data = {
 
 const options = {
   scales: {
+    xAxes:[{
+      gridLines:{
+        display:false
+      }
+    }],
     yAxes: [
       {
         ticks: {
           beginAtZero: true,
         },
+        gridLines:{
+          display:false
+        }
       },
     ],
   },
 };
+
+
+
 
 const GraphCont = styled.div`
   display:flex;

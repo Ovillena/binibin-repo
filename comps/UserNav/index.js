@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
 import { Image, Menu, Button, Item} from 'semantic-ui-react';
 import MyButton from '../Button';
 import {Router, useRouter} from 'next/router';
 import Subhead from "../SubheadText";
 
+import React from 'react';
 
 
 const NavCont = styled.div`
     display:flex;
     min-width:200px;
-    height:130px;
+    min-height:130px;
     background-color:white;
     box-shadow:0px 3px 30px grey; 
     justify-content:space-between;
@@ -46,17 +46,23 @@ const RightCol = styled.div`
 `
 const ItemsDiv = styled.div`    
     display:flex;
-
 `
 
-const UserNav = ({
+const SubHeader = styled.span`
+  font-size:18px;
+`;
 
-    router = useRouter()
+
+
+const UserNav = ({
+    router = useRouter(),
+    display_name="Username"
 
 }) =>{
 
 
     return <NavCont>
+
         <LogoCont>
             <Image src="/binibinlogo.png" alt="BiniBin Logo" width={204} height={52} 
             onClick={()=>router.push("/")}
@@ -66,7 +72,7 @@ const UserNav = ({
         <RightCol>
 
         <GreetingCont>
-            <Subhead text="Hi, Green Team"></Subhead>
+            <SubHeader>{display_name}</SubHeader>
         </GreetingCont>
 
         <ItemsDiv>
