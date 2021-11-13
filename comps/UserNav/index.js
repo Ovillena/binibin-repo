@@ -11,7 +11,7 @@ const NavCont = styled.div`
     display:flex;
     min-width:200px;
     height:130px;
-    background-color:white;
+    background-color:#97BCD0;
     box-shadow:0px 3px 30px grey; 
     justify-content:space-between;
     align-items:center;
@@ -26,7 +26,7 @@ const LogoCont = styled.div`
 `
 
 const TextCont = styled.div`
-    color:#598B2C;
+    color:white;
     font-weight:bold;
 `
 
@@ -50,7 +50,7 @@ const ItemsDiv = styled.div`
 
 const SubHeader = styled.h2`
   font-size:24px;
-  color:#598B2C;
+  color:white;
 `;
 
 

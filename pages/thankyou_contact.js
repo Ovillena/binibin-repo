@@ -9,9 +9,12 @@ import MyButton from '../comps/Button';
 
 
 const PageCont = styled.div`
-display:flex;
-flex-direction:column;
-min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
+  background-image:url('/13095.png');
+  background-size:cover;
+  background-repeat: no-repeat;
 `
 
 const TopRow = styled.div`

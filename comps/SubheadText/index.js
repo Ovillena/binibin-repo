@@ -13,7 +13,7 @@ const Subheader = styled.h2`
 
 const Subhead = ({
     text="Our Mission",
-    color="#42B3F0",
+    color="#0E73AA",
     fontsize="36px"
 
 }) =>{

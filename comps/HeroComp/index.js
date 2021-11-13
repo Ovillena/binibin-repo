@@ -34,7 +34,7 @@ const HeroComp = ({})=>{
         <TitleCont>
             <Title>See how your actions have an impact</Title>
             <ButtonCont>
-            <MyButton width="200px" height="65px" bgcolor="#FFC800" text="Explore Features" routeTo="features"></MyButton>
+            <MyButton width="200px" height="65px" bgcolor="#FFC800" text="Register" routeTo="signup"></MyButton>
             </ButtonCont>
         </TitleCont>
         

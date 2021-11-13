@@ -5,6 +5,7 @@ import router, { useRouter } from "next/router";
 
 const ButtonCont = styled.div`
     display:flex;
+    margin:10px;
 
 `
 

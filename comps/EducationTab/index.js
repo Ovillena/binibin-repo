@@ -10,9 +10,27 @@ import { Item } from 'semantic-ui-react';
 
 const Cont = styled.div`
     width:70%;
-    border: 5px solid #42B3F0;
+    border: 5px solid #0E73AA;
+    
     border-radius:10px;
 `
+const styles = {
+    slide: {
+      padding: 15,
+      minHeight: 100,
+      color: '#fff',
+    },
+    slide1: {
+      background: '#FEA900',
+    },
+    slide2: {
+      background: '#B3DC4A',
+    },
+    slide3: {
+      background: '#6AC0FF',
+    },
+  };
+
 
 //sx to override styles
 //<Box sx={{ bgcolor: 'green', width:'50%' }}>
@@ -31,11 +49,19 @@ const EducationTab = ({
         <AppBar position='relative' 
         sx={{
             height:'88px', 
-            backgroundColor:'#42B3F0',
+            backgroundColor:'#0E73AA',
             justifyContent:'center',
             }}>
-            <Tabs value={selectedTab} onChange={handleChange} centered textColor='black' indicatorColor="secondary"
+            <Tabs 
+            value={selectedTab} 
+            onChange={handleChange} 
+            centered 
+            textColor='black' 
+            indicatorColor="secondary"
+            variant="fullWidth"
+            
             sx={{
+                
                 
             }}>
                 <Tab label="Garbage"></Tab>

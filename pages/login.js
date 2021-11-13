@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 
 import GuestNavBar from '../comps/GuestNavBar'
 import Header from '../comps/HeaderText';
@@ -9,6 +10,7 @@ import InputPasswordComp from '../comps/InputPassword';
 import InputTextComp from '../comps/InputText';
 import Image from 'next/image';
 import loginImage from '../public/login_image.png';
+import EduImage from '../comps/EduImage';
 
 
 const PageCont = styled.div`
@@ -16,6 +18,7 @@ const PageCont = styled.div`
     flex-wrap:wrap;
     flex-direction:column;
     min-height:100vh;
+    background-color:#EEF9FF;
 `
 
 const TopRow = styled.div`
@@ -32,7 +35,8 @@ const LeftCont = styled.div`
     display:flex;
     flex:1;
     justify-content:center;
-    align-items:center;
+    align-items:flex-end;
+    margin-right:50px;
 `
 
 const RightCont = styled.div`
@@ -49,7 +53,50 @@ const FooterCont = styled.div`
   align-items:flex-end;
 `
 
+
+
+
+//Fake Data
+const fakeData = [{
+  account_id: 1,
+  username: "gates1",
+  email: "gates@gmail.com1",
+  school_id: 1,
+  admin_account_id: null,
+  display_name: "Principal Gates1",
+  is_admin: true
+}, {
+account_id: 2,
+username: "gates",
+email: "gates@gmail.com",
+school_id: 1,
+admin_account_id: null,
+display_name: "Principal Gates2",
+is_admin: true
+},
+]
+
 export default function Login() {
+
+  const [user, setUser] = useState(fakeData);
+
+  useEffect(()=>{
+    const GetUser = async () => {
+      const resp = await axios.get("https://binibin-server.herokuapp.com/auth/login");
+      // .catch((err)=>{
+      //   console.log(err);
+        
+      // });
+      console.log(resp)
+      //setUser(resp.data)
+
+      //user.map not a function error when I uncomment the setUser. so it's still pulling from fakeData
+
+    };
+
+    GetUser();
+  }, []);
+
   return (
     //<div className={styles.container}>
       <PageCont>
@@ -57,6 +104,15 @@ export default function Login() {
       <TopRow>
         <GuestNavBar></GuestNavBar>
       </TopRow>
+
+            {/* {
+        user.map((o,i)=>(
+          <CardWrapper key={i}>
+            <UserNav display_name={o.display_name}/>
+          </CardWrapper>
+          )
+        )
+      } */}
 
     <MidCont>
 
@@ -67,8 +123,9 @@ export default function Login() {
           <MyButton bgcolor="#95AFBA" routeTo="dashboard"></MyButton>
       </RightCont>
 
+
       <LeftCont>
-          <Image src={loginImage} width={500} height={300}/>
+          <Image src={'/6162.png'} width={853} height={447}/>
       </LeftCont>
 
 

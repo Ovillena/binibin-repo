@@ -8,7 +8,7 @@ const HeaderCont = styled.div`
 
 const Heading = styled.h1`
     font-size:48px;
-    color:#42B3F0;
+    color:#0E73AA;
     padding:30px;
 `
 

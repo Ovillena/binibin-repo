@@ -9,6 +9,7 @@ import InputPasswordComp from '../comps/InputPassword';
 import InputTextComp from '../comps/InputText';
 import Image from 'next/image';
 import loginImage from '../public/login_image.png';
+import SignupComp from '../comps/SignupComp';
 
 const PageCont = styled.div`
     display:flex;
@@ -50,7 +51,7 @@ const FooterCont = styled.div`
 `
 
 
-export default function Signup() {
+export default function SignupTest() {
   return (
     //<div className={styles.container}>
       <PageCont>
@@ -62,12 +63,7 @@ export default function Signup() {
     <MidCont>
       <LeftCont>
         <Header text="Sign Up"></Header>
-        <InputTextComp placeholder="First Name"></InputTextComp>
-        <InputTextComp placeholder="Last Name"></InputTextComp>
-        <InputTextComp placeholder="Email"></InputTextComp>
-        <InputTextComp placeholder="Enterprise Name"></InputTextComp>
-        <InputPasswordComp></InputPasswordComp>
-        <MyButton bgcolor="#95AFBA" text="Submit" routeTo="thankyou_register"></MyButton>
+        <SignupComp></SignupComp>
       </LeftCont>
 
       <RightCont>

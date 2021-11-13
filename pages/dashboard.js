@@ -77,24 +77,7 @@ const fakeData = [{
 
 export default function Dashboard() {
 
-  const [user, setUser] = useState(fakeData);
 
-  useEffect(()=>{
-    const GetUser = async () => {
-      const resp = await axios.get("https://binibin-server.herokuapp.com/auth/login");
-      // .catch((err)=>{
-      //   console.log(err);
-        
-      // });
-      console.log(resp)
-      //setUser(resp.data)
-
-      //user.map not a function error when I uncomment the setUser. so it's still pulling from fakeData
-
-    };
-
-    GetUser();
-  }, []);
 
   return (
     //<div className={styles.container}>
