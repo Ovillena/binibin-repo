@@ -35,11 +35,13 @@ const LoginComp = ({
 
 }) =>{
 
-    return <InputCont onSubmit={''} method="post" action="dashboard">
+    return <>
+    <InputCont action="dashboard">
         <InputText width={width} height={height} placeholder={placeholder}></InputText>
         <InputPasswordComp></InputPasswordComp>
         <Submit></Submit>
     </InputCont>
+    </>
 }
 
 export default LoginComp;

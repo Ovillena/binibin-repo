@@ -4,13 +4,8 @@ import axios from 'axios';
 
 import GuestNavBar from '../comps/GuestNavBar'
 import Header from '../comps/HeaderText';
-import MyButton from '../comps/Button';
 import Footer from '../comps/footer';
-import InputPasswordComp from '../comps/InputPassword';
-import InputTextComp from '../comps/InputText';
 import Image from 'next/image';
-import loginImage from '../public/login_image.png';
-import EduImage from '../comps/EduImage';
 import LoginComp from '../comps/LoginFormComp';
 
 const PageCont = styled.div`
