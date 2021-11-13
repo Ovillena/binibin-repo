@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import {Tab, Tabs, AppBar, Box} from '@mui/material';
 import { Item } from 'semantic-ui-react';
-import useSWR from 'swr';
 import Garbages from '../Garbage';
 import Recycles from '../Recycle';
 
