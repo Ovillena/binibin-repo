@@ -29,6 +29,7 @@ const TopRow = styled.div`
 const HeaderCont = styled.div`
   display:flex;
   justify-content:center;
+  margin:50px;
 `
 
 const FooterCont = styled.div`
@@ -65,7 +66,7 @@ const ParagraphSec = styled.div`
 `
 
 const BodyText = styled.p`
-  width:50%;
+  width:75;
 `
 const ButtonCont = styled.div`
   display:flex;

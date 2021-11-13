@@ -9,6 +9,7 @@ import Subhead from '../comps/SubheadText';
 import InputTextComp from '../comps/InputText';
 import MyButton from '../comps/Button';
 import MessageBoxComp from '../comps/MessageBox';
+import Submit from '../comps/SubmitBtn';
 
 const PageCont = styled.div`
   display:flex;
@@ -34,7 +35,7 @@ const FooterCont = styled.div`
   align-items:flex-end;
 `
 
-const InputCont = styled.div`
+const InputCont = styled.form`
     display:flex;
     justify-content:center;
     align-items:center;
@@ -61,11 +62,11 @@ export default function CustomerService() {
         </div>
     </HeaderCont>
 
-    <InputCont>
+    <InputCont onSubmit={''} method="post" action="thankyou_contact">
         <InputTextComp placeholder="Name"></InputTextComp>
         <InputTextComp placeholder="Email"></InputTextComp>
         <MessageBoxComp placeholder="Enter your message" width="403px" height="202px" ></MessageBoxComp>
-        <MyButton text="Submit" bgcolor="#95AFBA" routeTo="thankyou_contact"></MyButton>
+        <Submit></Submit>
     </InputCont>
 
     <FooterCont>

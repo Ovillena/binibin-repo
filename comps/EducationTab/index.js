@@ -1,35 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Tab, Tabs, AppBar, Box} from '@mui/material';
+import {Tab, Tabs, AppBar, Box, createTheme} from '@mui/material';
 import EduGarbage from '../../pages/edu_garbage';
 import EduRecycle from '../../pages/edu_recyclable';
 import EduCompost from '../../pages/edu_compost';
-import { Item } from 'semantic-ui-react';
+
 
 //Testing MUI tabs api 
 
 const Cont = styled.div`
     width:70%;
     border: 5px solid #0E73AA;
-    
     border-radius:10px;
+    background-color:#97BCD0;
 `
-const styles = {
-    slide: {
-      padding: 15,
-      minHeight: 100,
-      color: '#fff',
-    },
-    slide1: {
-      background: '#FEA900',
-    },
-    slide2: {
-      background: '#B3DC4A',
-    },
-    slide3: {
-      background: '#6AC0FF',
-    },
-  };
+const styles = theme => ({
+  indicator: {
+    backgroundColor: 'white',
+  },
+})
 
 
 //sx to override styles
@@ -37,7 +26,11 @@ const styles = {
 
 const EducationTab = ({
 
+
 }) =>{
+
+
+
     const [selectedTab, setSelectedTab] = React.useState(0);
 
     const handleChange = (event, newValue) => {
@@ -52,6 +45,7 @@ const EducationTab = ({
             backgroundColor:'#0E73AA',
             justifyContent:'center',
             }}>
+
             <Tabs 
             value={selectedTab} 
             onChange={handleChange} 
@@ -59,14 +53,35 @@ const EducationTab = ({
             textColor='black' 
             indicatorColor="secondary"
             variant="fullWidth"
-            
-            sx={{
-                
-                
+            sx={{ 
+
             }}>
-                <Tab label="Garbage"></Tab>
-                <Tab label="Recycle"></Tab>
-                <Tab label="Compost"></Tab>
+                <Tab label="Garbage"
+                sx={{ 
+                  fontFamily:'Hind, sans-serif',
+                  fontSize:24, 
+                  fontWeight: 'semi-bold'
+                
+                }}>
+                </Tab>
+
+                <Tab label="Recycle"
+                  sx={{ 
+                    fontFamily:'Hind, sans-serif',
+                    fontSize:24, 
+                    fontWeight: 'semi-bold'
+                  
+                  }}>
+                </Tab>
+                <Tab label="Compost"
+                  sx={{ 
+                    fontFamily:'Hind, sans-serif',
+                    fontSize:24, 
+                    fontWeight: 'semi-bold'
+                
+                  }}>
+
+                </Tab>
             </Tabs>
         </AppBar>
         {selectedTab === 0 && <EduGarbage/>}

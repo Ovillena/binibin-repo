@@ -9,12 +9,13 @@ const SubheadCont = styled.div`
 const Subheader = styled.h2`
     font-size:${props=>props.fontsize};
     color:${props=>props.color};
+    font-family: 'Hind', sans-serif;
 `
 
 const Subhead = ({
     text="Our Mission",
     color="#0E73AA",
-    fontsize="36px"
+    fontsize="24px"
 
 }) =>{
 

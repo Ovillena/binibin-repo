@@ -6,16 +6,17 @@ const Cont = styled.div`
 `
 
 const SubmitBtn = styled.input.attrs({ type: 'submit' })`
-  background:#95AFBA;
+  background:#2C5489;
   color: #fff;
   height:${props=>props.height};
   width:${props=>props.width};
   cursor: pointer;
   margin-bottom: 0;
-  text-transform: uppercase;
-  border-radius: 5px;
+  border-radius: 10px;
   border-color: transparent;
   text-align: center;
+  font-size:24px;
+  font-family: font-family: 'Hind', sans-serif;
   &:hover {
     background-color:${props=>props.hoverbg};
   }
@@ -24,7 +25,7 @@ const SubmitBtn = styled.input.attrs({ type: 'submit' })`
 const Submit = ({
     width="200px",
     height="60px",
-    hoverbg="yellow",
+    hoverbg="#6193D6",
     
 
 }) =>{

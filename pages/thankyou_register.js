@@ -76,7 +76,7 @@ export default function Register(){
     </Div>
 
     <ButtonCont>
-      <MyButton routeTo="/" width="183px" height="57px" bgcolor="#2C5489" text="Learn More" routeTo="/education"></MyButton>
+      <MyButton routeTo="/" width="183px" height="57px" bgcolor="#2C5489" text="Learn More" hoverbg="#6193D6" routeTo="/education"></MyButton>
     </ButtonCont>
 
     </TextCont>

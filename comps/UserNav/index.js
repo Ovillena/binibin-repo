@@ -28,11 +28,13 @@ const LogoCont = styled.div`
 const TextCont = styled.div`
     color:white;
     font-weight:bold;
+    
 `
 
 const NavItems = styled.a`
     font-size:24px;
     padding:10px;
+    cursor: pointer;
 `
 
 const GreetingCont = styled.div`

@@ -21,7 +21,6 @@ const PageCont = styled.div`
 
 const TopRow = styled.div`
   display:flex;
-
 `
 
 const HeaderCont = styled.div`
@@ -38,16 +37,22 @@ const FooterCont = styled.div`
 const TopIcons = styled.div`
     display:flex;
     justify-content:space-evenly;
-    flex:1;
+    flex:1;   
+    flex-wrap:wrap;
+    flex-direction:row;
 `
 
 const BotRow = styled.div`
     display:flex;
     justify-content:space-evenly;
+    flex-wrap:wrap;
 `
 
 const IconDiv = styled.div`
   text-align:center;
+  flex-wrap:wrap;
+  display:flex;
+  flex-direction:column;
 `
 
 const CardWrapper = styled.div`

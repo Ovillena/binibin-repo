@@ -31,6 +31,7 @@ const TextCont = styled.div`
 const NavItems = styled.a`
     font-size:24px;
     padding:10px;
+    cursor: pointer;
 `
 
 

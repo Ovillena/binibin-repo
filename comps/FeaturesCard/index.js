@@ -14,10 +14,12 @@ const CardCont = styled.div`
   padding:60px 40px 60px 40px;
   margin:10px;
   text-align:center;
+  font-family: 'Hind', sans-serif;
 `;
 
 const SmallHeading = styled.h2`
-color:white;
+  color:white;
+  font-family: 'Hind', sans-serif;
 `;
 
 const Paragraph = styled.p`
