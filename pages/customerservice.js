@@ -62,7 +62,7 @@ export default function CustomerService() {
         </div>
     </HeaderCont>
 
-    <InputCont onSubmit={''} method="post" action="thankyou_contact">
+    <InputCont action="thankyou_contact">
         <InputTextComp placeholder="Name"></InputTextComp>
         <InputTextComp placeholder="Email"></InputTextComp>
         <MessageBoxComp placeholder="Enter your message" width="403px" height="202px" ></MessageBoxComp>

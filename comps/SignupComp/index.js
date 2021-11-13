@@ -35,7 +35,8 @@ const SignupComp = ({
 
 }) =>{
 
-    return <InputCont onSubmit={''} method="post" action="binibin.vercel.app/thankyou_register">
+    return <>
+    <InputCont action="thankyou_register">
         <InputText width={width} height={height} placeholder={placeholder}></InputText>
         <InputText width={width} height={height} placeholder={'Last Name'}></InputText>
         <InputText width={width} height={height} placeholder={'Email'}></InputText>
@@ -43,6 +44,7 @@ const SignupComp = ({
         <InputText width={width} height={height} placeholder={'Enterprise Name'}></InputText>
         <Submit></Submit>
     </InputCont>
+    </>
 }
 
 export default SignupComp;
