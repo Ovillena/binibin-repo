@@ -65,7 +65,7 @@ export default function CustomerService() {
         <InputTextComp placeholder="Name"></InputTextComp>
         <InputTextComp placeholder="Email"></InputTextComp>
         <MessageBoxComp placeholder="Enter your message" width="403px" height="202px" ></MessageBoxComp>
-        <MyButton text="Submit" bgcolor="#95AFBA"></MyButton>
+        <MyButton text="Submit" bgcolor="#95AFBA" routeTo="thankyou_contact"></MyButton>
     </InputCont>
 
     <FooterCont>

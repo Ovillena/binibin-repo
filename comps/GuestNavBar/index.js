@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 import { Image, Menu, Button} from 'semantic-ui-react';
 import MyButton from '../Button';
-import React from 'react';
-import {useRouter} from 'next/router';
+import {Router, useRouter} from 'next/router';
+
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 
 
 const NavCont = styled.div`
@@ -28,17 +30,19 @@ const TextCont = styled.div`
     font-weight:bold;
 `
 
-const NavItems = styled.div`
+const NavItems = styled.a`
     font-size:24px;
     padding:10px;
 `
 
 
 const GuestNavBar = ({
-
     router = useRouter()
 
 }) =>{
+
+
+// if(){
     return <NavCont>
         <LogoCont>
             <Image src="/binibinlogo.png" alt="BiniBin Logo" width={204} height={52} 
@@ -52,14 +56,17 @@ const GuestNavBar = ({
             <TextCont onClick={()=>router.push("/features")}>Features</TextCont>
         </NavItems>
         <NavItems>
-            <TextCont onClick={()=>router.push("/learnmore")} >Learn More</TextCont>
+            <TextCont onClick={()=>router.push("/education")} >Learn More</TextCont>
         </NavItems>
         <NavItems>
             <MyButton routeTo="/login"></MyButton>
         </NavItems>
-        
+
     </NavCont>
-    
 }
+// else {
+    
+//     return 
+// }
 
 export default GuestNavBar;

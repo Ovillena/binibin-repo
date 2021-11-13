@@ -19,6 +19,9 @@ const ClickButton = styled.button`
     border-radius:10px;
     box-shadow:0px 4px 4px grey; 
     border:none;
+    &:hover {
+        background-color:${props=>props.hoverbg};
+      }
 `
 
 const MyButton = ({
@@ -27,13 +30,13 @@ const MyButton = ({
     bgcolor="#598B2C",
     text="Login",
     textcolor="white",
-    routeTo="/"
+    routeTo="/",
+    hoverbg="#95AFBA"
 
 }) =>{
     return <ButtonCont>
-        <ClickButton onClick={()=>router.push(routeTo)} width={width} height={height} bgcolor={bgcolor} textcolor={textcolor}>{text}</ClickButton>
+        <ClickButton onClick={()=>router.push(routeTo)} width={width} height={height} bgcolor={bgcolor} textcolor={textcolor} hoverbg={hoverbg}>{text}</ClickButton>
     </ButtonCont>
-
 }
 
 export default MyButton;

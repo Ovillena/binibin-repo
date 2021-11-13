@@ -8,6 +8,10 @@ import Header from '../comps/HeaderText';
 import MyButton from '../comps/Button';
 import Footer from '../comps/footer';
 import InputTab from '../comps/Input';
+import Garbages from '../comps/Garbage';
+import Quick from '../comps/Quickaccess';
+import UserNav from '../comps/UserNav';
+
 
 const PageCont = styled.div`
   display:flex;
@@ -45,7 +49,7 @@ export default function Home() {
     //<div className={styles.container}>
       <PageCont>
       <TopRow>
-        <GuestNavBar></GuestNavBar>
+        <UserNav></UserNav>
       </TopRow>
       <HeaderCont>
         <Header text="Input Data"></Header>

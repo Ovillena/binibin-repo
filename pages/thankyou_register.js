@@ -6,6 +6,7 @@ import React from 'react';
 import GuestNavBar from '../comps/GuestNavBar';
 import HeaderText from '../comps/HeaderText';
 import MyButton from '../comps/Button';
+import Subhead from '../comps/SubheadText';
 
 
 const PageCont = styled.div`
@@ -18,14 +19,16 @@ const TopRow = styled.div`
   display:flex;
 `
 
-const HeaderCont = styled.div`
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex:1;
-  text-align:center;
-  padding-left:25%;
-  padding-right:25%;
+const TextCont = styled.div`
+    display:flex;
+    flex:1;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+`
+
+const Div = styled.div`
+  
 `
 
 const FooterCont = styled.div`
@@ -48,16 +51,27 @@ export default function Home(){
         <GuestNavBar></GuestNavBar>
       </TopRow>
 
-    <HeaderCont>
-      <HeaderText text="Thanks for contacting us!
-        We’ll get back to you within 24 hours"></HeaderText>
-    </HeaderCont>
+
+    <TextCont>
+
+    <Div>
+      <HeaderText text="Thanks for registering!"></HeaderText>
+    </Div>
+
+    <Div>
+      <HeaderText text="We'll get back to your withing 24 hours"></HeaderText>
+    </Div>
+
+    <Div>
+      <Subhead text="In the mean time, check out these articles" color="#598B2C"></Subhead>
+    </Div>
 
 
     <ButtonCont>
-      <MyButton routeTo="/" width="183px" height="57px" bgcolor="#FFC800" text="Back Home" routeTo="/"></MyButton>
+      <MyButton routeTo="/" width="183px" height="57px" bgcolor="#FFC800" text="Learn More" routeTo="/education"></MyButton>
     </ButtonCont>
 
+    </TextCont>
     
     <FooterCont>
       <FooterComp></FooterComp>

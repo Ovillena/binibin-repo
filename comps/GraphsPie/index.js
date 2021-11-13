@@ -33,8 +33,8 @@ const data = {
 
 const GraphCont = styled.div`
   display:flex;
-  width:489px;
-  height:228px;
+  width:300px;
+  height:300px;
 
 `
 

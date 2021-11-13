@@ -14,6 +14,7 @@ const PageCont = styled.div`
     display:flex;
     flex-wrap:wrap;
     flex-direction:column;
+    min-height:100vh;
 `
 
 const TopRow = styled.div`
@@ -41,6 +42,12 @@ const RightCont = styled.div`
     align-items:center;
 `
 
+const FooterCont = styled.div`
+  display:flex;
+  flex:1;
+  align-items:flex-end;
+`
+
 
 export default function Signup() {
   return (
@@ -59,7 +66,7 @@ export default function Signup() {
         <InputTextComp placeholder="Email"></InputTextComp>
         <InputTextComp placeholder="Enterprise Name"></InputTextComp>
         <InputPasswordComp></InputPasswordComp>
-        <MyButton bgcolor="#95AFBA"></MyButton>
+        <MyButton bgcolor="#95AFBA" text="Submit" routeTo="thankyou_register"></MyButton>
       </LeftCont>
 
       <RightCont>
@@ -68,7 +75,9 @@ export default function Signup() {
 
     </MidCont>
 
-    <Footer></Footer>
+    <FooterCont>
+      <Footer></Footer>
+    </FooterCont>
 
       </PageCont>
     //</div>

@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 import React from 'react';
 import MyButton from '../Button';
+import router, { useRouter } from "next/router";
 
 const Container = styled.div`
     display:flex;
     justify-content:center;
     align-items: center;
-    background-image:url(Hero.png);
+    background-image:url('/hero.png');
     background-repeat:no-repeat;
     background-size:cover;
     padding:10%;
@@ -33,7 +34,7 @@ const HeroComp = ({})=>{
         <TitleCont>
             <Title>See how your actions have an impact</Title>
             <ButtonCont>
-            <MyButton width="200px" height="65px" bgcolor="#FFC800" text="Explore Features"></MyButton>
+            <MyButton width="200px" height="65px" bgcolor="#FFC800" text="Explore Features" routeTo="features"></MyButton>
             </ButtonCont>
         </TitleCont>
         

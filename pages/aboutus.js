@@ -5,6 +5,7 @@ import React from 'react';
 
 import GuestNavBar from '../comps/GuestNavBar';
 import HeaderText from '../comps/HeaderText';
+import CircleImage from '../comps/CircleImage';
 
 
 const PageCont = styled.div`
@@ -20,6 +21,7 @@ const TopRow = styled.div`
 const HeaderCont = styled.div`
   display:flex;
   justify-content:center;
+  align-items:center;
 `
 
 const FooterCont = styled.div`
@@ -28,40 +30,10 @@ const FooterCont = styled.div`
   align-items:flex-end;
 `
 
-const MissionCont = styled.div`
-  width:273px;
-  text-align:center;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-`
-
-const MissionRow = styled.div`
-  display:flex;
-  flex:1;
-  justify-content:space-around;
-  flex-direction:row;
-  padding:20px;
-  flex-wrap:wrap;
-`
-
-const ParagraphSec = styled.div`
-  display:flex;
-  flex:1;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  text-align:center;
-  padding:20px;
-`
-
-const BodyText = styled.p`
-  width:50%;
-`
-const ButtonCont = styled.div`
+const ImageCont = styled.div`
   display:flex;
   justify-content:center;
-  padding:20px;
+  
 `
 
 export default function AboutUs(){
@@ -73,12 +45,21 @@ export default function AboutUs(){
       </TopRow>
     
 
-
     <HeaderCont>
-      <HeaderText text="About Us"></HeaderText>
+      <HeaderText text="Meet Our Team"></HeaderText>
     </HeaderCont>
 
+    <ImageCont>
+      <CircleImage></CircleImage>
+      <CircleImage></CircleImage>
+      <CircleImage></CircleImage>
+    </ImageCont>
 
+    <ImageCont>
+      <CircleImage></CircleImage>
+      <CircleImage></CircleImage>
+      <CircleImage></CircleImage>
+    </ImageCont>
     
     <FooterCont>
       <FooterComp></FooterComp>

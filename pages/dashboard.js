@@ -1,12 +1,16 @@
 import Footer from '../comps/footer'
 
 import styled from 'styled-components';
-import React from 'react';
 
 import GuestNavBar from '../comps/GuestNavBar';
 import HeaderText from '../comps/HeaderText';
 import IconComp from '../comps/Icon';
 import Subhead from '../comps/SubheadText';
+import UserNav from '../comps/UserNav';
+
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
+import { useRouter } from 'next/router';
 
 
 const PageCont = styled.div`
@@ -17,6 +21,7 @@ const PageCont = styled.div`
 
 const TopRow = styled.div`
   display:flex;
+
 `
 
 const HeaderCont = styled.div`
@@ -45,14 +50,69 @@ const IconDiv = styled.div`
   text-align:center;
 `
 
+const CardWrapper = styled.div`
+  
+  
+`
+
+//Fake Data
+const fakeData = [{
+    account_id: 1,
+    username: "gates1",
+    email: "gates@gmail.com1",
+    school_id: 1,
+    admin_account_id: null,
+    display_name: "Principal Gates1",
+    is_admin: true
+}, {
+  account_id: 2,
+  username: "gates",
+  email: "gates@gmail.com",
+  school_id: 1,
+  admin_account_id: null,
+  display_name: "Principal Gates2",
+  is_admin: true
+  },
+]
+
 export default function Dashboard() {
+
+  const [user, setUser] = useState(fakeData);
+
+  useEffect(()=>{
+    const GetUser = async () => {
+      const resp = await axios.get("https://binibin-server.herokuapp.com/auth/login");
+      // .catch((err)=>{
+      //   console.log(err);
+        
+      // });
+      console.log(resp)
+      //setUser(resp.data)
+
+      //user.map not a function error when I uncomment the setUser. so it's still pulling from fakeData
+
+    };
+
+    GetUser();
+  }, []);
+
   return (
     //<div className={styles.container}>
       <PageCont>
-      <TopRow>
-        <GuestNavBar></GuestNavBar>
-      </TopRow>
 
+    <TopRow>
+      <UserNav></UserNav>
+    </TopRow>
+
+      {/* {
+        user.map((o,i)=>(
+          <CardWrapper key={i}>
+            <UserNav display_name={o.display_name}/>
+          </CardWrapper>
+          )
+        )
+      } */}
+      
     <HeaderCont>
       <HeaderText text="User's Dashboard"></HeaderText>
     </HeaderCont>
@@ -74,18 +134,17 @@ export default function Dashboard() {
 
     <BotRow>
       <IconDiv>
-        <IconComp iconSymbol='wrench' routeTo="accountsetting"></IconComp>
+        <IconComp iconSymbol='wrench' routeTo="setting"></IconComp>
         <Subhead text='Account Settings' fontsize='24px'></Subhead>
       </IconDiv>
       <IconDiv>
-        <IconComp iconSymbol='file text' routeTo="learnmore"></IconComp>
+        <IconComp iconSymbol='file text' routeTo="education"></IconComp>
         <Subhead text='Learn More' fontsize='24px'></Subhead>
       </IconDiv>
       <IconDiv>
         <IconComp iconSymbol='headphones' routeTo="customerservice"></IconComp>
         <Subhead text='Customer Support' fontsize='24px'></Subhead>
       </IconDiv>
-
     </BotRow>  
 
 
@@ -94,7 +153,6 @@ export default function Dashboard() {
     </FooterCont>    
 
       </PageCont>
-
     //</div>
   )
 }
