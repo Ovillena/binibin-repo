@@ -27,22 +27,19 @@ const InputText = styled.input.attrs(props => ({
 `
 
 
-const SignupComp = ({
+const LoginComp = ({
     width="400px",
     height="52px",
-    placeholder="First Name"
+    placeholder="Email"
 
 
 }) =>{
 
-    return <InputCont onSubmit={''} method="post" action="thankyou_register">
+    return <InputCont onSubmit={''} method="post" action="dashboard">
         <InputText width={width} height={height} placeholder={placeholder}></InputText>
-        <InputText width={width} height={height} placeholder={'Last Name'}></InputText>
-        <InputText width={width} height={height} placeholder={'Email'}></InputText>
         <InputPasswordComp></InputPasswordComp>
-        <InputText width={width} height={height} placeholder={'Enterprise Name'}></InputText>
         <Submit></Submit>
     </InputCont>
 }
 
-export default SignupComp;
+export default LoginComp;

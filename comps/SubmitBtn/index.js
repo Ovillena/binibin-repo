@@ -16,19 +16,21 @@ const SubmitBtn = styled.input.attrs({ type: 'submit' })`
   border-radius: 5px;
   border-color: transparent;
   text-align: center;
-  &:active {
-    background-color: #f1ac15;
+  &:hover {
+    background-color:${props=>props.hoverbg};
   }
 `
 
 const Submit = ({
     width="200px",
     height="60px",
+    hoverbg="yellow",
+    
 
 }) =>{
 
     return <Cont>
-        <SubmitBtn width={width} height={height}></SubmitBtn>
+        <SubmitBtn width={width} height={height} hoverbg={hoverbg}></SubmitBtn>
     </Cont>
 }
 

@@ -13,9 +13,6 @@ const PageCont = styled.div`
   display:flex;
   flex-direction:column;
   min-height:100vh;
-  background-image:url('/13095.png');
-  background-size:cover;
-  background-repeat: no-repeat;
 `
 
 const TopRow = styled.div`
@@ -28,6 +25,7 @@ const TextCont = styled.div`
     flex-direction:column;
     align-items:center;
     justify-content:center;
+    margin-top:200px;
 `
 
 const Div = styled.div`
@@ -47,24 +45,13 @@ const ButtonCont = styled.div`
 `
 
 const ImageDiv = styled.div`
-  display:flex;
-  flex:1;
-  min-height:500px;
-  justify-content:center;
-  align-items:center;
   z-index:-1;
-`
-
-const BgImg = styled.div`
-  background-image:url('/13095.png');
-  background-size:cover;
-  background-repeat: no-repeat;
 `
 // background-image:url('/13095.png');
 // background-size:cover;
 // background-repeat: no-repeat;
 
-export default function Home(){
+export default function Register(){
   return (
     //<div className={styles.container}>
       <PageCont>
@@ -72,6 +59,7 @@ export default function Home(){
         <GuestNavBar></GuestNavBar>
       </TopRow>
 
+     
 
     <TextCont>
 
@@ -88,13 +76,14 @@ export default function Home(){
     </Div>
 
     <ButtonCont>
-      <MyButton routeTo="/" width="183px" height="57px" bgcolor="#FFC800" text="Learn More" routeTo="/education"></MyButton>
+      <MyButton routeTo="/" width="183px" height="57px" bgcolor="#2C5489" text="Learn More" routeTo="/education"></MyButton>
     </ButtonCont>
 
-    
     </TextCont>
-    
-
+      
+    <ImageDiv>
+      <EduImage src="13095.png" width="1440px" height="682px"></EduImage>
+    </ImageDiv>
 
     <FooterCont>
       <FooterComp></FooterComp>

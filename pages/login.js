@@ -11,7 +11,7 @@ import InputTextComp from '../comps/InputText';
 import Image from 'next/image';
 import loginImage from '../public/login_image.png';
 import EduImage from '../comps/EduImage';
-
+import LoginComp from '../comps/LoginFormComp';
 
 const PageCont = styled.div`
     display:flex;
@@ -27,8 +27,8 @@ const TopRow = styled.div`
 `
 const MidCont = styled.div`
     display:flex;
-    height:500px;
-
+    margin:200 50 200 50px;
+  
 `
 
 const LeftCont = styled.div`
@@ -118,17 +118,12 @@ export default function Login() {
 
     <RightCont>
           <Header text="Login"></Header>
-          <InputTextComp placeholder="Username"></InputTextComp>
-          <InputPasswordComp></InputPasswordComp>
-          <MyButton bgcolor="#95AFBA" routeTo="dashboard"></MyButton>
+          <LoginComp></LoginComp>
       </RightCont>
-
 
       <LeftCont>
           <Image src={'/6162.png'} width={853} height={447}/>
       </LeftCont>
-
-
 
     </MidCont>
 
