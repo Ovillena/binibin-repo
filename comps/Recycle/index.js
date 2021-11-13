@@ -27,9 +27,6 @@ const Inside = styled.div`
 display:flex;
 width:1203px;
 height:688px;
-border:solid #95AFBA;
-box-shadow:0px 3px 30px grey; 
-border-radius: 30px 30px 20px 20px;
 justify-content:center;
 align-content:center;
 `
@@ -185,14 +182,7 @@ const Recycles = ({
   textcolor="white",
   src="plus.png",
 })=>{
-  return<Inside>
-    <Bottom>
-    <Garbage><Text>Garbage/Compost</Text></Garbage>
-    <Recycle><Select>Recyclable/Search</Select></Recycle>
-    </Bottom>
-    
-
-    
+  return<Inside>  
     <Cont>  
     <Inputs>
 
