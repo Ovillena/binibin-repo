@@ -35,7 +35,7 @@ const LoginComp = ({
 
 }) =>{
 
-    return <InputCont onSubmit={''} method="post" action="/dashboard">
+    return <InputCont onSubmit={''} method="post" action="binibin.vercel.app/dashboard">
         <InputText width={width} height={height} placeholder={placeholder}></InputText>
         <InputPasswordComp></InputPasswordComp>
         <Submit></Submit>
