@@ -1,9 +1,13 @@
 import React from "react";
 import styled from 'styled-components';
-
+import Submit from "../SubmitBtn";
 
 const InputCont = styled.form`
     padding:10px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
 `    
 
 const InputText = styled.input.attrs(props => ({
@@ -21,6 +25,7 @@ const InputText = styled.input.attrs(props => ({
     margin:10px;
 `
 
+
 const SignupComp = ({
     width="400px",
     height="52px",
@@ -33,7 +38,7 @@ const SignupComp = ({
         <InputText width={width} height={height} placeholder={'Last Name'}></InputText>
         <InputText width={width} height={height} placeholder={'Email'}></InputText>
         <InputText width={width} height={height} placeholder={'Enterprise Name'}></InputText>
-        
+        <Submit></Submit>
     </InputCont>
 }
 
