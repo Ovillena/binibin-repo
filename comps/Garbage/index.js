@@ -8,7 +8,7 @@ const Container = styled.div`
 display:flex;
 flex-direction:row;
 margin-top:200px;
-margin-left:100px;
+margin-left:150px;
 gap:10px;
 `
 //Top bar (access , garbage and recycles)
@@ -24,8 +24,6 @@ const Inside = styled.div`
 display:flex;
 width:1206px;
 height:688px;
-border:solid #95AFBA;
-box-shadow:0px 3px 30px grey; 
 flex-direction:
 `
 //Quick access
@@ -145,11 +143,6 @@ const Garbages = ({
   src="garbagebag.png",
 })=>{
   return<Inside>
-    <Bottom>
-    <Garbage><Select>Garbage/Compost</Select></Garbage>
-    <Recycle><Text>Recyclable/Search</Text></Recycle>
-    </Bottom>
-
     <Container>
     <Inputs>
 

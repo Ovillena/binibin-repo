@@ -7,8 +7,7 @@ import icon2 from '/public/icon_throw_away.png';
 import Header from '../comps/HeaderText';
 import MyButton from '../comps/Button';
 import Footer from '../comps/footer';
-import Garbages from '../comps/Garbage';
-import Quick from '../comps/Quickaccess';
+import InputTab from '../comps/Input';
 
 const PageCont = styled.div`
   display:flex;
@@ -52,7 +51,7 @@ export default function Home() {
         <Header text="Input Data"></Header>
       </HeaderCont>
       <FeaturesCont>
-        <Garbages></Garbages>
+        <InputTab></InputTab>
       </FeaturesCont>
       <Footer></Footer>
       </PageCont>
