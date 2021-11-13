@@ -103,7 +103,7 @@ const Div = styled.div`
  display:flex;
  flex-direction:column;
  margin-left:329px;
- margin-top:-160px;
+ position:absolute;
 `
 
 const Entrydiv = styled.div`
