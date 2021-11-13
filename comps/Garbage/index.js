@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import React from 'react';
 import Image from 'next/image';
 import { Button } from 'semantic-ui-react';
+import EduImage from '../EduImage';
 
 //inputs
 const Container = styled.div`
@@ -24,7 +25,7 @@ const Inside = styled.div`
 display:flex;
 width:1206px;
 height:688px;
-flex-direction:
+position:static;
 `
 //Quick access
 const Side = styled.div`
@@ -70,7 +71,7 @@ text-align:center;
 // Main inputs (where u can entry the stuff)
 const Inputs = styled.div`
 width:506px;
-height:200px;
+height:205px;
 display:flex;
 flex-direction:column;
 box-shadow:0px 3px 30px grey; 
@@ -93,19 +94,16 @@ const ClickButton = styled.button`
     border:none;
 `
 
-const Items = styled.image`
-width:300px;
-height:200px;
-position:absolute;
+const Items = styled.div`
 display:flex;
-align-content:center;
-align-items:center;
-justify-content:center;
+margin-top:30px;
+margin-left:50px
 `
 const Div = styled.div`
  display:flex;
  flex-direction:column;
  margin-left:329px;
+ margin-top:-160px;
 `
 
 const Entrydiv = styled.div`
@@ -147,6 +145,7 @@ const Garbages = ({
     <Inputs>
 
     <Items>
+      <EduImage src="garbagebag.png"></EduImage>
     </Items>
 
     <Div>
@@ -162,18 +161,22 @@ const Garbages = ({
     </ButtonCont>
     </Div>
     </Inputs>
+    
     <Inputs>
     <Items>
+    <EduImage src="garbagebag.png"></EduImage>
     </Items>
 
     <Div>
     <Headers>Compost</Headers>
     <Ml>Number of Bags</Ml>
+
     <Entrydiv>
     <Button>-</Button>
       <span>0</span>
     <Button>+</Button>
     </Entrydiv>
+    
     <ButtonCont>
         <ClickButton width={width} height={height} bgcolor={bgcolor} textcolor="white">{text}</ClickButton>
     </ButtonCont>
