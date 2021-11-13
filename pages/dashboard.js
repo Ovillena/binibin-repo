@@ -21,7 +21,6 @@ const PageCont = styled.div`
 
 const TopRow = styled.div`
   display:flex;
-
 `
 
 const HeaderCont = styled.div`
@@ -38,16 +37,22 @@ const FooterCont = styled.div`
 const TopIcons = styled.div`
     display:flex;
     justify-content:space-evenly;
-    flex:1;
+    flex:1;   
+    flex-wrap:wrap;
+    flex-direction:row;
 `
 
 const BotRow = styled.div`
     display:flex;
     justify-content:space-evenly;
+    flex-wrap:wrap;
 `
 
 const IconDiv = styled.div`
   text-align:center;
+  flex-wrap:wrap;
+  display:flex;
+  flex-direction:column;
 `
 
 const CardWrapper = styled.div`
@@ -77,24 +82,7 @@ const fakeData = [{
 
 export default function Dashboard() {
 
-  const [user, setUser] = useState(fakeData);
 
-  useEffect(()=>{
-    const GetUser = async () => {
-      const resp = await axios.get("https://binibin-server.herokuapp.com/auth/login");
-      // .catch((err)=>{
-      //   console.log(err);
-        
-      // });
-      console.log(resp)
-      //setUser(resp.data)
-
-      //user.map not a function error when I uncomment the setUser. so it's still pulling from fakeData
-
-    };
-
-    GetUser();
-  }, []);
 
   return (
     //<div className={styles.container}>

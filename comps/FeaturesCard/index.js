@@ -8,16 +8,18 @@ const CardCont = styled.div`
   flex-direction:column;
   justify-content:center;
   align-items:center;
-  background-color:#95AFBA;
+  background-color:#0E73AA;
   border-radius:10px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   padding:60px 40px 60px 40px;
   margin:10px;
   text-align:center;
+  font-family: 'Hind', sans-serif;
 `;
 
 const SmallHeading = styled.h2`
-color:white;
+  color:white;
+  font-family: 'Hind', sans-serif;
 `;
 
 const Paragraph = styled.p`

@@ -11,6 +11,7 @@ import MyButton from '../comps/Button';
 import Subhead from '../comps/SubheadText';
 import userNav from '../comps/UserNav';
 import EduImage from '../comps/EduImage';
+import FeaturesCard from '../comps/FeaturesCard';
 
 
 
@@ -18,6 +19,7 @@ const PageCont = styled.div`
 display:flex;
 flex-direction:column;
 min-height:100vh;
+background-color:#EEF9FF;
 `
 
 const TopRow = styled.div`
@@ -27,6 +29,7 @@ const TopRow = styled.div`
 const HeaderCont = styled.div`
   display:flex;
   justify-content:center;
+  margin:50px;
 `
 
 const FooterCont = styled.div`
@@ -63,13 +66,20 @@ const ParagraphSec = styled.div`
 `
 
 const BodyText = styled.p`
-  width:50%;
+  width:75;
 `
 const ButtonCont = styled.div`
   display:flex;
   justify-content:center;
   padding:20px;
 `
+
+const FeaturesCont = styled.div`
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+`;
 
 export default function Home(){
   return (
@@ -106,6 +116,18 @@ export default function Home(){
       </MissionCont>
 
     </MissionRow>
+
+
+    <HeaderCont>
+      <HeaderText text="Features"></HeaderText>
+    </HeaderCont>
+
+    <FeaturesCont>
+        <FeaturesCard></FeaturesCard>
+        <FeaturesCard src="/icon_throw_away.png" alt="throw away" h="Track" p="A visual tool to track the quantity and the breakdown of the waste produced the school"></FeaturesCard>
+        <FeaturesCard src="/icon_combo_chart.png" alt="chart" h="Reduce" p="Increase awareness of the environment to encourage the appropriate disposal of waste"></FeaturesCard>
+      </FeaturesCont>
+
 
     <ParagraphSec>
       <Subhead text="Recycling Problems"></Subhead>

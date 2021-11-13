@@ -5,6 +5,7 @@ import Image from 'next/image';
 const ImgCont = styled.div`
   width:${props=>props.width};
   height:${props=>props.height};
+  z-index:${props=>props.zindex};
 `;
 
 
@@ -17,10 +18,11 @@ const EduImage = ({
   alt="image",
   width="128px",
   height="128px",
+  zindex="1"
 
 }) => {
   return <ImgCont>
-    <Image loader={myLoader} src={src} width={width} height={height} alt={alt}/>
+    <Image loader={myLoader} src={src} width={width} height={height} alt={alt} zindex={zindex}/>
   </ImgCont>
 }
 
