@@ -7,11 +7,9 @@ import axios from 'axios';
 import UserNav from '../comps/UserNav';
 import Header from '../comps/HeaderText';
 import Footer from '../comps/footer';
-import PieChart from '../comps/GraphsPie';
-import GarbageBar from '../comps/GraphsGarbage';
+import GraphsGarbage from '../comps/GraphsGarbage/index';
 import CompostBar from '../comps/GraphsCompost';
 import RecycleBar from '../comps/GraphsRecycle';
-import WeekOfComp from '../comps/GraphsWeek';
 import GraphsSum from '../comps/GraphsSum';
 
 const PageCont = styled.div`
@@ -131,7 +129,7 @@ export default function Graphs() {
       {/* {
         number.map((o,i)=>(
           <CardWrapper key={i}>
-          <GarbageBar item_count={o.item_count}/>
+          <GraphsGarbage item_count={o.item_count}/>
           </CardWrapper>
           )
         )
@@ -139,7 +137,7 @@ export default function Graphs() {
 
       <TopGraphs>
         <GraphDiv>
-          <GarbageBar></GarbageBar>
+          <GraphsGarbage></GraphsGarbage>
         </GraphDiv>
         <GraphDiv>
           <CompostBar></CompostBar>

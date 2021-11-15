@@ -40,10 +40,10 @@ const options = {
         display:false
       },
     },
-    yAxes: [
+    y: [
       {
         ticks: {
-          beginAtZero: true,
+          beginAtZero:true,
         },
       },
     ],
