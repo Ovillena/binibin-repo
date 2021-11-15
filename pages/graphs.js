@@ -7,7 +7,7 @@ import axios from 'axios';
 import UserNav from '../comps/UserNav';
 import Header from '../comps/HeaderText';
 import Footer from '../comps/footer';
-import GraphsGarbage from '../comps/GraphsGarbage/index';
+import GraphsGarbage from '../comps/GraphsGarbage';
 import CompostBar from '../comps/GraphsCompost';
 import RecycleBar from '../comps/GraphsRecycle';
 import GraphsSum from '../comps/GraphsSum';

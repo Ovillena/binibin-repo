@@ -40,7 +40,7 @@ const options = {
         display:false
       },
     },
-    y: [
+    yAxes: [
       {
         ticks: {
           beginAtZero: true,

@@ -6,6 +6,7 @@ import Subhead from '../SubheadText';
 
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import { render } from 'react-dom';
 
 const data = {
   labels: ['Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'],
@@ -68,45 +69,43 @@ const GraphCont = styled.div`
 `
 
 const GraphsGarbage = () => {
-  const [chartData, setChartData] = useState({})
+  const [chartData, setChartData] = React.useState(false)
   const [itemCount, setItemCount] = useState([]);
+  const [isLoading, setLoading] = useState(true);
+
   
-  const chart = () => {
-    //let ItemC = [];
+  useEffect(()=>{
+    
+    const GetData = async()=>{
+      setChartData({
+        labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Sat', 'Sun'],
+        datasets: [
+          {
+            label:'# of garbage',
+            data: [12, 25, 31, 10, 5, 16, 20],
+            backgroundColor:[
+              'pink'
+            ],
+            borderWidth: 1
+          }
+        ]
+      });
+    }
+    GetData();
+  }, []);
 
-    axios.get("https://binibin-server.herokuapp.com/api/entries")
-    .then(res => {
-      console.log(res);
-      setItemCount(res.item_count)
-      // for(const dataObj of res.data.data){
-      //   ItemC.push(parseInt(dataObj.item_count));
-      // }
-    })
-    .catch(err => {
-      console.log(err);
-    });
-    // console.log(ItemC);
+  // const chart = () => {
 
-    //Idk how to fix this.. TypeError: Cannot read properties of undefined (reading 'map')
-    setChartData({
-      labels: ['mon', 'tues', 'wed'],
-      datasets: [
-        {
-          label:'# of garbage',
-          data: itemCount,
-          backgroundColor:[
-            'rgba(75, 192, 192, 0.6)'
-          ],
-          borderWidth: 4
-        }
-      ]
-    });
-  }
-
-  useEffect(() => {
-    chart();
-  }, [])
+  //   axios.get("https://binibin-server.herokuapp.com/api/entries")
+  //   .then(res => {
+  //     console.log(res.data);
+  //     setItemCount(res.data.item_count)
+  //   })
+  //   .catch(err => {
+  //     console.log(err);
+  //   });
   
+  if (chartData){
   return(
   <>
     <div className='header'>
@@ -116,7 +115,7 @@ const GraphsGarbage = () => {
     
     <Bar data={chartData} options={{
       scales:{
-        y:[
+        yAxes:[
           {
             ticks:{
               beginAtZero:true
@@ -129,6 +128,11 @@ const GraphsGarbage = () => {
     </GraphCont>
   </>
   )
+  }
+  return(
+    <></>
+  )
+
 };
 
 export default GraphsGarbage;
