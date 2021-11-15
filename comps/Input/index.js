@@ -8,7 +8,7 @@ import Recycles from '../Recycle';
 //Testing MUI tabs api 
 
 const Cont = styled.div`
-    width:70%;
+    width:80%;
     border: 5px solid #95AFBA;
     border-radius:10px;
 `

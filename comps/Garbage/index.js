@@ -9,7 +9,7 @@ const Container = styled.div`
 display:flex;
 flex-direction:row;
 margin-top:200px;
-margin-left:150px;
+margin-left:80px;
 gap:10px;
 `
 //Top bar (access , garbage and recycles)
