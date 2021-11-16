@@ -14,6 +14,7 @@ const PageCont = styled.div`
 display:flex;
 flex-direction:column;
 min-height:100vh;
+background-color:#EEF9FF;
 `
 
 const TopRow = styled.div`
@@ -23,6 +24,7 @@ const TopRow = styled.div`
 const HeaderCont = styled.div`
   display:flex;
   justify-content:center;
+  margin:50px;
 `
 
 const FooterCont = styled.div`
@@ -37,6 +39,7 @@ const TopLinks = styled.div`
   flex-wrap:wrap;
   justify-content:space-around;
   padding:10px;
+  margin-left:50px;
 `
 
 const BotLinks = styled.div`
@@ -45,6 +48,7 @@ const BotLinks = styled.div`
   flex-wrap:wrap;
   min-width:100vw;
   padding:10px;
+  margin-left:50px;
 `
 
 const CatCont = styled.div`
