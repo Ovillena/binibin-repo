@@ -17,9 +17,9 @@ const PageCont = styled.div`
 `
 
 const TopRow = styled.div`
-    display:flex;
-    flex:1;
-`
+  display: flex;
+  flex: 1;
+`;
 const MidCont = styled.div`
     display:flex;
     margin:200 50 200 50px;
@@ -94,8 +94,7 @@ export default function Login() {
 
   return (
     //<div className={styles.container}>
-      <PageCont>
-
+    <PageCont>
       <TopRow>
         <GuestNavBar></GuestNavBar>
       </TopRow>
@@ -128,7 +127,5 @@ export default function Login() {
 
       </PageCont>
     //</div>
-  )
+  );
 }
-
-
