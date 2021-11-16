@@ -3,6 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import { Button } from 'semantic-ui-react';
 import EduImage from '../EduImage';
+import { useState } from 'react';
 
 //inputs
 const Container = styled.div`
@@ -102,14 +103,13 @@ margin-left:50px
 const Div = styled.div`
  display:flex;
  flex-direction:column;
- margin-left:329px;
+ margin-left:275px;
  position:absolute;
 `
 
 const Entrydiv = styled.div`
 width:158px;
 height:56px;
-background-color:orange;
 display:flex;
 align-items:center;
 align-content:center;
@@ -131,6 +131,7 @@ const myLoader = ({src}) => {
   return `${src}`
 }
 
+  
 
 const Garbages = ({
   width="158px",
@@ -139,7 +140,19 @@ const Garbages = ({
   text="Add Entry",
   textcolor="white",
   src="garbagebag.png",
+
+  
 })=>{
+  const [count, setCount] = React.useState(0);
+  
+  const inc = (event) => {
+    setCount(count + 1);
+  };
+  
+  const dec = () => {
+    setCount(count - 1);
+  }
+
   return<Inside>
     <Container>
     <Inputs>
@@ -152,9 +165,9 @@ const Garbages = ({
     <Headers>Garbage</Headers>
     <Ml>Number of bags</Ml>
     <Entrydiv>
-    <Button>-</Button>
-      <span>0</span>
-    <Button>+</Button>
+    <Button onClick={dec} >-</Button>
+      <input type="number" value={count}></input>
+    <Button onClick={inc}>+</Button>
     </Entrydiv>
     <ButtonCont>
         <ClickButton onClick={()=>{}} width={width} height={height} bgcolor={bgcolor} textcolor={textcolor}>{text}</ClickButton>
@@ -172,9 +185,9 @@ const Garbages = ({
     <Ml>Number of Bags</Ml>
 
     <Entrydiv>
-    <Button>-</Button>
-      <span>0</span>
-    <Button>+</Button>
+    <Button onClick={dec} >-</Button>
+      <input type="number" value={count}></input>
+    <Button onClick={inc}>+</Button>
     </Entrydiv>
     
     <ButtonCont>
