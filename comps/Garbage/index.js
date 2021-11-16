@@ -1,13 +1,15 @@
 import styled from 'styled-components';
 import React from 'react';
 import Image from 'next/image';
+import { Button } from 'semantic-ui-react';
+import EduImage from '../EduImage';
 
 //inputs
 const Container = styled.div`
 display:flex;
 flex-direction:row;
 margin-top:200px;
-margin-left:100px;
+margin-left:80px;
 gap:10px;
 `
 //Top bar (access , garbage and recycles)
@@ -23,9 +25,7 @@ const Inside = styled.div`
 display:flex;
 width:1206px;
 height:688px;
-border:solid #95AFBA;
-box-shadow:0px 3px 30px grey; 
-flex-direction:
+position:static;
 `
 //Quick access
 const Side = styled.div`
@@ -39,7 +39,7 @@ border:solid #95AFBA;
 `
 //Garbage
 const Garbage = styled.div`
-width:400px;
+width:600px;
 height:88px;
 background-color:white;
 display;flex;
@@ -49,7 +49,7 @@ border:solid #95AFBA;
 `
 //Recycle
 const Recycle = styled.div`
-width:400px;
+width:600px;
 height:88px;
 background-color:#95AFBA;
 display;flex;
@@ -71,7 +71,7 @@ text-align:center;
 // Main inputs (where u can entry the stuff)
 const Inputs = styled.div`
 width:506px;
-height:200px;
+height:205px;
 display:flex;
 flex-direction:column;
 box-shadow:0px 3px 30px grey; 
@@ -94,26 +94,28 @@ const ClickButton = styled.button`
     border:none;
 `
 
-const Items = styled.image`
-width:300px;
-height:200px;
-position:absolute;
+const Items = styled.div`
 display:flex;
-align-content:center;
-align-items:center;
-justify-content:center;
+margin-top:30px;
+margin-left:50px
 `
 const Div = styled.div`
  display:flex;
  flex-direction:column;
  margin-left:329px;
+ position:absolute;
 `
 
 const Entrydiv = styled.div`
 width:158px;
 height:56px;
 background-color:orange;
+display:flex;
+align-items:center;
+align-content:center;
+justify-content:center;
 `
+
 
 const Headers = styled.h2`
 color:black;
@@ -139,39 +141,42 @@ const Garbages = ({
   src="garbagebag.png",
 })=>{
   return<Inside>
-    <Bottom>
-    <Side><Text>Quick Access</Text></Side>
-    <Garbage><Select>Garbage/Compost</Select></Garbage>
-    <Recycle><Text>Recyclable/Search</Text></Recycle>
-    </Bottom>
-
     <Container>
     <Inputs>
 
     <Items>
-    <Image loader={myLoader} src={src}/>
+      <EduImage src="garbagebag.png"></EduImage>
     </Items>
 
     <Div>
     <Headers>Garbage</Headers>
     <Ml>Number of bags</Ml>
     <Entrydiv>
+    <Button>-</Button>
+      <span>0</span>
+    <Button>+</Button>
     </Entrydiv>
     <ButtonCont>
         <ClickButton onClick={()=>{}} width={width} height={height} bgcolor={bgcolor} textcolor={textcolor}>{text}</ClickButton>
     </ButtonCont>
     </Div>
     </Inputs>
+    
     <Inputs>
     <Items>
+    <EduImage src="garbagebag.png"></EduImage>
     </Items>
 
     <Div>
     <Headers>Compost</Headers>
     <Ml>Number of Bags</Ml>
-    <Entrydiv>
 
+    <Entrydiv>
+    <Button>-</Button>
+      <span>0</span>
+    <Button>+</Button>
     </Entrydiv>
+    
     <ButtonCont>
         <ClickButton width={width} height={height} bgcolor={bgcolor} textcolor="white">{text}</ClickButton>
     </ButtonCont>

@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import React from 'react';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
-
-import GuestNavBar from '../comps/GuestNavBar'
+import UserNav from '../comps/UserNav';
 import Header from '../comps/HeaderText';
 import Footer from '../comps/footer';
 import PieChart from '../comps/GraphsPie';
@@ -12,7 +12,7 @@ import GarbageBar from '../comps/GraphsGarbage';
 import CompostBar from '../comps/GraphsCompost';
 import RecycleBar from '../comps/GraphsRecycle';
 import WeekOfComp from '../comps/GraphsWeek';
-
+import GraphsSum from '../comps/GraphsSum';
 
 const PageCont = styled.div`
   display:flex;
@@ -58,22 +58,67 @@ const BottomGraphs = styled.div`
   flex-wrap:wrap;
 `
 
+const CardWrapper = styled.div`
+  margin:10px;
+`
+
+const fakeData = [
+  {
+      entry_id: 1,
+      item_name: "Can (200 mL)",
+      item_count: 5,
+      unit: "unit",
+      waste_type: "recycling"
+  },
+  {
+      entry_id: 2,
+      item_name: "Garbage",
+      item_count: 500,
+      unit: "g",
+      waste_type: "garbage"
+  },
+  {
+      entry_id: 3,
+      item_name: "Compost",
+      item_count: 400,
+      unit: "g",
+      waste_type: "compost"
+  },
+  {
+      entry_id: 4,
+      item_name: "Milk Carton (1 L)",
+      item_count: 2,
+      unit: "unit",
+      waste_type: "recycling"
+  }
+]
+
 export default function Graphs() {
+  
+  // const [number, setNumber] = useState(fakeData);
 
+  // useEffect(() => {
+  //   const GetNumber = async()=>{
+  //     const result = await axios.get("https://binibin-server.herokuapp.com/api/entries");
+  //     console.log(result);
+  //     //data from result will provide an array of films
+  //     setNumber(result.data)
+  //   }
 
-
+  //   GetNumber();
+  // }, [])
   return (
     //<div className={styles.container}>
       <PageCont>
       <TopRow>
-        <GuestNavBar></GuestNavBar>
+        <UserNav></UserNav>
       </TopRow>
 
       <HeaderCont>
         <Header text="Waste Tracked for November"></Header>
       </HeaderCont>
 
-      <WeekCont>
+      {/* <WeekCont>
         <WeekOfComp onPrevInteract={()=>{
           
         }}
@@ -81,8 +126,17 @@ export default function Graphs() {
 
         }}
         ></WeekOfComp>
-      </WeekCont>
+      </WeekCont> */}
       
+      {/* {
+        number.map((o,i)=>(
+          <CardWrapper key={i}>
+          <GarbageBar item_count={o.item_count}/>
+          </CardWrapper>
+          )
+        )
+      } */}
+
       <TopGraphs>
         <GraphDiv>
           <GarbageBar></GarbageBar>
@@ -97,7 +151,7 @@ export default function Graphs() {
         <RecycleBar></RecycleBar>
       </GraphDiv>
       <GraphDiv>
-        <PieChart></PieChart>
+        <GraphsSum></GraphsSum>
       </GraphDiv>
       </BottomGraphs>
 
