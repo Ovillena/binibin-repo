@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { Button } from 'semantic-ui-react';
 import EduImage from '../EduImage';
 import { useState } from 'react';
+import Modal from '../../pages/api/modal';
 
 //inputs
 const Container = styled.div`
@@ -143,6 +144,10 @@ const Garbages = ({
 
   
 })=>{
+
+  const [isOpen, setIsOpen] = useState(false)
+
+
   const [count, setCount] = React.useState(0);
   
   const inc = (event) => {
@@ -170,7 +175,18 @@ const Garbages = ({
     <Button onClick={inc}>+</Button>
     </Entrydiv>
     <ButtonCont>
-        <ClickButton onClick={()=>{}} width={width} height={height} bgcolor={bgcolor} textcolor={textcolor}>{text}</ClickButton>
+      
+        <ClickButton onClick={()=> setIsOpen(true)} width={width} height={height} bgcolor={bgcolor} textcolor={textcolor}>
+          
+          {text}
+        
+          <Modal open={isOpen} onClose={() => setIsOpen(false)}>
+            Hello testing
+          </Modal>
+        </ClickButton>
+
+   
+    
     </ButtonCont>
     </Div>
     </Inputs>
