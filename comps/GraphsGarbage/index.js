@@ -69,7 +69,7 @@ const GraphCont = styled.div`
 `
 
 const GraphsGarbage = () => {
-  const [chartData, setChartData] = React.useState(false)
+  const [chartData, setChartData] = useState(false)
   const [itemCount, setItemCount] = useState([]);
   const [isLoading, setLoading] = useState(true);
 
@@ -82,9 +82,9 @@ const GraphsGarbage = () => {
         datasets: [
           {
             label:'# of garbage',
-            data: [12, 25, 31, 10, 5, 16, 20],
+            data: itemCount,
             backgroundColor:[
-              'pink'
+              'black'
             ],
             borderWidth: 1
           }
@@ -92,18 +92,18 @@ const GraphsGarbage = () => {
       });
     }
     GetData();
+
+  
   }, []);
 
-  // const chart = () => {
-
-  //   axios.get("https://binibin-server.herokuapp.com/api/entries")
-  //   .then(res => {
-  //     console.log(res.data);
-  //     setItemCount(res.data.item_count)
-  //   })
-  //   .catch(err => {
-  //     console.log(err);
-  //   });
+    axios.get("https://binibin-server.herokuapp.com/api/entries")
+    .then(res => {
+      console.log(res.data);
+      setItemCount(res.data.item_count)
+    })
+    .catch(err => {
+      console.log(err);
+    });
   
   if (chartData){
   return(
