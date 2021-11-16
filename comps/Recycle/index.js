@@ -105,6 +105,7 @@ margin-right:30px;
 const ButtonCont = styled.div`
     display:flex;
     margin-top:10px;
+    margin-right:40px;
 
 `
 // button
