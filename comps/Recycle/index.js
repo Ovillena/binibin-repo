@@ -158,9 +158,10 @@ color:black;
 const Headerr = styled.div`
 display:flex;
 flex-direction:row;
-gap:225px;
+gap:210px;
 margin-left:10px;
 position:absolute;
+margin-top:10px;
 `
 
 const Title = styled.h2`
@@ -202,6 +203,7 @@ const Recycles = ({
     <Title>Type of Waste</Title> 
     <Title>Size</Title>
     <Title>Unit</Title>
+    <Title>Quantity</Title>
     </Headerr>
 
     <Inputs>
