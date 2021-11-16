@@ -80,12 +80,13 @@ const GraphsGarbage = () => {
       let itemC = [];
       let itemD = [];
 
-      axios.get("https://binibin-server.herokuapp.com/api/entries")
+      axios.get("https://binibin-server.herokuapp.com/api/entries/garbage/2021-11-01/2021-11-16")
       .then(res => {
         console.log(res.data);
         for(const dataObj of res.data){
-          itemC.push(parseInt(dataObj.item_count))
-          itemD.push(`${dataObj.month}/${dataObj.day}`)
+          itemC.push(parseInt(dataObj.total_items))
+          // itemD.push(`${dataObj.month}/${dataObj.day}`)
+          itemD.push(dataObj.entry_date)
           console.log(itemC, itemD);
         }
         setChartData({
@@ -99,7 +100,8 @@ const GraphsGarbage = () => {
               backgroundColor:[
                 'black'
               ],
-              borderWidth: 1
+              borderWidth: 1,
+              borderRadius:10
             }
           ]
         });
@@ -140,7 +142,6 @@ const GraphsGarbage = () => {
     //   console.log(err);
     // });
     
-    
 
   if (chartData){
   return(
@@ -152,6 +153,20 @@ const GraphsGarbage = () => {
     
     <Bar data={chartData} options={{
       scales:{
+        x:{
+          grid:{
+            display:false
+          },
+          ticks:{
+            display:true,
+            autoSkip:true,
+            maxTicksLimit:7
+          },
+        },
+        // y:{
+        //   min:0,
+        //   max:100
+        // },
         yAxes:[
           {
             ticks:{
