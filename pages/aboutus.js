@@ -22,18 +22,19 @@ const HeaderCont = styled.div`
   display:flex;
   justify-content:center;
   align-items:center;
+  margin:50px;
 `
 
 const FooterCont = styled.div`
   display:flex;
   flex:1;
   align-items:flex-end;
+  margin-top:50px;
 `
 
 const ImageCont = styled.div`
   display:flex;
   justify-content:center;
-  
 `
 
 export default function AboutUs(){

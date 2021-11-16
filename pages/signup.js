@@ -3,12 +3,11 @@ import React from 'react';
 
 import GuestNavBar from '../comps/GuestNavBar'
 import Header from '../comps/HeaderText';
-import MyButton from '../comps/Button';
 import Footer from '../comps/footer';
-import InputPasswordComp from '../comps/InputPassword';
-import InputTextComp from '../comps/InputText';
 import Image from 'next/image';
-import loginImage from '../public/login_image.png';
+import loginImage from '../public/6583.png';
+import SignupComp from '../comps/SignupComp';
+
 
 const PageCont = styled.div`
     display:flex;
@@ -23,7 +22,8 @@ const TopRow = styled.div`
 `
 const MidCont = styled.div`
     display:flex;
-    height:500px;
+    margin-top:100px;
+    margin-bottom:60px;
 
 `
 
@@ -46,10 +46,11 @@ const FooterCont = styled.div`
   display:flex;
   flex:1;
   align-items:flex-end;
+  margin-top:50px;
 `
 
 
-export default function Signup() {
+export default function SignupTest() {
   return (
     //<div className={styles.container}>
       <PageCont>
@@ -60,17 +61,12 @@ export default function Signup() {
 
     <MidCont>
       <LeftCont>
-        <Header text="Sign Up"></Header>
-        <InputTextComp placeholder="First Name"></InputTextComp>
-        <InputTextComp placeholder="Last Name"></InputTextComp>
-        <InputTextComp placeholder="Email"></InputTextComp>
-        <InputTextComp placeholder="Enterprise Name"></InputTextComp>
-        <InputPasswordComp></InputPasswordComp>
-        <MyButton bgcolor="#95AFBA" text="Submit" routeTo="thankyou_register"></MyButton>
+        <Header text="Register Enterprise"></Header>
+        <SignupComp></SignupComp>
       </LeftCont>
 
       <RightCont>
-        <Image src={loginImage} width={500} height={300}/>
+        <Image src={loginImage} width={821} height={374}/>
       </RightCont>
 
     </MidCont>

@@ -43,7 +43,7 @@ const options = {
     yAxes: [
       {
         ticks: {
-          beginAtZero: true,
+          beginAtZero:true,
         },
       },
     ],
