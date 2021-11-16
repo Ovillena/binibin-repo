@@ -7,20 +7,20 @@ const LoginForm = () => {
   //   const [cookie, setCookie] = useCookies["user"];
   const router = useRouter();
 
-  const handleSignIn = async () => {
-    try {
-      const response = await yourLoginFunction(username); //handle API call to sign in here.
-      const data = response.data;
+  // const handleSignIn = async () => {
+  //   try {
+  //     const response = await yourLoginFunction(username); //handle API call to sign in here.
+  //     const data = response.data;
 
-      setCookie("user", JSON.stringify(data), {
-        path: "/",
-        maxAge: 7200, // Expires after 1hr
-        sameSite: true,
-      });
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  //     setCookie("user", JSON.stringify(data), {
+  //       path: "/",
+  //       maxAge: 7200, // Expires after 1hr
+  //       sameSite: true,
+  //     });
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
   // get functions to build form with useForm() hook
 
   async function onSubmit(e) {
@@ -42,10 +42,6 @@ const LoginForm = () => {
       console.log(response);
     });
     console.log("--------------------------------------------");
-
-    // get return url from query parameters or default to '/'
-    // const returnUrl = router.query.returnUrl || "/";
-    // router.push(returnUrl);
   }
 
   // async function onSubmit(e) {
@@ -92,25 +88,26 @@ const LoginForm = () => {
           align-items: center;
         }
         input {
-          color: black;
-          font-size: 18px;
-          border: 5px solid #95afba;
-          border-radius: 10px;
-          padding: 10px;
           width: 400px;
           height: 52px;
+          color: black;
+          font-size: 18px;
+          border: 5px solid #0e73aa;
+          border-radius: 10px;
+          padding: 10px;
         }
         .loginBtn {
-          width: 150px;
-          height: 50px;
-          background-color: #598b2c;
-          color: white;
-          display: flex;
-          justify-content: center;
-          align-items: center;
+          background:#2C5489;
+          color: #fff;
+          height:60px;
+          width:200px;
+          cursor: pointer;
+          margin-bottom: 0;
           border-radius: 10px;
-          box-shadow: 0px 4px 4px grey;
-          border: none;
+          border-color: transparent;
+          text-align: center;
+          font-size:24px;
+          font-family: font-family: 'Hind', sans-serif;
         }
         .form-group {
           padding: 10px;
