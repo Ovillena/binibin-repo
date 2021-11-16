@@ -14,7 +14,7 @@ const Link = styled.a`
     background-color:${props=>props.bgcolor};
     color:${props=>props.textcolor};
     &:hover {
-        color: green;
+        color: #598B2C;
       }
 `
 
@@ -25,11 +25,11 @@ const HelpfulResource = ({
     bgcolor="#598B2C",
     text="Recycle BC: What Can I Recycle?",
     textcolor="#2C5489",
-    routeTo="/"
+    href="#"
 
 }) =>{
     return <Cont>
-        <Link onClick={()=>router.push(routeTo)} width={width} height={height} textcolor={textcolor}>{text}</Link>
+        <Link href={href} width={width} height={height} textcolor={textcolor}>{text}</Link>
     </Cont>
 
 }

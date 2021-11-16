@@ -35,6 +35,11 @@ const data = {
 
 const options = {
   scales: {
+    x:{
+      grid:{
+        display:false
+      },
+    },
     yAxes: [
       {
         ticks: {

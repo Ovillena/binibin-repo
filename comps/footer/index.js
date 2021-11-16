@@ -4,7 +4,7 @@ import router, { useRouter } from "next/router";
 
 const Container = styled.div`
     display:flex;
-    background-color:#95AFBA;
+    background-color:#0E73AA;
     display:flex;
     flex:1;
     height:80px;
@@ -29,7 +29,7 @@ const FooterComp = ({})=>{
     return<Container>
 
         <TitleCont>
-            <Title onClick={()=>router.push("/learnmore")}>Learn more</Title>
+            <Title onClick={()=>router.push("/education")}>Learn more</Title>
         </TitleCont>
 
         <TitleCont>

@@ -3,7 +3,7 @@ import React from 'react';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 
-import GuestNavBar from '../comps/GuestNavBar'
+import UserNav from '../comps/UserNav';
 import Header from '../comps/HeaderText';
 import Footer from '../comps/footer';
 import EntryItem from '../comps/EntryItem';
@@ -123,7 +123,7 @@ export default function Home() {
   }, [])
   return(
     <>
-      <GuestNavBar/>
+      <UserNav></UserNav>
       <HeaderCont>
         <Header text="Waste Tracked for November"></Header>
       </HeaderCont>

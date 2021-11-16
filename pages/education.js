@@ -7,13 +7,14 @@ import GuestNavBar from '../comps/GuestNavBar';
 import HeaderText from '../comps/HeaderText';
 import HelpfulResource from '../comps/HelpfulResource';
 import Subhead from '../comps/SubheadText';
-import EduGarbage from '../comps/EduGarbage';
+import EducationTab from '../comps/EducationTab';
 
 
 const PageCont = styled.div`
 display:flex;
 flex-direction:column;
 min-height:100vh;
+background-color:#EEF9FF;
 `
 
 const TopRow = styled.div`
@@ -23,6 +24,7 @@ const TopRow = styled.div`
 const HeaderCont = styled.div`
   display:flex;
   justify-content:center;
+  margin:50px;
 `
 
 const FooterCont = styled.div`
@@ -37,6 +39,7 @@ const TopLinks = styled.div`
   flex-wrap:wrap;
   justify-content:space-around;
   padding:10px;
+  margin-left:50px;
 `
 
 const BotLinks = styled.div`
@@ -45,6 +48,7 @@ const BotLinks = styled.div`
   flex-wrap:wrap;
   min-width:100vw;
   padding:10px;
+  margin-left:50px;
 `
 
 const CatCont = styled.div`
@@ -54,7 +58,7 @@ const CatCont = styled.div`
 const TabCont = styled.div`
   display:flex;
   justify-content:center;
-
+  align-items:center;
 `
 
 
@@ -70,8 +74,9 @@ export default function Education(){
       <HeaderText text ="What Goes Where?"></HeaderText>
     </HeaderCont>
 
+
     <TabCont>
-      <EduGarbage></EduGarbage>
+      <EducationTab></EducationTab>
     </TabCont>
 
 
@@ -83,21 +88,21 @@ export default function Education(){
     <TopLinks>
       <CatCont>
         <Subhead text="Search"></Subhead>
-          <HelpfulResource></HelpfulResource>
-          <HelpfulResource text="RCBC: Recycling FAQs"></HelpfulResource>
-          <HelpfulResource text="Vancouver Waste Wizard"></HelpfulResource>
+          <HelpfulResource href="https://recyclebc.ca/"></HelpfulResource>
+          <HelpfulResource text="RCBC: Recycling FAQs" href="https://www.rcbc.ca/resources/faqs"></HelpfulResource>
+          <HelpfulResource text="Vancouver Waste Wizard" href="https://vancouver.ca/home-property-development/waste-wizard.aspx"></HelpfulResource>
       </CatCont>
 
       <CatCont>
         <Subhead text="Articles"></Subhead>
-          <HelpfulResource text="BC Hydro: 10 Things About Recycling"></HelpfulResource>
-          <HelpfulResource text="RCBC: Fact Sheets and Case Studies"></HelpfulResource>
-          <HelpfulResource text="RCBC: What is Zero Waste?"></HelpfulResource>
+          <HelpfulResource text="BC Hydro: 10 Things About Recycling" href="https://www.bchydro.com/news/conservation/2019/10-things-about-recycling.html"></HelpfulResource>
+          <HelpfulResource text="RCBC: Fact Sheets and Case Studies" href="https://www.rcbc.ca/resources/additional-resources-links"></HelpfulResource>
+          <HelpfulResource text="RCBC: What is Zero Waste?" href="https://www.rcbc.ca/resources/zero-waste"></HelpfulResource>
       </CatCont>
 
       <CatCont>
         <Subhead text="Updates"></Subhead>
-          <HelpfulResource text="Metro Vancouver Performance"></HelpfulResource>
+          <HelpfulResource text="Metro Vancouver Performance" href="http://www.metrovancouver.org/dashboards/services/solid-waste/Pages/default.aspx"></HelpfulResource>
       </CatCont>
     </TopLinks>
 
@@ -105,13 +110,13 @@ export default function Education(){
     <BotLinks>
     <CatCont>
         <Subhead text="Games and Podcasts"></Subhead>
-        <HelpfulResource text="The RCBC Recyclepedia Podcast"></HelpfulResource>
-        <HelpfulResource text="ReCollect Waste Sorting Game"></HelpfulResource>
+        <HelpfulResource text="The RCBC Recyclepedia Podcast" href="https://www.rcbc.ca/content/rcbc-recyclepedia-podcast"></HelpfulResource>
+        <HelpfulResource text="ReCollect Waste Sorting Game" href="https://recollect.net/waste-sorting-game/"></HelpfulResource>
       </CatCont>
 
       <CatCont>
         <Subhead text="Events"></Subhead>
-        <HelpfulResource text="October 2021 Waste Reduction Week"></HelpfulResource>
+        <HelpfulResource text="October 2021 Waste Reduction Week" href="https://www.rcbc.ca/events/waste-reduction-week"></HelpfulResource>
       </CatCont>
       
       <CatCont></CatCont>
