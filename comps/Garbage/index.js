@@ -11,7 +11,8 @@ import {useState} from 'react';
 const Container = styled.div`
 	display: flex;
 	flex-direction: row;
-	margin-top: 200px;
+	margin-top: 50px;
+	margin-bottom: 50px;
 	margin-left: 80px;
 	gap: 10px;
 `;
