@@ -82,30 +82,7 @@ const FeaturesCont = styled.div`
 `;
 
 export default function Home() {
-  // async function checkAuth(e) {
-  //   e.preventDefault();
-  //   console.log(e.target.username.value);
-  //   const result = await axios({
-  //     // `https://binibin-server.herokuapp.com/auth/login`,
-  //     url: "http://localhost:8080/auth/login",
-  //     withCredentials: true,
-  //     method: "POST",
-  //     body: {
-  //       username: e.target.username.value,
-  //       password: e.target.password.value,
-  //     },
-  //     headers: {
-  //       "Access-Control-Allow-Origin": "*",
-  //     },
-  //     // headers: { "Content-Type": "application/json" },
-  //   });
-
-  //   console.log("--------------------------------------------");
-
-  //   // get return url from query parameters or default to '/'
-  //   // const returnUrl = router.query.returnUrl || "/";
-  //   // router.push(returnUrl);
-  // }
+  const [user, setUser] = useState(null);
 
   axios
     .get("http://localhost:8080/auth/checkauth", { withCredentials: true })
