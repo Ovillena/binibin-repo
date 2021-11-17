@@ -3,7 +3,6 @@ import React from 'react';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
@@ -12,14 +11,14 @@ import GuestNavBar from '../comps/GuestNavBar';
 import Header from '../comps/HeaderText';
 import Footer from '../comps/footer';
 import Button from '../comps/Button';
-import IGC from '../comps/InputGC';
-import IRS from '../comps/InputRS';
+import IGCR from '../comps/InputGCR';
 import BoldText from '../comps/BoldText';
 import EntryItem from '../comps/EntryItem';
 import { getFontDefinitionFromManifest } from 'next/dist/server/font-utils';
 
 const Cont = styled.div`
   display:flex;
+  flex-direction:column;
   margin:10px;
   padding:5px;
   justify-content:center;
@@ -48,6 +47,7 @@ export default function Home() {
   }, []);
   return(
     <Cont>
+    <SubCont>
       <Popup
         trigger={<button className="button"> View Added Entries </button>}
         modal
@@ -78,25 +78,13 @@ export default function Home() {
           </div>
         )}
       </Popup>
-    <Tabs>
-      <TabList>
-          <Tab>Garbage/Compost</Tab>
-          <Tab>Recyclable/Search</Tab>
-      </TabList>
-
-      <TabPanel>
-        <SubCont>
-          <IGC/>
-          <IGC item_name="Compost" waste_type="compost" src="compost.png" alt="compost"note="Example: cherry stem and seed, and apple core"/>
-        </SubCont>
-      </TabPanel>
-
-      <TabPanel>
-        <SubCont>
-          <IRS/>
-        </SubCont>
-      </TabPanel>
-    </Tabs>
+    </SubCont>
+    <SubCont>
+      <IGCR/>
+      <IGCR item_name="Compost" waste_type="compost" src="compost.png" alt="compost"note="Example: cherry stem and seed, and apple core"/>
+      <IGCR item_name="Recycling" waste_type="compost" src="juicebox.png" alt="compost" note="Example: juice box and container" optional="mandatory"/>
+      {/* <IRS/> */}
+    </SubCont>
   </Cont>
   )
 }

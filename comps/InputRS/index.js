@@ -5,6 +5,7 @@ const Cont = styled.form`
   display:flex;
   margin:10px;
   padding:10px;
+  flex-direction:column;
   background-color:#ccc;
   min-width:200px;
 `;
@@ -49,28 +50,21 @@ const Submit = styled.input`
   margin-top:10px;
 `;
 
-// const myLoader = ({src}) => {
-//   return `${src}`
-// }
+const myLoader = ({src}) => {
+  return `${src}`
+}
 
 const IRS = ({
   // item_name="Recycling (quantity unit)",
   unit="items",
-  // src="juicebox.png",
-  // alt="recyclable"
+  src="juicebox.png",
+  alt="recyclable"
 }) => {
   return <Cont>
     <ItemCont>
-      <Label id="search">Type of Waste</Label>
+      <Label id="search">Recycling</Label>
+      <Image loader={myLoader} src={src} width={50} height={150} alt={alt}/>
       <Name for="search" type="search" placeholder="Search"></Name>
-    </ItemCont>
-    <ItemCont>
-      <Label id="size">Size</Label>
-      <Number for="size" type="number" min="0" placeholder="eg. 250"></Number>
-    </ItemCont>
-    <ItemCont>
-      <Label id="unit">Unit</Label>
-      <Select><option value="g">{unit}</option></Select>
     </ItemCont>
     <ItemCont>
       <Label id="quantity">Quantity</Label>
