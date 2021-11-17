@@ -3,18 +3,19 @@ import React from "react";
 
 
 const SubheadCont = styled.div`
-    
+    margin:10px 10px 10px 0;
 `
 
-const Subheader = styled.h1`
+const Subheader = styled.h2`
     font-size:${props=>props.fontsize};
     color:${props=>props.color};
+    font-family: 'Hind', sans-serif;
 `
 
 const Subhead = ({
     text="Our Mission",
-    color="#95AFBA",
-    fontsize="36px"
+    color="#0E73AA",
+    fontsize="24px"
 
 }) =>{
 

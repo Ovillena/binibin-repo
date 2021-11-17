@@ -3,6 +3,9 @@ import React from 'react';
 import Image from 'next/image';
 import InputTextComp from '../InputText';
 import MyButton from '../Button';
+import { Button } from 'semantic-ui-react';
+import { Dropdown } from 'semantic-ui-react';
+import { useState } from 'react';
 
 //inputs
 const Container = styled.div`
@@ -25,25 +28,22 @@ const Inside = styled.div`
 display:flex;
 width:1203px;
 height:688px;
-border:solid #95AFBA;
-box-shadow:0px 3px 30px grey; 
-border-radius: 30px 30px 20px 20px;
 justify-content:center;
 align-content:center;
 `
 //Quick access
-const Side = styled.div`
-width:400px;
-height:88px;
-background-color:#95AFBA;
-display;flex;
-flex-direction:row;
-border-radius: 20px 20px 0px 0px;
-border:solid #95AFBA;
-`
+// const Side = styled.div`
+// width:400px;
+// height:88px;
+// background-color:#95AFBA;
+// display;flex;
+// flex-direction:row;
+// border-radius: 20px 20px 0px 0px;
+// border:solid #95AFBA;
+// `
 //Garbage
 const Garbage = styled.div`
-width:400px;
+width:600px;
 height:88px;
 background-color:#95AFBA;
 display;flex;
@@ -53,7 +53,7 @@ border:solid #95AFBA;
 `
 //Recycle
 const Recycle = styled.div`
-width:400px;
+width:600px;
 height:88px;
 background-color:white;
 display;flex;
@@ -79,11 +79,34 @@ height:200px;
 display:flex;
 align-items:center;
 flex-direction:row;
+position:static;
+gap:10px;
+margin-right:130px;
 `
+
+const Cont = styled.div`
+display:flex;
+flex-direction:column;
+margin-right:350px;
+postion:static;
+margin-top:200px;
+margin-right:300px;
+`
+
+const Entrydiv = styled.div`
+width:300px;
+height:56px;
+display:flex;
+gap:10px;
+margin-right:30px;
+`
+
 // Buttons and click Button
 const ButtonCont = styled.div`
     display:flex;
     margin-top:10px;
+    margin-right:40px;
+
 `
 // button
 const ClickButton = styled.button`
@@ -113,12 +136,12 @@ const Div = styled.div`
  align-items:flex-end;
  gap:30px;
  margin-bottom:30px;
+ 
 `
 
 const Entry = styled.div`
 width:158px;
 height:56px;
-background-color:orange;
 display:flex;
 `
 
@@ -126,21 +149,36 @@ display:flex;
 // color:black;
 // margin-bottom:-20px;
 // margin-top:-1px;
-// `
+//
 
-// const Ml = styled.h3`
-// color:black;
-// `
+const Ml = styled.h3`
+color:black;
+`
+
+const Headerr = styled.div`
+display:flex;
+flex-direction:row;
+gap:210px;
+margin-left:10px;
+position:absolute;
+margin-top:10px;
+`
 
 const Title = styled.h2`
 color:#95AFBA;
 display:flex;
 align-items:flex-start;
-
 `
 const myLoader = ({src}) => {
   return `${src}`
 }
+
+const options = [
+  { key: 1, text: 'Unit', value: 1 },
+  { key: 2, text: 'g', value: 2 },
+  { key: 3, text: 'kg', value: 3 },
+  { key: 4, text: 'ml', value: 4 },
+]
 
 const Recycles = ({
   width="158px",
@@ -150,37 +188,58 @@ const Recycles = ({
   textcolor="white",
   src="plus.png",
 })=>{
-  return<Inside>
-    <Bottom>
-    <Side><Text>Quick Access</Text></Side>
-    <Garbage><Text>Garbage/Compost</Text></Garbage>
-    <Recycle><Select>Recyclable/Search</Select></Recycle>
-    </Bottom>
+  const [count, setCount] = React.useState(0);
+  
+  const inc = (event) => {
+    setCount(count + 1);
+  };
+  
+  const dec = () => {
+    setCount(count - 1);
+  }
+  return<Inside>  
+    <Cont> 
+    <Headerr>
+    <Title>Type of Waste</Title> 
+    <Title>Size</Title>
+    <Title>Unit</Title>
+    <Title>Quantity</Title>
+    </Headerr>
+
+    <Inputs>
+
+    
+    <InputTextComp placeholder="Search..." width="300px"></InputTextComp>
     
 
-    <Container>
-      
-    <Inputs>
-    <Title>Type of Waste</Title>
-    <InputTextComp placeholder="Search..." width="400px"></InputTextComp>
-    <Title>Size</Title>
     <Entry>
     <Image loader={myLoader} src={src} width={28} height={1}/>
     </Entry>
-    <InputTextComp placeholder="eg. 250" width="200px"></InputTextComp>
-    </Inputs>
-   
 
-    <Div>
+
+    <InputTextComp placeholder="eg. 250" width="200px"></InputTextComp>
+
+  
+    <Dropdown clearable options={options} selection />
+
+    
+    <Entrydiv>
+    <Button onClick={dec}>-</Button>
+      <input type="number" value={count}></input>
+    <Button onClick={inc}>+</Button>
+    </Entrydiv>
+
+    </Inputs>
+   </Cont>
+
+    <Div>    
     <ButtonCont>
         <ClickButton onClick={()=>{}} width={width} height={height} bgcolor={bgcolor} textcolor={textcolor}>{text="Add Entry"}</ClickButton>
     </ButtonCont>
-    <ButtonCont>
-        <ClickButton width={"273px"} height={height} bgcolor={bgcolor} textcolor="white">{text="Save to Quick Access"}</ClickButton>
-    </ButtonCont>
+
     </Div>
     
-    </Container>
+    
 
     </Inside>
     

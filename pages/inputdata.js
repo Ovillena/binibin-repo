@@ -1,14 +1,15 @@
 import styled from 'styled-components';
 import React from 'react';
-
+import { useState, useEffect } from "react";
+import axios from "axios";
 import GuestNavBar from '../comps/GuestNavBar'
 import FeaturesCard from '../comps/FeaturesCard';
 import icon2 from '/public/icon_throw_away.png';
 import Header from '../comps/HeaderText';
-import MyButton from '../comps/Button';
 import Footer from '../comps/footer';
-import Garbages from '../comps/Garbage';
-import Quick from '../comps/Quickaccess';
+import InputTab from '../comps/Input';
+import UserNav from '../comps/UserNav';
+
 
 const PageCont = styled.div`
   display:flex;
@@ -41,18 +42,32 @@ const ButtonCont = styled.div`
   padding:10px;
 `
 
+
 export default function Home() {
+    const [itemList, setItemList] = useState(null);
+
+  useEffect(() => {
+    const getItemList = async () => {
+      await fetch("https://binibin-server.herokuapp.com/api/entries/items")
+        .then((resp) =>  resp.json())
+        .then((data) => setItemList(data))
+        .catch((err) => console.log(err));
+      // console.log(result);
+    };
+    getItemList();
+  }, []);
+
   return (
     //<div className={styles.container}>
       <PageCont>
       <TopRow>
-        <GuestNavBar></GuestNavBar>
+        <UserNav></UserNav>
       </TopRow>
       <HeaderCont>
         <Header text="Input Data"></Header>
       </HeaderCont>
       <FeaturesCont>
-        <Quick></Quick>
+        <InputTab></InputTab>
       </FeaturesCont>
       <Footer></Footer>
       </PageCont>

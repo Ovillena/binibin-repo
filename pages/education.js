@@ -7,13 +7,14 @@ import GuestNavBar from '../comps/GuestNavBar';
 import HeaderText from '../comps/HeaderText';
 import HelpfulResource from '../comps/HelpfulResource';
 import Subhead from '../comps/SubheadText';
-import EduGarbage from '../comps/EduGarbage';
+import EducationTab from '../comps/EducationTab';
 
 
 const PageCont = styled.div`
-display:flex;
-flex-direction:column;
-min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
+  background-color:#EEF9FF;
 `
 
 const TopRow = styled.div`
@@ -23,15 +24,17 @@ const TopRow = styled.div`
 const HeaderCont = styled.div`
   display:flex;
   justify-content:center;
+  margin:50px;
 `
 
 const FooterCont = styled.div`
   display:flex;
   flex:1;
   align-items:flex-end;
+  margin-top:80px;
 `
 
-const TopLinks = styled.div`
+const LinksRow = styled.div`
   display:flex;
   min-width:100vw;
   flex-wrap:wrap;
@@ -39,22 +42,12 @@ const TopLinks = styled.div`
   padding:10px;
 `
 
-const BotLinks = styled.div`
-  display:flex;
-  justify-content:space-around;
-  flex-wrap:wrap;
-  min-width:100vw;
-  padding:10px;
-`
-
-const CatCont = styled.div`
-  width:33.3%;
-`
+const LinksGroup = styled.div`` 
 
 const TabCont = styled.div`
   display:flex;
   justify-content:center;
-
+  align-items:center;
 `
 
 
@@ -70,8 +63,9 @@ export default function Education(){
       <HeaderText text ="What Goes Where?"></HeaderText>
     </HeaderCont>
 
+
     <TabCont>
-      <EduGarbage></EduGarbage>
+      <EducationTab></EducationTab>
     </TabCont>
 
 
@@ -80,43 +74,34 @@ export default function Education(){
     </HeaderCont>
 
 
-    <TopLinks>
-      <CatCont>
-        <Subhead text="Search"></Subhead>
-          <HelpfulResource></HelpfulResource>
-          <HelpfulResource text="RCBC: Recycling FAQs"></HelpfulResource>
-          <HelpfulResource text="Vancouver Waste Wizard"></HelpfulResource>
-      </CatCont>
+    <LinksRow>
+      <LinksGroup>
+          <Subhead text="Search"></Subhead>
+          <HelpfulResource href="https://recyclebc.ca/"></HelpfulResource>
+          <HelpfulResource text="RCBC: Recycling FAQs" href="https://www.rcbc.ca/resources/faqs"></HelpfulResource>
+          <HelpfulResource text="Vancouver Waste Wizard" href="https://vancouver.ca/home-property-development/waste-wizard.aspx"></HelpfulResource>
+      </LinksGroup>
 
-      <CatCont>
+      <LinksGroup>
         <Subhead text="Articles"></Subhead>
-          <HelpfulResource text="BC Hydro: 10 Things About Recycling"></HelpfulResource>
-          <HelpfulResource text="RCBC: Fact Sheets and Case Studies"></HelpfulResource>
-          <HelpfulResource text="RCBC: What is Zero Waste?"></HelpfulResource>
-      </CatCont>
+        <HelpfulResource text="BC Hydro: 10 Things About Recycling" href="https://www.bchydro.com/news/conservation/2019/10-things-about-recycling.html"></HelpfulResource>
+        <HelpfulResource text="RCBC: Fact Sheets and Case Studies" href="https://www.rcbc.ca/resources/additional-resources-links"></HelpfulResource>
+        <HelpfulResource text="RCBC: What is Zero Waste?" href="https://www.rcbc.ca/resources/zero-waste"></HelpfulResource>
+      </LinksGroup>
 
-      <CatCont>
-        <Subhead text="Updates"></Subhead>
-          <HelpfulResource text="Metro Vancouver Performance"></HelpfulResource>
-      </CatCont>
-    </TopLinks>
+      <LinksGroup>
+        <Subhead text="Events and Updates"></Subhead>
+        <HelpfulResource text="October 2021 Waste Reduction Week" href="https://www.rcbc.ca/events/waste-reduction-week"></HelpfulResource>
+        <HelpfulResource text="Metro Vancouver Performance" href="http://www.metrovancouver.org/dashboards/services/solid-waste/Pages/default.aspx"></HelpfulResource>
+      </LinksGroup>
 
-
-    <BotLinks>
-    <CatCont>
+      <LinksGroup>
         <Subhead text="Games and Podcasts"></Subhead>
-        <HelpfulResource text="The RCBC Recyclepedia Podcast"></HelpfulResource>
-        <HelpfulResource text="ReCollect Waste Sorting Game"></HelpfulResource>
-      </CatCont>
+        <HelpfulResource text="The RCBC Recyclepedia Podcast" href="https://www.rcbc.ca/content/rcbc-recyclepedia-podcast"></HelpfulResource>
+        <HelpfulResource text="ReCollect Waste Sorting Game" href="https://recollect.net/waste-sorting-game/"></HelpfulResource>
+      </LinksGroup>
 
-      <CatCont>
-        <Subhead text="Events"></Subhead>
-        <HelpfulResource text="October 2021 Waste Reduction Week"></HelpfulResource>
-      </CatCont>
-      
-      <CatCont></CatCont>
-    </BotLinks>
-
+    </LinksRow>
 
     <FooterCont>
       <FooterComp></FooterComp>

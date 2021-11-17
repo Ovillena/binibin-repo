@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import React from 'react';
 import Image from 'next/image';
-import Setting from '/public/settings.png'
-import User from '/public/User.png'
+import setting from '/public/settings.png'
+import user from '/public/user.png'
 
 const Container = styled.div`
 display:flex;
@@ -47,11 +47,11 @@ const Side = ({})=>{
     return<Container>
         <Head>Account setting</Head>
         <Bar>
-        <Image src={Setting} alt="settings"/>
+        <Image src={setting} alt="settings"/>
             <Text>Enterprise Info</Text>
         </Bar>
         <Bar>
-        <Image src={User} alt="settings"/>
+        <Image src={user} alt="settings"/>
         <Text>Manage Account</Text>
         </Bar>
         <Signout>Sign out</Signout>

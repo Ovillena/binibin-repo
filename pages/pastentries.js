@@ -3,12 +3,12 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-import GuestNavBar from "../comps/GuestNavBar";
-import Header from "../comps/HeaderText";
-import Footer from "../comps/footer";
-import EntryItem from "../comps/EntryItem";
-import EntryDate from "../comps/EntryDate";
-import EntryLegend from "../comps/EntryLegend";
+import UserNav from '../comps/UserNav';
+import Header from '../comps/HeaderText';
+import Footer from '../comps/footer';
+import EntryItem from '../comps/EntryItem';
+import EntryDate from '../comps/EntryDate';
+import EntryLegend from '../comps/EntryLegend';
 // import EntryList from '../comps/EntryList';
 
 const PageCont = styled.div`
@@ -36,6 +36,7 @@ const EntryDayList = styled.div`
   margin: 5px 20px 0px 20px;
   border: 3px solid #95afba;
   justify-content: space-between;
+  border-radius:10px;
 `;
 
 const ListSection = styled.div`
@@ -127,7 +128,7 @@ export default function Home() {
   }, []);
   return (
     <>
-      <GuestNavBar />
+      <UserNav></UserNav>
       <HeaderCont>
         <Header text="Waste Tracked for November"></Header>
       </HeaderCont>
@@ -136,7 +137,10 @@ export default function Home() {
           {entries? 
           entries.map((o, i) => (
             <AllDaysList key={i}>
-              <EntryDate entry_date={o.entry_date} />
+              {/* <EntryDate entry_date={o.entry_date} /> 
+                we changed the json from database to return month and day instead of entry_date
+              */}
+              <EntryDate entry_date={(o.month+'/'+o.day)} />
               <EntryDayList>
                 <ListSection>
                   <EntryItem
@@ -157,7 +161,7 @@ export default function Home() {
                       <EntryItem entry_id={o.entry_id} item_name={o.item_name} item_count={o.item_count} unit={o.unit} waste_type={o.waste_type}/> */}
                 </ListSection>
                 <SideSection>
-                  <EntryEdit>Edit</EntryEdit>
+                  {/* <EntryEdit>Edit</EntryEdit> */}
                 </SideSection>
               </EntryDayList>
             </AllDaysList>

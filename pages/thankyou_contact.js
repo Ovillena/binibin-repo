@@ -6,26 +6,30 @@ import React from 'react';
 import GuestNavBar from '../comps/GuestNavBar';
 import HeaderText from '../comps/HeaderText';
 import MyButton from '../comps/Button';
-
+import Subhead from '../comps/SubheadText';
+import EduImage from '../comps/EduImage';
 
 const PageCont = styled.div`
-display:flex;
-flex-direction:column;
-min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
 `
 
 const TopRow = styled.div`
   display:flex;
 `
 
-const HeaderCont = styled.div`
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex:1;
-  text-align:center;
-  padding-left:25%;
-  padding-right:25%;
+const TextCont = styled.div`
+    display:flex;
+    flex:1;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    margin-top:200px;
+`
+
+const Div = styled.div`
+  
 `
 
 const FooterCont = styled.div`
@@ -40,7 +44,14 @@ const ButtonCont = styled.div`
   padding:20px;
 `
 
-export default function Home(){
+const ImageDiv = styled.div`
+  z-index:-1;
+`
+// background-image:url('/13095.png');
+// background-size:cover;
+// background-repeat: no-repeat;
+
+export default function Contact(){
   return (
     //<div className={styles.container}>
       <PageCont>
@@ -48,17 +59,28 @@ export default function Home(){
         <GuestNavBar></GuestNavBar>
       </TopRow>
 
-    <HeaderCont>
-      <HeaderText text="Thanks for contacting us!
-        We’ll get back to you within 24 hours"></HeaderText>
-    </HeaderCont>
+     
 
+    <TextCont>
+
+    <Div>
+      <HeaderText text="Thanks for contacting us!"></HeaderText>
+    </Div>
+
+    <Div>
+      <HeaderText text="We’ll get back to you within 24 hours"></HeaderText>
+    </Div>
 
     <ButtonCont>
-      <MyButton routeTo="/" width="200px" height="65px" bgcolor="#FFC800" text="Back Home" routeTo="/"></MyButton>
+      <MyButton routeTo="/" width="183px" height="57px" bgcolor="#2C5489" text="Learn More" hoverbg="#6193D6" routeTo="/education"></MyButton>
     </ButtonCont>
 
-    
+    </TextCont>
+      
+    <ImageDiv>
+      <EduImage src="13095.png" width="1440px" height="682px"></EduImage>
+    </ImageDiv>
+
     <FooterCont>
       <FooterComp></FooterComp>
     </FooterCont> 
