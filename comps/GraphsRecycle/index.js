@@ -11,24 +11,13 @@ const data = {
       label: '# of Recycles',
       data: [12, 19, 3, 5, 2, 3, 15],
       backgroundColor: [
-        '#3C64B1',
-        '#3C64B1',
-        '#3C64B1',
-        '#3C64B1',
-        '#3C64B1',
-        '#3C64B1',
-        '#3C64B1',
+        '#3C64B1'
       ],
       borderColor: [
-        '#3C64B1',
-        '#3C64B1',
-        '#3C64B1',
-        '#3C64B1',
-        '#3C64B1',
-        '#3C64B1',
-        '#3C64B1',
+        '#3C64B1'
       ],
       borderWidth: 1,
+      borderRadius:10
     },
   ],
 };

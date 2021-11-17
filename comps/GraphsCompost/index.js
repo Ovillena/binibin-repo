@@ -11,24 +11,13 @@ const data = {
       label: '# of Composts',
       data: [12, 19, 3, 5, 2, 3, 8],
       backgroundColor: [
-        '#3A7A1C',
-        '#3A7A1C',
-        '#3A7A1C',
-        '#3A7A1C',
-        '#3A7A1C',
-        '#3A7A1C',
-        '#3A7A1C',
+        '#3A7A1C'
       ],
       borderColor: [
-        '#3A7A1C',
-        '#3A7A1C',
-        '#3A7A1C',
-        '#3A7A1C',
-        '#3A7A1C',
-        '#3A7A1C',
-        '#3A7A1C',
+        '#3A7A1C'
       ],
       borderWidth: 1,
+      borderRadius:10
     },
   ],
 };

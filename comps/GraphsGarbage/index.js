@@ -99,7 +99,8 @@ const GraphsGarbage = () => {
               backgroundColor:[
                 'black'
               ],
-              borderWidth: 1
+              borderWidth: 1,
+              borderRadius:10
             }
           ]
         });
@@ -152,6 +153,11 @@ const GraphsGarbage = () => {
     
     <Bar data={chartData} options={{
       scales:{
+        x:{
+          grid:{
+            display:false
+          },
+        },
         yAxes:[
           {
             ticks:{
