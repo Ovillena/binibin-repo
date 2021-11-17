@@ -91,7 +91,8 @@ export default function Home() {
       { withCredentials: true }
     )
     .then((res) => {
-      console.log(res);
+      console.log(res.data);
+      setUser(res.data.username);
     })
     .catch((err) => {
       console.log(err);
