@@ -167,7 +167,7 @@ const Garbages = (props,{
 
 	const onSubmit = async (e) => {
 		e.preventDefault();
-		await fetch('http://localhost:8080/api/entries/add', requestOptions)
+		await fetch('https://binibin-server.herokuapp.com/api/entries/add', requestOptions)
 			.then((response) => {
 				console.log(response);
 				alert(`${count} bags of ${props.wasteType} has been entered :)`);
