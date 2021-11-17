@@ -2,13 +2,16 @@ import {Button} from 'semantic-ui-react';
 import EduImage from '../EduImage';
 import {useState} from 'react';
 import Modal from '../../pages/api/modal';
+import styled from "styled-components";
+import React from 'react';
 // import Modal from '../../pages/api/modal';
 
 //inputs
 const Container = styled.div`
 	display: flex;
 	flex-direction: row;
-	margin-top: 200px;
+	margin-bottom:50px;
+  margin-top:50px;
 	margin-left: 80px;
 	gap: 10px;
 `;
