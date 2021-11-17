@@ -109,7 +109,7 @@ const GraphsRecycle = () => {
   return(
   <>
     <div className='header'>
-      <Subhead text="Compost" fontsize="24px"></Subhead>
+      <Subhead text="Recycle" fontsize="24px"></Subhead>
     </div>
     <GraphCont>
     
