@@ -8,7 +8,7 @@ import UserNav from '../comps/UserNav';
 import Header from '../comps/HeaderText';
 import Footer from '../comps/footer';
 import GraphsGarbage from '../comps/GraphsGarbage';
-import CompostBar from '../comps/GraphsCompost';
+import GraphsCompost from '../comps/GraphsCompost';
 import RecycleBar from '../comps/GraphsRecycle';
 import GraphsSum from '../comps/GraphsSum';
 
@@ -31,6 +31,7 @@ const FooterCont = styled.div`
   display:flex;
   align-items:flex-end;
   flex:1;
+  padding-top:50px;
 `
 
 const WeekCont = styled.div`
@@ -140,7 +141,7 @@ export default function Graphs() {
           <GraphsGarbage></GraphsGarbage>
         </GraphDiv>
         <GraphDiv>
-          <CompostBar></CompostBar>
+          <GraphsCompost></GraphsCompost>
         </GraphDiv>
       </TopGraphs>
 

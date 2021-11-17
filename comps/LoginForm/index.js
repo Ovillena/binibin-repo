@@ -58,9 +58,9 @@ const LoginForm = () => {
   //       username: e.target.username.value,
   //       password: e.target.password.value,
   //     },
-  //     // headers: {
-  //     //   "Access-Control-Allow-Origin": "*",
-  //     // },
+  // // headers: {
+  // //   "Access-Control-Allow-Origin": "*",
+  // // },
   //     headers: { "Content-Type": "application/json" },
   //   });
   //   debugger;
