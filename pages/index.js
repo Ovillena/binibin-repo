@@ -11,7 +11,7 @@ import HeroComp from "../comps/HeroComp";
 import CircleImage from "../comps/CircleImage";
 import MyButton from "../comps/Button";
 import Subhead from "../comps/SubheadText";
-import userNav from "../comps/UserNav";
+import UserNav from "../comps/UserNav";
 import EduImage from "../comps/EduImage";
 import FeaturesCard from "../comps/FeaturesCard";
 
@@ -164,4 +164,203 @@ export default function Home() {
 
     //</div>
   );
+  // if (user) {
+  //   return (
+  //     //<div className={styles.container}>
+  //     <PageCont>
+  //       <TopRow>
+  //         <UserNav displayName={user}></UserNav>
+  //       </TopRow>
+
+  //       <HeroComp></HeroComp>
+
+  //       <HeaderCont>
+  //         <HeaderText>Our Mission</HeaderText>
+  //       </HeaderCont>
+
+  //       <MissionRow>
+  //         <MissionCont>
+  //           <EduImage src="image 46.png"></EduImage>
+  //           <Subhead text="Educate"></Subhead>
+  //           <BodyText>
+  //             Learn where your garbage should be going to lessen harmful impacts
+  //             to the waste system.
+  //           </BodyText>
+  //         </MissionCont>
+
+  //         <MissionCont>
+  //           <EduImage src="bar-graph.png"></EduImage>
+  //           <Subhead text="Track"></Subhead>
+  //           <BodyText>
+  //             Learn where your garbage should be going to lessen harmful impacts
+  //             to the waste system.
+  //           </BodyText>
+  //         </MissionCont>
+
+  //         <MissionCont>
+  //           <EduImage src="reducing.png"></EduImage>
+  //           <Subhead text="Reduce"></Subhead>
+  //           <BodyText>
+  //             Learn where your garbage should be going to lessen harmful impacts
+  //             to the waste system.
+  //           </BodyText>
+  //         </MissionCont>
+  //       </MissionRow>
+
+  //       <HeaderCont>
+  //         <HeaderText text="Features"></HeaderText>
+  //       </HeaderCont>
+
+  //       <FeaturesCont>
+  //         <FeaturesCard></FeaturesCard>
+  //         <FeaturesCard
+  //           src="/icon_throw_away.png"
+  //           alt="throw away"
+  //           h="Track"
+  //           p="A visual tool to track the quantity and the breakdown of the waste produced the school"
+  //         ></FeaturesCard>
+  //         <FeaturesCard
+  //           src="/icon_combo_chart.png"
+  //           alt="chart"
+  //           h="Reduce"
+  //           p="Increase awareness of the environment to encourage the appropriate disposal of waste"
+  //         ></FeaturesCard>
+  //       </FeaturesCont>
+
+  //       <ParagraphSec>
+  //         <Subhead text="Recycling Problems"></Subhead>
+  //         <BodyText>
+  //           Many people don’t know what to recycle or people are throwing away
+  //           things that are recyclable. People are not aware of how much garbage
+  //           they are sending to the landfill when portions of it may be
+  //           compostable or recyclable.
+  //         </BodyText>
+  //       </ParagraphSec>
+
+  //       <ParagraphSec>
+  //         <Subhead text="You can make a difference"></Subhead>
+  //         <BodyText>
+  //           We encourage schools to promote waste reduction awareness to their
+  //           students by providing a visual tool to track the quantity and the
+  //           breakdown of the waste produced by their schools.
+  //         </BodyText>
+  //       </ParagraphSec>
+
+  //       <ButtonCont>
+  //         <MyButton
+  //           routeTo="education"
+  //           width="200px"
+  //           height="65px"
+  //           bgcolor="#FFC800"
+  //           text="Learn More"
+  //         ></MyButton>
+  //       </ButtonCont>
+
+  //       <FooterCont>
+  //         <FooterComp></FooterComp>
+  //       </FooterCont>
+  //     </PageCont>
+
+  //     //</div>
+  //   );
+  // } else {
+  //   return (
+  //     //<div className={styles.container}>
+  //     <PageCont>
+  //       <TopRow>
+  //         <GuestNavBar></GuestNavBar>
+  //       </TopRow>
+
+  //       <HeroComp></HeroComp>
+
+  //       <HeaderCont>
+  //         <HeaderText>Our Mission</HeaderText>
+  //       </HeaderCont>
+
+  //       <MissionRow>
+  //         <MissionCont>
+  //           <EduImage src="image 46.png"></EduImage>
+  //           <Subhead text="Educate"></Subhead>
+  //           <BodyText>
+  //             Learn where your garbage should be going to lessen harmful impacts
+  //             to the waste system.
+  //           </BodyText>
+  //         </MissionCont>
+
+  //         <MissionCont>
+  //           <EduImage src="bar-graph.png"></EduImage>
+  //           <Subhead text="Track"></Subhead>
+  //           <BodyText>
+  //             Learn where your garbage should be going to lessen harmful impacts
+  //             to the waste system.
+  //           </BodyText>
+  //         </MissionCont>
+
+  //         <MissionCont>
+  //           <EduImage src="reducing.png"></EduImage>
+  //           <Subhead text="Reduce"></Subhead>
+  //           <BodyText>
+  //             Learn where your garbage should be going to lessen harmful impacts
+  //             to the waste system.
+  //           </BodyText>
+  //         </MissionCont>
+  //       </MissionRow>
+
+  //       <HeaderCont>
+  //         <HeaderText text="Features"></HeaderText>
+  //       </HeaderCont>
+
+  //       <FeaturesCont>
+  //         <FeaturesCard></FeaturesCard>
+  //         <FeaturesCard
+  //           src="/icon_throw_away.png"
+  //           alt="throw away"
+  //           h="Track"
+  //           p="A visual tool to track the quantity and the breakdown of the waste produced the school"
+  //         ></FeaturesCard>
+  //         <FeaturesCard
+  //           src="/icon_combo_chart.png"
+  //           alt="chart"
+  //           h="Reduce"
+  //           p="Increase awareness of the environment to encourage the appropriate disposal of waste"
+  //         ></FeaturesCard>
+  //       </FeaturesCont>
+
+  //       <ParagraphSec>
+  //         <Subhead text="Recycling Problems"></Subhead>
+  //         <BodyText>
+  //           Many people don’t know what to recycle or people are throwing away
+  //           things that are recyclable. People are not aware of how much garbage
+  //           they are sending to the landfill when portions of it may be
+  //           compostable or recyclable.
+  //         </BodyText>
+  //       </ParagraphSec>
+
+  //       <ParagraphSec>
+  //         <Subhead text="You can make a difference"></Subhead>
+  //         <BodyText>
+  //           We encourage schools to promote waste reduction awareness to their
+  //           students by providing a visual tool to track the quantity and the
+  //           breakdown of the waste produced by their schools.
+  //         </BodyText>
+  //       </ParagraphSec>
+
+  //       <ButtonCont>
+  //         <MyButton
+  //           routeTo="education"
+  //           width="200px"
+  //           height="65px"
+  //           bgcolor="#FFC800"
+  //           text="Learn More"
+  //         ></MyButton>
+  //       </ButtonCont>
+
+  //       <FooterCont>
+  //         <FooterComp></FooterComp>
+  //       </FooterCont>
+  //     </PageCont>
+
+  //     //</div>
+  //   );
+  // }
 }

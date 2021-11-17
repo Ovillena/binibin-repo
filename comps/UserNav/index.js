@@ -1,11 +1,11 @@
-import styled from 'styled-components';
-import { Image, Menu, Button, Item} from 'semantic-ui-react';
-import MyButton from '../Button';
-import {Router, useRouter} from 'next/router';
+import styled from "styled-components";
+import { Image, Menu, Button, Item } from "semantic-ui-react";
+import MyButton from "../Button";
+import { Router, useRouter } from "next/router";
 import Subhead from "../SubheadText";
+import axios from "axios";
 
-import React from 'react';
-
+import React from "react";
 
 const NavCont = styled.div`
     display:flex;
@@ -33,23 +33,23 @@ const TextCont = styled.div`
 `
 
 const NavItems = styled.a`
-    font-size:24px;
-    padding:10px;
-    cursor: pointer;
-`
+  font-size: 24px;
+  padding: 10px;
+  cursor: pointer;
+`;
 
 const GreetingCont = styled.div`
-    display:flex;
-    justify-content:flex-end;
-`
+  display: flex;
+  justify-content: flex-end;
+`;
 
 const RightCol = styled.div`
-    display:flex;
-    flex-direction:column;
-`
-const ItemsDiv = styled.div`    
-    display:flex;
-`
+  display: flex;
+  flex-direction: column;
+`;
+const ItemsDiv = styled.div`
+  display: flex;
+`;
 
 const SubHeader = styled.h2`
     font-size:24px;
@@ -57,51 +57,56 @@ const SubHeader = styled.h2`
     margin-right:20px;
 `;
 
+export async function getStaticProps(context) {
+  return {
+    props: { data }, // will be passed to the page component as props
+  };
+}
 
+const UserNav = ({ router = useRouter(), displayName = "Username" }) => {
+  return (
+    <NavCont>
+      <LogoCont>
+        <Image
+          src="/binibinlogo.png"
+          alt="BiniBin Logo"
+          width={135}
+          height={35}
+          onClick={() => router.push("/")}
+        />
+      </LogoCont>
 
-const UserNav = ({
-    router = useRouter(),
-    display_name="Username"
-
-}) =>{
-
-
-    return <NavCont>
-
-        <LogoCont>
-            <Image src="/binibinlogo.png" alt="BiniBin Logo" width={135} height={35} 
-            onClick={()=>router.push("/")}
-            />
-        </LogoCont>
-
-        <RightCol>
-
+      <RightCol>
         <GreetingCont>
-            <SubHeader>Hi, {display_name}</SubHeader>
+          <SubHeader>Hello, {displayName}</SubHeader>
         </GreetingCont>
 
         <ItemsDiv>
-            <NavItems>
-                <TextCont onClick={()=>router.push("/dashboard")}>Dashboard</TextCont>
-            </NavItems>
-            <NavItems>
-                <TextCont onClick={()=>router.push("/education")}>Educate</TextCont>
-            </NavItems>
-            <NavItems>
-                <TextCont onClick={()=>router.push("/inputdata")} >Input</TextCont>
-            </NavItems>
-            <NavItems>
-                <TextCont onClick={()=>router.push("/pastentries")} >Entries</TextCont>
-            </NavItems>
-            <NavItems>
-                <TextCont onClick={()=>router.push("/graphs")} >Graphs</TextCont>
-            </NavItems>
+          <NavItems>
+            <TextCont onClick={() => router.push("/dashboard")}>
+              Dashboard
+            </TextCont>
+          </NavItems>
+          <NavItems>
+            <TextCont onClick={() => router.push("/education")}>
+              Educate
+            </TextCont>
+          </NavItems>
+          <NavItems>
+            <TextCont onClick={() => router.push("/inputdata")}>Input</TextCont>
+          </NavItems>
+          <NavItems>
+            <TextCont onClick={() => router.push("/pastentries")}>
+              Entries
+            </TextCont>
+          </NavItems>
+          <NavItems>
+            <TextCont onClick={() => router.push("/graphs")}>Graphs</TextCont>
+          </NavItems>
         </ItemsDiv>
-
-        </RightCol>
-
+      </RightCol>
     </NavCont>
-    
-}
+  );
+};
 
 export default UserNav;
