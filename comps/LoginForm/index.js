@@ -1,5 +1,5 @@
 import React from "react";
-import { useRouter } from "next/router";
+import { Router, useRouter } from "next/router";
 import { useCookies } from "react-cookie";
 import axios from "axios";
 
@@ -40,6 +40,7 @@ const LoginForm = () => {
       }
     ).then((response) => {
       console.log(response);
+      router.push("/dashboard");
     });
     console.log("--------------------------------------------");
   }
