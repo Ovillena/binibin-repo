@@ -27,8 +27,8 @@ const LoginForm = () => {
     e.preventDefault();
     console.log(e.target.username.value);
     const result = await fetch(
-      `https://binibin-server.herokuapp.com/auth/login`,
       // "http://localhost:8080/auth/login",
+      "https://binibin-server.herokuapp.com/auth/login",
       {
         credentials: "include",
         method: "POST",
@@ -51,17 +51,17 @@ const LoginForm = () => {
   //   axios.post;
   //   const result = await axios({
   //     // `https://binibin-server.herokuapp.com/auth/login`,
-  //     url: "http://localhost:8080/auth/login",
+  //     url: "https://binibin-server.herokuapp.com/auth/login",
   //     withCredentials: true,
   //     method: "POST",
   //     body: {
   //       username: e.target.username.value,
   //       password: e.target.password.value,
   //     },
-  //     headers: {
-  //       "Access-Control-Allow-Origin": "*",
-  //     },
-  //     // headers: { "Content-Type": "application/json" },
+  // // headers: {
+  // //   "Access-Control-Allow-Origin": "*",
+  // // },
+  //     headers: { "Content-Type": "application/json" },
   //   });
   //   debugger;
   //   console.log(result.data);

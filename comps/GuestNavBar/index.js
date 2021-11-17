@@ -24,7 +24,7 @@ const LogoCont = styled.div`
 `
 
 const TextCont = styled.div`
-    color:white;
+    color:${props=>props.navColor};
     font-weight:bold;
 `
 
@@ -36,7 +36,8 @@ const NavItems = styled.a`
 
 
 const GuestNavBar = ({
-    router = useRouter()
+    router = useRouter(),
+    navColor="#2C5489"
 
 }) =>{
 
@@ -49,13 +50,13 @@ const GuestNavBar = ({
             />
         </LogoCont>
         <NavItems>
-            <TextCont onClick={()=>router.push("/aboutus")}>About Us</TextCont>
+            <TextCont onClick={()=>router.push("/aboutus")} navColor={navColor}>About Us</TextCont>
         </NavItems>
+        {/* <NavItems>
+            <TextCont onClick={()=>router.push("/features")} navColor="#598B2C">Features</TextCont>
+        </NavItems> */}
         <NavItems>
-            <TextCont onClick={()=>router.push("/features")}>Features</TextCont>
-        </NavItems>
-        <NavItems>
-            <TextCont onClick={()=>router.push("/education")} >Learn More</TextCont>
+            <TextCont onClick={()=>router.push("/education")} navColor="#598B2C">Learn More</TextCont>
         </NavItems>
         <NavItems>
             <MyButton routeTo="/login"></MyButton>
