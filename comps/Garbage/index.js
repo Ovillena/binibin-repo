@@ -213,26 +213,6 @@ const Garbages = (props,{
 					</Div>
 				</Inputs>
 
-				{/* <Inputs>
-    <Items>
-    <EduImage src="garbagebag.png"></EduImage>
-    </Items>
-
-    <Div>
-    <Headers>Compost</Headers>
-    <Ml>Number of Bags</Ml>
-
-    <Entrydiv>
-    <Button onClick={dec} >-</Button>
-      <input type="number" value={count}></input>
-    <Button onClick={inc}>+</Button>
-    </Entrydiv>
-
-    <ButtonCont>
-        <ClickButton width={width} height={height} bgcolor={bgcolor} textcolor="white">{text}</ClickButton>
-    </ButtonCont>
-    </Div>
-    </Inputs> */}
 			</Container>
 		</Inside>
 	);
