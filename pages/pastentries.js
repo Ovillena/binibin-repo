@@ -136,7 +136,10 @@ export default function Home() {
           {entries? 
           entries.map((o, i) => (
             <AllDaysList key={i}>
-              <EntryDate entry_date={o.entry_date} />
+              {/* <EntryDate entry_date={o.entry_date} /> 
+                we changed the json from database to return month and day instead of entry_date
+              */}
+              <EntryDate entry_date={(o.month+'/'+o.day)} />
               <EntryDayList>
                 <ListSection>
                   <EntryItem
