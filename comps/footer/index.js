@@ -29,7 +29,7 @@ const FooterComp = ({})=>{
     return<Container>
 
         <TitleCont>
-            <Title onClick={()=>router.push("/education")}>Learn more</Title>
+            <Title onClick={()=>router.push("/education")}>How to sort</Title>
         </TitleCont>
 
         <TitleCont>

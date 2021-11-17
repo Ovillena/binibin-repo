@@ -35,6 +35,7 @@ const EntryDayList = styled.div`
   display:flex;
   margin:5px 20px 0px 20px;
   border: 3px solid #95AFBA;
+  border-radius:10px;
   justify-content:space-between;
 `;
 
@@ -101,11 +102,9 @@ const fakeData = [
 
 export default function Home() {
   const [entries, setEntries] = useState(fakeData);
-  // const axios = require('axios');
 
   useEffect(()=>{
     const GetEntries = async()=>{
-      // const result = await axios.get("https://ghibliapi.herokuapp.com/films")
       const result = await axios.get("https://binibin-server.herokuapp.com/api/entries")
       .then (resp => {
         console.log(resp.data);

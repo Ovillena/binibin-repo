@@ -26,6 +26,7 @@ const TopRow = styled.div`
 const HeaderCont = styled.div`
   display:flex;
   justify-content:center;
+  margin-bottom:30px;
 `
 
 const FooterCont = styled.div`
@@ -35,17 +36,17 @@ const FooterCont = styled.div`
 `
 
 const TopIcons = styled.div`
-    display:flex;
-    justify-content:space-evenly;
-    flex:1;   
-    flex-wrap:wrap;
-    flex-direction:row;
+  display:flex;
+  justify-content:space-evenly;
+  flex:1;   
+  flex-wrap:wrap;
+  flex-direction:row;
 `
 
 const BotRow = styled.div`
-    display:flex;
-    justify-content:space-evenly;
-    flex-wrap:wrap;
+  display:flex;
+  justify-content:space-evenly;
+  flex-wrap:wrap;
 `
 
 const IconDiv = styled.div`
@@ -107,16 +108,16 @@ export default function Dashboard() {
 
     <TopIcons>
       <IconDiv>
+        <IconComp iconSymbol='calendar check outline' routeTo="inputdata"></IconComp>
+        <Subhead text='Input Entries' fontsize='24px'></Subhead>
+      </IconDiv>
+      <IconDiv>
         <IconComp iconSymbol='chart bar' routeTo="graphs"></IconComp>
         <Subhead text='View Graphs' fontsize='24px'></Subhead>
       </IconDiv>
       <IconDiv>
-        <IconComp iconSymbol='calendar check outline' routeTo="inputdata"></IconComp>
-        <Subhead text='Inputs' fontsize='24px'></Subhead>
-      </IconDiv>
-      <IconDiv>
         <IconComp iconSymbol='list' routeTo="pastentries"></IconComp>
-        <Subhead text='List of Past Entries' fontsize='24px'></Subhead>
+        <Subhead text='View Past Entries' fontsize='24px'></Subhead>
       </IconDiv>
     </TopIcons>
 
@@ -127,7 +128,7 @@ export default function Dashboard() {
       </IconDiv>
       <IconDiv>
         <IconComp iconSymbol='file text' routeTo="education"></IconComp>
-        <Subhead text='Learn More' fontsize='24px'></Subhead>
+        <Subhead text='Learn About Recycling' fontsize='24px'></Subhead>
       </IconDiv>
       <IconDiv>
         <IconComp iconSymbol='headphones' routeTo="customerservice"></IconComp>

@@ -10,19 +10,18 @@ import React from 'react';
 const NavCont = styled.div`
     display:flex;
     min-width:200px;
-    height:130px;
+    min-height:80px;
     background-color:#97BCD0;
     box-shadow:0px 3px 30px grey; 
     justify-content:space-between;
     align-items:center;
     flex-wrap:wrap;
     flex:1;
-    padding:50px;
+    margin-bottom:30px;
 `
 
 const LogoCont = styled.div`
     padding-left:30px;
-    flex:1;
 `
 
 const TextCont = styled.div`
@@ -67,7 +66,7 @@ const UserNav = ({
     return <NavCont>
 
         <LogoCont>
-            <Image src="/binibinlogo.png" alt="BiniBin Logo" width={204} height={52} 
+            <Image src="/binibinlogo.png" alt="BiniBin Logo" width={135} height={35} 
             onClick={()=>router.push("/")}
             />
         </LogoCont>

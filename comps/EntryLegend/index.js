@@ -1,12 +1,14 @@
 import styled from 'styled-components';
 import EntryItem from '../EntryItem';
 import BoldText from '../BoldText';
+import Subhead from '../SubheadText';
 
 const LegendCont = styled.div`
-  max-height:200px;
+  max-height:220px;
   margin:30px 20px 0 0;
   padding:10px 0 0 0;
   border: 3px solid #95AFBA;
+  border-radius:10px;
 `;
 
 const ItemCont = styled.div`
@@ -34,7 +36,7 @@ const EntryLegend  = ({
   color="#2C5489",
 }) => {
   return <LegendCont>
-    <BoldText text="Colour Key"></BoldText>
+    <Subhead text="Colour Key"></Subhead>
     <ItemCont>
       <Square color="#000"/>
       <ItemName>Garbage</ItemName>

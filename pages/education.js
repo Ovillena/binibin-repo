@@ -33,27 +33,15 @@ const FooterCont = styled.div`
   align-items:flex-end;
 `
 
-const TopLinks = styled.div`
+const LinksRow = styled.div`
   display:flex;
   min-width:100vw;
   flex-wrap:wrap;
   justify-content:space-around;
   padding:10px;
-  margin-left:50px;
 `
 
-const BotLinks = styled.div`
-  display:flex;
-  justify-content:space-around;
-  flex-wrap:wrap;
-  min-width:100vw;
-  padding:10px;
-  margin-left:50px;
-`
-
-const CatCont = styled.div`
-  width:33.3%;
-`
+const LinksGroup = styled.div`` 
 
 const TabCont = styled.div`
   display:flex;
@@ -85,43 +73,34 @@ export default function Education(){
     </HeaderCont>
 
 
-    <TopLinks>
-      <CatCont>
-        <Subhead text="Search"></Subhead>
+    <LinksRow>
+      <LinksGroup>
+          <Subhead text="Search"></Subhead>
           <HelpfulResource href="https://recyclebc.ca/"></HelpfulResource>
           <HelpfulResource text="RCBC: Recycling FAQs" href="https://www.rcbc.ca/resources/faqs"></HelpfulResource>
           <HelpfulResource text="Vancouver Waste Wizard" href="https://vancouver.ca/home-property-development/waste-wizard.aspx"></HelpfulResource>
-      </CatCont>
+      </LinksGroup>
 
-      <CatCont>
+      <LinksGroup>
         <Subhead text="Articles"></Subhead>
-          <HelpfulResource text="BC Hydro: 10 Things About Recycling" href="https://www.bchydro.com/news/conservation/2019/10-things-about-recycling.html"></HelpfulResource>
-          <HelpfulResource text="RCBC: Fact Sheets and Case Studies" href="https://www.rcbc.ca/resources/additional-resources-links"></HelpfulResource>
-          <HelpfulResource text="RCBC: What is Zero Waste?" href="https://www.rcbc.ca/resources/zero-waste"></HelpfulResource>
-      </CatCont>
+        <HelpfulResource text="BC Hydro: 10 Things About Recycling" href="https://www.bchydro.com/news/conservation/2019/10-things-about-recycling.html"></HelpfulResource>
+        <HelpfulResource text="RCBC: Fact Sheets and Case Studies" href="https://www.rcbc.ca/resources/additional-resources-links"></HelpfulResource>
+        <HelpfulResource text="RCBC: What is Zero Waste?" href="https://www.rcbc.ca/resources/zero-waste"></HelpfulResource>
+      </LinksGroup>
 
-      <CatCont>
-        <Subhead text="Updates"></Subhead>
-          <HelpfulResource text="Metro Vancouver Performance" href="http://www.metrovancouver.org/dashboards/services/solid-waste/Pages/default.aspx"></HelpfulResource>
-      </CatCont>
-    </TopLinks>
+      <LinksGroup>
+        <Subhead text="Events and Updates"></Subhead>
+        <HelpfulResource text="October 2021 Waste Reduction Week" href="https://www.rcbc.ca/events/waste-reduction-week"></HelpfulResource>
+        <HelpfulResource text="Metro Vancouver Performance" href="http://www.metrovancouver.org/dashboards/services/solid-waste/Pages/default.aspx"></HelpfulResource>
+      </LinksGroup>
 
-
-    <BotLinks>
-    <CatCont>
+      <LinksGroup>
         <Subhead text="Games and Podcasts"></Subhead>
         <HelpfulResource text="The RCBC Recyclepedia Podcast" href="https://www.rcbc.ca/content/rcbc-recyclepedia-podcast"></HelpfulResource>
         <HelpfulResource text="ReCollect Waste Sorting Game" href="https://recollect.net/waste-sorting-game/"></HelpfulResource>
-      </CatCont>
+      </LinksGroup>
 
-      <CatCont>
-        <Subhead text="Events"></Subhead>
-        <HelpfulResource text="October 2021 Waste Reduction Week" href="https://www.rcbc.ca/events/waste-reduction-week"></HelpfulResource>
-      </CatCont>
-      
-      <CatCont></CatCont>
-    </BotLinks>
-
+    </LinksRow>
 
     <FooterCont>
       <FooterComp></FooterComp>
