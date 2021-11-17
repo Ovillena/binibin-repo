@@ -3,6 +3,7 @@ import { Image, Menu, Button, Item } from "semantic-ui-react";
 import MyButton from "../Button";
 import { Router, useRouter } from "next/router";
 import Subhead from "../SubheadText";
+import axios from "axios";
 
 import React from "react";
 
