@@ -16,7 +16,7 @@ const data = {
       data: [12, 19, 3, 5, 2, 3, 8],
       backgroundColor: [
         '#000000',
-        '#000000',       
+        '#000000',
         '#000000',
         '#000000',
         '#000000',
@@ -25,7 +25,7 @@ const data = {
       ],
       borderColor: [
         '#000000',
-        '#000000',       
+        '#000000',
         '#000000',
         '#000000',
         '#000000',
@@ -73,9 +73,9 @@ const GraphsGarbage = () => {
   const [itemCount, setItemCount] = useState([]);
   const [itemDate, setItemDate] = useState([]);
   // const [isLoading, setLoading] = useState(true);
-  
+ 
   useEffect(()=>{
-    
+
     const GetData = async()=>{
       let itemC = [];
       let itemD = [];
@@ -141,7 +141,7 @@ const GraphsGarbage = () => {
     // .catch(err => {
     //   console.log(err);
     // });
-    
+
 
   if (chartData){
   return(
@@ -150,7 +150,7 @@ const GraphsGarbage = () => {
       <Subhead text="Garbage" fontsize="24px"></Subhead>
     </div>
     <GraphCont>
-    
+
     <Bar data={chartData} options={{
       scales:{
         x:{

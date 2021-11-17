@@ -6,11 +6,8 @@ import GuestNavBar from '../comps/GuestNavBar'
 import FeaturesCard from '../comps/FeaturesCard';
 import icon2 from '/public/icon_throw_away.png';
 import Header from '../comps/HeaderText';
-import MyButton from '../comps/Button';
 import Footer from '../comps/footer';
 import InputTab from '../comps/Input';
-import Garbages from '../comps/Garbage';
-import Quick from '../comps/Quickaccess';
 import UserNav from '../comps/UserNav';
 
 
@@ -45,25 +42,26 @@ const ButtonCont = styled.div`
   padding:10px;
 `
 
-export default function Home() {
-  const [itemList, setItemList] = useState(null);
 
-  useEffect(() => {
-    console.log(`use efectttttttttttttttttt`)
-    const getItemList = async () => {
-      await axios
-        .get("https://binibin-server.herokuapp.com/api/entries/items")
-        .then((resp) => {
-          console.log(resp.data);
-          setItemList(resp.data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-      // console.log(result);
-    };
-    getItemList();
-  }, []);
+export default function Home() {
+    const [itemList, setItemList] = useState(null);
+
+    // useEffect(() => {
+    //   console.log(`use efectttttttttttttttttt`)
+    //   const getItemList = async () => {
+    //     await axios
+    //       .get("https://binibin-server.herokuapp.com/api/entries/items")
+    //       .then((resp) => {
+    //         console.log(resp.data);
+    //         setItemList(resp.data);
+    //       })
+    //       .catch((err) => {
+    //         console.log(err);
+    //       });
+    //     // console.log(result);
+    //   };
+    //   getItemList();
+    // }, []);
 
   return (
     //<div className={styles.container}>
