@@ -147,22 +147,24 @@ const GraphsSum = () => {
         }
         setChartData({
           //x axis
-          labels: itemD,
+          labels:itemD,
           datasets: [
             {
               label:'# of Garbage',
               //y axis
               data: itemCG,
+              fill:false,
               backgroundColor:[
                 'black'
               ],
+              borderColor:'black',
               borderWidth: 1,
               borderRadius:10
             },
             {
               label:'# of Compost',
               //y axis
-              data: [65, 59, 80, 81, 56, 55, 40],
+              data:itemCG,
               fill:false,
               backgroundColor:[
                 '#598B2C'
@@ -173,7 +175,7 @@ const GraphsSum = () => {
             {
               label:'# of Recycles',
               //y axis
-              data: itemC,
+              data:  [65, 59, 80, 81, 56, 55, 40],
               backgroundColor:[
                 '#3C64B1'
               ],
