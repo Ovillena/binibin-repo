@@ -71,40 +71,78 @@ const GraphCont = styled.div`
 const GraphsGarbage = () => {
   const [chartData, setChartData] = useState(false)
   const [itemCount, setItemCount] = useState([]);
-  const [isLoading, setLoading] = useState(true);
-
+  const [itemDate, setItemDate] = useState([]);
+  // const [isLoading, setLoading] = useState(true);
   
   useEffect(()=>{
     
     const GetData = async()=>{
-      setChartData({
-        labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Sat', 'Sun'],
-        datasets: [
-          {
-            label:'# of garbage',
-            data: itemCount,
-            backgroundColor:[
-              'black'
-            ],
-            borderWidth: 1
-          }
-        ]
+      let itemC = [];
+      let itemD = [];
+
+      axios.get("https://binibin-server.herokuapp.com/api/entries/garbage/2021-11-01/2021-11-16")
+      .then(res => {
+        console.log(res.data);
+        for(const dataObj of res.data){
+          itemC.push(parseInt(dataObj.total_items))
+          // itemD.push(`${dataObj.month}/${dataObj.day}`)
+          itemD.push(dataObj.entry_date)
+          console.log(itemC, itemD);
+        }
+        setChartData({
+          //x axis
+          labels: itemD,
+          datasets: [
+            {
+              label:'# of garbage',
+              //y axis
+              data: itemC,
+              backgroundColor:[
+                'black'
+              ],
+              borderWidth: 1,
+              borderRadius:10
+            }
+          ]
+        });
+      })
+      .catch(err => {
+        console.log(err);
       });
+
+      // setChartData({
+      //   //x axis
+      //   labels: itemD,
+      //   datasets: [
+      //     {
+      //       label:'# of garbage',
+      //       //y axis
+      //       data: itemC,
+      //       backgroundColor:[
+      //         'black'
+      //       ],
+      //       borderWidth: 1
+      //     }
+      //   ]
+      // });
     }
     GetData();
-
-  
   }, []);
 
-    axios.get("https://binibin-server.herokuapp.com/api/entries")
-    .then(res => {
-      console.log(res.data);
-      setItemCount(res.data.item_count)
-    })
-    .catch(err => {
-      console.log(err);
-    });
-  
+    // axios.get("https://binibin-server.herokuapp.com/api/entries")
+    // .then(res => {
+    //   console.log(res.data);
+    //   for(const dataObj of res.data){
+    //     itemC.push(parseInt(dataObj.item_count))
+    //     itemD.push(parseInt(dataObj.entry_date))
+    //     console.log(itemC, itemD);
+    //   }
+    // })
+    // .catch(err => {
+    //   console.log(err);
+    // });
+    
+
   if (chartData){
   return(
   <>
@@ -115,6 +153,20 @@ const GraphsGarbage = () => {
     
     <Bar data={chartData} options={{
       scales:{
+        x:{
+          grid:{
+            display:false
+          },
+          ticks:{
+            display:true,
+            autoSkip:true,
+            maxTicksLimit:7
+          },
+        },
+        // y:{
+        //   min:0,
+        //   max:100
+        // },
         yAxes:[
           {
             ticks:{
