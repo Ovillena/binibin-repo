@@ -28,7 +28,7 @@ const RightCont = styled.div`
 `
 
 const TextCont = styled.div`
-    color:#003274;
+    color:${props=>props.navColor};
     font-weight:bold;
     padding:10px;
     &:hover {
@@ -44,7 +44,8 @@ const NavItems = styled.a`
 
 
 const GuestNavBar = ({
-    router = useRouter()
+    router = useRouter(),
+    navColor="#003274"
 
 }) =>{
 

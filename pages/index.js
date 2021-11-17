@@ -1,62 +1,62 @@
-import FooterComp from '../comps/footer'
+import FooterComp from "../comps/footer";
 
-import styled from 'styled-components';
-import React, {useState, useEffect} from 'react';
+import styled from "styled-components";
+import React, { useState, useEffect } from "react";
 
-import GuestNavBar from '../comps/GuestNavBar';
-import HeaderText from '../comps/HeaderText';
-import HeroComp from '../comps/HeroComp'
-import CircleImage from '../comps/CircleImage';
-import MyButton from '../comps/Button';
-import Subhead from '../comps/SubheadText';
-import userNav from '../comps/UserNav';
-import EduImage from '../comps/EduImage';
-import FeaturesCard from '../comps/FeaturesCard';
+import axios from "axios";
 
-
+import GuestNavBar from "../comps/GuestNavBar";
+import HeaderText from "../comps/HeaderText";
+import HeroComp from "../comps/HeroComp";
+import CircleImage from "../comps/CircleImage";
+import MyButton from "../comps/Button";
+import Subhead from "../comps/SubheadText";
+import userNav from "../comps/UserNav";
+import EduImage from "../comps/EduImage";
+import FeaturesCard from "../comps/FeaturesCard";
 
 const PageCont = styled.div`
-display:flex;
-flex-direction:column;
-min-height:100vh;
-background-color:#EEF9FF;
-`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #eef9ff;
+`;
 
 const TopRow = styled.div`
-  display:flex;
-`
+  display: flex;
+`;
 
 const HeaderCont = styled.div`
-  display:flex;
-  justify-content:center;
-  margin:50px;
-`
+  display: flex;
+  justify-content: center;
+  margin: 50px;
+`;
 
 const FooterCont = styled.div`
-  display:flex;
-  flex:1;
-  align-items:flex-end;
-`
+  display: flex;
+  flex: 1;
+  align-items: flex-end;
+`;
 
 const ParagraphSec = styled.div`
-  display:flex;
-  flex:1;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  text-align:center;
-  padding:20px;
-`
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px;
+`;
 
 const BodyText = styled.p`
   font-size:18px;
   max-width:1000px;
 `
 const ButtonCont = styled.div`
-  display:flex;
-  justify-content:center;
-  padding:20px;
-`
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+`;
 
 const FeaturesCont = styled.div`
   display:flex;
@@ -78,10 +78,26 @@ const MultiColumn = styled.div`
   }
 `
 
-export default function Home(){
+export default function Home() {
+  const [user, setUser] = useState(null);
+
+  axios
+    .get(
+      "https://binibin-server.herokuapp.com/auth/checkauth",
+      // "http://localhost:8080/auth/checkauth",
+      { withCredentials: true }
+    )
+    .then((res) => {
+      console.log(res.data);
+      setUser(res.data.username);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
   return (
     //<div className={styles.container}>
-      <PageCont>
+    <PageCont>
       <TopRow>
         <GuestNavBar></GuestNavBar>
       </TopRow>
@@ -147,5 +163,5 @@ export default function Home(){
       </PageCont>
 
     //</div>
-  )
+  );
 }
