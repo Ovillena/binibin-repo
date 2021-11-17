@@ -6,7 +6,7 @@ import Subhead from '../SubheadText';
 const LegendCont = styled.div`
   max-height:220px;
   margin:30px 20px 0 0;
-  padding:10px 0 0 0;
+  padding:10px 0 0 10px;
   border: 3px solid #95AFBA;
   border-radius:10px;
 `;

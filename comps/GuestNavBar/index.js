@@ -33,7 +33,7 @@ const TextCont = styled.div`
     padding:10px;
     &:hover {
         background-color: #EEF9FF;
-      }
+    }
 `
 
 const NavItems = styled.a`
@@ -59,7 +59,7 @@ const GuestNavBar = ({
         </LogoCont>
         <RightCont>
             <NavItems>
-                <TextCont onClick={()=>router.push("/aboutus")}>About us</TextCont>
+                <TextCont onClick={()=>router.push("/aboutus")} navColor={navColor}>About us</TextCont>
             </NavItems>
             <NavItems>
                 <TextCont onClick={()=>router.push("/education")} >How to sort</TextCont>

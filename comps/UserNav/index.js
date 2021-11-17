@@ -11,7 +11,6 @@ const NavCont = styled.div`
     display:flex;
     min-width:200px;
     min-height:80px;
-    background-color:#97BCD0;
     box-shadow:0px 3px 30px grey; 
     justify-content:space-between;
     align-items:center;
@@ -25,9 +24,12 @@ const LogoCont = styled.div`
 `
 
 const TextCont = styled.div`
-    color:white;
+    color:#003274;
     font-weight:bold;
-    
+    padding:10px;
+    &:hover {
+        background-color: #EEF9FF;
+      }
 `
 
 const NavItems = styled.a`
@@ -50,8 +52,9 @@ const ItemsDiv = styled.div`
 `
 
 const SubHeader = styled.h2`
-  font-size:24px;
-  color:white;
+    font-size:24px;
+    color:#0E73AA;
+    margin-right:20px;
 `;
 
 
@@ -74,7 +77,7 @@ const UserNav = ({
         <RightCol>
 
         <GreetingCont>
-            <SubHeader>{display_name}</SubHeader>
+            <SubHeader>Hi, {display_name}</SubHeader>
         </GreetingCont>
 
         <ItemsDiv>
