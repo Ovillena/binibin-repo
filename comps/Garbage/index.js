@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import React from 'react';
+import axios from 'axios';
 import Image from 'next/image';
 import {Button} from 'semantic-ui-react';
 import EduImage from '../EduImage';
@@ -151,6 +152,30 @@ const Garbages = ({
 		setCount(count - 1);
 	};
 
+	const postData = {
+		item_name: 'Garbage',
+		waste_type: 'garbage',
+		item_count: count,
+	};
+
+	const requestOptions = {
+		method: 'POST',
+		headers: {'Content-Type': 'application/json'},
+		body: JSON.stringify(postData),
+	};
+
+	const onSubmit = async () => {
+		await fetch('http://localhost:8080/api/entries/add', requestOptions)
+			.then((response) => {
+				console.log(response);
+				setIsOpen(true);
+			})
+			.catch((err) => {
+				console.log(err);
+				setIsOpen(false);
+			});
+	};
+
 	return (
 		<Inside>
 			<Container>
@@ -167,9 +192,9 @@ const Garbages = ({
 							<input type="number" value={count}></input>
 							<Button onClick={inc}>+</Button>
 						</Entrydiv>
-						<ButtonCont>
+						{/* <ButtonCont> */}
 							<ClickButton
-								onClick={() => setIsOpen(true)}
+								onClick={onSubmit}
 								width={width}
 								height={height}
 								bgcolor={bgcolor}
@@ -181,7 +206,7 @@ const Garbages = ({
 									Hello testing
 								</Modal>
 							</ClickButton>
-						</ButtonCont>
+						{/* </ButtonCont> */}
 					</Div>
 				</Inputs>
 
