@@ -72,7 +72,7 @@ export default function Home() {
             </div>
             <div className="actions">
               <button onClick={() => {close();}}>Close</button>
-              {/* <button className="close" onClick={close}>&times;</button> */}
+              <button className="close" onClick={close}>&times;</button>
               <button>Submit Entries</button>
             </div>
           </div>
