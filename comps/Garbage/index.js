@@ -26,41 +26,42 @@ const Bottom = styled.div`
 // The Main container
 const Inside = styled.div`
 	display: flex;
-	width: 1206px;
-	height: 688px;
+	${'' /* width: 900px; */}
+	height: 100%;
 	position: static;
+	justify-content: center;
 `;
 //Quick access
 const Side = styled.div`
-width:400px;
-height:88px;
-background-color:#95AFBA;
-display;flex;
-flex-direction:row;
-border-radius: 20px 20px 0px 0px;
-border:solid #95AFBA;
+	width: 400px;
+	height: 88px;
+	background-color: #95afba;
+	display: flex;
+	flex-direction: row;
+	border-radius: 20px 20px 0px 0px;
+	border: solid #95afba;
 `;
 //Garbage
 const Garbage = styled.div`
-width:600px;
-height:88px;
-background-color:white;
-display;flex;
-flex-direction:row;
-border-radius: 20px 20px 0px 0px;
-border:solid #95AFBA;
+	width: 600px;
+	height: 88px;
+	background-color: white;
+	display: flex;
+	flex-direction: row;
+	border-radius: 20px 20px 0px 0px;
+	border: solid #95afba;
 `;
 //Recycle
 const Recycle = styled.div`
-width:600px;
-height:88px;
-background-color:#95AFBA;
-display;flex;
-flex-direction:row;
-border-radius: 20px 20px 0px 0px;
-border:solid #95AFBA;
-justify-content:center;
-align-items:center;
+	width: 600px;
+	height: 88px;
+	background-color: #95afba;
+	display: flex;
+	flex-direction: row;
+	border-radius: 20px 20px 0px 0px;
+	border: solid #95afba;
+	justify-content: center;
+	align-items: center;
 `;
 const Text = styled.h2`
 	color: #ffffff;
@@ -132,7 +133,7 @@ const myLoader = ({src}) => {
 	return `${src}`;
 };
 
-const Garbages = ({
+const Garbages = (props,{
 	width = '158px',
 	height = '56px',
 	bgcolor = '#95AFBA',
@@ -153,8 +154,8 @@ const Garbages = ({
 	};
 
 	const postData = {
-		item_name: 'Garbage',
-		waste_type: 'garbage',
+		item_name: props.label,
+		waste_type: props.wasteType,
 		item_count: count,
 	};
 
@@ -169,7 +170,7 @@ const Garbages = ({
 		await fetch('http://localhost:8080/api/entries/add', requestOptions)
 			.then((response) => {
 				console.log(response);
-				alert(`${count} bags of garbage has been entered :)`);
+				alert(`${count} bags of ${props.wasteType} has been entered :)`);
 				// setIsOpen(true);
 				setCount(0);
 			})
@@ -188,7 +189,7 @@ const Garbages = ({
 					</Items>
 
 					<Div>
-						<Headers>Garbage</Headers>
+            <Headers>{props.label}</Headers>
 						<Ml>Number of bags</Ml>
 						<Entrydiv>
 							<Button onClick={dec}>-</Button>
