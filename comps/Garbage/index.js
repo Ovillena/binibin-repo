@@ -5,7 +5,7 @@ import Image from 'next/image';
 import {Button} from 'semantic-ui-react';
 import EduImage from '../EduImage';
 import {useState} from 'react';
-import Modal from '../../pages/api/modal';
+// import Modal from '../../pages/api/modal';
 
 //inputs
 const Container = styled.div`
