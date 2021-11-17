@@ -1,6 +1,3 @@
-import {Button} from 'semantic-ui-react';
-import EduImage from '../EduImage';
-import Modal from '../../pages/api/modal';
 import styled from 'styled-components';
 import React from 'react';
 import axios from 'axios';
@@ -8,15 +5,14 @@ import Image from 'next/image';
 import {Button} from 'semantic-ui-react';
 import EduImage from '../EduImage';
 import {useState} from 'react';
-
 // import Modal from '../../pages/api/modal';
 
 //inputs
 const Container = styled.div`
 	display: flex;
 	flex-direction: row;
-	margin-bottom:50px;
-  margin-top:50px;
+	margin-top: 50px;
+	margin-bottom: 50px;
 	margin-left: 80px;
 	gap: 10px;
 `;
@@ -133,14 +129,6 @@ const Headers = styled.h2`
 const Ml = styled.h3`
 	color: black;
 `;
-const myLoader = ({src}) => {
-	return `${src}`;
-};
-
-
-const Ml = styled.h3`
-	color: black;
-`;
 
 const myLoader = ({src}) => {
 	return `${src}`;
@@ -157,15 +145,6 @@ const Garbages = (props,{
 	const [isOpen, setIsOpen] = useState(false);
 
 	const [count, setCount] = React.useState(0);
-	const inc = (event) => {
-		setCount(count + 1);
-	};
-	const dec = () => {
-		setCount(count - 1);
-	};
-
-
-	const [count, setCount] = React.useState(0);
 
 	const inc = (event) => {
 		setCount(count + 1);
@@ -174,7 +153,6 @@ const Garbages = (props,{
 	const dec = () => {
 		setCount(count - 1);
 	};
-
 
 	const postData = {
 		item_name: props.label,
@@ -190,13 +168,7 @@ const Garbages = (props,{
 
 	const onSubmit = async (e) => {
 		e.preventDefault();
-		await fetch('http://localhost:8080/api/entries/add', requestOptions)
-
-
-	const onSubmit = async (e) => {
-		e.preventDefault();
 		await fetch('https://binibin-server.herokuapp.com/api/entries/add', requestOptions)
-
 			.then((response) => {
 				console.log(response);
 				alert(`${count} bags of ${props.wasteType} has been entered :)`);
@@ -208,7 +180,7 @@ const Garbages = (props,{
 				// setIsOpen(false);
 			});
 	};
-<
+
 	return (
 		<Inside>
 			<Container>
@@ -246,6 +218,4 @@ const Garbages = (props,{
 		</Inside>
 	);
 };
-
 export default Garbages;
-
