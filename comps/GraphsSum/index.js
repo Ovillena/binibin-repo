@@ -1,70 +1,3 @@
-// import React from 'react';
-// import { Line } from 'react-chartjs-2';
-// import styled from 'styled-components';
-// import Subhead from '../SubheadText';
-
-// const data = {
-//   labels: ['Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'],
-//   datasets: [
-//     {
-//       label: '# of Garbage',
-//       data: [1, 19, 3, 5, 2, 15, 8],
-//       fill: false,
-//       backgroundColor: 'black',
-//       borderColor: 'black',
-//     },
-//     {
-//         label: '# of Recycles',
-//         data: [10, 3, 3, 0, 2, 3, 15],
-//         fill: false,
-//         backgroundColor: '#3C64B1',
-//         borderColor: '#3C64B1',
-//       },
-//       {
-//         label: '# of Compost',
-//         data: [5, 8, 3, 12, 2, 0, 8],
-//         fill: false,
-//         backgroundColor: '#3A7A1C',
-//         borderColor: '#3A7A1C',
-//       },
-//   ],
-// };
-
-// const options = {
-//   scales: {
-//     x:{
-//       grid:{
-//         display:false
-//       },
-//     },
-//     y: {
-//       beginAtZero: true
-//     }
-//   }
-// };
-
-// const GraphCont = styled.div`
-//   display:flex;
-//   width:489px;
-//   height:228px;
-// `
-
-// const GraphsSum = () => (
-//   <>
-//     <div className='header'>
-//         <Subhead text="Summary" fontsize="24px"></Subhead>
-//       <div className='links'>
-//       </div>
-//     </div>
-//     <GraphCont>
-//         <Line data={data} options={options} />
-//     </GraphCont>
-//   </>
-// );
-
-// export default GraphsSum;
-
-
 import React from 'react';
 import styled from 'styled-components';
 import { Line } from 'react-chartjs-2';
@@ -133,26 +66,39 @@ const GraphsSum = () => {
     
     const GetData = async()=>{
       let itemCG = [];
-      let itemD = [];
+      let itemCR = [];
+      let itemCC = [];
+      let itemDG = [];
+      let itemDR = [];
+      let itemDC = [];
 
-      axios.get("https://binibin-server.herokuapp.com/api/entries")
+      axios.get("https://binibin-server.herokuapp.com/api/entries/garbage/2021-11-01/2021-11-16")
       .then(res => {
         console.log(res.data);
         for(const dataObj of res.data){
           itemCG.push(parseInt(dataObj.total_items))
           // itemD.push(`${dataObj.month}/${dataObj.day}`)
-          itemD.push(dataObj.entry_date)
-          console.log(itemCG, itemD);
-
+          itemDG.push(dataObj.entry_date)
+          // console.log("---------")
+          console.log(itemCG, itemDG);
+          // for(const dataRec of res.data){
+          //   itemCR.push(parseInt(dataRec.total_items))
+          //   console.log(itemCR, itemD);
+          // }
+          // for(const dataComp of res.data){
+          //   itemCC.push(parseInt(dataComp.total_items))
+          //   console.log(itemCC, itemD);
+          // }
         }
+
         setChartData({
           //x axis
-          labels:['11/01', '11/03', '11/16'],
+          labels:itemDG,
           datasets: [
             {
               label:'# of Garbage',
               //y axis
-              data: [5,44,1],
+              data: itemCG,
               fill:false,
               backgroundColor:[
                 'black'
@@ -164,7 +110,7 @@ const GraphsSum = () => {
             {
               label:'# of Compost',
               //y axis
-              data:[4,2,13],
+              data:itemCC,
               fill:false,
               backgroundColor:[
                 '#598B2C'
@@ -176,7 +122,7 @@ const GraphsSum = () => {
             {
               label:'# of Recycles',
               //y axis
-              data:  [5,22,27],
+              data:itemCR,
               backgroundColor:[
                 '#3C64B1'
               ],
@@ -187,6 +133,119 @@ const GraphsSum = () => {
           ]
         });
       })
+
+      //------------------RECYCLE---------------------------- 
+
+      axios.get("https://binibin-server.herokuapp.com/api/entries/recycling/2021-11-01/2021-11-16")
+      .then(res => {
+        console.log(res.data);
+        for(const dataObj of res.data){
+          itemCR.push(parseInt(dataObj.total_items))
+          // itemD.push(`${dataObj.month}/${dataObj.day}`)
+          itemDR.push(dataObj.entry_date)
+          // console.log("---------")
+          console.log(itemCR, itemDG);
+        }
+
+        setChartData({
+          //x axis
+          labels:itemDR,
+          datasets: [
+            {
+              label:'# of Garbage',
+              //y axis
+              data: itemCG,
+              fill:false,
+              backgroundColor:[
+                'black'
+              ],
+              borderColor:'black',
+              borderWidth: 1,
+              borderRadius:10
+            },
+            {
+              label:'# of Compost',
+              //y axis
+              data:itemCC,
+              fill:false,
+              backgroundColor:[
+                '#598B2C'
+              ],
+              borderColor:'#598B2C',
+              borderWidth: 1,
+              borderRadius:10
+            },
+            {
+              label:'# of Recycles',
+              //y axis
+              data:itemCR,
+              backgroundColor:[
+                '#3C64B1'
+              ],
+              borderColor:'#3C64B1',
+              borderWidth: 1,
+              borderRadius:10
+            }
+          ]
+        });
+      })
+
+      //------------------COMPOST---------------------------- 
+
+      axios.get("https://binibin-server.herokuapp.com/api/entries/compost/2021-11-01/2021-11-16")
+      .then(res => {
+        console.log(res.data);
+        for(const dataObj of res.data){
+          itemCC.push(parseInt(dataObj.total_items))
+          // itemD.push(`${dataObj.month}/${dataObj.day}`)
+          itemDC.push(dataObj.entry_date)
+          // console.log("---------")
+          console.log(itemCC, itemDR);
+        }
+
+        setChartData({
+          //x axis
+          labels:itemDC,
+          datasets: [
+            {
+              label:'# of Garbage',
+              //y axis
+              data: itemCG,
+              fill:false,
+              backgroundColor:[
+                'black'
+              ],
+              borderColor:'black',
+              borderWidth: 1,
+              borderRadius:10
+            },
+            {
+              label:'# of Compost',
+              //y axis
+              data:itemCC,
+              fill:false,
+              backgroundColor:[
+                '#598B2C'
+              ],
+              borderColor:'#598B2C',
+              borderWidth: 1,
+              borderRadius:10
+            },
+            {
+              label:'# of Recycles',
+              //y axis
+              data:itemCR,
+              backgroundColor:[
+                '#3C64B1'
+              ],
+              borderColor:'#3C64B1',
+              borderWidth: 1,
+              borderRadius:10
+            }
+          ]
+        });
+      })
+      
       .catch(err => {
         console.log(err);
       });
