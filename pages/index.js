@@ -85,7 +85,11 @@ export default function Home() {
   const [user, setUser] = useState(null);
 
   axios
-    .get("http://localhost:8080/auth/checkauth", { withCredentials: true })
+    .get(
+      "https://binibin-server.herokuapp.com/auth/checkauth",
+      // "http://localhost:8080/auth/checkauth",
+      { withCredentials: true }
+    )
     .then((res) => {
       console.log(res);
     })
