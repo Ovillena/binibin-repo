@@ -164,15 +164,18 @@ const Garbages = ({
 		body: JSON.stringify(postData),
 	};
 
-	const onSubmit = async () => {
+	const onSubmit = async (e) => {
+		e.preventDefault();
 		await fetch('http://localhost:8080/api/entries/add', requestOptions)
 			.then((response) => {
 				console.log(response);
-				setIsOpen(true);
+				alert(`${count} bags of garbage has been entered :)`);
+				// setIsOpen(true);
+				setCount(0);
 			})
 			.catch((err) => {
 				console.log(err);
-				setIsOpen(false);
+				// setIsOpen(false);
 			});
 	};
 
@@ -192,21 +195,20 @@ const Garbages = ({
 							<input type="number" value={count}></input>
 							<Button onClick={inc}>+</Button>
 						</Entrydiv>
-						{/* <ButtonCont> */}
-							<ClickButton
-								onClick={onSubmit}
-								width={width}
-								height={height}
-								bgcolor={bgcolor}
-								textcolor={textcolor}
-							>
-								{text}
 
-								<Modal open={isOpen} onClose={() => setIsOpen(false)}>
-									Hello testing
-								</Modal>
-							</ClickButton>
-						{/* </ButtonCont> */}
+						<ClickButton
+							onClick={onSubmit}
+							width={width}
+							height={height}
+							bgcolor={bgcolor}
+							textcolor={textcolor}
+						>
+							{text}
+
+							{/* <Modal open={isOpen} onClose={() => setIsOpen(false)}>
+								Hello testing
+							</Modal> */}
+						</ClickButton>
 					</Div>
 				</Inputs>
 
