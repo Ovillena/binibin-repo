@@ -49,17 +49,11 @@ export default function Home() {
   const [itemList, setItemList] = useState(null);
 
   useEffect(() => {
-    console.log(`use efectttttttttttttttttt`)
     const getItemList = async () => {
-      await axios
-        .get("https://binibin-server.herokuapp.com/api/entries/items")
-        .then((resp) => {
-          console.log(resp.data);
-          setItemList(resp.data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      await fetch("https://binibin-server.herokuapp.com/api/entries/items")
+        .then((resp) =>  resp.json())
+        .then((data) => setItemList(data))
+        .catch((err) => console.log(err));
       // console.log(result);
     };
     getItemList();
