@@ -11,10 +11,10 @@ import EducationTab from '../comps/EducationTab';
 
 
 const PageCont = styled.div`
-display:flex;
-flex-direction:column;
-min-height:100vh;
-background-color:#EEF9FF;
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
+  background-color:#EEF9FF;
 `
 
 const TopRow = styled.div`
@@ -31,6 +31,7 @@ const FooterCont = styled.div`
   display:flex;
   flex:1;
   align-items:flex-end;
+  margin-top:80px;
 `
 
 const LinksRow = styled.div`

@@ -161,7 +161,7 @@ export default function Home() {
                       <EntryItem entry_id={o.entry_id} item_name={o.item_name} item_count={o.item_count} unit={o.unit} waste_type={o.waste_type}/> */}
                 </ListSection>
                 <SideSection>
-                  <EntryEdit>Edit</EntryEdit>
+                  {/* <EntryEdit>Edit</EntryEdit> */}
                 </SideSection>
               </EntryDayList>
             </AllDaysList>

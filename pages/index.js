@@ -70,7 +70,7 @@ const MultiColumn = styled.div`
   justify-content:center;
   align-items:center;
   @media (max-width:1000px) {
-    margin:0;
+    margin: 0;
   }
   margin: 0 5%;
   & ${BodyText} {

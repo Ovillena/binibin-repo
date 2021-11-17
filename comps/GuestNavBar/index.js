@@ -62,7 +62,7 @@ const GuestNavBar = ({
                 <TextCont onClick={()=>router.push("/aboutus")} navColor={navColor}>About us</TextCont>
             </NavItems>
             <NavItems>
-                <TextCont onClick={()=>router.push("/education")} >How to sort</TextCont>
+                <TextCont onClick={()=>router.push("/education")} navColor={navColor}>How to sort</TextCont>
             </NavItems>
             <NavItems>
                 <MyButton routeTo="/login"></MyButton>
