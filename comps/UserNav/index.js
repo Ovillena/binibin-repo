@@ -8,27 +8,29 @@ import axios from "axios";
 import React from "react";
 
 const NavCont = styled.div`
-  display: flex;
-  min-width: 200px;
-  height: 130px;
-  background-color: #97bcd0;
-  box-shadow: 0px 3px 30px grey;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  flex: 1;
-  padding: 50px;
-`;
+    display:flex;
+    min-width:200px;
+    min-height:80px;
+    box-shadow:0px 3px 30px grey; 
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    flex:1;
+    margin-bottom:30px;
+`
 
 const LogoCont = styled.div`
-  padding-left: 30px;
-  flex: 1;
-`;
+    padding-left:30px;
+`
 
 const TextCont = styled.div`
-  color: white;
-  font-weight: bold;
-`;
+    color:#003274;
+    font-weight:bold;
+    padding:10px;
+    &:hover {
+        background-color: #EEF9FF;
+      }
+`
 
 const NavItems = styled.a`
   font-size: 24px;
@@ -50,8 +52,9 @@ const ItemsDiv = styled.div`
 `;
 
 const SubHeader = styled.h2`
-  font-size: 24px;
-  color: white;
+    font-size:24px;
+    color:#0E73AA;
+    margin-right:20px;
 `;
 
 export async function getStaticProps(context) {
@@ -67,8 +70,8 @@ const UserNav = ({ router = useRouter(), displayName = "Username" }) => {
         <Image
           src="/binibinlogo.png"
           alt="BiniBin Logo"
-          width={204}
-          height={52}
+          width={135}
+          height={35}
           onClick={() => router.push("/")}
         />
       </LogoCont>

@@ -23,9 +23,10 @@ const TopRow = styled.div`
 `;
 
 const HeaderCont = styled.div`
-  display: flex;
-  justify-content: center;
-`;
+  display:flex;
+  justify-content:center;
+  margin-bottom:30px;
+`
 
 const FooterCont = styled.div`
   display: flex;
@@ -110,51 +111,47 @@ export default function Dashboard() {
           )
         )
       } */}
+      
+    <HeaderCont>
+      <HeaderText text="User's Dashboard"></HeaderText>
+    </HeaderCont>
 
-      <HeaderCont>
-        <HeaderText text="User's Dashboard"></HeaderText>
-      </HeaderCont>
+    <TopIcons>
+      <IconDiv>
+        <IconComp iconSymbol='calendar check outline' routeTo="inputdata"></IconComp>
+        <Subhead text='Record New Entries' fontsize='24px'></Subhead>
+      </IconDiv>
+      <IconDiv>
+        <IconComp iconSymbol='chart bar' routeTo="graphs"></IconComp>
+        <Subhead text='View Graphs' fontsize='24px'></Subhead>
+      </IconDiv>
+      <IconDiv>
+        <IconComp iconSymbol='list' routeTo="pastentries"></IconComp>
+        <Subhead text='View Past Entries' fontsize='24px'></Subhead>
+      </IconDiv>
+    </TopIcons>
 
-      <TopIcons>
-        <IconDiv>
-          <IconComp iconSymbol="chart bar" routeTo="graphs"></IconComp>
-          <Subhead text="View Graphs" fontsize="24px"></Subhead>
-        </IconDiv>
-        <IconDiv>
-          <IconComp
-            iconSymbol="calendar check outline"
-            routeTo="inputdata"
-          ></IconComp>
-          <Subhead text="Inputs" fontsize="24px"></Subhead>
-        </IconDiv>
-        <IconDiv>
-          <IconComp iconSymbol="list" routeTo="pastentries"></IconComp>
-          <Subhead text="List of Past Entries" fontsize="24px"></Subhead>
-        </IconDiv>
-      </TopIcons>
+    <BotRow>
+      <IconDiv>
+        <IconComp iconSymbol='wrench' routeTo="setting"></IconComp>
+        <Subhead text='Account Settings' fontsize='24px'></Subhead>
+      </IconDiv>
+      <IconDiv>
+        <IconComp iconSymbol='file text' routeTo="education"></IconComp>
+        <Subhead text='How to Sort' fontsize='24px'></Subhead>
+      </IconDiv>
+      <IconDiv>
+        <IconComp iconSymbol='headphones' routeTo="customerservice"></IconComp>
+        <Subhead text='Customer Support' fontsize='24px'></Subhead>
+      </IconDiv>
+    </BotRow>  
 
-      <BotRow>
-        <IconDiv>
-          <IconComp iconSymbol="wrench" routeTo="setting"></IconComp>
-          <Subhead text="Account Settings" fontsize="24px"></Subhead>
-        </IconDiv>
-        <IconDiv>
-          <IconComp iconSymbol="file text" routeTo="education"></IconComp>
-          <Subhead text="Learn More" fontsize="24px"></Subhead>
-        </IconDiv>
-        <IconDiv>
-          <IconComp
-            iconSymbol="headphones"
-            routeTo="customerservice"
-          ></IconComp>
-          <Subhead text="Customer Support" fontsize="24px"></Subhead>
-        </IconDiv>
-      </BotRow>
 
-      <FooterCont>
-        <Footer></Footer>
-      </FooterCont>
-    </PageCont>
+    <FooterCont>
+      <Footer></Footer>
+    </FooterCont>    
+
+      </PageCont>
     //</div>
   );
 }

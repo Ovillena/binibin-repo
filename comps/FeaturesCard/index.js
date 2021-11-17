@@ -15,6 +15,7 @@ const CardCont = styled.div`
   margin:10px;
   text-align:center;
   font-family: 'Hind', sans-serif;
+  font-size:18px;
 `;
 
 const SmallHeading = styled.h2`

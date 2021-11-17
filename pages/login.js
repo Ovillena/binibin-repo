@@ -12,14 +12,15 @@ const PageCont = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+  justify-content: space-between;
   min-height: 100vh;
   background-color: #eef9ff;
 `;
 
 const TopRow = styled.div`
   display: flex;
-  flex: 1;
 `;
+
 const MidCont = styled.div`
   display: flex;
   margin: 200 50 200 50px;
@@ -43,7 +44,6 @@ const RightCont = styled.div`
 
 const FooterCont = styled.div`
   display: flex;
-  flex: 1;
   align-items: flex-end;
 `;
 

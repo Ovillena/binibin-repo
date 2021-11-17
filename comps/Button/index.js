@@ -6,7 +6,6 @@ import router, { useRouter } from "next/router";
 const ButtonCont = styled.div`
     display:flex;
     margin:10px;
-    
 `
 
 const ClickButton = styled.button`
@@ -14,6 +13,9 @@ const ClickButton = styled.button`
     height:${props=>props.height};
     background-color:${props=>props.bgcolor};
     color:${props=>props.textcolor};
+    font-size:24px;
+    font-weight:500;
+    font-family: 'Hind', sans-serif;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -29,9 +31,9 @@ const ClickButton = styled.button`
 const MyButton = ({
     width="150px",
     height="50px",
-    bgcolor="#FFC800",
+    bgcolor="#2E6200",
     text="Login",
-    textcolor="white",
+    textcolor="#F7FFF0",
     routeTo="/",
     hoverbg="#598B2C"
 

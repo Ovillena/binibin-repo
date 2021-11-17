@@ -61,7 +61,7 @@ const EducationTab = ({
                   fontFamily:'Hind, sans-serif',
                   fontSize:24, 
                   fontWeight: 'semi-bold'
-                
+                  
                 }}>
                 </Tab>
 

@@ -3,7 +3,7 @@ import React from "react";
 
 
 const SubheadCont = styled.div`
-    
+    margin:10px 10px 10px 0;
 `
 
 const Subheader = styled.h2`

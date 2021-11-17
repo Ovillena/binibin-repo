@@ -36,6 +36,7 @@ const EntryDayList = styled.div`
   margin: 5px 20px 0px 20px;
   border: 3px solid #95afba;
   justify-content: space-between;
+  border-radius:10px;
 `;
 
 const ListSection = styled.div`
@@ -160,7 +161,7 @@ export default function Home() {
                       <EntryItem entry_id={o.entry_id} item_name={o.item_name} item_count={o.item_count} unit={o.unit} waste_type={o.waste_type}/> */}
                 </ListSection>
                 <SideSection>
-                  <EntryEdit>Edit</EntryEdit>
+                  {/* <EntryEdit>Edit</EntryEdit> */}
                 </SideSection>
               </EntryDayList>
             </AllDaysList>

@@ -8,24 +8,32 @@ import React from 'react';
 const NavCont = styled.div`
     display:flex;
     min-width:200px;
-    height:130px;
-    background-color:#97BCD0;
+    min-height:80px;
+    background-color:#fff;
     box-shadow:0px 3px 30px grey; 
     justify-content:space-between;
     align-items:center;
     flex-wrap:wrap;
     flex:1;
-    padding:50px;
 `
 
 const LogoCont = styled.div`
     padding-left:30px;
-    flex:1;
+`
+
+const RightCont = styled.div`
+    display:flex;
+    align-items:center;
+    jusfify-content:right;
 `
 
 const TextCont = styled.div`
     color:${props=>props.navColor};
     font-weight:bold;
+    padding:10px;
+    &:hover {
+        background-color: #EEF9FF;
+    }
 `
 
 const NavItems = styled.a`
@@ -37,7 +45,7 @@ const NavItems = styled.a`
 
 const GuestNavBar = ({
     router = useRouter(),
-    navColor="#2C5489"
+    navColor="#003274"
 
 }) =>{
 
@@ -45,23 +53,21 @@ const GuestNavBar = ({
 // if(){
     return <NavCont>
         <LogoCont>
-            <Image src="/binibinlogo.png" alt="BiniBin Logo" width={204} height={52} 
+            <Image src="/binibinlogo.png" alt="BiniBin Logo" width={135} height={35} 
             onClick={()=>router.push("/")}
             />
         </LogoCont>
-        <NavItems>
-            <TextCont onClick={()=>router.push("/aboutus")} navColor={navColor}>About Us</TextCont>
-        </NavItems>
-        {/* <NavItems>
-            <TextCont onClick={()=>router.push("/features")} navColor="#598B2C">Features</TextCont>
-        </NavItems> */}
-        <NavItems>
-            <TextCont onClick={()=>router.push("/education")} navColor="#598B2C">Learn More</TextCont>
-        </NavItems>
-        <NavItems>
-            <MyButton routeTo="/login"></MyButton>
-        </NavItems>
-
+        <RightCont>
+            <NavItems>
+                <TextCont onClick={()=>router.push("/aboutus")} navColor={navColor}>About us</TextCont>
+            </NavItems>
+            <NavItems>
+                <TextCont onClick={()=>router.push("/education")} navColor={navColor}>How to sort</TextCont>
+            </NavItems>
+            <NavItems>
+                <MyButton routeTo="/login"></MyButton>
+            </NavItems>
+        </RightCont>
     </NavCont>
 }
 // else {
