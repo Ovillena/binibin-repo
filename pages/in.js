@@ -3,16 +3,14 @@ import React from 'react';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 
-import 'react-tabs/style/react-tabs.css';
-import Popup from 'reactjs-popup';
-import 'reactjs-popup/dist/index.css';
+// import Popup from 'reactjs-popup';
+// import 'reactjs-popup/dist/index.css';
 
 import GuestNavBar from '../comps/GuestNavBar';
 import Header from '../comps/HeaderText';
 import Footer from '../comps/footer';
 import Button from '../comps/Button';
 import IGCR from '../comps/InputGCR';
-import BoldText from '../comps/BoldText';
 import EntryItem from '../comps/EntryItem';
 import { getFontDefinitionFromManifest } from 'next/dist/server/font-utils';
 
@@ -48,7 +46,7 @@ export default function Home() {
   return(
     <Cont>
     <SubCont>
-      <Popup
+      {/* <Popup
         trigger={<button className="button"> View Added Entries </button>}
         modal
         nested
@@ -77,13 +75,12 @@ export default function Home() {
             </div>
           </div>
         )}
-      </Popup>
+      </Popup> */}
     </SubCont>
     <SubCont>
       <IGCR/>
       <IGCR item_name="Compost" waste_type="compost" src="compost.png" alt="compost"note="Example: cherry stem and seed, and apple core"/>
       <IGCR item_name="Recycling" waste_type="compost" src="juicebox.png" alt="compost" note="Example: juice box and container" optional="mandatory"/>
-      {/* <IRS/> */}
     </SubCont>
   </Cont>
   )
