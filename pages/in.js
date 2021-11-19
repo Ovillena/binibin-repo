@@ -13,38 +13,66 @@ import Button from '../comps/Button';
 import IGCR from '../comps/InputGCR';
 import EntryItem from '../comps/EntryItem';
 import { getFontDefinitionFromManifest } from 'next/dist/server/font-utils';
+import UserNav from '../comps/UserNav';
+import FooterComp from '../comps/footer';
+import InputCounter from '../comps/InputCounter';
 
 const Cont = styled.div`
   display:flex;
   flex-direction:column;
-  margin:10px;
-  padding:5px;
   justify-content:center;
   align-items:center;
+  min-height: 100vh;
+`;
+
+const TopRow = styled.div`
+  display:flex;
+  width:100vw;
+`;
+
+const FooterCont = styled.div`
+  display:flex;
+  flex:1;
+  align-items:flex-end;
+  width:100vw;
 `;
   
 const SubCont = styled.div`
   display:flex;
 `;
 
+const CartCont = styled.div`
+  display:flex;
+  border: 5px solid #003274;
+  border-radius:10px;
+`
+
+const TypeCont = styled.div`
+  display:flex;
+
+`
+
 export default function Home() {
-  const [added, setAdded] = useState(null);
-  useEffect(() => {
-    const GetAdded = async () => {
-      await axios
-        .get("https://binibin-server.herokuapp.com/api/entries")
-        .then((resp) => {
-          console.log(resp.data);
-          setAdded(resp.data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    };
-    GetAdded();
-  }, []);
+  // const [added, setAdded] = useState(null);
+  // useEffect(() => {
+  //   const GetAdded = async () => {
+  //     await axios
+  //       .get("https://binibin-server.herokuapp.com/api/entries")
+  //       .then((resp) => {
+  //         console.log(resp.data);
+  //         setAdded(resp.data);
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //       });
+  //   };
+  //   GetAdded();
+  // }, []);
   return(
     <Cont>
+      <TopRow>
+        <UserNav></UserNav>
+      </TopRow>
     <SubCont>
       {/* <Popup
         trigger={<button className="button"> View Added Entries </button>}
@@ -79,9 +107,30 @@ export default function Home() {
     </SubCont>
     <SubCont>
       <IGCR/>
-      <IGCR item_name="Compost" waste_type="compost" src="compost.png" alt="compost"note="Example: cherry stem and seed, and apple core"/>
-      <IGCR item_name="Recycling" waste_type="compost" src="juicebox.png" alt="compost" note="Example: juice box and container" optional="mandatory"/>
     </SubCont>
+
+      {/* <CartCont>
+
+        
+        <TypeCont>
+          <EntryItem></EntryItem>
+        </TypeCont>
+
+        <TypeCont>
+          <EntryItem></EntryItem>
+        </TypeCont>
+
+        <TypeCont>
+          <EntryItem></EntryItem>
+        </TypeCont>
+
+
+      </CartCont> */}
+
+    <FooterCont>
+      <FooterComp></FooterComp>
+    </FooterCont>
+
   </Cont>
   )
 }
