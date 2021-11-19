@@ -4,6 +4,7 @@ import Image from 'next/image';
 import EntryItem from '../EntryItem';
 import InputCounter from '../InputCounter';
 import EduImage from '../EduImage';
+import { useState } from 'react';
   
 const PageCont = styled.div`
 
@@ -20,7 +21,6 @@ const ItemCont = styled.form`
 //----------------------TOP ROW CONTAINER-----------------
 const TopCont = styled.div`
   display:flex;
-  background-color:pink;
 
 `
 
@@ -100,9 +100,30 @@ const IGCR = ({
   alt="garbage bag",
   optional="optional",
   color="black",
-  item_count="0"
+  item_count="0",
 }) => {
+
+function clickGarbage(){
+  var g = document.getElementById("garbageSelect").value;
+  var resultG = parseFloat(g);
+  document.getElementById("garbageCount").innerHTML = resultG;
+}
+
+function clickCompost(){
+  var c = document.getElementById("compostSelect").value;
+  var resultC = parseFloat(c);
+  document.getElementById("compostCount").innerHTML = resultC;
+}
+
+function clickRecycle(){
+  var r = document.getElementById("recycleSelect").value;
+  var resultR = parseFloat(r);
+  document.getElementById("recycleCount").innerHTML = resultR;
+}
+
   return <PageCont>
+
+{/* ----------------------GARBAGE------------------------- */}
 
     <TopCont>
 
@@ -110,65 +131,70 @@ const IGCR = ({
     <BoldText text={item_name}></BoldText>
     <Image loader={myLoader} src={'/garbagebag.png'} width={50} height={150} alt={alt}/>
     <Description>How many pieces of {waste_type} are you throwing out?</Description>
-    <Select>
+    <Select id="garbageSelect">
       <option value="0">0</option>
       <option value="1">1</option>
       <option value="2">2</option>
     </Select>
     <Description>Write a note to remember this entry ({optional})</Description>
     <TextBox placeholder={note}></TextBox>
-    <Submit type="submit" value="Add Entry"></Submit>
+    <Submit type="button" value="Add Entry" onClick={clickGarbage}></Submit>
   </ItemCont>
+
+{/* ----------------------COMPOST------------------------- */}
 
   <ItemCont>
     <BoldText text={"Compost"}></BoldText>
     <Image loader={myLoader} src={'/tea-bag.png'} width={50} height={150} alt={alt}/>
     <Description>How many pieces of {waste_type} are you throwing out?</Description>
-    <Select>
+    <Select id="compostSelect">
       <option value="0">0</option>
       <option value="1">1</option>
       <option value="2">2</option>
     </Select>
     <Description>Write a note to remember this entry ({optional})</Description>
     <TextBox placeholder={note}></TextBox>
-    <Submit type="submit" value="Add Entry"></Submit>
+    <Submit type="button" value="Add Entry" onClick={clickCompost}></Submit>
   </ItemCont>
+
+{/* ----------------------RECYCLE------------------------- */}
 
   <ItemCont>
     <BoldText text="Recycle"></BoldText>
     <Image loader={myLoader} src={'/newspaper.png'} width={50} height={150} alt={alt}/>
     <Description>How many pieces of {waste_type} are you throwing out?</Description>
-    <Select>
+    <Select id="recycleSelect">
       <option value="0">0</option>
       <option value="1">1</option>
       <option value="2">2</option>
     </Select>
     <Description>Write a note to remember this entry ({optional})</Description>
     <TextBox placeholder={note}></TextBox>
-    <Submit type="submit" value="Add Entry"></Submit>
+    <Submit type="button" value="Add Entry" onClick={clickRecycle}></Submit>
   </ItemCont>
 
   </TopCont>
 
+{/* ----------------------CART COMPONENT------------------------- */}
 
   <CartCont>  
 
   <TypeCont>
     <SquareCont color={color}/>
-    <ItemName>{item_name}</ItemName>
-    <ItemQuantity>&times; {item_count}</ItemQuantity>
+    <ItemName>{item_name} &times;</ItemName>
+    <ItemQuantity id="garbageCount"> </ItemQuantity>
   </TypeCont>
 
   <TypeCont>
     <SquareCont color={"#3A7A1C"}/>
-    <ItemName>{"Compost"}</ItemName>
-    <ItemQuantity>&times; {item_count}</ItemQuantity>
+    <ItemName>{"Compost"} &times;</ItemName>
+    <ItemQuantity id="compostCount"></ItemQuantity>
   </TypeCont>
 
   <TypeCont>
     <SquareCont color={"#3C64B1"}/>
-    <ItemName>{"Recycle"}</ItemName>
-    <ItemQuantity>&times; {item_count}</ItemQuantity>
+    <ItemName>{"Recycle"} &times;</ItemName>
+    <ItemQuantity id="recycleCount"></ItemQuantity>
   </TypeCont>
 
   </CartCont>
