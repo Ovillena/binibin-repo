@@ -56,7 +56,7 @@ const CartCont = styled.div`
   display:flex;
   border: 5px solid #003274;
   border-radius:10px;
-  justify-content:space-around;
+  flex-direction:column;
 `
 
 const TypeCont = styled.div`
@@ -64,7 +64,7 @@ const TypeCont = styled.div`
   margin:10px;
   padding:5px;
   align-items:center;
-
+  
 `
 
 //----------------------TYPE OF GARBAGE COUNTER---------------
@@ -86,6 +86,26 @@ const ItemQuantity = styled.p`
   font-weight:bold;
 `;
 
+//-------------------------Notes Input------------------------
+const TextG = styled.p`
+
+`
+
+const TextCont = styled.div`
+  display:flex;
+`
+
+const TopCart = styled.div`
+  display:flex; 
+  justify-content:space-around;
+  flex:1;
+`
+const BotCart = styled.div`
+  display:flex;
+  justify-content:space-around;
+  flex:1;
+`
+
 
 const myLoader = ({src}) => {
   return `${src}`
@@ -104,21 +124,51 @@ const IGCR = ({
 }) => {
 
 function clickGarbage(){
+  //Gets the selected option
   var g = document.getElementById("garbageSelect").value;
   var resultG = parseFloat(g);
-  document.getElementById("garbageCount").innerHTML = resultG;
-}
+
+  // var totalNumber = localStorage.getItem(resultG);
+  
+
+  // //add 1 to existing
+  // var addNumber = totalNumber+ resultG;
+
+  // //set new total
+  // localStorage.setItem(resultG, addNumber)
+
+  //TO DISPLAY IN HTML
+  let sumG = resultG ;
+  document.getElementById("garbageCount").innerHTML = sumG;
+
+
+//To display text 
+  var garbageText = document.getElementById("garbageText").value; 
+  document.getElementById("TextGarbage").innerHTML = garbageText;
+
+} // END OF clickGarbage function
+
+
+//-------Click compost function-----------
 
 function clickCompost(){
   var c = document.getElementById("compostSelect").value;
   var resultC = parseFloat(c);
   document.getElementById("compostCount").innerHTML = resultC;
+
+  var compostText = document.getElementById("compostText").value; 
+  document.getElementById("TextCompost").innerHTML = compostText;
 }
+
+//---------CLICK RECYCLE FUNCTION-----------
 
 function clickRecycle(){
   var r = document.getElementById("recycleSelect").value;
   var resultR = parseFloat(r);
   document.getElementById("recycleCount").innerHTML = resultR;
+
+  var recycleText = document.getElementById("recycleText").value; 
+  document.getElementById("TextRecycle").innerHTML = recycleText;
 }
 
   return <PageCont>
@@ -137,7 +187,7 @@ function clickRecycle(){
       <option value="2">2</option>
     </Select>
     <Description>Write a note to remember this entry ({optional})</Description>
-    <TextBox placeholder={note}></TextBox>
+    <TextBox id="garbageText" placeholder={note}></TextBox>
     <Submit type="button" value="Add Entry" onClick={clickGarbage}></Submit>
   </ItemCont>
 
@@ -153,7 +203,7 @@ function clickRecycle(){
       <option value="2">2</option>
     </Select>
     <Description>Write a note to remember this entry ({optional})</Description>
-    <TextBox placeholder={note}></TextBox>
+    <TextBox id="compostText" placeholder={note}></TextBox>
     <Submit type="button" value="Add Entry" onClick={clickCompost}></Submit>
   </ItemCont>
 
@@ -169,7 +219,7 @@ function clickRecycle(){
       <option value="2">2</option>
     </Select>
     <Description>Write a note to remember this entry ({optional})</Description>
-    <TextBox placeholder={note}></TextBox>
+    <TextBox id="recycleText" placeholder={note}></TextBox>
     <Submit type="button" value="Add Entry" onClick={clickRecycle}></Submit>
   </ItemCont>
 
@@ -179,10 +229,12 @@ function clickRecycle(){
 
   <CartCont>  
 
+    <TopCart>
+
   <TypeCont>
     <SquareCont color={color}/>
     <ItemName>{item_name} &times;</ItemName>
-    <ItemQuantity id="garbageCount"> </ItemQuantity>
+    <ItemQuantity id="garbageCount"></ItemQuantity>
   </TypeCont>
 
   <TypeCont>
@@ -196,6 +248,24 @@ function clickRecycle(){
     <ItemName>{"Recycle"} &times;</ItemName>
     <ItemQuantity id="recycleCount"></ItemQuantity>
   </TypeCont>
+
+  </TopCart>
+
+  <BotCart>
+
+    <TextCont>
+      <TextG id="TextGarbage"></TextG>
+    </TextCont>
+
+    <TextCont>
+      <TextG id="TextCompost"></TextG>
+    </TextCont>
+
+    <TextCont>
+      <TextG id="TextRecycle"></TextG>
+    </TextCont>
+    
+  </BotCart>
 
   </CartCont>
 
