@@ -143,8 +143,21 @@ function clickGarbage(){
 
 
 //To display text 
-  var garbageText = document.getElementById("garbageText").value; 
-  document.getElementById("TextGarbage").innerHTML = garbageText;
+
+  
+
+  var getGarbageText = document.getElementById("garbageText").value; 
+  
+  localStorage.setItem('getGarbageText', getGarbageText)
+  
+  var existing = localStorage.getItem('garbageText');
+
+  var data = existing ? existing + getGarbageText : 'tuna';
+
+  localStorage.setItem('garbageText', data);
+
+  document.getElementById("TextGarbage").innerHTML = data + " " ;
+
 
 } // END OF clickGarbage function
 
