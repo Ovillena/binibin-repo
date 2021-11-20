@@ -81,19 +81,19 @@ const MultiColumn = styled.div`
 export default function Home() {
   const [user, setUser] = useState(null);
 
-  axios
-    .get(
-      "https://binibin-server.herokuapp.com/auth/checkauth",
-      // "http://localhost:8080/auth/checkauth",
-      { withCredentials: true }
-    )
-    .then((res) => {
-      console.log(res.data);
-      setUser(res.data.username);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  // axios
+  //   .get(
+  //     "https://binibin-server.herokuapp.com/auth/checkauth",
+  //     // "http://localhost:8080/auth/checkauth",
+  //     { withCredentials: true }
+  //   )
+  //   .then((res) => {
+  //     console.log(res.data);
+  //     setUser(res.data.username);
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //   });
 
   return (
     //<div className={styles.container}>
@@ -101,7 +101,7 @@ export default function Home() {
       <TopRow>
         <GuestNavBar></GuestNavBar>
       </TopRow>
-    
+
       <HeroComp></HeroComp>
 
     <MultiColumn>
@@ -154,10 +154,10 @@ export default function Home() {
       <MyButton width="180px" height="65px" bgcolor="#E5A500" hoverbg="#FFC800" textcolor="#000" text="Register" routeTo="signup"></MyButton>
     </ButtonCont>
 
-    
+
     <FooterCont>
       <FooterComp></FooterComp>
-    </FooterCont> 
+    </FooterCont>
 
 
       </PageCont>
