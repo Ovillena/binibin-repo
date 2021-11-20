@@ -4,6 +4,7 @@ import Image from 'next/image';
 import EduImage from '../EduImage';
 import { useState } from 'react';
 import { colors } from '@mui/material';
+import React from 'react';
   
 const PageCont = styled.div`
 
@@ -21,7 +22,7 @@ const ItemCont = styled.form`
 //----------------------TOP ROW CONTAINER-----------------
 const TopCont = styled.div`
   display:flex;
-
+    gap:10px;
 `
 
 const Description = styled.p`
@@ -57,6 +58,7 @@ const CartCont = styled.div`
   border: 5px solid #003274;
   border-radius:10px;
   flex-direction:column;
+  margin-top:10px;
 `
 
 const TypeCont = styled.div`
@@ -108,6 +110,50 @@ const BotCart = styled.div`
 
 
 const myLoader = ({src}) => {
+
+//-----------------Just coppied this to the garbage component-----------------//
+
+
+	
+	// const [count, setCount] = React.useState(0);
+
+	// const inc = (event) => {
+	// 	setCount(count + 1);
+	// };
+
+	// const dec = () => {
+	// 	setCount(count - 1);
+	// };
+
+	// const postData = {
+	// 	item_name: props.label,
+	// 	waste_type: props.wasteType,
+	// 	item_count: count,
+	// };
+
+	// const requestOptions = {
+	// 	method: 'POST',
+	// 	headers: {'Content-Type': 'application/json'},
+	// 	body: JSON.stringify(postData),
+	// };
+
+	// const onSubmit = async (e) => {
+	// 	e.preventDefault();
+	// 	await fetch('https://binibin-server.herokuapp.com/api/entries/add', requestOptions)
+	// 		.then((response) => {
+	// 			console.log(response);
+	// 			alert(`${count} bags of ${props.wasteType} has been entered :)`);
+	// 			// setIsOpen(true);
+	// 			setCount(0);
+	// 		})
+	// 		.catch((err) => {
+	// 			console.log(err);
+	// 			// setIsOpen(false);
+	// 		});
+	// };
+
+
+
   return `${src}`
 }
 
@@ -303,9 +349,9 @@ function clickRecycle(){
     </TextCont>
     
   </BotCart>
-
+  
   </CartCont>
-
+    <Submit type="button" value="Submit" ></Submit>
 
   </PageCont>
 }
