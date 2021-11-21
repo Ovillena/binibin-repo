@@ -1,7 +1,7 @@
 import React from 'react';
 import { Router, useRouter } from 'next/router';
 import { useContext } from 'react';
-import UserContext from '../../comps/UserContext'
+import UserContext from '../../comps/UserContext';
 import axios from 'axios';
 
 const LoginForm = () => {
@@ -31,8 +31,9 @@ const LoginForm = () => {
 			})
 			.then((response) => {
 				console.log('---------RESponse obj----------------------');
-				console.log(response);
+				alert(JSON.stringify(response));
         signIn(response);
+        // alert(JSON.stringify(user));
 			})
 			.then(() => router.push('/dashboard'));
 		console.log('------------------LOG IN ROUTE--------------------------');
