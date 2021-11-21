@@ -11,17 +11,17 @@ function MyApp({ Component, pageProps }) {
 	const [loginStatus, setLoginStatus] = useState(false);
 
 	const signIn = (userObj) => {
-    console.log('---------called sign in----------------------');
-    setLoginStatus(true);
-    setUser(userObj);
-    alert(JSON.stringify(user));
+		console.log('---------called sign in----------------------');
+		setLoginStatus(true);
+		setUser(userObj);
+		alert(JSON.stringify(user));
 	};
 
 	useEffect(() => {
 		axios
 			.get(
-				// 'https://binibin-server.herokuapp.com/auth/checkauth',
-				'http://localhost:8080/auth/checkauth',
+				'https://binibin-server.herokuapp.com/auth/checkauth',
+				// 'http://localhost:8080/auth/checkauth',
 				{ withCredentials: true }
 			)
 			.then((response) => {
@@ -37,7 +37,7 @@ function MyApp({ Component, pageProps }) {
 			.then((response) => {
 				let userObj = response.json();
 				console.log('---------check auth resp----------------------');
-				alert(userObj);
+				// alert(userObj);
 				signIn(userObj);
 			})
 			.catch((err) => {

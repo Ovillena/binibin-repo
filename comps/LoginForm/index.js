@@ -31,7 +31,7 @@ const LoginForm = () => {
 			})
 			.then((response) => {
 				console.log('---------RESponse obj----------------------');
-				alert(JSON.stringify(response));
+				// alert(JSON.stringify(response));
         signIn(response);
         // alert(JSON.stringify(user));
 			})
