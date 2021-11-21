@@ -31,9 +31,9 @@ const LoginForm = () => {
 			})
 			.then((response) => {
 				console.log('---------RESponse obj----------------------');
-				// alert(JSON.stringify(response));
-        signIn(response);
-        // alert(JSON.stringify(user));
+				console.log(JSON.stringify(response));
+				signIn(response);
+				// alert(JSON.stringify(user));
 			})
 			.then(() => router.push('/dashboard'));
 		console.log('------------------LOG IN ROUTE--------------------------');

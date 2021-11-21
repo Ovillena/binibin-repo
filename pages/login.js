@@ -2,23 +2,20 @@ import styled from "styled-components";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import GuestNavBar from "../comps/GuestNavBar";
+
 import Header from "../comps/HeaderText";
 import Footer from "../comps/footer";
 import Image from "next/image";
 import LoginComp from "../comps/LoginForm";
 
 const PageCont = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 100vh;
-  background-color: #eef9ff;
-`;
-
-const TopRow = styled.div`
-  display: flex;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	justify-content: space-between;
+	min-height: 90vh;
+	background-color: #eef9ff;
+	padding-top: 3em;
 `;
 
 const MidCont = styled.div`
@@ -93,9 +90,7 @@ export default function Login() {
   return (
     //<div className={styles.container}>
     <PageCont>
-      <TopRow>
-        <GuestNavBar></GuestNavBar>
-      </TopRow>
+
 
       {/* {
         user.map((o,i)=>(

@@ -2,11 +2,11 @@ import Footer from '../comps/footer';
 
 import styled from 'styled-components';
 
-import GuestNavBar from '../comps/GuestNavBar';
+
 import HeaderText from '../comps/HeaderText';
 import IconComp from '../comps/Icon';
 import Subhead from '../comps/SubheadText';
-import UserNav from '../comps/UserNav';
+
 import UserContext from '../comps/UserContext';
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
@@ -15,11 +15,7 @@ import { useRouter } from 'next/router';
 const PageCont = styled.div`
 	display: flex;
 	flex-direction: column;
-	min-height: 100vh;
-`;
-
-const TopRow = styled.div`
-	display: flex;
+	min-height: 90vh;
 `;
 
 const HeaderCont = styled.div`
@@ -100,9 +96,7 @@ export default function Dashboard() {
 	return (
 		//<div className={styles.container}>
 		<PageCont>
-			<TopRow>
-				<UserNav displayName={user["display_name"]}></UserNav>
-			</TopRow>
+
 
 			{/* {
         user.map((o,i)=>(
@@ -114,7 +108,7 @@ export default function Dashboard() {
       } */}
 
 			<HeaderCont>
-				<HeaderText text="User's Dashboard"></HeaderText>
+				<HeaderText text="Your Dashboard"></HeaderText>
 			</HeaderCont>
 
 			<TopIcons>

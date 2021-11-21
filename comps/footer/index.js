@@ -11,6 +11,7 @@ const Container = styled.div`
     justify-content:center;
     align-items:center;
     flex-wrap:wrap;
+    margin-top: 3em;
 `
 
 const TitleCont = styled.div`
@@ -39,8 +40,8 @@ const FooterComp = ({})=>{
         <TitleCont>
             <Title onClick={()=>router.push("/customerservice")}>Contact us</Title>
         </TitleCont>
-           
+
     </Container>
   }
-  
+
   export default FooterComp;

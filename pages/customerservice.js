@@ -3,7 +3,7 @@ import Footer from '../comps/footer'
 import styled from 'styled-components';
 import React from 'react';
 
-import GuestNavBar from '../comps/GuestNavBar';
+
 import HeaderText from '../comps/HeaderText';
 import Subhead from '../comps/SubheadText';
 import InputTextComp from '../comps/InputText';
@@ -17,9 +17,6 @@ const PageCont = styled.div`
   min-height:100vh;
 `
 
-const TopRow = styled.div`
-  display:flex;
-`
 
 const HeaderCont = styled.div`
   display:flex;
@@ -49,9 +46,7 @@ export default function CustomerService() {
   return (
     //<div className={styles.container}>
       <PageCont>
-      <TopRow>
-        <GuestNavBar></GuestNavBar>
-      </TopRow>
+
 
     <HeaderCont>
         <div>
@@ -71,7 +66,7 @@ export default function CustomerService() {
 
     <FooterCont>
       <Footer></Footer>
-    </FooterCont>    
+    </FooterCont>
 
       </PageCont>
 

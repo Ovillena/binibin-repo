@@ -6,16 +6,17 @@ import {Router, useRouter} from 'next/router';
 import React from 'react';
 
 const NavCont = styled.div`
-    display:flex;
-    min-width:200px;
-    min-height:80px;
-    background-color:#fff;
-    box-shadow:0px 3px 30px grey; 
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    flex:1;
-`
+	position: relative;
+	display: flex;
+	min-width: 200px;
+	min-height: 80px;
+	background-color: #fff;
+	box-shadow: 0px 3px 30px rgb(0 0 0 / 0.2);
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	flex: 1;
+`;
 
 const LogoCont = styled.div`
     padding-left:30px;
@@ -53,7 +54,7 @@ const GuestNavBar = ({
 // if(){
     return <NavCont>
         <LogoCont>
-            <Image src="/binibinlogo.png" alt="BiniBin Logo" width={135} height={35} 
+            <Image src="/binibinlogo.png" alt="BiniBin Logo" width={135} height={35}
             onClick={()=>router.push("/")}
             />
         </LogoCont>
@@ -71,8 +72,8 @@ const GuestNavBar = ({
     </NavCont>
 }
 // else {
-    
-//     return 
+
+//     return
 // }
 
 export default GuestNavBar;

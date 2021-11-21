@@ -3,7 +3,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-import UserNav from '../comps/UserNav';
 import Header from '../comps/HeaderText';
 import Footer from '../comps/footer';
 import EntryItem from '../comps/EntryItem';
@@ -128,16 +127,16 @@ export default function Home() {
   }, []);
   return (
     <>
-      <UserNav></UserNav>
+
       <HeaderCont>
         <Header text="Waste Tracked for November"></Header>
       </HeaderCont>
       <PageCont>
         <Cont>
-          {entries? 
+          {entries?
           entries.map((o, i) => (
             <AllDaysList key={i}>
-              {/* <EntryDate entry_date={o.entry_date} /> 
+              {/* <EntryDate entry_date={o.entry_date} />
                 we changed the json from database to return month and day instead of entry_date
               */}
               <EntryDate entry_date={(o.month+'/'+o.day)} />

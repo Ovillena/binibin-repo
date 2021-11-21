@@ -4,6 +4,9 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import UserContext from '../comps/UserContext';
 import Router from 'next/router';
+import GuestNavBar from '../comps/GuestNavBar';
+import UserNav from '../comps/UserNav';
+import styled from 'styled-components';
 
 function MyApp({ Component, pageProps }) {
 	const [user, setUser] = useState({ user: 'test', display_name: 'not logged in' });
@@ -12,9 +15,25 @@ function MyApp({ Component, pageProps }) {
 
 	const signIn = (userObj) => {
 		console.log('---------called sign in----------------------');
+		console.log(JSON.stringify(userObj));
 		setLoginStatus(true);
 		setUser(userObj);
-		alert(JSON.stringify(user));
+		// alert(JSON.stringify(user));
+	};
+
+	const viewableIfLoggedOut = (routePathname) => {
+		switch (routePathname) {
+			case '/':
+			case '/aboutus':
+			case '/signup':
+			case '/thankyou_register':
+			case '/customerservice':
+			case '/thankyou_contact':
+			case '/education':
+				return true;
+			default:
+				return false;
+		}
 	};
 
 	useEffect(() => {
@@ -25,10 +44,11 @@ function MyApp({ Component, pageProps }) {
 				{ withCredentials: true }
 			)
 			.then((response) => {
+				console.log(loginStatus);
 				let loggedIn = response.data['logged in'];
-				if (Router.pathname != '/' && !loggedIn && !loginStatus) {
+				if (!viewableIfLoggedOut(Router.pathname) && (!loggedIn || !loginStatus)) {
 					return Router.push('/login');
-				} else if (Router.pathname === '/' && !loggedIn && !loginStatus) {
+				} else if (viewableIfLoggedOut(Router.pathname) && (!loggedIn || !loginStatus)) {
 					throw new Error('No session cookie detected');
 				} else {
 					return response;
@@ -37,6 +57,7 @@ function MyApp({ Component, pageProps }) {
 			.then((response) => {
 				let userObj = response.json();
 				console.log('---------check auth resp----------------------');
+				console.log(userObj);
 				// alert(userObj);
 				signIn(userObj);
 			})
@@ -47,7 +68,12 @@ function MyApp({ Component, pageProps }) {
 	}, [user]);
 
 	return (
-		<UserContext.Provider value={{ user: user, signIn: signIn }}>
+		<UserContext.Provider value={{ user: user, signIn: signIn, loginStatus: loginStatus }}>
+			{loginStatus ? (
+				<UserNav displayName={user['display_name']}></UserNav>
+			) : (
+				<GuestNavBar></GuestNavBar>
+			)}
 			<Component {...pageProps} />
 		</UserContext.Provider>
 	);
