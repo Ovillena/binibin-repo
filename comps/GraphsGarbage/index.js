@@ -80,7 +80,7 @@ const GraphsGarbage = () => {
       let itemC = [];
       let itemD = [];
 
-      axios.get("https://binibin-server.herokuapp.com/api/entries/garbage/2021-11-01/2021-11-16")
+      axios.get("https://binibin-server.herokuapp.com/api/entries/garbage/2021-11-01/2030-11-30")
       .then(res => {
         console.log(res.data);
         for(const dataObj of res.data){
@@ -163,10 +163,10 @@ const GraphsGarbage = () => {
             maxTicksLimit:7
           },
         },
-        // y:{
-        //   min:0,
-        //   max:100
-        // },
+        y:{
+          min:0,
+          max:100,
+        },
         yAxes:[
           {
             ticks:{
