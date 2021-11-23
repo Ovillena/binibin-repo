@@ -201,7 +201,7 @@ function clickGarbage(){
 
   var existing = localStorage.getItem('garbageText');
 
-  var data = existing ? existing + getGarbageText : 'tuna';
+  var data = existing ? existing + ', ' + getGarbageText : ' ';
 
   localStorage.setItem('garbageText', data);
 
