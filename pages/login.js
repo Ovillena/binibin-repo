@@ -20,6 +20,7 @@ const PageCont = styled.div`
 
 const MidCont = styled.div`
   display: flex;
+  padding-top: 10em;
   margin: 200 50 200 50px;
 `;
 

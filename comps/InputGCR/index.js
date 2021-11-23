@@ -5,7 +5,7 @@ import EduImage from '../EduImage';
 import { useState } from 'react';
 import { colors } from '@mui/material';
 import React from 'react';
-  
+
 const PageCont = styled.div`
 
 `
@@ -66,7 +66,7 @@ const TypeCont = styled.div`
   margin:10px;
   padding:5px;
   align-items:center;
-  
+
 `
 
 //----------------------TYPE OF GARBAGE COUNTER---------------
@@ -78,12 +78,12 @@ const SquareCont = styled.div`
   border-radius:5px;
   background-color:${props=>props.color};
 `
-  
+
 const ItemName = styled.p`
   font-weight:bold;
   margin:10px 5px 10px 10px;
 `;
-  
+
 const ItemQuantity = styled.p`
   font-weight:bold;
 `;
@@ -98,7 +98,7 @@ const TextCont = styled.div`
 `
 
 const TopCart = styled.div`
-  display:flex; 
+  display:flex;
   justify-content:space-around;
   flex:1;
 `
@@ -114,7 +114,7 @@ const myLoader = ({src}) => {
 //-----------------Just coppied this to the garbage component-----------------//
 
 
-	
+
 	// const [count, setCount] = React.useState(0);
 
 	// const inc = (event) => {
@@ -178,7 +178,7 @@ function clickGarbage(){
   var resultG = parseFloat(g);
 
   // var totalNumber = localStorage.getItem(resultG);
-  
+
 
   // //add 1 to existing
   // var addNumber = totalNumber+ resultG;
@@ -191,14 +191,14 @@ function clickGarbage(){
   document.getElementById("garbageCount").innerHTML = sumG;
 
 
-//To display text 
+//To display text
 
-  
 
-  var getGarbageText = document.getElementById("garbageText").value; 
-  
+
+  var getGarbageText = document.getElementById("garbageText").value;
+
   localStorage.setItem('getGarbageText', getGarbageText)
-  
+
   var existing = localStorage.getItem('garbageText');
 
   var data = existing ? existing + getGarbageText : 'tuna';
@@ -218,7 +218,7 @@ function clickCompost(){
   var resultC = parseFloat(c);
   document.getElementById("compostCount").innerHTML = resultC;
 
-  var compostText = document.getElementById("compostText").value; 
+  var compostText = document.getElementById("compostText").value;
   document.getElementById("TextCompost").innerHTML = compostText;
 }
 
@@ -229,131 +229,146 @@ function clickRecycle(){
   var resultR = parseFloat(r);
   document.getElementById("recycleCount").innerHTML = resultR;
 
-  var recycleText = document.getElementById("recycleText").value; 
+  var recycleText = document.getElementById("recycleText").value;
   document.getElementById("TextRecycle").innerHTML = recycleText;
 }
 
-  return <PageCont>
+  return (
+		<PageCont>
+			{/* ----------------------GARBAGE------------------------- */}
 
-{/* ----------------------GARBAGE------------------------- */}
+			<TopCont>
+				<ItemCont colors={garbage_color}>
+					<BoldText text={item_name}></BoldText>
+					<Image
+						loader={myLoader}
+						src={'/garbagebag.png'}
+						width={150}
+						height={150}
+						alt={alt}
+					/>
+					<Description>How many pieces of {waste_type} are you throwing out?</Description>
+					<Select id='garbageSelect'>
+						<option disabled value='0'>
+							0
+						</option>
+						<option value='1'>1</option>
+						<option value='2'>1</option>
+						<option value='3'>3</option>
+						<option value='4'>4</option>
+						<option value='5'>5</option>
+						<option value='6'>6</option>
+						<option value='7'>7</option>
+						<option value='8'>8</option>
+						<option value='9'>9</option>
+						<option value='10'>10</option>
+					</Select>
+					<Description>Write a note to remember this entry ({optional})</Description>
+					<TextBox id='garbageText' placeholder={note}></TextBox>
+					<Submit type='button' value='Add Entry' onClick={clickGarbage}></Submit>
+				</ItemCont>
 
-    <TopCont>
+				{/* ----------------------COMPOST------------------------- */}
 
-  <ItemCont colors={garbage_color}>
-    <BoldText text={item_name}></BoldText>
-    <Image loader={myLoader} src={'/garbagebag.png'} width={150} height={150} alt={alt}/>
-    <Description>How many pieces of {waste_type} are you throwing out?</Description>
-    <Select id="garbageSelect">
-    <option value="0">0</option>
-      <option value="1">1</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-    </Select>
-    <Description>Write a note to remember this entry ({optional})</Description>
-    <TextBox id="garbageText" placeholder={note}></TextBox>
-    <Submit type="button" value="Add Entry" onClick={clickGarbage}></Submit>
-  </ItemCont>
+				<ItemCont colors={comp_color}>
+					<BoldText text={'Compost'}></BoldText>
+					<Image
+						loader={myLoader}
+						src={'/tea-bag.png'}
+						width={150}
+						height={150}
+						alt={alt}
+					/>
+					<Description>How many pieces of {waste_type} are you throwing out?</Description>
+					<Select id='compostSelect'>
+						<option value='0'>0</option>
+						<option value='1'>1</option>
+						<option value='2'>1</option>
+						<option value='3'>3</option>
+						<option value='4'>4</option>
+						<option value='5'>5</option>
+						<option value='6'>6</option>
+						<option value='7'>7</option>
+						<option value='8'>8</option>
+						<option value='9'>9</option>
+						<option value='10'>10</option>
+					</Select>
+					<Description>Write a note to remember this entry ({optional})</Description>
+					<TextBox id='compostText' placeholder={note}></TextBox>
+					<Submit type='button' value='Add Entry' onClick={clickCompost}></Submit>
+				</ItemCont>
 
-{/* ----------------------COMPOST------------------------- */}
+				{/* ----------------------RECYCLE------------------------- */}
 
-  <ItemCont colors={comp_color}>
-    <BoldText text={"Compost"}></BoldText>
-    <Image loader={myLoader} src={'/tea-bag.png'} width={150} height={150} alt={alt}/>
-    <Description>How many pieces of {waste_type} are you throwing out?</Description>
-    <Select id="compostSelect">
-    <option value="0">0</option>
-      <option value="1">1</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-    </Select>
-    <Description>Write a note to remember this entry ({optional})</Description>
-    <TextBox id="compostText" placeholder={note}></TextBox>
-    <Submit type="button" value="Add Entry" onClick={clickCompost}></Submit>
-  </ItemCont>
+				<ItemCont colors={recycle_color}>
+					<BoldText text='Recycle'></BoldText>
+					<Image
+						loader={myLoader}
+						src={'/newspaper.png'}
+						width={150}
+						height={150}
+						alt={alt}
+					/>
+					<Description>How many pieces of {waste_type} are you throwing out?</Description>
+					<Select id='recycleSelect'>
+						<option value='0'>0</option>
+						<option value='1'>1</option>
+						<option value='2'>1</option>
+						<option value='3'>3</option>
+						<option value='4'>4</option>
+						<option value='5'>5</option>
+						<option value='6'>6</option>
+						<option value='7'>7</option>
+						<option value='8'>8</option>
+						<option value='9'>9</option>
+						<option value='10'>10</option>
+					</Select>
+					<Description>Write a note to remember this entry ({optional})</Description>
+					<TextBox id='recycleText' placeholder={note}></TextBox>
+					<Submit type='button' value='Add Entry' onClick={clickRecycle}></Submit>
+				</ItemCont>
+			</TopCont>
 
-{/* ----------------------RECYCLE------------------------- */}
+			{/* ----------------------CART COMPONENT------------------------- */}
 
-  <ItemCont colors={recycle_color}>
-    <BoldText text="Recycle"></BoldText>
-    <Image loader={myLoader} src={'/newspaper.png'} width={150} height={150} alt={alt}/>
-    <Description>How many pieces of {waste_type} are you throwing out?</Description>
-    <Select id="recycleSelect">
-      <option value="0">0</option>
-      <option value="1">1</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-    </Select>
-    <Description>Write a note to remember this entry ({optional})</Description>
-    <TextBox id="recycleText" placeholder={note}></TextBox>
-    <Submit type="button" value="Add Entry" onClick={clickRecycle}></Submit>
-  </ItemCont>
+			<CartCont>
+				<TopCart>
+					<TypeCont>
+						<SquareCont color={color} />
+						<ItemName>{item_name} &times;</ItemName>
+						<ItemQuantity id='garbageCount'></ItemQuantity>
+					</TypeCont>
 
-  </TopCont>
+					<TypeCont>
+						<SquareCont color={'#3A7A1C'} />
+						<ItemName>{'Compost'} &times;</ItemName>
+						<ItemQuantity id='compostCount'></ItemQuantity>
+					</TypeCont>
 
-{/* ----------------------CART COMPONENT------------------------- */}
+					<TypeCont>
+						<SquareCont color={'#3C64B1'} />
+						<ItemName>{'Recycle'} &times;</ItemName>
+						<ItemQuantity id='recycleCount'></ItemQuantity>
+					</TypeCont>
+				</TopCart>
 
-  <CartCont>  
+				<BotCart>
+					<TextCont>
+						<TextG id='TextGarbage'></TextG>
+					</TextCont>
 
-    <TopCart>
+					<TextCont>
+						<TextG id='TextCompost'></TextG>
+					</TextCont>
 
-  <TypeCont>
-    <SquareCont color={color}/>
-    <ItemName>{item_name} &times;</ItemName>
-    <ItemQuantity id="garbageCount"></ItemQuantity>
-  </TypeCont>
-
-  <TypeCont>
-    <SquareCont color={"#3A7A1C"}/>
-    <ItemName>{"Compost"} &times;</ItemName>
-    <ItemQuantity id="compostCount"></ItemQuantity>
-  </TypeCont>
-
-  <TypeCont>
-    <SquareCont color={"#3C64B1"}/>
-    <ItemName>{"Recycle"} &times;</ItemName>
-    <ItemQuantity id="recycleCount"></ItemQuantity>
-  </TypeCont>
-
-  </TopCart>
-
-  <BotCart>
-
-    <TextCont>
-      <TextG id="TextGarbage"></TextG>
-    </TextCont>
-
-    <TextCont>
-      <TextG id="TextCompost"></TextG>
-    </TextCont>
-
-    <TextCont>
-      <TextG id="TextRecycle"></TextG>
-    </TextCont>
-    
-  </BotCart>
-  
-  </CartCont>
-    <Submit type="button" value="Submit" ></Submit>
-
-  </PageCont>
+					<TextCont>
+						<TextG id='TextRecycle'></TextG>
+					</TextCont>
+				</BotCart>
+			</CartCont>
+			<Submit type='button' value='Submit'></Submit>
+		</PageCont>
+  );
 }
 
 export default IGCR;
