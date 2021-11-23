@@ -42,18 +42,18 @@ const ButtonCont = styled.div`
 
 
 export default function Home() {
-    const [itemList, setItemList] = useState(null);
+  //   const [itemList, setItemList] = useState(null);
 
-  useEffect(() => {
-    const getItemList = async () => {
-      await fetch("https://binibin-server.herokuapp.com/api/entries/items")
-        .then((resp) =>  resp.json())
-        .then((data) => setItemList(data))
-        .catch((err) => console.log(err));
-      // console.log(result);
-    };
-    getItemList();
-  }, []);
+  // useEffect(() => {
+  //   const getItemList = async () => {
+  //     await fetch("https://binibin-server.herokuapp.com/api/entries/items")
+  //       .then((resp) =>  resp.json())
+  //       .then((data) => setItemList(data))
+  //       .catch((err) => console.log(err));
+  //     // console.log(result);
+  //   };
+  //   getItemList();
+  // }, []);
 
   return (
     //<div className={styles.container}>
