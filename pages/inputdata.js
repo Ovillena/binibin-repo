@@ -9,6 +9,7 @@ import Header from '../comps/HeaderText';
 import Footer from '../comps/footer';
 import InputTab from '../comps/Input';
 import UserNav from '../comps/UserNav';
+import IGCR from '../comps/InputGCR';
 
 
 const PageCont = styled.div`
@@ -62,7 +63,7 @@ export default function Home() {
         <Header text="Input Data"></Header>
       </HeaderCont>
       <FeaturesCont>
-        <InputTab></InputTab>
+        <IGCR></IGCR>
       </FeaturesCont>
       <Footer></Footer>
       </PageCont>
