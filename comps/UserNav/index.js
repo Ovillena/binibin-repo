@@ -93,7 +93,7 @@ const UserNav = ({ router = useRouter(), displayName = "Username" }) => {
             </TextCont>
           </NavItems>
           <NavItems>
-            <TextCont onClick={() => router.push("/inputdata")}>Input</TextCont>
+            <TextCont onClick={() => router.push("/input")}>Input</TextCont>
           </NavItems>
           <NavItems>
             <TextCont onClick={() => router.push("/pastentries")}>
