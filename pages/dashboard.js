@@ -2,7 +2,6 @@ import Footer from '../comps/footer';
 
 import styled from 'styled-components';
 
-
 import HeaderText from '../comps/HeaderText';
 import IconComp from '../comps/Icon';
 import Subhead from '../comps/SubheadText';
@@ -76,44 +75,19 @@ const fakeData = [
 ];
 
 export default function Dashboard() {
-		const { user } = useContext(UserContext);
+	const { user } = useContext(UserContext);
 	console.log('------------------dashboard--------------------------');
 	console.log(user);
-	// axios
-	//   .get(
-	//     "https://binibin-server.herokuapp.com/auth/checkauth",
-	//     // "http://localhost:8080/auth/checkauth",
-	//     { withCredentials: true }
-	//   )
-	//   .then((res) => {
-	//     console.log(res.data);
-	//     setUser(res.data.username);
-	//   })
-	//   .catch((err) => {
-	//     console.log(err);
-	//   });
 
 	return (
-		//<div className={styles.container}>
 		<PageCont>
-
-
-			{/* {
-        user.map((o,i)=>(
-          <CardWrapper key={i}>
-            <UserNav display_name={o.display_name}/>
-          </CardWrapper>
-          )
-        )
-      } */}
-
 			<HeaderCont>
-				<HeaderText text="Your Dashboard"></HeaderText>
+				<HeaderText text='Your Dashboard'></HeaderText>
 			</HeaderCont>
 
 			<TopIcons>
 				<IconDiv>
-					<IconComp iconSymbol='calendar check outline' routeTo='inputdata'></IconComp>
+					<IconComp iconSymbol='calendar check outline' routeTo='input'></IconComp>
 					<Subhead text='Record New Entries' fontsize='24px'></Subhead>
 				</IconDiv>
 				<IconDiv>

@@ -36,7 +36,7 @@ const FooterCont = styled.div`
   align-items:flex-end;
   width:100vw;
 `;
-  
+
 const SubCont = styled.div`
   display:flex;
 `;
@@ -70,62 +70,11 @@ export default function Home() {
   // }, []);
   return(
     <Cont>
-      <TopRow>
-        <UserNav></UserNav>
-      </TopRow>
     <SubCont>
-      {/* <Popup
-        trigger={<button className="button"> View Added Entries </button>}
-        modal
-        nested
-      >
-        {close => (
-          <div className="modal">
-            <Header text="Added Entries"></Header>
-            <div>
-              {added?
-              added.map((o,i)=>(
-                <div key={i}>
-                  <EntryItem
-                    entry_id={o.entry_id}
-                    item_name={o.item_name}
-                    item_count={o.item_count}
-                    unit={o.unit}
-                    waste_type={o.waste_type}
-                  />
-                </div>
-              )): <p>No added entries. Come back after you add your first entry!</p>}
-            </div>
-            <div className="actions">
-              <button onClick={() => {close();}}>Close</button>
-              <button className="close" onClick={close}>&times;</button>
-              <button>Submit Entries</button>
-            </div>
-          </div>
-        )}
-      </Popup> */}
     </SubCont>
     <SubCont>
       <IGCR/>
     </SubCont>
-
-      {/* <CartCont>
-
-        
-        <TypeCont>
-          <EntryItem></EntryItem>
-        </TypeCont>
-
-        <TypeCont>
-          <EntryItem></EntryItem>
-        </TypeCont>
-
-        <TypeCont>
-          <EntryItem></EntryItem>
-        </TypeCont>
-
-
-      </CartCont> */}
 
     <FooterCont>
       <FooterComp></FooterComp>
