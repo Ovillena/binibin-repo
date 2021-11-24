@@ -107,46 +107,49 @@ const BotCart = styled.div`
   justify-content:space-around;
   flex:1;
 `
-//-----------------Just coppied this to the garbage component-----------------//
+//-----------------On submit stuff-----------------//
+const formData = {};
 
+const requestOptions = {
+	method: 'POST',
+	headers: { 'Content-Type': 'application/json' },
+	body: JSON.stringify(formData),
+};
 
+const resetStore = () => {
+	// creating default state for localStorage
+	localStorage.garbageCount = 0;
+	localStorage.garbageText = '';
+	localStorage.compostCount = 0;
+	localStorage.compostText = '';
+	localStorage.recyclingCount = 0;
+	localStorage.recyclingText = '';
+};
 
-	// const [count, setCount] = React.useState(0);
-
-	// const inc = (event) => {
-	// 	setCount(count + 1);
-	// };
-
-	// const dec = () => {
-	// 	setCount(count - 1);
-	// };
-
-	// const postData = {
-	// 	item_name: props.label,
-	// 	waste_type: props.wasteType,
-	// 	item_count: count,
-	// };
-
-	// const requestOptions = {
-	// 	method: 'POST',
-	// 	headers: {'Content-Type': 'application/json'},
-	// 	body: JSON.stringify(postData),
-	// };
-
-	// const onSubmit = async (e) => {
-	// 	e.preventDefault();
-	// 	await fetch('https://binibin-server.herokuapp.com/api/entries/add', requestOptions)
-	// 		.then((response) => {
-	// 			console.log(response);
-	// 			alert(`${count} bags of ${props.wasteType} has been entered :)`);
-	// 			// setIsOpen(true);
-	// 			setCount(0);
-	// 		})
-	// 		.catch((err) => {
-	// 			console.log(err);
-	// 			// setIsOpen(false);
-	// 		});
-	// };
+const onSubmit = async (e) => {
+  e.preventDefault();
+  formData = {
+		garbage_text: localStorage.garbageText,
+		garbage_count: parseInt(localStorage.garbageCount),
+		compost_text: localStorage.compostText,
+		compost_count: parseInt(localStorage.compostCount),
+		recycling_text: localStorage.recyclingText,
+		recycling_count: parseInt(localStorage.recyclingCount),
+  };
+	await fetch('https://binibin-server.herokuapp.com/api/entries/add', requestOptions)
+		.then((response) => {
+			if (response.ok) {
+				console.log(response);
+				alert(`Your entry has been submitted!`);
+				resetStore();
+			} else {
+				throw new Error('Unable to perform POST request');
+			}
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+};
 
 
 const myLoader = ({src}) => {

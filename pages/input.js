@@ -53,21 +53,7 @@ const TypeCont = styled.div`
 `
 
 export default function Home() {
-  // const [added, setAdded] = useState(null);
-  // useEffect(() => {
-  //   const GetAdded = async () => {
-  //     await axios
-  //       .get("https://binibin-server.herokuapp.com/api/entries")
-  //       .then((resp) => {
-  //         console.log(resp.data);
-  //         setAdded(resp.data);
-  //       })
-  //       .catch((err) => {
-  //         console.log(err);
-  //       });
-  //   };
-  //   GetAdded();
-  // }, []);
+
   return(
     <Cont>
     <SubCont>
