@@ -1,88 +1,54 @@
-import React from "react";
-import { Router, useRouter } from "next/router";
-import { useCookies } from "react-cookie";
-import axios from "axios";
+import React from 'react';
+import { Router, useRouter } from 'next/router';
+import { useContext } from 'react';
+import UserContext from '../../comps/UserContext';
+import axios from 'axios';
 
 const LoginForm = () => {
-  //   const [cookie, setCookie] = useCookies["user"];
-  const router = useRouter();
+	const router = useRouter();
+	const { user, signIn } = useContext(UserContext);
 
-  // const handleSignIn = async () => {
-  //   try {
-  //     const response = await yourLoginFunction(username); //handle API call to sign in here.
-  //     const data = response.data;
+	async function onSubmit(e) {
+		e.preventDefault();
+		console.log(e.target.username.value);
+		const result = await fetch(
+			// 'http://localhost:8080/auth/login',
+			'https://binibin-server.herokuapp.com/auth/login',
+			{
+				credentials: 'include',
+				method: 'POST',
+				body: JSON.stringify({
+					username: e.target.username.value,
+					password: e.target.password.value,
+				}),
+				headers: { 'Content-Type': 'application/json' },
+			}
+		)
+			.then((response) => {
+				if (response.ok) {
+					return response.json();
+				}
+			})
+			.then((response) => {
+				console.log('---------RESponse obj----------------------');
+				console.log(JSON.stringify(response));
+				signIn(response);
+				// alert(JSON.stringify(user));
+			})
+			.then(() => router.push('/dashboard'));
+		console.log('------------------LOG IN ROUTE--------------------------');
+	}
 
-  //     setCookie("user", JSON.stringify(data), {
-  //       path: "/",
-  //       maxAge: 7200, // Expires after 1hr
-  //       sameSite: true,
-  //     });
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
-  // get functions to build form with useForm() hook
-
-  async function onSubmit(e) {
-    e.preventDefault();
-    console.log(e.target.username.value);
-    const result = await fetch(
-      // "http://localhost:8080/auth/login",
-      "https://binibin-server.herokuapp.com/auth/login",
-      {
-        credentials: "include",
-        method: "POST",
-        body: JSON.stringify({
-          username: e.target.username.value,
-          password: e.target.password.value,
-        }),
-        headers: { "Content-Type": "application/json" },
-      }
-    ).then((response) => {
-      console.log(response);
-      router.push("/dashboard");
-    });
-    console.log("--------------------------------------------");
-  }
-
-  // async function onSubmit(e) {
-  //   debugger;
-  //   e.preventDefault();
-  //   console.log(e.target.username.value);
-  //   axios.post;
-  //   const result = await axios({
-  //     // `https://binibin-server.herokuapp.com/auth/login`,
-  //     url: "https://binibin-server.herokuapp.com/auth/login",
-  //     withCredentials: true,
-  //     method: "POST",
-  //     body: {
-  //       username: e.target.username.value,
-  //       password: e.target.password.value,
-  //     },
-  // // headers: {
-  // //   "Access-Control-Allow-Origin": "*",
-  // // },
-  //     headers: { "Content-Type": "application/json" },
-  //   });
-  //   debugger;
-  //   console.log(result.data);
-  //   console.log("--------------------------------------------");
-
-  //   // get return url from query parameters or default to '/'
-  //   // const returnUrl = router.query.returnUrl || "/";
-  //   // router.push(returnUrl);
-  // }
-
-  return (
-    <form onSubmit={onSubmit} method="post">
-      <div className="form-group">
-        <input name="username" type="text" placeholder="Username" />
-      </div>
-      <div className="form-group">
-        <input name="password" type="password" placeholder="Password" />
-      </div>
-      <button className="btn btn-primary loginBtn">Login</button>
-      <style jsx>{`
+	return (
+		<form onSubmit={onSubmit} method='post'>
+			<div className='form-group'>
+				<input name='username' type='text' placeholder='Username' />
+			</div>
+			<div className='form-group'>
+				<input name='password' type='password' placeholder='Password' />
+			</div>
+			<button className='btn btn-primary loginBtn'>Login</button>
+			<style jsx>{`
         form {
           display: flex;
           flex-direction: column;
@@ -114,8 +80,8 @@ const LoginForm = () => {
           padding: 10px;
         }
       `}</style>
-    </form>
-  );
+		</form>
+	);
 };
 
 export default LoginForm;

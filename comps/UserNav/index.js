@@ -8,16 +8,16 @@ import axios from "axios";
 import React from "react";
 
 const NavCont = styled.div`
-    display:flex;
-    min-width:200px;
-    min-height:80px;
-    box-shadow:0px 3px 30px grey; 
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    flex:1;
-    margin-bottom:30px;
-`
+	position: relative;
+	display: flex;
+	min-width: 200px;
+	min-height: 80px;
+	box-shadow: 0px 3px 30px rgb(0 0 0 / 0.2);
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	flex: 1;
+`;
 
 const LogoCont = styled.div`
     padding-left:30px;

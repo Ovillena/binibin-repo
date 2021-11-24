@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import React from 'react';
 
-import GuestNavBar from '../comps/GuestNavBar'
 import Header from '../comps/HeaderText';
 import Footer from '../comps/footer';
 import Image from 'next/image';
@@ -16,10 +15,6 @@ const PageCont = styled.div`
     min-height:100vh;
 `
 
-const TopRow = styled.div`
-    display:flex;
-    flex:1;
-`
 const MidCont = styled.div`
     display:flex;
     margin-top:100px;
@@ -55,9 +50,6 @@ export default function SignupTest() {
     //<div className={styles.container}>
       <PageCont>
 
-      <TopRow>
-        <GuestNavBar></GuestNavBar>
-      </TopRow>
 
     <MidCont>
       <LeftCont>

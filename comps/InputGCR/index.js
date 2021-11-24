@@ -5,7 +5,10 @@ import EduImage from '../EduImage';
 import { useState } from 'react';
 import { colors } from '@mui/material';
 import React from 'react';
-  
+
+import EntryItem from '../EntryItem';
+import InputCounter from '../InputCounter';
+
 const PageCont = styled.div`
 
 `
@@ -40,7 +43,7 @@ const Number = styled.input`
 const Select = styled.select`
   display:flex;
   min-height:35px;
-  width:90px;
+  max-width:90px;
 `;
 
 const TextBox = styled.textarea`
@@ -66,7 +69,6 @@ const TypeCont = styled.div`
   margin:10px;
   padding:5px;
   align-items:center;
-  
 `
 
 //----------------------TYPE OF GARBAGE COUNTER---------------
@@ -78,12 +80,10 @@ const SquareCont = styled.div`
   border-radius:5px;
   background-color:${props=>props.color};
 `
-  
 const ItemName = styled.p`
   font-weight:bold;
   margin:10px 5px 10px 10px;
 `;
-  
 const ItemQuantity = styled.p`
   font-weight:bold;
 `;
@@ -98,7 +98,7 @@ const TextCont = styled.div`
 `
 
 const TopCart = styled.div`
-  display:flex; 
+  display:flex;
   justify-content:space-around;
   flex:1;
 `
@@ -107,14 +107,10 @@ const BotCart = styled.div`
   justify-content:space-around;
   flex:1;
 `
-
-
-const myLoader = ({src}) => {
-
 //-----------------Just coppied this to the garbage component-----------------//
 
 
-	
+
 	// const [count, setCount] = React.useState(0);
 
 	// const inc = (event) => {
@@ -153,6 +149,10 @@ const myLoader = ({src}) => {
 	// };
 
 
+const myLoader = ({src}) => {
+
+
+
 
   return `${src}`
 }
@@ -166,72 +166,140 @@ const IGCR = ({
   alt="garbage bag",
   optional="optional",
   color="black",
-  item_count="0",
+  item_count = "0",
   garbage_color="#E9E9E9",
   comp_color="#E2EED7",
   recycle_color="#DFEAEF"
 }) => {
 
-function clickGarbage(){
-  //Gets the selected option
-  var g = document.getElementById("garbageSelect").value;
-  var resultG = parseFloat(g);
+//-------Click garbage function-----------
 
-  // var totalNumber = localStorage.getItem(resultG);
-  
+  function clickGarbage(){
 
-  // //add 1 to existing
-  // var addNumber = totalNumber+ resultG;
+  //NUMBER OF GARBAGE ITEMS
 
-  // //set new total
-  // localStorage.setItem(resultG, addNumber)
+    //get the selected number of garbage option and turn it into a float
+    var g = parseFloat(document.getElementById("garbageSelect").value);
 
-  //TO DISPLAY IN HTML
-  let sumG = resultG ;
-  document.getElementById("garbageCount").innerHTML = sumG;
+    if (typeof(Storage) !== "undefined"){
+      //if there is something already stored in garcount,
+      if (localStorage.garcount) {
+        //add the selected option to the current garcount value in localstorage
+        localStorage.garcount = parseFloat(localStorage.garcount) + g;
+      } else {
+        //if there were no garbage entries, set the garcount to zero
+        localStorage.garcount = g;
+      }
+    }
+    //display the garbage count in HTML
+    document.getElementById("garbageCount").innerHTML = localStorage.garcount;
 
+  //GARBAGE NOTES
 
-//To display text 
+    //get the newest inputted note for garbage
+    var garinput = document.getElementById("garbageText").value;
 
-  
+    var addGarbageNote = function (gartext, garinput, delimiter) {
+      //get the existing notes stored in gartext
+      var existing = localStorage.getItem(gartext);
+      //add the newest inputted note to the existing notes
+      var data = existing ? existing + delimiter + garinput : garinput;
+      //save the new note
+      localStorage.setItem(gartext, data);
+    }
 
-  var getGarbageText = document.getElementById("garbageText").value; 
-  
-  localStorage.setItem('getGarbageText', getGarbageText)
-  
-  var existing = localStorage.getItem('garbageText');
+    addGarbageNote("gartext", garinput, ", ")
 
-  var data = existing ? existing + getGarbageText : 'tuna';
+    //display the garbage note in HTML
+    document.getElementById("textGarbage").innerHTML = localStorage.gartext;
 
-  localStorage.setItem('garbageText', data);
-
-  document.getElementById("TextGarbage").innerHTML = data + " " ;
-
-
-} // END OF clickGarbage function
+  } // End of clickGarbage function
 
 
 //-------Click compost function-----------
 
 function clickCompost(){
-  var c = document.getElementById("compostSelect").value;
-  var resultC = parseFloat(c);
-  document.getElementById("compostCount").innerHTML = resultC;
 
-  var compostText = document.getElementById("compostText").value; 
-  document.getElementById("TextCompost").innerHTML = compostText;
-}
+  //NUMBER OF COMPOST ITEMS
+
+    //get the selected number of compost option and turn it into a float
+    var c = parseFloat(document.getElementById("compostSelect").value);
+
+    if (typeof(Storage) !== "undefined"){
+      //if there is something already stored in comcount,
+      if (localStorage.comcount) {
+        //add the selected option to the current comcount value in localstorage
+        localStorage.comcount = parseFloat(localStorage.comcount) + c;
+      } else {
+        //if there were no compost entries, set the comcount to zero
+        localStorage.comcount = c;
+      }
+    }
+    //display the compost count in HTML
+    document.getElementById("compostCount").innerHTML = localStorage.comcount;
+
+  //COMPOST NOTES
+
+    //get the newest inputted note for compost
+    var cominput = document.getElementById("compostText").value;
+
+    var addCompostNote = function (comtext, cominput, delimiter) {
+      //get the existing notes stored in comtext
+      var existing = localStorage.getItem(comtext);
+      //add the newest inputted note to the existing notes
+      var data = existing ? existing + delimiter + cominput : cominput;
+      //save the new note
+      localStorage.setItem(comtext, data);
+    }
+
+    addCompostNote("comtext", cominput, ", ")
+
+    //display the compost note in HTML
+    document.getElementById("textCompost").innerHTML = localStorage.comtext;
+
+} // End of clickCompost function
 
 //---------CLICK RECYCLE FUNCTION-----------
 
 function clickRecycle(){
-  var r = document.getElementById("recycleSelect").value;
-  var resultR = parseFloat(r);
-  document.getElementById("recycleCount").innerHTML = resultR;
 
-  var recycleText = document.getElementById("recycleText").value; 
-  document.getElementById("TextRecycle").innerHTML = recycleText;
-}
+  //NUMBER OF RECYCLABLE ITEMS
+
+    //get the selected number of recycle option and turn it into a float
+    var r = parseFloat(document.getElementById("recycleSelect").value);
+
+    if (typeof(Storage) !== "undefined"){
+      //if there is something already stored in reccount,
+      if (localStorage.reccount) {
+        //add the selected option to the current reccount value in localstorage
+        localStorage.reccount = parseFloat(localStorage.reccount) + r;
+      } else {
+        //if there were no recycle entries, set the reccount to zero
+        localStorage.reccount = r;
+      }
+    }
+    //display the recycle count in HTML
+    document.getElementById("recycleCount").innerHTML = localStorage.reccount;
+
+  //RECYCLABLE NOTES
+
+    //get the newest inputted note for recycle
+    var recinput = document.getElementById("recycleText").value;
+
+    var addRecycleNote = function (rectext, recinput, delimiter) {
+      //get the existing notes stored in rectext
+      var existing = localStorage.getItem(rectext);
+      //add the newest inputted note to the existing notes
+      var data = existing ? existing + delimiter + recinput : recinput;
+      //save the new note
+      localStorage.setItem(rectext, data);
+    }
+
+    addRecycleNote("rectext", recinput, ", ")
+
+    //display the recbage note in HTML
+    document.getElementById("textRecycle").innerHTML = localStorage.rectext;
+} // End of clickRecycle function
 
   return <PageCont>
 
@@ -239,21 +307,14 @@ function clickRecycle(){
 
     <TopCont>
 
-  <ItemCont colors={garbage_color}>
+  <ItemCont>
     <BoldText text={item_name}></BoldText>
-    <Image loader={myLoader} src={'/garbagebag.png'} width={150} height={150} alt={alt}/>
+    <Image loader={myLoader} src={'/garbagebag.png'} width={50} height={150} alt={alt}/>
     <Description>How many pieces of {waste_type} are you throwing out?</Description>
     <Select id="garbageSelect">
-    <option value="0">0</option>
+      <option value="0">0</option>
       <option value="1">1</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
+      <option value="2">2</option>
     </Select>
     <Description>Write a note to remember this entry ({optional})</Description>
     <TextBox id="garbageText" placeholder={note}></TextBox>
@@ -262,21 +323,14 @@ function clickRecycle(){
 
 {/* ----------------------COMPOST------------------------- */}
 
-  <ItemCont colors={comp_color}>
+  <ItemCont>
     <BoldText text={"Compost"}></BoldText>
-    <Image loader={myLoader} src={'/tea-bag.png'} width={150} height={150} alt={alt}/>
+    <Image loader={myLoader} src={'/tea-bag.png'} width={50} height={150} alt={alt}/>
     <Description>How many pieces of {waste_type} are you throwing out?</Description>
     <Select id="compostSelect">
-    <option value="0">0</option>
+      <option value="0">0</option>
       <option value="1">1</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
+      <option value="2">2</option>
     </Select>
     <Description>Write a note to remember this entry ({optional})</Description>
     <TextBox id="compostText" placeholder={note}></TextBox>
@@ -285,21 +339,14 @@ function clickRecycle(){
 
 {/* ----------------------RECYCLE------------------------- */}
 
-  <ItemCont colors={recycle_color}>
+  <ItemCont>
     <BoldText text="Recycle"></BoldText>
-    <Image loader={myLoader} src={'/newspaper.png'} width={150} height={150} alt={alt}/>
+    <Image loader={myLoader} src={'/newspaper.png'} width={50} height={150} alt={alt}/>
     <Description>How many pieces of {waste_type} are you throwing out?</Description>
     <Select id="recycleSelect">
       <option value="0">0</option>
       <option value="1">1</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
+      <option value="2">2</option>
     </Select>
     <Description>Write a note to remember this entry ({optional})</Description>
     <TextBox id="recycleText" placeholder={note}></TextBox>
@@ -310,7 +357,7 @@ function clickRecycle(){
 
 {/* ----------------------CART COMPONENT------------------------- */}
 
-  <CartCont>  
+  <CartCont>
 
     <TopCart>
 
@@ -337,21 +384,21 @@ function clickRecycle(){
   <BotCart>
 
     <TextCont>
-      <TextG id="TextGarbage"></TextG>
+      <TextG id="textGarbage"></TextG>
     </TextCont>
 
     <TextCont>
-      <TextG id="TextCompost"></TextG>
+      <TextG id="textCompost"></TextG>
     </TextCont>
 
     <TextCont>
-      <TextG id="TextRecycle"></TextG>
+      <TextG id="textRecycle"></TextG>
     </TextCont>
-    
+
   </BotCart>
-  
+
   </CartCont>
-    <Submit type="button" value="Submit" ></Submit>
+
 
   </PageCont>
 }

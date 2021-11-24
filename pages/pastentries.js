@@ -3,22 +3,30 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-import UserNav from '../comps/UserNav';
 import Header from '../comps/HeaderText';
 import Footer from '../comps/footer';
 import EntryItem from '../comps/EntryItem';
 import EntryDate from '../comps/EntryDate';
 import EntryLegend from '../comps/EntryLegend';
+import FooterComp from "../comps/footer";
 // import EntryList from '../comps/EntryList';
 
 const PageCont = styled.div`
   display: flex;
   justify-content: center;
+  min-height:100vh;
 `;
 
 const HeaderCont = styled.div`
   display: flex;
   justify-content: center;
+`;
+
+const FooterCont = styled.div`
+  display:flex;
+  flex:1;
+  align-items:flex-end;
+  background-color:pink;
 `;
 
 const Cont = styled.div`
@@ -128,16 +136,16 @@ export default function Home() {
   }, []);
   return (
     <>
-      <UserNav></UserNav>
+
       <HeaderCont>
         <Header text="Waste Tracked for November"></Header>
       </HeaderCont>
       <PageCont>
         <Cont>
-          {entries? 
+          {entries?
           entries.map((o, i) => (
             <AllDaysList key={i}>
-              {/* <EntryDate entry_date={o.entry_date} /> 
+              {/* <EntryDate entry_date={o.entry_date} />
                 we changed the json from database to return month and day instead of entry_date
               */}
               <EntryDate entry_date={(o.month+'/'+o.day)} />
@@ -169,7 +177,9 @@ export default function Home() {
         </Cont>
         <EntryLegend />
       </PageCont>
-      <Footer />
+      <FooterCont>
+        <FooterComp></FooterComp>
+      </FooterCont>
     </>
   );
 }
