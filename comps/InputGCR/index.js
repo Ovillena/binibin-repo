@@ -106,18 +106,9 @@ const BotCart = styled.div`
 //-----------------On submit stuff-----------------//
 let formData = {};
 
-const requestOptions = {
-	method: 'POST',
-	headers: {
-		'Content-Type': 'application/json',
-		'Access-Control-Allow-Origin': 'http://localhost:3000',
-	},
-	body: JSON.stringify(formData),
-	mode: 'no-cors',
-};
-
 const resetStore = () => {
 	// creating default state for localStorage
+	console.log('------------------------store is being reset!');
 	localStorage.garbageCount = 0;
 	localStorage.garbageText = '';
 	localStorage.compostCount = 0;
@@ -135,15 +126,24 @@ const onSubmit = async (e) => {
 		compost_count: parseInt(localStorage.compostCount),
 		recycling_text: localStorage.recyclingText,
 		recycling_count: parseInt(localStorage.recyclingCount),
+		account_id: '2',
 	};
-	console.log(formData);
-	// await fetch('http://localhost:8080/api/entries/add', requestOptions)
-		await fetch('https://binibin-server.herokuapp.com/api/entries/add', requestOptions)
+  console.log(formData);
+  const requestOptions = {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+			'Access-Control-Allow-Origin': 'http://localhost:3000',
+		},
+		body: JSON.stringify(formData),
+  };
+	await fetch('http://localhost:8080/api/entries/add', requestOptions)
+		// await fetch('https://binibin-server.herokuapp.com/api/entries/add', requestOptions)
 		.then((response) => {
-			if (response.ok) {
-				console.log(response);
-				alert(`Your entry has been submitted!`);
-				resetStore();
+      if (response.ok) {
+        console.log(response);
+        alert(`Your entry has been submitted!`);
+        resetStore();
 			} else {
 				throw new Error('Unable to perform POST request');
 			}
