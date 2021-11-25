@@ -108,8 +108,12 @@ let formData = {};
 
 const requestOptions = {
 	method: 'POST',
-	headers: { 'Content-Type': 'application/json' },
+	headers: {
+		'Content-Type': 'application/json',
+		'Access-Control-Allow-Origin': 'http://localhost:3000',
+	},
 	body: JSON.stringify(formData),
+	mode: 'no-cors',
 };
 
 const resetStore = () => {
@@ -132,7 +136,9 @@ const onSubmit = async (e) => {
 		recycling_text: localStorage.recyclingText,
 		recycling_count: parseInt(localStorage.recyclingCount),
 	};
-	await fetch('https://binibin-server.herokuapp.com/api/entries/add', requestOptions)
+	console.log(formData);
+	// await fetch('http://localhost:8080/api/entries/add', requestOptions)
+		await fetch('https://binibin-server.herokuapp.com/api/entries/add', requestOptions)
 		.then((response) => {
 			if (response.ok) {
 				console.log(response);
@@ -199,8 +205,9 @@ const IGCR = ({
 			//save the new note
 			localStorage.setItem(garbageText, data);
 		};
-
-		addGarbageNote('garbageText', garinput, ', ');
+		if (garinput !== '') {
+			addGarbageNote('garbageText', garinput, ', ');
+		}
 
 		//display the garbage note in HTML
 		document.getElementById('textGarbage').innerHTML = localStorage.garbageText;
@@ -240,8 +247,9 @@ const IGCR = ({
 			//save the new note
 			localStorage.setItem(compostText, data);
 		};
-
-		addCompostNote('compostText', cominput, ', ');
+		if (cominput !== '') {
+			addCompostNote('compostText', cominput, ', ');
+		}
 
 		//display the compost note in HTML
 		document.getElementById('textCompost').innerHTML = localStorage.compostText;
@@ -281,8 +289,9 @@ const IGCR = ({
 			//save the new note
 			localStorage.setItem(recyclingText, data);
 		};
-
-		addRecycleNote('recyclingText', recinput, ', ');
+		if (recinput !== '') {
+			addRecycleNote('recyclingText', recinput, ', ');
+		}
 
 		//display the recbage note in HTML
 		document.getElementById('textRecycle').innerHTML = localStorage.recyclingText;
@@ -307,11 +316,19 @@ const IGCR = ({
 						height={150}
 						alt={alt}
 					/>
-					<Description>How many pieces of {waste_type} are you throwing out?</Description>
+					<Description>How many bags of garbage are you throwing out?</Description>
 					<Select id='garbageSelect'>
 						<option value='0'>0</option>
 						<option value='1'>1</option>
 						<option value='2'>2</option>
+						<option value='3'>3</option>
+						<option value='4'>4</option>
+						<option value='5'>5</option>
+						<option value='6'>6</option>
+						<option value='7'>7</option>
+						<option value='8'>8</option>
+						<option value='9'>9</option>
+						<option value='10'>10</option>
 					</Select>
 					<Description>Write a note to remember this entry ({optional})</Description>
 					<TextBox id='garbageText' placeholder={note}></TextBox>
@@ -329,11 +346,19 @@ const IGCR = ({
 						height={150}
 						alt={alt}
 					/>
-					<Description>How many pieces of {waste_type} are you throwing out?</Description>
+					<Description>How many bags of compost are you throwing out?</Description>
 					<Select id='compostSelect'>
 						<option value='0'>0</option>
 						<option value='1'>1</option>
 						<option value='2'>2</option>
+						<option value='3'>3</option>
+						<option value='4'>4</option>
+						<option value='5'>5</option>
+						<option value='6'>6</option>
+						<option value='7'>7</option>
+						<option value='8'>8</option>
+						<option value='9'>9</option>
+						<option value='10'>10</option>
 					</Select>
 					<Description>Write a note to remember this entry ({optional})</Description>
 					<TextBox id='compostText' placeholder={note}></TextBox>
@@ -351,11 +376,19 @@ const IGCR = ({
 						height={150}
 						alt={alt}
 					/>
-					<Description>How many pieces of {waste_type} are you throwing out?</Description>
+					<Description>How many pieces of recycling are you throwing out?</Description>
 					<Select id='recycleSelect'>
 						<option value='0'>0</option>
 						<option value='1'>1</option>
 						<option value='2'>2</option>
+						<option value='3'>3</option>
+						<option value='4'>4</option>
+						<option value='5'>5</option>
+						<option value='6'>6</option>
+						<option value='7'>7</option>
+						<option value='8'>8</option>
+						<option value='9'>9</option>
+						<option value='10'>10</option>
 					</Select>
 					<Description>Write a note to remember this entry ({optional})</Description>
 					<TextBox id='recycleText' placeholder={note}></TextBox>
