@@ -16,7 +16,7 @@ const ItemCont = styled.form`
 	flex-direction: column;
 	margin: 10px;
 	padding: 10px;
-	background-color: ${(props) => props.colors};
+	background-color: ${props => props.colors};
 	align-items: center;
 `;
 
@@ -24,6 +24,7 @@ const ItemCont = styled.form`
 const TopCont = styled.div`
 	display: flex;
 	gap: 10px;
+	margin-top:20px;
 `;
 
 const Description = styled.p`
@@ -76,7 +77,7 @@ const SquareCont = styled.div`
 	min-height: 30px;
 	max-height: 30px;
 	border-radius: 5px;
-	background-color: ${(props) => props.color};
+	background-color: ${props => props.color};
 `;
 const ItemName = styled.p`
 	font-weight: bold;
@@ -327,12 +328,12 @@ const IGCR = ({
 			{/* ----------------------GARBAGE------------------------- */}
 
 			<TopCont>
-				<ItemCont>
+				<ItemCont colors={garbage_color}>
 					<BoldText text={item_name}></BoldText>
 					<Image
 						loader={myLoader}
 						src={'/garbagebag.png'}
-						width={50}
+						width={150}
 						height={150}
 						alt={alt}
 					/>
@@ -357,12 +358,12 @@ const IGCR = ({
 
 				{/* ----------------------COMPOST------------------------- */}
 
-				<ItemCont>
+				<ItemCont colors={comp_color}>
 					<BoldText text={'Compost'}></BoldText>
 					<Image
 						loader={myLoader}
 						src={'/tea-bag.png'}
-						width={50}
+						width={150}
 						height={150}
 						alt={alt}
 					/>
@@ -387,12 +388,12 @@ const IGCR = ({
 
 				{/* ----------------------RECYCLE------------------------- */}
 
-				<ItemCont>
+				<ItemCont colors={recycle_color}>
 					<BoldText text='Recycle'></BoldText>
 					<Image
 						loader={myLoader}
 						src={'/newspaper.png'}
-						width={50}
+						width={150}
 						height={150}
 						alt={alt}
 					/>
