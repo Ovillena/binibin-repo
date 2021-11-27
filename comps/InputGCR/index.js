@@ -5,6 +5,7 @@ import EduImage from '../EduImage';
 import { useState, useEffect } from 'react';
 import { colors } from '@mui/material';
 import React from 'react';
+import Modal from '../Modal';
 
 import EntryItem from '../EntryItem';
 import InputCounter from '../InputCounter';
@@ -61,6 +62,7 @@ const CartCont = styled.div`
 	border-radius: 10px;
 	flex-direction: column;
 	margin-top: 10px;
+	justify-content:center;
 `;
 
 const TypeCont = styled.div`
@@ -171,10 +173,16 @@ const IGCR = ({
 	garbage_color = '#E9E9E9',
 	comp_color = '#E2EED7',
 	recycle_color = '#DFEAEF',
-}) => {
+}) => {	
+	
+	// Modal Function 
+		const [isOpen, setIsOpen] = useState(false);
 	//-------Click garbage function-----------
 
 	function clickGarbage() {
+
+	
+
 		//NUMBER OF GARBAGE ITEMS
 
 		//get the selected number of garbage option and turn it into a float
@@ -433,7 +441,12 @@ const IGCR = ({
 						<TextG id='textRecycle'></TextG>
 					</TextCont>
 				</BotCart>
-				<Submit type='button' value='Submit' onClick={onSubmit}></Submit>
+				<Submit type='button' value='Submit' onClick={onSubmit} onClick={() => setIsOpen(true)}></Submit>
+				<Modal open={isOpen} onClose={() => setIsOpen(false)}> 
+				<TextG>
+				Reduce, Reuse, Recycle! Keep the planet Clean! Thank you!
+				</TextG>
+				</Modal>
 			</CartCont>
 		</PageCont>
 	);
