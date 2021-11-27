@@ -72,7 +72,7 @@ const GraphsSum = () => {
       let itemDR = [];
       let itemDC = [];
 
-      axios.get("https://binibin-server.herokuapp.com/api/entries/garbage/2021-11-01/2021-11-16")
+      axios.get("https://binibin-server.herokuapp.com/api/entries/garbage/2021-11-01/2030-11-30")
       .then(res => {
         console.log(res.data);
         for(const dataObj of res.data){
@@ -136,7 +136,7 @@ const GraphsSum = () => {
 
       //------------------RECYCLE---------------------------- 
 
-      axios.get("https://binibin-server.herokuapp.com/api/entries/recycling/2021-11-01/2021-11-16")
+      axios.get("https://binibin-server.herokuapp.com/api/entries/recycling/2021-11-01/2030-11-30")
       .then(res => {
         console.log(res.data);
         for(const dataObj of res.data){
@@ -192,7 +192,7 @@ const GraphsSum = () => {
 
       //------------------COMPOST---------------------------- 
 
-      axios.get("https://binibin-server.herokuapp.com/api/entries/compost/2021-11-01/2021-11-16")
+      axios.get("https://binibin-server.herokuapp.com/api/entries/compost/2021-11-01/2030-11-30")
       .then(res => {
         console.log(res.data);
         for(const dataObj of res.data){
@@ -274,10 +274,10 @@ const GraphsSum = () => {
             maxTicksLimit:7
           },
         },
-        // y:{
-        //   min:0,
-        //   max:100
-        // },
+        y:{
+          min:0,
+          max:100,
+        },
         yAxes:[
           {
             ticks:{

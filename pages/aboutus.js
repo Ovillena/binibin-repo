@@ -2,8 +2,6 @@ import FooterComp from '../comps/footer'
 
 import styled from 'styled-components';
 import React from 'react';
-
-import GuestNavBar from '../comps/GuestNavBar';
 import HeaderText from '../comps/HeaderText';
 import Subhead from '../comps/SubheadText';
 import CircleImage from '../comps/CircleImage';
@@ -16,9 +14,6 @@ flex-direction:column;
 min-height:100vh;
 `
 
-const TopRow = styled.div`
-  display:flex;
-`
 
 const HeaderCont = styled.div`
   display:flex;
@@ -57,10 +52,7 @@ export default function AboutUs(){
   return (
     //<div className={styles.container}>
       <PageCont>
-      <TopRow>
-        <GuestNavBar></GuestNavBar>
-      </TopRow>
-    
+
 
     <HeaderCont>
       <HeaderText text="Meet Our Team"></HeaderText>
@@ -101,14 +93,14 @@ export default function AboutUs(){
         <MemberName>Developer, Time Keeper</MemberName>
       </Member>
     </Row>
-    
+
     <Row>
-      <HelpfulResource text="Read Our Project Progress Report" href="https://catla.ca/binit/"></HelpfulResource>  
+      <HelpfulResource text="Read Our Project Progress Report" href="https://catla.ca/binit/"></HelpfulResource>
     </Row>
 
     <FooterCont>
       <FooterComp></FooterComp>
-    </FooterCont> 
+    </FooterCont>
 
 
       </PageCont>

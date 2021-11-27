@@ -5,25 +5,21 @@ import React, { useState, useEffect } from "react";
 
 import axios from "axios";
 
-import GuestNavBar from "../comps/GuestNavBar";
+
 import HeaderText from "../comps/HeaderText";
 import HeroComp from "../comps/HeroComp";
 import CircleImage from "../comps/CircleImage";
 import MyButton from "../comps/Button";
 import Subhead from "../comps/SubheadText";
-import UserNav from "../comps/UserNav";
+
 import EduImage from "../comps/EduImage";
 import FeaturesCard from "../comps/FeaturesCard";
 
 const PageCont = styled.div`
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background-color: #eef9ff;
-`;
-
-const TopRow = styled.div`
-  display: flex;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	background-color: #eef9ff;
 `;
 
 const HeaderCont = styled.div`
@@ -81,27 +77,25 @@ const MultiColumn = styled.div`
 export default function Home() {
   const [user, setUser] = useState(null);
 
-  axios
-    .get(
-      "https://binibin-server.herokuapp.com/auth/checkauth",
-      // "http://localhost:8080/auth/checkauth",
-      { withCredentials: true }
-    )
-    .then((res) => {
-      console.log(res.data);
-      setUser(res.data.username);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  // axios
+  //   .get(
+  //     "https://binibin-server.herokuapp.com/auth/checkauth",
+  //     // "http://localhost:8080/auth/checkauth",
+  //     { withCredentials: true }
+  //   )
+  //   .then((res) => {
+  //     console.log(res.data);
+  //     setUser(res.data.username);
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //   });
 
   return (
     //<div className={styles.container}>
     <PageCont>
-      <TopRow>
-        <GuestNavBar></GuestNavBar>
-      </TopRow>
-    
+
+
       <HeroComp></HeroComp>
 
     <MultiColumn>
@@ -154,10 +148,10 @@ export default function Home() {
       <MyButton width="180px" height="65px" bgcolor="#E5A500" hoverbg="#FFC800" textcolor="#000" text="Register" routeTo="signup"></MyButton>
     </ButtonCont>
 
-    
+
     <FooterCont>
       <FooterComp></FooterComp>
-    </FooterCont> 
+    </FooterCont>
 
 
       </PageCont>
