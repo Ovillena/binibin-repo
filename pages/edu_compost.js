@@ -4,8 +4,9 @@ import React from 'react';
 import EduImage from '../comps/EduImage';
 import Subhead from '../comps/SubheadText';
 
+import { motion } from 'framer-motion';
 
-const PageCont = styled.div`
+const PageCont = styled(motion.div)`
   display:flex;
   flex-direction:column;
   min-height:100vh;
@@ -27,18 +28,22 @@ const ItemCont = styled.div`
 export default function EduCompost(){
   return (
     //<div className={styles.container}>
-      <PageCont>
-
+      <PageCont
+      initial={{opacity:0}} 
+      animate={{opacity:1, transition:{duration:2, delay:0}}}
+      >
         <RowCont>
-          <ItemCont>
+          <ItemCont as={motion.div} whileHover={{scale:1.1 }}>
             <EduImage src="fried-egg.png"></EduImage>
             <Subhead text="Egg Shell" color="black"></Subhead>
           </ItemCont>
-          <ItemCont>
+
+          <ItemCont as={motion.div} whileHover={{scale:1.1 }}>
             <EduImage src="fish-bone.png"></EduImage>
             <Subhead text="Bones" color="black"></Subhead>
           </ItemCont>
-          <ItemCont>
+
+          <ItemCont as={motion.div} whileHover={{scale:1.1 }}>
             <EduImage src="popsicle.png"></EduImage>
             <Subhead text="Popsicle Sticks" color="black"></Subhead>
           </ItemCont>
@@ -46,15 +51,17 @@ export default function EduCompost(){
 
 
         <RowCont>
-          <ItemCont>
+          <ItemCont as={motion.div} whileHover={{scale:1.1 }}>
             <EduImage src="tea-bag.png"></EduImage>
             <Subhead text="Tea Bag" color="black"></Subhead>
           </ItemCont>
-          <ItemCont>
+
+          <ItemCont as={motion.div} whileHover={{scale:1.1 }}>
             <EduImage src="fruits.png"></EduImage>
             <Subhead text="Fruits" color="black"></Subhead>
           </ItemCont>
-          <ItemCont>
+
+          <ItemCont as={motion.div} whileHover={{scale:1.1 }}>
             <EduImage src="vegetable.png"></EduImage>
             <Subhead text="Vegetables" color="black"></Subhead>
           </ItemCont>

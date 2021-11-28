@@ -4,8 +4,9 @@ import React from 'react';
 import EduImage from '../comps/EduImage';
 import Subhead from '../comps/SubheadText';
 
+import { motion } from 'framer-motion';
 
-const PageCont = styled.div`
+const PageCont = styled(motion.div)`
   display:flex;
   flex-direction:column;
   min-height:100vh;
@@ -17,7 +18,7 @@ const RowCont = styled.div`
   padding:20px;
 `
 
-const ItemCont = styled.div`
+const ItemCont = styled(motion.div)`
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -28,18 +29,22 @@ const ItemCont = styled.div`
 export default function EduGarbage(){
   return (
     //<div className={styles.container}>
-      <PageCont>
-        
+      <PageCont
+      initial={{opacity:0}} 
+      animate={{opacity:1, transition:{duration:2, delay:0}}}
+      >
         <RowCont>
-          <ItemCont>
+          <ItemCont as={motion.div} whileHover={{scale:1.1 }}>
             <EduImage src="plastic-bag.png"></EduImage>
             <Subhead text="Plastic Bags" color="black"></Subhead>
           </ItemCont>
-          <ItemCont>
+
+          <ItemCont as={motion.div} whileHover={{scale:1.1 }}>
             <EduImage src="bubble-wrap.png"></EduImage>
             <Subhead text="Bubble Wrap" color="black"></Subhead>
           </ItemCont>
-          <ItemCont>
+
+          <ItemCont as={motion.div} whileHover={{scale:1.1 }}>
             <EduImage src="candy-wrapper.png"></EduImage>
             <Subhead text="Candy Wrapper" color="black"></Subhead>
           </ItemCont>
@@ -47,15 +52,17 @@ export default function EduGarbage(){
 
 
         <RowCont>
-          <ItemCont>
+          <ItemCont as={motion.div} whileHover={{scale:1.1 }}>
             <EduImage src="snacks.png"></EduImage>
             <Subhead text="Chip Bags" color="black"></Subhead>
           </ItemCont>
-          <ItemCont>
+
+          <ItemCont as={motion.div} whileHover={{scale:1.1 }}>
             <EduImage src="face-mask.png"></EduImage>
             <Subhead text="Face Mask" color="black"></Subhead>
           </ItemCont>
-          <ItemCont>
+          
+          <ItemCont as={motion.div} whileHover={{scale:1.1 }}>
             <EduImage src="straw.png"></EduImage>
             <Subhead text="Plastic Straws" color="black"></Subhead>
           </ItemCont>

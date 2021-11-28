@@ -5,7 +5,6 @@ import React, { useState, useEffect } from "react";
 
 import axios from "axios";
 
-
 import HeaderText from "../comps/HeaderText";
 import HeroComp from "../comps/HeroComp";
 import CircleImage from "../comps/CircleImage";
@@ -14,6 +13,8 @@ import Subhead from "../comps/SubheadText";
 
 import EduImage from "../comps/EduImage";
 import FeaturesCard from "../comps/FeaturesCard";
+
+import { motion } from "framer-motion"
 
 const PageCont = styled.div`
 	display: flex;
@@ -94,7 +95,6 @@ export default function Home() {
   return (
     //<div className={styles.container}>
     <PageCont>
-
 
       <HeroComp></HeroComp>
 

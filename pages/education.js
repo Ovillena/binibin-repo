@@ -9,7 +9,6 @@ import HelpfulResource from '../comps/HelpfulResource';
 import Subhead from '../comps/SubheadText';
 import EducationTab from '../comps/EducationTab';
 
-
 const PageCont = styled.div`
   display:flex;
   flex-direction:column;
