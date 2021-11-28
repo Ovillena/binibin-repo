@@ -21,7 +21,7 @@ const ItemCont = styled.form`
 const TopCont = styled.div`
 	display: flex;
 	gap: 10px;
-	margin-top:20px;
+	margin-top: 20px;
 `;
 
 const Description = styled.p`
@@ -68,7 +68,6 @@ const CartCont = styled.div`
 	border-radius: 10px;
 	flex-direction: column;
 	margin-top: 10px;
-
 `;
 
 const TypeCont = styled.div`
@@ -85,7 +84,7 @@ const SquareCont = styled.div`
 	min-height: 30px;
 	max-height: 30px;
 	border-radius: 5px;
-	background-color: ${props => props.color};
+	background-color: ${(props) => props.color};
 `;
 const ItemName = styled.p`
 	font-weight: bold;
@@ -114,11 +113,11 @@ const BotCart = styled.div`
 `;
 
 const ModalText = styled.h1`
-display:flex;
-text-align:center;
-font-size:30px;
-color:grey;
-`
+	display: flex;
+	text-align: center;
+	font-size: 30px;
+	color: grey;
+`;
 //-----------------On submit stuff-----------------//
 let formData = {};
 
@@ -132,8 +131,6 @@ const resetStore = () => {
 	localStorage.recyclingCount = 0;
 	localStorage.recyclingText = '';
 };
-
-
 
 const myLoader = ({ src }) => {
 	return `${src}`;
@@ -172,13 +169,12 @@ const IGCR = ({
 			if (localStorage.garbageCount) {
 				//add the selected option to the current garbageCount value in localstorage
 				localStorage.garbageCount = parseFloat(localStorage.garbageCount) + g;
-				document.getElementById('garbageSelect').selectedIndex = 0
+				document.getElementById('garbageSelect').selectedIndex = 0;
 			} else {
 				//if there were no garbage entries, set the garbageCount to zero
 				localStorage.garbageCount = g;
-				document.getElementById('garbageSelect').selectedIndex = 0
+				document.getElementById('garbageSelect').selectedIndex = 0;
 			}
-
 		}
 		//display the garbage count in HTML
 		document.getElementById('garbageCount').innerHTML = localStorage.garbageCount;
@@ -322,7 +318,7 @@ const IGCR = ({
 			body: JSON.stringify(formData),
 		};
 		// await fetch('http://localhost:8080/api/entries/add', requestOptions)
-			await fetch('https://binibin-server.herokuapp.com/api/entries/add', requestOptions)
+		await fetch('https://binibin-server.herokuapp.com/api/entries/add', requestOptions)
 			.then((response) => {
 				if (response.ok) {
 					console.log(response);

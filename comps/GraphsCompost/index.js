@@ -62,9 +62,9 @@ const GraphsCompost = () => {
   const [itemCount, setItemCount] = useState([]);
   const [itemDate, setItemDate] = useState([]);
   // const [isLoading, setLoading] = useState(true);
-  
+
   useEffect(()=>{
-    
+
     const GetData = async()=>{
       let itemC = [];
       let itemD = [];
@@ -102,7 +102,7 @@ const GraphsCompost = () => {
     }
     GetData();
   }, []);
-    
+
 
   if (chartData){
   return(
@@ -111,7 +111,7 @@ const GraphsCompost = () => {
       <Subhead text="Compost" fontsize="24px"></Subhead>
     </div>
     <GraphCont>
-    
+
     <Bar data={chartData} options={{
       scales:{
         x:{
@@ -126,7 +126,6 @@ const GraphsCompost = () => {
         },
         y:{
           min:0,
-          max:100,
         },
         yAxes:[
           {

@@ -62,9 +62,9 @@ const GraphsRecycle = () => {
   const [itemCount, setItemCount] = useState([]);
   const [itemDate, setItemDate] = useState([]);
   // const [isLoading, setLoading] = useState(true);
-  
+
   useEffect(()=>{
-    
+
     const GetData = async()=>{
       let itemC = [];
       let itemD = [];
@@ -91,7 +91,7 @@ const GraphsRecycle = () => {
               ],
               borderWidth: 1,
               borderRadius:10
-              
+
             }
           ]
         });
@@ -99,11 +99,11 @@ const GraphsRecycle = () => {
       .catch(err => {
         console.log(err);
       });
-      
+
     }
     GetData();
   }, []);
-    
+
 
   if (chartData){
   return(
@@ -112,7 +112,7 @@ const GraphsRecycle = () => {
       <Subhead text="Recycle" fontsize="24px"></Subhead>
     </div>
     <GraphCont>
-    
+
     <Bar data={chartData} options={{
       scales:{
         x:{
@@ -127,7 +127,6 @@ const GraphsRecycle = () => {
         },
         y:{
           min:0,
-          max:100,
         },
         yAxes:[
           {

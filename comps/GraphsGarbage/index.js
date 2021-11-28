@@ -73,7 +73,7 @@ const GraphsGarbage = () => {
   const [itemCount, setItemCount] = useState([]);
   const [itemDate, setItemDate] = useState([]);
   // const [isLoading, setLoading] = useState(true);
- 
+
   useEffect(()=>{
 
     const GetData = async()=>{
@@ -165,7 +165,7 @@ const GraphsGarbage = () => {
         },
         y:{
           min:0,
-          max:100,
+
         },
         yAxes:[
           {
