@@ -16,7 +16,7 @@ import FeaturesCard from "../comps/FeaturesCard";
 
 import { motion } from "framer-motion"
 
-const PageCont = styled.div`
+const PageCont = styled(motion.div)`
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
@@ -94,42 +94,72 @@ export default function Home() {
 
   return (
     //<div className={styles.container}>
-    <PageCont>
-
+    <PageCont
+    initial={{opacity:0}}
+    animate={{opacity:100, transition:{duration:1, delay:1}}}
+    >
       <HeroComp></HeroComp>
 
     <MultiColumn>
-      <ParagraphSec>
+      <ParagraphSec 
+      as={motion.div}  
+      initial={{opacity:0}} 
+      animate={{opacity:100, transition:{duration:1, delay:0.5}}}
+      >
         <Subhead text="About BiniBin"></Subhead>
         <BodyText>BiniBin provides a simple way for grade schools to track their garbage, compost, and recycling with a quick input system and dynamically generated graphs. </BodyText>
       </ParagraphSec>
 
-      <ParagraphSec>
+      <ParagraphSec
+      as={motion.div}  
+      initial={{opacity:0}} 
+      animate={{opacity:100, transition:{duration:1, delay:0.5}}}
+      >
         <Subhead text="Benefits"></Subhead>
         <BodyText>Educate students and staff about recycling, see measurable statistics to track waste management, and earn revenue from transfer stations. </BodyText>
       </ParagraphSec>
     </MultiColumn>
 
     <MultiColumn>
-      <ParagraphSec>
+      <ParagraphSec
+      as={motion.div}  
+      initial={{opacity:0}} 
+      animate={{opacity:100, transition:{duration:1, delay:0.5}}}
+      >
         <Subhead text="Our Goal"></Subhead>
         <BodyText>Our goal is to foster a generation that keeps the planet’s environment at the forefront of their minds by habit.</BodyText>
       </ParagraphSec>
 
-      <ParagraphSec>
+      <ParagraphSec
+      as={motion.div}  
+      initial={{opacity:0}} 
+      animate={{opacity:100, transition:{duration:1, delay:0.5}}}
+      >
         <Subhead text="Our Mission"></Subhead>
         <BodyText>Our mission is to lessen the harmful impacts to the waste system by teaching and encouraging students how to appropriately dispose wastes.</BodyText>
       </ParagraphSec>
     </MultiColumn>
 
-    <HeaderCont>
+    <HeaderCont 
+    as={motion.div}
+    initial={{ opacity: 0}}
+    whileInView={{ opacity: 1, scale:1.1 }}
+    viewport={{ once: true }}>
       <HeaderText text="Features"></HeaderText>
     </HeaderCont>
 
     <FeaturesCont>
+      <motion.div whileHover={{scale:1.1 }}>
         <FeaturesCard src="/input.png" alt="input" h="Input" p="Use a simple visual tool to input how much compost, recycling, and garbage is produced at school."></FeaturesCard>
+      </motion.div>
+
+      <motion.div whileHover={{scale:1.1 }}>
         <FeaturesCard src="/bar-graph.png" alt="graph" h="Track" p="View a list of your inputted entries to track the breakdown of wastes produced at school."></FeaturesCard>
+       </motion.div>
+       
+       <motion.div whileHover={{scale:1.1 }}>
         <FeaturesCard src="/reducing.png" alt="reduce" h="Reduce" p="Read dynamically-generated graphs of each type of waste and make a plan to reduce your garbage."></FeaturesCard>
+        </motion.div>
       </FeaturesCont>
 
 

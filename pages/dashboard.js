@@ -11,10 +11,12 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 
+import { motion } from 'framer-motion';
+
 const PageCont = styled.div`
 	display: flex;
 	flex-direction: column;
-	min-height: 90vh;
+	min-height: 100vh;
 `;
 
 const HeaderCont = styled.div`
@@ -87,30 +89,46 @@ export default function Dashboard() {
 
 			<TopIcons>
 				<IconDiv>
+					<motion.div whileHover={{scale:1.1 }}>
 					<IconComp iconSymbol='calendar check outline' routeTo='input'></IconComp>
+					</motion.div>
 					<Subhead text='Record New Entries' fontsize='24px'></Subhead>
 				</IconDiv>
+
 				<IconDiv>
+					<motion.div whileHover={{scale:1.1 }}>
 					<IconComp iconSymbol='chart bar' routeTo='graphs'></IconComp>
+					</motion.div>
 					<Subhead text='View Graphs' fontsize='24px'></Subhead>
 				</IconDiv>
+
 				<IconDiv>
+					<motion.div whileHover={{scale:1.1 }}>
 					<IconComp iconSymbol='list' routeTo='pastentries'></IconComp>
+					</motion.div>
 					<Subhead text='View Past Entries' fontsize='24px'></Subhead>
 				</IconDiv>
 			</TopIcons>
 
 			<BotRow>
 				<IconDiv>
+					<motion.div whileHover={{scale:1.1 }}>
 					<IconComp iconSymbol='wrench' routeTo='setting'></IconComp>
+					</motion.div>
 					<Subhead text='Account Settings' fontsize='24px'></Subhead>
 				</IconDiv>
+
 				<IconDiv>
+					<motion.div whileHover={{scale:1.1 }}>
 					<IconComp iconSymbol='file text' routeTo='education'></IconComp>
+					</motion.div>
 					<Subhead text='How to Sort' fontsize='24px'></Subhead>
 				</IconDiv>
+
 				<IconDiv>
+					<motion.div whileHover={{scale:1.1 }}>
 					<IconComp iconSymbol='headphones' routeTo='customerservice'></IconComp>
+					</motion.div>
 					<Subhead text='Customer Support' fontsize='24px'></Subhead>
 				</IconDiv>
 			</BotRow>
@@ -118,6 +136,7 @@ export default function Dashboard() {
 			<FooterCont>
 				<Footer></Footer>
 			</FooterCont>
+
 		</PageCont>
 		//</div>
 	);

@@ -26,7 +26,6 @@ const FooterCont = styled.div`
   display:flex;
   flex:1;
   align-items:flex-end;
-  background-color:pink;
 `;
 
 const Cont = styled.div`

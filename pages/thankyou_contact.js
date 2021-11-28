@@ -42,6 +42,8 @@ const ButtonCont = styled.div`
 
 const ImageDiv = styled.div`
   z-index:-1;
+  display:flex;
+  justify-content:center;
 `
 // background-image:url('/13095.png');
 // background-size:cover;
