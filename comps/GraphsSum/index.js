@@ -51,19 +51,21 @@ const data = {
 
 
 const GraphCont = styled.div`
-  display:flex;
-  width:489px;
-  height:228px;
-`
+	display: inline-flex;
+	height:40vh;
+	width: 80vw;
+  max-height: 600px;
+  max-width: 900px;
+`;
 
 const GraphsSum = () => {
   const [chartData, setChartData] = useState(false)
   const [itemCount, setItemCount] = useState([]);
   const [itemDate, setItemDate] = useState([]);
   // const [isLoading, setLoading] = useState(true);
-  
+
   useEffect(()=>{
-    
+
     const GetData = async()=>{
       let itemCG = [];
       let itemCR = [];
@@ -96,7 +98,7 @@ const GraphsSum = () => {
           labels:itemDG,
           datasets: [
             {
-              label:'# of Garbage',
+              label:'# of bags thrown in garbage',
               //y axis
               data: itemCG,
               fill:false,
@@ -104,11 +106,11 @@ const GraphsSum = () => {
                 'black'
               ],
               borderColor:'black',
-              borderWidth: 1,
+              borderWidth: 4,
               borderRadius:10
             },
             {
-              label:'# of Compost',
+              label:'# of bags put in compost',
               //y axis
               data:itemCC,
               fill:false,
@@ -116,25 +118,25 @@ const GraphsSum = () => {
                 '#598B2C'
               ],
               borderColor:'#598B2C',
-              borderWidth: 1,
+              borderWidth: 4,
               borderRadius:10
             },
             {
-              label:'# of Recycles',
+              label:'# of items recycled',
               //y axis
               data:itemCR,
               backgroundColor:[
                 '#3C64B1'
               ],
               borderColor:'#3C64B1',
-              borderWidth: 1,
+              borderWidth: 4,
               borderRadius:10
             }
           ]
         });
       })
 
-      //------------------RECYCLE---------------------------- 
+      //------------------RECYCLE----------------------------
 
       axios.get("https://binibin-server.herokuapp.com/api/entries/recycling/2021-11-01/2030-11-30")
       .then(res => {
@@ -148,49 +150,43 @@ const GraphsSum = () => {
         }
 
         setChartData({
-          //x axis
-          labels:itemDR,
-          datasets: [
-            {
-              label:'# of Garbage',
-              //y axis
-              data: itemCG,
-              fill:false,
-              backgroundColor:[
-                'black'
-              ],
-              borderColor:'black',
-              borderWidth: 1,
-              borderRadius:10
-            },
-            {
-              label:'# of Compost',
-              //y axis
-              data:itemCC,
-              fill:false,
-              backgroundColor:[
-                '#598B2C'
-              ],
-              borderColor:'#598B2C',
-              borderWidth: 1,
-              borderRadius:10
-            },
-            {
-              label:'# of Recycles',
-              //y axis
-              data:itemCR,
-              backgroundColor:[
-                '#3C64B1'
-              ],
-              borderColor:'#3C64B1',
-              borderWidth: 1,
-              borderRadius:10
-            }
-          ]
-        });
+			//x axis
+			labels: itemDR,
+			datasets: [
+				{
+					label: '# of bags thrown in garbage',
+					//y axis
+					data: itemCG,
+					fill: false,
+					backgroundColor: ['black'],
+					borderColor: 'black',
+					borderWidth: 4,
+					borderRadius: 10,
+				},
+				{
+					label: '# of bags put in compost',
+					//y axis
+					data: itemCC,
+					fill: false,
+					backgroundColor: ['#598B2C'],
+					borderColor: '#598B2C',
+					borderWidth: 4,
+					borderRadius: 10,
+				},
+				{
+					label: '# of items recycled',
+					//y axis
+					data: itemCR,
+					backgroundColor: ['#3C64B1'],
+					borderColor: '#3C64B1',
+					borderWidth: 4,
+					borderRadius: 10,
+				},
+			],
+		});
       })
 
-      //------------------COMPOST---------------------------- 
+      //------------------COMPOST----------------------------
 
       axios.get("https://binibin-server.herokuapp.com/api/entries/compost/2021-11-01/2030-11-30")
       .then(res => {
@@ -204,48 +200,42 @@ const GraphsSum = () => {
         }
 
         setChartData({
-          //x axis
-          labels:itemDC,
-          datasets: [
-            {
-              label:'# of Garbage',
-              //y axis
-              data: itemCG,
-              fill:false,
-              backgroundColor:[
-                'black'
-              ],
-              borderColor:'black',
-              borderWidth: 1,
-              borderRadius:10
-            },
-            {
-              label:'# of Compost',
-              //y axis
-              data:itemCC,
-              fill:false,
-              backgroundColor:[
-                '#598B2C'
-              ],
-              borderColor:'#598B2C',
-              borderWidth: 1,
-              borderRadius:10
-            },
-            {
-              label:'# of Recycles',
-              //y axis
-              data:itemCR,
-              backgroundColor:[
-                '#3C64B1'
-              ],
-              borderColor:'#3C64B1',
-              borderWidth: 1,
-              borderRadius:10
-            }
-          ]
-        });
+			//x axis
+			labels: itemDC,
+			datasets: [
+				{
+					label: '# of bags thrown in garbage',
+					//y axis
+					data: itemCG,
+					fill: false,
+					backgroundColor: ['black'],
+					borderColor: 'black',
+					borderWidth: 4,
+					borderRadius: 10,
+				},
+				{
+					label: '# of bags put in compost',
+					//y axis
+					data: itemCC,
+					fill: false,
+					backgroundColor: ['#598B2C'],
+					borderColor: '#598B2C',
+					borderWidth: 4,
+					borderRadius: 10,
+				},
+				{
+					label: '# of items recycled',
+					//y axis
+					data: itemCR,
+					backgroundColor: ['#3C64B1'],
+					borderColor: '#3C64B1',
+					borderWidth: 4,
+					borderRadius: 10,
+				},
+			],
+		});
       })
-      
+
       .catch(err => {
         console.log(err);
       });
@@ -255,42 +245,43 @@ const GraphsSum = () => {
 
 
   if (chartData){
-  return(
-  <>
-    <div className='header'>
-      <Subhead text="Summary" fontsize="24px"></Subhead>
-    </div>
-    <GraphCont>
-    
-    <Line data={chartData} options={{
-      scales:{
-        x:{
-          grid:{
-            display:false
-          },
-          ticks:{
-            display:true,
-            autoSkip:true,
-            maxTicksLimit:7
-          },
-        },
-        y:{
-          min:0,
-          max:100,
-        },
-        yAxes:[
-          {
-            ticks:{
-              beginAtZero:true
-            },
-          }
-        ]
-      }
-    }} />
-
-    </GraphCont>
-  </>
-  )
+  return (
+		<>
+			<div className='header'>
+				<Subhead text='Summary' fontsize='24px'></Subhead>
+			</div>
+			<GraphCont>
+				<Line
+					data={chartData}
+					options={{
+						responsive: true,
+						scales: {
+							x: {
+								grid: {
+									display: false,
+								},
+								ticks: {
+									display: true,
+									autoSkip: true,
+									maxTicksLimit: 7,
+								},
+							},
+							y: {
+								min: 0,
+							},
+							yAxes: [
+								{
+									ticks: {
+										beginAtZero: true,
+									},
+								},
+							],
+						},
+					}}
+				/>
+			</GraphCont>
+		</>
+  );
   }
   return(
     <></>

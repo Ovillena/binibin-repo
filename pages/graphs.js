@@ -12,7 +12,7 @@ import GraphsSum from '../comps/GraphsSum';
 const PageCont = styled.div`
 	display: flex;
 	flex-direction: column;
-	min-height: 100vh;
+	min-height: 90vh;
 `;
 
 const HeaderCont = styled.div`
@@ -34,18 +34,25 @@ const WeekCont = styled.div`
 
 const TopGraphs = styled.div`
 	display: flex;
-	justify-content: space-around;
+	justify-content: center;
 	padding: 10px;
 	flex-wrap: wrap;
+	height:content;
+	width: content;
+  max-height: 600px;
+
 `;
 
-const GraphDiv = styled.div``;
+const GraphDiv = styled.div`
+	height: content;
+	width: content;
+`;
 
 const BottomGraphs = styled.div`
 	display: flex;
 	justify-content: space-around;
 	padding: 10px;
-	 /* flex-wrap: wrap; */
+	flex-wrap: wrap;
 `;
 
 const CardWrapper = styled.div`
