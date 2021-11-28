@@ -186,18 +186,6 @@ const IGCR = ({
 	// Modal Function 
 		const [isOpen, setIsOpen] = useState(false);
 
-}) => {
-	//attempt at using useSTate
-	// const [garbageText, setGarbageText] = useState('');
-	// const [garbageInput, setGarbageInput] = useState(0);
-	// const [compostText, setCompostText] = useState('');
-	// const [compostInput, setCompostInput] = useState(0);
-	// const [recycleText, setRecycleText] = useState('');
-	// const [recycleInput, setRecycleInput] = useState(0);
-
-
-
-
 	//-------Click garbage function-----------
 
 	function clickGarbage() {
