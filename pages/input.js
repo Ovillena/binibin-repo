@@ -1,14 +1,8 @@
 import styled from 'styled-components';
 import React from 'react';
-import {useState, useEffect} from 'react';
-import axios from 'axios';
-
-// import Popup from 'reactjs-popup';
-// import 'reactjs-popup/dist/index.css';
 
 import GuestNavBar from '../comps/GuestNavBar';
 import Header from '../comps/HeaderText';
-import Footer from '../comps/footer';
 import Button from '../comps/Button';
 import IGCR from '../comps/InputGCR';
 import EntryItem from '../comps/EntryItem';
@@ -56,16 +50,15 @@ export default function Home() {
 
   return(
     <Cont>
-    <SubCont>
-    </SubCont>
-    <SubCont>
-      <IGCR/>
-    </SubCont>
-
-    <FooterCont>
-      <FooterComp></FooterComp>
-    </FooterCont>
-
+			<SubCont>
+				<Header text='Record New Entries'></Header>
+			</SubCont>
+      <SubCont>
+        <IGCR/>
+      </SubCont>
+      <FooterCont>
+        <FooterComp></FooterComp>
+      </FooterCont>
   </Cont>
   )
 }
