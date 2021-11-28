@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 import BoldText from '../BoldText';
 import Image from 'next/image';
-import {useEffect} from 'react';
+import {useEffect, useState} from 'react';
 import React from 'react';
+import Modal from '../Modal';
 
 const PageCont = styled.div``;
 
@@ -67,6 +68,7 @@ const CartCont = styled.div`
 	border-radius: 10px;
 	flex-direction: column;
 	margin-top: 10px;
+
 `;
 
 const TypeCont = styled.div`
@@ -110,6 +112,13 @@ const BotCart = styled.div`
 	justify-content: space-around;
 	flex: 1;
 `;
+
+const ModalText = styled.h1`
+display:flex;
+text-align:center;
+font-size:30px;
+color:grey;
+`
 //-----------------On submit stuff-----------------//
 let formData = {};
 
@@ -124,41 +133,7 @@ const resetStore = () => {
 	localStorage.recyclingText = '';
 };
 
-const onSubmit = async (e) => {
-	e.preventDefault();
-	formData = {
-		garbage_text: localStorage.garbageText,
-		garbage_count: parseInt(localStorage.garbageCount),
-		compost_text: localStorage.compostText,
-		compost_count: parseInt(localStorage.compostCount),
-		recycling_text: localStorage.recyclingText,
-		recycling_count: parseInt(localStorage.recyclingCount),
-		account_id: '2',
-	};
-  console.log(formData);
-  const requestOptions = {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json',
-			'Access-Control-Allow-Origin': 'http://localhost:3000',
-		},
-		body: JSON.stringify(formData),
-  };
-	await fetch('http://localhost:8080/api/entries/add', requestOptions)
-		// await fetch('https://binibin-server.herokuapp.com/api/entries/add', requestOptions)
-		.then((response) => {
-      if (response.ok) {
-        console.log(response);
-        alert(`Your entry has been submitted!`);
-        resetStore();
-			} else {
-				throw new Error('Unable to perform POST request');
-			}
-		})
-		.catch((err) => {
-			console.log(err);
-		});
-};
+
 
 const myLoader = ({ src }) => {
 	return `${src}`;
@@ -176,20 +151,17 @@ const IGCR = ({
 	garbage_color = '#E9E9E9',
 	comp_color = '#E2EED7',
 	recycle_color = '#DFEAEF',
+
 }) => {
-	//attempt at using useSTate
-	// const [garbageText, setGarbageText] = useState('');
-	// const [garbageInput, setGarbageInput] = useState(0);
-	// const [compostText, setCompostText] = useState('');
-	// const [compostInput, setCompostInput] = useState(0);
-	// const [recycleText, setRecycleText] = useState('');
-	// const [recycleInput, setRecycleInput] = useState(0);
 
 
 
 	//-------Click garbage function-----------
 
 	function clickGarbage() {
+
+
+
 		//NUMBER OF GARBAGE ITEMS
 
 		//get the selected number of garbage option and turn it into a float
@@ -327,7 +299,43 @@ const IGCR = ({
 		// creating default state for localStorage
 		resetStore();
 	}, []);
-
+		// Modal Function
+	const [isOpen, setIsOpen] = useState(false);
+	const onSubmit = async (e) => {
+		e.preventDefault();
+		formData = {
+			garbage_text: localStorage.garbageText,
+			garbage_count: parseInt(localStorage.garbageCount),
+			compost_text: localStorage.compostText,
+			compost_count: parseInt(localStorage.compostCount),
+			recycling_text: localStorage.recyclingText,
+			recycling_count: parseInt(localStorage.recyclingCount),
+			account_id: '2',
+		};
+		console.log(`i am form data~~~~ from on submit${formData}`);
+		const requestOptions = {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				'Access-Control-Allow-Origin': 'https://binibinapp.vercel.app/',
+			},
+			body: JSON.stringify(formData),
+		};
+		// await fetch('http://localhost:8080/api/entries/add', requestOptions)
+			await fetch('https://binibin-server.herokuapp.com/api/entries/add', requestOptions)
+			.then((response) => {
+				if (response.ok) {
+					console.log(response);
+					resetStore();
+					setIsOpen(true);
+				} else {
+					throw new Error('Unable to perform POST request');
+				}
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	};
 	return (
 		<PageCont>
 			{/* ----------------------GARBAGE------------------------- */}
@@ -387,7 +395,10 @@ const IGCR = ({
 						<option value='10'>10</option>
 					</Select>
 					<Description>Write a note to remember this entry</Description>
-					<TextBox id='compostText' placeholder="Example: one apple core and one banana peel"></TextBox>
+					<TextBox
+						id='compostText'
+						placeholder='Example: one apple core and one banana peel'
+					></TextBox>
 					<Submit type='button' value='Add Entry' onClick={clickCompost}></Submit>
 				</ItemCont>
 
@@ -417,7 +428,10 @@ const IGCR = ({
 						<option value='10'>10</option>
 					</Select>
 					<Description>Write a note to remember this entry</Description>
-					<TextBox id='recycleText' placeholder="Example: one juice box and two yogurt containers"></TextBox>
+					<TextBox
+						id='recycleText'
+						placeholder='Example: one juice box and two yogurt containers'
+					></TextBox>
 					<Submit type='button' value='Add Entry' onClick={clickRecycle}></Submit>
 				</ItemCont>
 			</TopCont>
@@ -458,7 +472,10 @@ const IGCR = ({
 						<TextG id='textRecycle'></TextG>
 					</TextCont>
 				</BotCart>
-				<Submit type='button' value='Submit Entries' onClick={onSubmit}></Submit>
+				<Submit type='button' value='Save Entries' onClick={onSubmit}></Submit>
+				<Modal open={isOpen} onClose={() => setIsOpen(false)}>
+					<ModalText>Your Input has been confirm and has been submitted</ModalText>
+				</Modal>
 			</CartCont>
 		</PageCont>
 	);
