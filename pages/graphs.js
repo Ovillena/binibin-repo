@@ -52,7 +52,10 @@ const BottomGraphs = styled.div`
 	display: flex;
 	justify-content: space-around;
 	padding: 10px;
-	flex-wrap: wrap;
+	flex-wrap: wrap-reverse;
+	max-width: 80vw;
+	margin: 0 auto;
+	gap: 2em 1em;
 `;
 
 const CardWrapper = styled.div`
@@ -94,14 +97,13 @@ export default function Graphs() {
 
 			<BottomGraphs>
 				<GraphDiv>
+					<GraphsCompost></GraphsCompost>
+				</GraphDiv>
+				<GraphDiv>
 					<RecycleBar></RecycleBar>
 				</GraphDiv>
-
 				<GraphDiv>
 					<GraphsGarbage></GraphsGarbage>
-				</GraphDiv>
-				<GraphDiv>
-					<GraphsCompost></GraphsCompost>
 				</GraphDiv>
 			</BottomGraphs>
 

@@ -55,7 +55,7 @@ const GraphCont = styled.div`
 	height:40vh;
 	width: 80vw;
   max-height: 600px;
-  max-width: 900px;
+  max-width: 1075px;
 `;
 
 const GraphsSum = () => {
