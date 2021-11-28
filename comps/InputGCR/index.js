@@ -180,10 +180,24 @@ const IGCR = ({
 	garbage_color = '#E9E9E9',
 	comp_color = '#E2EED7',
 	recycle_color = '#DFEAEF',
+
 }) => {	
 	
 	// Modal Function 
 		const [isOpen, setIsOpen] = useState(false);
+
+}) => {
+	//attempt at using useSTate
+	// const [garbageText, setGarbageText] = useState('');
+	// const [garbageInput, setGarbageInput] = useState(0);
+	// const [compostText, setCompostText] = useState('');
+	// const [compostInput, setCompostInput] = useState(0);
+	// const [recycleText, setRecycleText] = useState('');
+	// const [recycleInput, setRecycleInput] = useState(0);
+
+
+
+
 	//-------Click garbage function-----------
 
 	function clickGarbage() {
@@ -200,10 +214,13 @@ const IGCR = ({
 			if (localStorage.garbageCount) {
 				//add the selected option to the current garbageCount value in localstorage
 				localStorage.garbageCount = parseFloat(localStorage.garbageCount) + g;
+				document.getElementById('garbageSelect').selectedIndex = 0
 			} else {
 				//if there were no garbage entries, set the garbageCount to zero
 				localStorage.garbageCount = g;
+				document.getElementById('garbageSelect').selectedIndex = 0
 			}
+
 		}
 		//display the garbage count in HTML
 		document.getElementById('garbageCount').innerHTML = localStorage.garbageCount;
@@ -211,7 +228,7 @@ const IGCR = ({
 		//GARBAGE NOTES
 
 		//get the newest inputted note for garbage
-		var garinput = document.getElementById('garbageText').value;
+		var setGarbage = document.getElementById('garbageText').value;
 
 		var addGarbageNote = function (garbageText, garinput, delimiter) {
 			//get the existing notes stored in garbageText
@@ -221,8 +238,9 @@ const IGCR = ({
 			//save the new note
 			localStorage.setItem(garbageText, data);
 		};
-		if (garinput !== '') {
-			addGarbageNote('garbageText', garinput, ', ');
+		if (setGarbage !== '') {
+			addGarbageNote('garbageText', setGarbage, ', ');
+			document.getElementById('garbageText').value = '';
 		}
 
 		//display the garbage note in HTML
@@ -242,9 +260,11 @@ const IGCR = ({
 			if (localStorage.compostCount) {
 				//add the selected option to the current compostCount value in localstorage
 				localStorage.compostCount = parseFloat(localStorage.compostCount) + c;
+				document.getElementById('compostSelect').selectedIndex = 0;
 			} else {
 				//if there were no compost entries, set the compostCount to zero
 				localStorage.compostCount = c;
+				document.getElementById('compostSelect').selectedIndex = 0;
 			}
 		}
 		//display the compost count in HTML
@@ -265,6 +285,7 @@ const IGCR = ({
 		};
 		if (cominput !== '') {
 			addCompostNote('compostText', cominput, ', ');
+			document.getElementById('compostText').value = '';
 		}
 
 		//display the compost note in HTML
@@ -284,9 +305,11 @@ const IGCR = ({
 			if (localStorage.recyclingCount) {
 				//add the selected option to the current recyclingCount value in localstorage
 				localStorage.recyclingCount = parseFloat(localStorage.recyclingCount) + r;
+				document.getElementById('recycleSelect').selectedIndex = 0;
 			} else {
 				//if there were no recycle entries, set the recyclingCount to zero
 				localStorage.recyclingCount = r;
+				document.getElementById('recycleSelect').selectedIndex = 0;
 			}
 		}
 		//display the recycle count in HTML
@@ -307,6 +330,7 @@ const IGCR = ({
 		};
 		if (recinput !== '') {
 			addRecycleNote('recyclingText', recinput, ', ');
+			document.getElementById('recycleText').value = '';
 		}
 
 		//display the recbage note in HTML
