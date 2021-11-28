@@ -45,7 +45,7 @@ const BottomGraphs = styled.div`
 	display: flex;
 	justify-content: space-around;
 	padding: 10px;
-	flex-wrap: wrap;
+	 /* flex-wrap: wrap; */
 `;
 
 const CardWrapper = styled.div`
@@ -81,10 +81,7 @@ export default function Graphs() {
 
 			<TopGraphs>
 				<GraphDiv>
-					<GraphsGarbage></GraphsGarbage>
-				</GraphDiv>
-				<GraphDiv>
-					<GraphsCompost></GraphsCompost>
+					<GraphsSum></GraphsSum>
 				</GraphDiv>
 			</TopGraphs>
 
@@ -92,8 +89,12 @@ export default function Graphs() {
 				<GraphDiv>
 					<RecycleBar></RecycleBar>
 				</GraphDiv>
+
 				<GraphDiv>
-					<GraphsSum></GraphsSum>
+					<GraphsGarbage></GraphsGarbage>
+				</GraphDiv>
+				<GraphDiv>
+					<GraphsCompost></GraphsCompost>
 				</GraphDiv>
 			</BottomGraphs>
 
