@@ -4,18 +4,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 import Header from '../comps/HeaderText';
-import Footer from '../comps/footer';
 import EntryItem from '../comps/EntryItem';
 import EntryDate from '../comps/EntryDate';
-import EntryLegend from '../comps/EntryLegend';
 import FooterComp from "../comps/footer";
-// import EntryList from '../comps/EntryList';
-
-const PageCont = styled.div`
-  display: flex;
-  justify-content: center;
-  min-height:100vh;
-`;
 
 const HeaderCont = styled.div`
   display: flex;
@@ -26,13 +17,15 @@ const FooterCont = styled.div`
   display:flex;
   flex:1;
   align-items:flex-end;
-  background-color:pink;
 `;
 
 const Cont = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   margin-top: 20px;
+  margin-left: 20%;
+  margin-right: 20%;
 `;
 
 const AllDaysList = styled.div`
@@ -43,7 +36,7 @@ const EntryDayList = styled.div`
   display: flex;
   margin: 5px 20px 0px 20px;
   border: 3px solid #95afba;
-  justify-content: space-between;
+  justify-content: center;
   border-radius:10px;
 `;
 
@@ -62,62 +55,12 @@ const SideSection = styled.div`
 
 const EntryEdit = styled.a``;
 
-const fakeData = [
-  {
-    entry_id: 1,
-    entry_date: "November 3",
-    item_name: "Tin Can (200 mL)",
-    item_count: 5,
-    unit: "units",
-    waste_type: "recycling",
-  },
-  {
-    entry_id: 2,
-    entry_date: "November 2",
-    item_name: "Garbage",
-    item_count: 500,
-    unit: "g",
-    waste_type: "garbage",
-  },
-  {
-    entry_id: 3,
-    entry_date: "November 2",
-    item_name: "Compost",
-    item_count: 50,
-    unit: "g",
-    waste_type: "compost",
-  },
-  {
-    entry_id: 4,
-    entry_date: "November 1",
-    item_name: "Juice Box (100mL)",
-    item_count: 2,
-    unit: "units",
-    waste_type: "recycling",
-  },
-  {
-    entry_id: 5,
-    entry_date: "November 3",
-    item_name: "Garbage",
-    item_count: 10,
-    unit: "g",
-    waste_type: "garbage",
-  },
-];
-//"entry_id": 1,
-// "item_name": "Can (200 mL)",
-// "item_count": 5,
-// "unit": "unit",
-// "waste_type": "recycling",
 
 export default function Home() {
   const [entries, setEntries] = useState(null);
-  // const axios = require('axios');
 
   useEffect(() => {
     const GetEntries = async () => {
-      // const result = await axios.get("https://ghibliapi.herokuapp.com/films")
-      // const result = await axios.get("https://binibin-server.herokuapp.com/api/entries")
       await axios
         .get("https://binibin-server.herokuapp.com/api/entries")
         .then((resp) => {
@@ -127,20 +70,18 @@ export default function Home() {
         .catch((err) => {
           console.log(err);
         });
-      // console.log(result);
     };
     GetEntries();
-    // sort all entries by date
-    // create a new div (EntryDayList) for each new day
-    // it there are entries with the same date, put them under the same div
   }, []);
+
+  const [showNotes, setShowNotes] = useState(false);
+
   return (
     <>
 
       <HeaderCont>
-        <Header text="Waste Tracked for November"></Header>
+        <Header text="Review Your Past Entries"></Header>
       </HeaderCont>
-      <PageCont>
         <Cont>
           {entries?
           entries.map((o, i) => (
@@ -153,20 +94,17 @@ export default function Home() {
                 <ListSection>
                   <EntryItem
                     entry_id={o.entry_id}
-                    item_name={o.item_name}
-                    item_count={o.item_count}
-                    unit={o.unit}
-                    waste_type={o.waste_type}
+                    garbage_text={o.garbage_text}
+                    garbage_count={o.garbage_count}
+                    compost_text={o.compost_text}
+                    compost_count={o.compost_count}
+                    recycling_text={o.recycling_text}
+                    recycling_count={o.recycling_count}
+                    expandContainer={()=>{
+                      setShowNotes(!showNotes);
+                    }}
+                    show={showNotes ? true : false}
                   />
-                  {/* <EntryItem entry_id={o.entry_id} item_name={o.item_name} item_count={o.item_count} unit={o.unit} waste_type={o.waste_type}/>
-                      <EntryItem entry_id={o.entry_id} item_name={o.item_name} item_count={o.item_count} unit={o.unit} waste_type={o.waste_type}/>
-                      <EntryItem entry_id={o.entry_id} item_name={o.item_name} item_count={o.item_count} unit={o.unit} waste_type={o.waste_type}/>
-                      <EntryItem entry_id={o.entry_id} item_name={o.item_name} item_count={o.item_count} unit={o.unit} waste_type={o.waste_type}/>
-                      <EntryItem entry_id={o.entry_id} item_name={o.item_name} item_count={o.item_count} unit={o.unit} waste_type={o.waste_type}/>
-                      <EntryItem entry_id={o.entry_id} item_name={o.item_name} item_count={o.item_count} unit={o.unit} waste_type={o.waste_type}/>
-                      <EntryItem entry_id={o.entry_id} item_name={o.item_name} item_count={o.item_count} unit={o.unit} waste_type={o.waste_type}/>
-                      <EntryItem entry_id={o.entry_id} item_name={o.item_name} item_count={o.item_count} unit={o.unit} waste_type={o.waste_type}/>
-                      <EntryItem entry_id={o.entry_id} item_name={o.item_name} item_count={o.item_count} unit={o.unit} waste_type={o.waste_type}/> */}
                 </ListSection>
                 <SideSection>
                   {/* <EntryEdit>Edit</EntryEdit> */}
@@ -175,8 +113,6 @@ export default function Home() {
             </AllDaysList>
           )): <p>Make your first entry!</p>}
         </Cont>
-        <EntryLegend />
-      </PageCont>
       <FooterCont>
         <FooterComp></FooterComp>
       </FooterCont>
