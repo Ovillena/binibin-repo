@@ -1,13 +1,8 @@
 import styled from 'styled-components';
 import BoldText from '../BoldText';
 import Image from 'next/image';
-import EduImage from '../EduImage';
-import { useState, useEffect } from 'react';
-import { colors } from '@mui/material';
+import {useEffect} from 'react';
 import React from 'react';
-
-import EntryItem from '../EntryItem';
-import InputCounter from '../InputCounter';
 
 const PageCont = styled.div``;
 
@@ -15,7 +10,8 @@ const ItemCont = styled.form`
 	display: flex;
 	flex-direction: column;
 	margin: 10px;
-	padding: 10px;
+	padding: 20px;
+	border-radius: 10px;
 	background-color: ${props => props.colors};
 	align-items: center;
 `;
@@ -42,16 +38,26 @@ const Number = styled.input`
 const Select = styled.select`
 	display: flex;
 	min-height: 35px;
-	max-width: 90px;
+	min-width: 90px;
+	border-radius: 10px;
 `;
 
 const TextBox = styled.textarea`
 	min-height: 60px;
+	border-radius: 10px;
+	padding: 10px;
 `;
 
 const Submit = styled.input`
-	min-height: 35px;
-	margin-top: 10px;
+	margin: 10px;
+	padding: 10px;
+	background-color: #FFC800;
+	border: none;
+  border-radius: 10px;
+  font-weight: 600;
+	&:hover {
+		background-color: #E5A500;
+	}
 `;
 
 // -----------------CART COMP----------------------------
@@ -165,7 +171,6 @@ const IGCR = ({
 	unit = 'g',
 	src = 'garbagebag.png',
 	alt = 'garbage bag',
-	optional = 'optional',
 	color = 'black',
 	item_count = '0',
 	garbage_color = '#E9E9E9',
@@ -351,7 +356,7 @@ const IGCR = ({
 						<option value='9'>9</option>
 						<option value='10'>10</option>
 					</Select>
-					<Description>Write a note to remember this entry ({optional})</Description>
+					<Description>Write a note to remember this entry</Description>
 					<TextBox id='garbageText' placeholder={note}></TextBox>
 					<Submit type='button' value='Add Entry' onClick={clickGarbage}></Submit>
 				</ItemCont>
@@ -381,8 +386,8 @@ const IGCR = ({
 						<option value='9'>9</option>
 						<option value='10'>10</option>
 					</Select>
-					<Description>Write a note to remember this entry ({optional})</Description>
-					<TextBox id='compostText' placeholder={note}></TextBox>
+					<Description>Write a note to remember this entry</Description>
+					<TextBox id='compostText' placeholder="Example: one apple core and one banana peel"></TextBox>
 					<Submit type='button' value='Add Entry' onClick={clickCompost}></Submit>
 				</ItemCont>
 
@@ -411,8 +416,8 @@ const IGCR = ({
 						<option value='9'>9</option>
 						<option value='10'>10</option>
 					</Select>
-					<Description>Write a note to remember this entry ({optional})</Description>
-					<TextBox id='recycleText' placeholder={note}></TextBox>
+					<Description>Write a note to remember this entry</Description>
+					<TextBox id='recycleText' placeholder="Example: one juice box and two yogurt containers"></TextBox>
 					<Submit type='button' value='Add Entry' onClick={clickRecycle}></Submit>
 				</ItemCont>
 			</TopCont>
@@ -453,7 +458,7 @@ const IGCR = ({
 						<TextG id='textRecycle'></TextG>
 					</TextCont>
 				</BotCart>
-				<Submit type='button' value='Submit' onClick={onSubmit}></Submit>
+				<Submit type='button' value='Submit Entries' onClick={onSubmit}></Submit>
 			</CartCont>
 		</PageCont>
 	);
