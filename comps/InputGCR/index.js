@@ -5,6 +5,7 @@ import EduImage from '../EduImage';
 import { useState, useEffect } from 'react';
 import { colors } from '@mui/material';
 import React from 'react';
+import Modal from '../Modal';
 
 import EntryItem from '../EntryItem';
 import InputCounter from '../InputCounter';
@@ -61,6 +62,7 @@ const CartCont = styled.div`
 	border-radius: 10px;
 	flex-direction: column;
 	margin-top: 10px;
+	
 `;
 
 const TypeCont = styled.div`
@@ -104,6 +106,13 @@ const BotCart = styled.div`
 	justify-content: space-around;
 	flex: 1;
 `;
+
+const ModalText = styled.h1`
+display:flex;
+text-align:center;
+font-size:30px;
+color:grey;
+`
 //-----------------On submit stuff-----------------//
 let formData = {};
 
@@ -171,6 +180,12 @@ const IGCR = ({
 	garbage_color = '#E9E9E9',
 	comp_color = '#E2EED7',
 	recycle_color = '#DFEAEF',
+
+}) => {	
+	
+	// Modal Function 
+		const [isOpen, setIsOpen] = useState(false);
+
 }) => {
 	//attempt at using useSTate
 	// const [garbageText, setGarbageText] = useState('');
@@ -182,9 +197,13 @@ const IGCR = ({
 
 
 
+
 	//-------Click garbage function-----------
 
 	function clickGarbage() {
+
+	
+
 		//NUMBER OF GARBAGE ITEMS
 
 		//get the selected number of garbage option and turn it into a float
@@ -453,7 +472,12 @@ const IGCR = ({
 						<TextG id='textRecycle'></TextG>
 					</TextCont>
 				</BotCart>
-				<Submit type='button' value='Submit' onClick={onSubmit}></Submit>
+				<Submit type='button' value='Submit' onClick={onSubmit} onClick={() => setIsOpen(true)}></Submit>
+				<Modal open={isOpen} onClose={() => setIsOpen(false)}> 
+				<ModalText>
+				Your Input has been confirm and has been submitted
+				</ModalText>
+				</Modal>
 			</CartCont>
 		</PageCont>
 	);
