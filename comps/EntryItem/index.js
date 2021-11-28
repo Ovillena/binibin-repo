@@ -32,66 +32,106 @@ const SingleItem = styled.div`
   margin:0 10px 10px; 10px;
 `;
 
-const Notes = styled.span`
+const Notes = styled.div`
   display:flex;
+  width:100%;
+`;
+  
+const Text = styled.span`
+  width:33%;
+  margin-right:5px;
+  padding:10px;
   background-color:${({color}) =>
-    color === "garbage" && "#ccc" ||
-    color === "compost" && "#598B2C" ||
-    color === "recycling" && "#2C5489"
+    color === "garbage" && "#E9E9E9" ||
+    color === "compost" && "#E2EED7" ||
+    color === "recycling" && "#DFEAEF"
   };
 `;
 
 const Minimized = styled.div`
-  display:flex;
+  display: flex;
+  width: 100%;
+  justify-content: center;
 `;
 
-// [
-//   {
-//     "item_count": 1,
-//     "waste_type": "compost",
-//     "notes": "apples, oranges, banana peels",
-//     "account_id": 2
-//   },
-//   {
-//     "item_count": 5,
-//     "waste_type": "recycling",
-//     "notes": "pop cans",
-//     "account_id": 2
-//   },
-//   {
-//     "item_count": 1,
-//     "waste_type": "garbage",
-//     "notes": "",
-//     "account_id": 2
-//   }
-// ]
+const Expand = styled.button`
+  background-color: #FFC800;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  height: 25px;
+  margin-top: 8px;
+  margin-left: 10px;
+  &:hover {
+      background-color: #E5A500;
+    }
+`;
 
 const EntryItem = ({
-  waste_type="recycling",
-  item_count_g="0",
-  item_count_c="0",
-  item_count_r="0",
-  notes="banana peels, bottle"
+  garbage_text="snack wrappers",
+  garbage_count="2",
+  compost_text="banana peel",
+  compost_count="1",
+  recycling_text="yogurt container",
+  recycling_count="1",
+  expandContainer=()=>{},
+  show=false
 }) => {
+  if(show === false){
+    return <ItemCont>
+
+      <Minimized>
+        <SingleItem>
+          <Square color="#000"/>
+          <ItemName>Garbage</ItemName>
+          <ItemQuantity>&times; {garbage_count}</ItemQuantity>
+        </SingleItem>
+        <SingleItem>
+          <Square color="#598B2C"/>
+          <ItemName>Compost</ItemName>
+          <ItemQuantity>&times; {compost_count}</ItemQuantity>
+        </SingleItem>
+        <SingleItem>
+          <Square color="#2C5489"/>
+          <ItemName>Recycling</ItemName>
+          <ItemQuantity>&times; {recycling_count}</ItemQuantity>
+        </SingleItem>
+        <Expand 
+          onClick={()=>{
+            expandContainer();
+          }}>Show Notes
+        </Expand>
+      </Minimized>
+    </ItemCont>
+  }
   return <ItemCont>
     <Minimized>
       <SingleItem>
         <Square color="#000"/>
         <ItemName>Garbage</ItemName>
-        <ItemQuantity>&times; {item_count_g}</ItemQuantity>
+        <ItemQuantity>&times; {garbage_count}</ItemQuantity>
       </SingleItem>
       <SingleItem>
         <Square color="#598B2C"/>
         <ItemName>Compost</ItemName>
-        <ItemQuantity>&times; {item_count_c}</ItemQuantity>
+        <ItemQuantity>&times; {compost_count}</ItemQuantity>
       </SingleItem>
       <SingleItem>
         <Square color="#2C5489"/>
         <ItemName>Recycling</ItemName>
-        <ItemQuantity>&times; {item_count_r}</ItemQuantity>
+        <ItemQuantity>&times; {recycling_count}</ItemQuantity>
       </SingleItem>
+      <Expand 
+          onClick={()=>{
+            expandContainer();
+          }}>Hide Notes
+        </Expand>
     </Minimized>
-    <Notes color={waste_type}>{notes}</Notes>
+    <Notes>
+      <Text color="garbage">{garbage_text} </Text>
+      <Text color="compost">{compost_text} </Text>
+      <Text color="recycling">{recycling_text} </Text>
+    </Notes>
   </ItemCont>
 }
 
