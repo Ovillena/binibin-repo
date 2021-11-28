@@ -62,7 +62,7 @@ const CartCont = styled.div`
 	border-radius: 10px;
 	flex-direction: column;
 	margin-top: 10px;
-	justify-content:center;
+	
 `;
 
 const TypeCont = styled.div`
@@ -106,6 +106,13 @@ const BotCart = styled.div`
 	justify-content: space-around;
 	flex: 1;
 `;
+
+const ModalText = styled.h1`
+display:flex;
+text-align:center;
+font-size:30px;
+color:grey;
+`
 //-----------------On submit stuff-----------------//
 let formData = {};
 
@@ -443,9 +450,9 @@ const IGCR = ({
 				</BotCart>
 				<Submit type='button' value='Submit' onClick={onSubmit} onClick={() => setIsOpen(true)}></Submit>
 				<Modal open={isOpen} onClose={() => setIsOpen(false)}> 
-				<TextG>
-				Reduce, Reuse, Recycle! Keep the planet Clean! Thank you!
-				</TextG>
+				<ModalText>
+				Your Input has been confirm and has been submitted
+				</ModalText>
 				</Modal>
 			</CartCont>
 		</PageCont>

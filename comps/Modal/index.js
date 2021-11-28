@@ -7,11 +7,11 @@ const MODAL_STYLES = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50$, -50%)',
-    backgroundColor: '#fff',
+    backgroundColor: ' rgba(233,233,233,1) 0%, rgba(226,238,215,1) 35%, rgba(223,234,239,1)',
     padding:'50px',
     zIndex: 1000,
     width: '500px',
-    height: '250px',
+    height: '200px',
 }
 
 const ButtonStyle = {
@@ -23,7 +23,9 @@ const ButtonStyle = {
 
 const ModalStyle = {
     display:'flex',
+    alignContent:'center',
     alignItems:'center',
+    
 }
 
 const OVERLAY_STYLE = {
@@ -42,8 +44,9 @@ export default function Modal({ open,children, onClose }){
         <div style={ModalStyle}>
             <div style={OVERLAY_STYLE} />
             <div style={MODAL_STYLES}>
-                <button style={ButtonStyle} onClick={onClose}>Close</button>
                 {children}
+                <button style={ButtonStyle} onClick={onClose}>Close</button>
+                
             </div>
         </div>
         

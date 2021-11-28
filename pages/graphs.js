@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import React from 'react';
-
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -89,6 +88,7 @@ const fakeData = [
   }
 ]
 
+
 export default function Graphs() {
 
   // const [number, setNumber] = useState(fakeData);
@@ -147,9 +147,9 @@ export default function Graphs() {
       <GraphDiv>
         <GraphsSum></GraphsSum>
       </GraphDiv>
+
       </BottomGraphs>
-
-
+      
       <FooterCont>
         <Footer></Footer>
       </FooterCont>
