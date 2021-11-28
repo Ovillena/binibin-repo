@@ -88,15 +88,15 @@ export default function Dashboard() {
 			<TopIcons>
 				<IconDiv>
 					<IconComp iconSymbol='calendar check outline' routeTo='input'></IconComp>
-					<Subhead text='Record New Entries' fontsize='24px'></Subhead>
+					<Subhead text='New Entries' fontsize='24px'></Subhead>
+				</IconDiv>
+				<IconDiv>
+					<IconComp iconSymbol='list' routeTo='pastentries'></IconComp>
+					<Subhead text='Past Entries' fontsize='24px'></Subhead>
 				</IconDiv>
 				<IconDiv>
 					<IconComp iconSymbol='chart bar' routeTo='graphs'></IconComp>
 					<Subhead text='View Graphs' fontsize='24px'></Subhead>
-				</IconDiv>
-				<IconDiv>
-					<IconComp iconSymbol='list' routeTo='pastentries'></IconComp>
-					<Subhead text='View Past Entries' fontsize='24px'></Subhead>
 				</IconDiv>
 			</TopIcons>
 
