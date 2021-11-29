@@ -14,7 +14,9 @@ import Subhead from "../comps/SubheadText";
 import EduImage from "../comps/EduImage";
 import FeaturesCard from "../comps/FeaturesCard";
 
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
+import PulseLoader from "react-spinners/PulseLoader";
+
 
 const PageCont = styled(motion.div)`
 	display: flex;
@@ -75,6 +77,14 @@ const MultiColumn = styled.div`
   }
 `
 
+const LoadDiv = styled.div`
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+`
+
+
 export default function Home() {
   const [user, setUser] = useState(null);
 
@@ -92,12 +102,36 @@ export default function Home() {
   //     console.log(err);
   //   });
 
+  //-------Loading screen-----------
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+    }, 500)
+  }, [])
+
   return (
     //<div className={styles.container}>
+    
+    loading ? 
+
+    <LoadDiv>
+      <PulseLoader 
+      color={'#417505'} 
+      loading={loading} 
+      size={20}
+      />
+      </LoadDiv>
+
+      : 
+    
     <PageCont
-    initial={{opacity:0}}
-    animate={{opacity:100, transition:{duration:1, delay:1}}}
+    // initial={{opacity:0}}
+    // animate={{opacity:100, transition:{duration:1, delay:1}}}
     >
+
       <HeroComp></HeroComp>
 
     <MultiColumn>
@@ -188,6 +222,7 @@ export default function Home() {
 
     //</div>
   );
+  
   // if (user) {
   //   return (
   //     //<div className={styles.container}>
