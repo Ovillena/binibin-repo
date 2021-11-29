@@ -3,12 +3,11 @@ import FooterComp from '../comps/footer'
 import styled from 'styled-components';
 import React from 'react';
 
-import GuestNavBar from '../comps/GuestNavBar';
+
 import HeaderText from '../comps/HeaderText';
 import HelpfulResource from '../comps/HelpfulResource';
 import Subhead from '../comps/SubheadText';
 import EducationTab from '../comps/EducationTab';
-
 
 const PageCont = styled.div`
   display:flex;
@@ -17,14 +16,10 @@ const PageCont = styled.div`
   background-color:#EEF9FF;
 `
 
-const TopRow = styled.div`
-  display:flex;
-`
-
 const HeaderCont = styled.div`
   display:flex;
   justify-content:center;
-  margin:50px;
+  margin-bottom:50px;
 `
 
 const FooterCont = styled.div`
@@ -42,7 +37,7 @@ const LinksRow = styled.div`
   padding:10px;
 `
 
-const LinksGroup = styled.div`` 
+const LinksGroup = styled.div``
 
 const TabCont = styled.div`
   display:flex;
@@ -55,9 +50,7 @@ export default function Education(){
   return (
     //<div className={styles.container}>
       <PageCont>
-      <TopRow>
-        <GuestNavBar></GuestNavBar>
-      </TopRow>
+
 
     <HeaderCont>
       <HeaderText text ="What Goes Where?"></HeaderText>
@@ -105,7 +98,7 @@ export default function Education(){
 
     <FooterCont>
       <FooterComp></FooterComp>
-    </FooterCont> 
+    </FooterCont>
 
 
       </PageCont>

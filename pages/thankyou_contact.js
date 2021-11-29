@@ -3,7 +3,6 @@ import FooterComp from '../comps/footer'
 import styled from 'styled-components';
 import React from 'react';
 
-import GuestNavBar from '../comps/GuestNavBar';
 import HeaderText from '../comps/HeaderText';
 import MyButton from '../comps/Button';
 import Subhead from '../comps/SubheadText';
@@ -15,9 +14,6 @@ const PageCont = styled.div`
   min-height:100vh;
 `
 
-const TopRow = styled.div`
-  display:flex;
-`
 
 const TextCont = styled.div`
     display:flex;
@@ -29,7 +25,7 @@ const TextCont = styled.div`
 `
 
 const Div = styled.div`
-  
+
 `
 
 const FooterCont = styled.div`
@@ -46,6 +42,8 @@ const ButtonCont = styled.div`
 
 const ImageDiv = styled.div`
   z-index:-1;
+  display:flex;
+  justify-content:center;
 `
 // background-image:url('/13095.png');
 // background-size:cover;
@@ -55,11 +53,8 @@ export default function Contact(){
   return (
     //<div className={styles.container}>
       <PageCont>
-      <TopRow>
-        <GuestNavBar></GuestNavBar>
-      </TopRow>
 
-     
+
 
     <TextCont>
 
@@ -76,14 +71,14 @@ export default function Contact(){
     </ButtonCont>
 
     </TextCont>
-      
+
     <ImageDiv>
       <EduImage src="13095.png" width="1440px" height="682px"></EduImage>
     </ImageDiv>
 
     <FooterCont>
       <FooterComp></FooterComp>
-    </FooterCont> 
+    </FooterCont>
 
 
       </PageCont>

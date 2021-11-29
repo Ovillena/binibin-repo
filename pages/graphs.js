@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 import React from 'react';
-
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import UserNav from '../comps/UserNav';
+
 import Header from '../comps/HeaderText';
 import Footer from '../comps/footer';
 import GraphsGarbage from '../comps/GraphsGarbage';
@@ -18,9 +17,6 @@ const PageCont = styled.div`
   min-height:100vh;
 `
 
-const TopRow = styled.div`
-  display:flex;
-`
 
 const HeaderCont = styled.div`
   display:flex;
@@ -92,8 +88,9 @@ const fakeData = [
   }
 ]
 
+
 export default function Graphs() {
-  
+
   // const [number, setNumber] = useState(fakeData);
 
   // useEffect(() => {
@@ -109,9 +106,7 @@ export default function Graphs() {
   return (
     //<div className={styles.container}>
       <PageCont>
-      <TopRow>
-        <UserNav></UserNav>
-      </TopRow>
+
 
       <HeaderCont>
         <Header text="Waste Tracked for November"></Header>
@@ -119,14 +114,14 @@ export default function Graphs() {
 
       {/* <WeekCont>
         <WeekOfComp onPrevInteract={()=>{
-          
+
         }}
         onNextInteract={()=>{
 
         }}
         ></WeekOfComp>
       </WeekCont> */}
-      
+
       {/* {
         number.map((o,i)=>(
           <CardWrapper key={i}>
@@ -152,8 +147,8 @@ export default function Graphs() {
       <GraphDiv>
         <GraphsSum></GraphsSum>
       </GraphDiv>
-      </BottomGraphs>
 
+      </BottomGraphs>
       
       <FooterCont>
         <Footer></Footer>

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import React from 'react';
 
-import GuestNavBar from '../comps/GuestNavBar'
+
 import FeaturesCard from '../comps/FeaturesCard';
 import Header from '../comps/HeaderText';
 import MyButton from '../comps/Button';
@@ -13,9 +13,6 @@ const PageCont = styled.div`
   min-height:100vh;
 `
 
-const TopRow = styled.div`
-  display:flex;
-`
 
 const HeaderCont = styled.div`
   display:flex;
@@ -40,9 +37,7 @@ export default function Features() {
   return (
     //<div className={styles.container}>
       <PageCont>
-      <TopRow>
-        <GuestNavBar></GuestNavBar>
-      </TopRow>
+
       <HeaderCont>
         <Header text="Features"></Header>
       </HeaderCont>

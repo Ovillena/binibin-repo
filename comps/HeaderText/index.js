@@ -3,8 +3,8 @@ import React from "react";
 
 
 const HeaderCont = styled.div`
-
-`
+	padding-top: 3em;
+`;
 
 const Heading = styled.h1`
     font-size:48px;
