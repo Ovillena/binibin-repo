@@ -73,13 +73,13 @@ const GraphsSum = (props) => {
 					`https://binibin-server.herokuapp.com/api/entries/garbage/${props.firstDay}/${props.today}`
 				)
 				.then((res) => {
-					console.log(res.data);
+					// console.log(res.data);
 					for (const dataObj of res.data) {
 						itemCG.push(parseInt(dataObj.total_items));
 						// itemD.push(`${dataObj.month}/${dataObj.day}`)
 						itemDG.push(dataObj.entry_date);
 						// console.log("---------")
-						console.log(itemCG, itemDG);
+						// console.log(itemCG, itemDG);
 						// for(const dataRec of res.data){
 						//   itemCR.push(parseInt(dataRec.total_items))
 						//   console.log(itemCR, itemD);
@@ -134,13 +134,13 @@ const GraphsSum = (props) => {
 					'https://binibin-server.herokuapp.com/api/entries/recycling/2021-11-01/2030-11-30'
 				)
 				.then((res) => {
-					console.log(res.data);
+					// console.log(res.data);
 					for (const dataObj of res.data) {
 						itemCR.push(parseInt(dataObj.total_items));
 						// itemD.push(`${dataObj.month}/${dataObj.day}`)
 						itemDR.push(dataObj.entry_date);
 						// console.log("---------")
-						console.log(itemCR, itemDG);
+						// console.log(itemCR, itemDG);
 					}
 
 					setChartData({
@@ -187,13 +187,13 @@ const GraphsSum = (props) => {
 					'https://binibin-server.herokuapp.com/api/entries/compost/2021-11-01/2030-11-30'
 				)
 				.then((res) => {
-					console.log(res.data);
+					// console.log(res.data);
 					for (const dataObj of res.data) {
 						itemCC.push(parseInt(dataObj.total_items));
 						// itemD.push(`${dataObj.month}/${dataObj.day}`)
 						itemDC.push(dataObj.entry_date);
 						// console.log("---------")
-						console.log(itemCC, itemDR);
+						// console.log(itemCC, itemDR);
 					}
 
 					setChartData({
@@ -266,11 +266,11 @@ const GraphsSum = (props) => {
 									min: 0,
 								},
 								yAxes: [
-									{
-										ticks: {
-											beginAtZero: true,
-										},
-									},
+									// {
+									// 	ticks: {
+									// 		beginAtZero: true,
+									// 	},
+									// },
 								],
 							},
 						}}

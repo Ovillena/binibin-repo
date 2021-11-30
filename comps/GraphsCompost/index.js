@@ -65,15 +65,15 @@ const GraphsCompost = (props) => {
 
 			axios
 				.get(
-					`https://binibin-server.herokuapp.com/api/entries/garbage/${props.firstDay}/${props.today}`
+					`https://binibin-server.herokuapp.com/api/entries/compost/${props.firstDay}/${props.today}`
 				)
 				.then((res) => {
-					console.log(res.data);
+					// console.log(res.data);
 					for (const dataObj of res.data) {
 						itemC.push(parseInt(dataObj.total_items));
 						// itemD.push(`${dataObj.month}/${dataObj.day}`)
 						itemD.push(dataObj.entry_date);
-						console.log(itemC, itemD);
+						// console.log(itemC, itemD);
 					}
 					setChartData({
 						//x axis
@@ -122,11 +122,11 @@ const GraphsCompost = (props) => {
 									min: 0,
 								},
 								yAxes: [
-									{
-										ticks: {
-											beginAtZero: true,
-										},
-									},
+									// {
+									// 	ticks: {
+									// 		beginAtZero: true,
+									// 	},
+									// },
 								],
 							},
 						}}
