@@ -68,47 +68,48 @@ const GraphCont = styled.div`
   height:228px;
 `
 
-const GraphsGarbage = () => {
+const GraphsGarbage = (props) => {
   const [chartData, setChartData] = useState(false)
   const [itemCount, setItemCount] = useState([]);
   const [itemDate, setItemDate] = useState([]);
   // const [isLoading, setLoading] = useState(true);
 
   useEffect(()=>{
-
+console.log('first dayyyyyyyyyyyyyyyyy: ' + props.firstDay);
+console.log('todayyyyyyyyyyyyyyyyyyy: ' + props.today);
     const GetData = async()=>{
       let itemC = [];
       let itemD = [];
 
-      axios.get("https://binibin-server.herokuapp.com/api/entries/garbage/2021-11-01/2030-11-30")
-      .then(res => {
-        console.log(res.data);
-        for(const dataObj of res.data){
-          itemC.push(parseInt(dataObj.total_items))
-          // itemD.push(`${dataObj.month}/${dataObj.day}`)
-          itemD.push(dataObj.entry_date)
-          console.log(itemC, itemD);
-        }
-        setChartData({
-          //x axis
-          labels: itemD,
-          datasets: [
-            {
-              label:'# of garbage',
-              //y axis
-              data: itemC,
-              backgroundColor:[
-                'black'
-              ],
-              borderWidth: 1,
-              borderRadius:10
-            }
-          ]
-        });
-      })
-      .catch(err => {
-        console.log(err);
-      });
+      // axios.get("https://binibin-server.herokuapp.com/api/entries/garbage/2021-11-01/2030-11-30")
+      axios
+			.get(`https://binibin-server.herokuapp.com/api/entries/garbage/${props.firstDay}/${props.today}`)
+			.then((res) => {
+				console.log(res.data);
+				for (const dataObj of res.data) {
+					itemC.push(parseInt(dataObj.total_items));
+					// itemD.push(`${dataObj.month}/${dataObj.day}`)
+					itemD.push(dataObj.entry_date);
+					console.log(itemC, itemD);
+				}
+				setChartData({
+					//x axis
+					labels: itemD,
+					datasets: [
+						{
+							label: '# of garbage',
+							//y axis
+							data: itemC,
+							backgroundColor: ['black'],
+							borderWidth: 1,
+							borderRadius: 10,
+						},
+					],
+				});
+			})
+			.catch((err) => {
+				console.log(err);
+			});
 
       // setChartData({
       //   //x axis

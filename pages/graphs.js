@@ -18,6 +18,8 @@ const PageCont = styled.div`
 const HeaderCont = styled.div`
 	display: flex;
 	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 `;
 
 const FooterCont = styled.div`
@@ -37,10 +39,9 @@ const TopGraphs = styled.div`
 	justify-content: center;
 	padding: 10px;
 	flex-wrap: wrap;
-	height:content;
+	height: content;
 	width: content;
-  max-height: 600px;
-
+	max-height: 600px;
 `;
 
 const GraphDiv = styled.div`
@@ -58,16 +59,36 @@ const BottomGraphs = styled.div`
 	gap: 2em 1em;
 `;
 
-const CardWrapper = styled.div`
+const Subtitle = styled.h2`
 	margin: 10px;
 `;
 
 export default function Graphs() {
+	let todayObj = new Date();
+	let firstDayObj = new Date(new Date().setDate(todayObj.getDate() - 30));
+
+	const dateToYMD = (date) => {
+		let yyyy = date.getFullYear();
+		let mm = date.getMonth() + 1;
+		let dd = date.getDate();
+		return `${yyyy}-${mm}-${dd}`;
+	};
+	const firstDay = dateToYMD(firstDayObj);
+	const today = dateToYMD(todayObj);
+	let headerStr = `${firstDayObj.toLocaleString('default', {
+		month: 'long',
+	})} ${firstDayObj.getDate()} to ${todayObj.toLocaleString('default', { month: 'long' })} ${todayObj.getDate()}`;
+	useEffect(() => {
+		console.log('first day: ' + firstDay);
+		console.log('today: ' + today);
+	}, []);
 	return (
 		//<div className={styles.container}>
 		<PageCont>
 			<HeaderCont>
-				<Header text='Waste Tracked for November'></Header>
+				<Header text='Your progress from'></Header>
+
+				<Subtitle>{headerStr}</Subtitle>
 			</HeaderCont>
 
 			{/* <WeekCont>
@@ -91,19 +112,19 @@ export default function Graphs() {
 
 			<TopGraphs>
 				<GraphDiv>
-					<GraphsSum></GraphsSum>
+					<GraphsSum today={today} firstDay={firstDay}></GraphsSum>
 				</GraphDiv>
 			</TopGraphs>
 
 			<BottomGraphs>
 				<GraphDiv>
-					<GraphsCompost></GraphsCompost>
+					<GraphsCompost today={today} firstDay={firstDay}></GraphsCompost>
 				</GraphDiv>
 				<GraphDiv>
-					<RecycleBar></RecycleBar>
+					<RecycleBar today={today} firstDay={firstDay}></RecycleBar>
 				</GraphDiv>
 				<GraphDiv>
-					<GraphsGarbage></GraphsGarbage>
+					<GraphsGarbage today={today} firstDay={firstDay}></GraphsGarbage>
 				</GraphDiv>
 			</BottomGraphs>
 

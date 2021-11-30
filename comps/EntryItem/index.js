@@ -16,12 +16,12 @@ const Square = styled.div`
   border-radius:5px;
   background-color:${props=>props.color};
 `;
-  
+
 const ItemName = styled.p`
   font-weight:bold;
   margin:10px 5px 10px 10px;
 `;
-  
+
 const ItemQuantity = styled.p`
   font-weight:bold;
 `;
@@ -36,16 +36,16 @@ const Notes = styled.div`
   display:flex;
   width:100%;
 `;
-  
+
 const Text = styled.span`
-  width:33%;
-  margin-right:5px;
-  padding:10px;
-  background-color:${({color}) =>
-    color === "garbage" && "#E9E9E9" ||
-    color === "compost" && "#E2EED7" ||
-    color === "recycling" && "#DFEAEF"
-  };
+	white-space: pre-line;
+	width: 33%;
+	margin-right: 5px;
+	padding: 10px;
+	background-color: ${({ color }) =>
+		(color === 'garbage' && '#E9E9E9') ||
+		(color === 'compost' && '#E2EED7') ||
+		(color === 'recycling' && '#DFEAEF')};
 `;
 
 const Minimized = styled.div`
@@ -96,7 +96,7 @@ const EntryItem = ({
           <ItemName>Recycling</ItemName>
           <ItemQuantity>&times; {recycling_count}</ItemQuantity>
         </SingleItem>
-        <Expand 
+        <Expand
           onClick={()=>{
             expandContainer();
           }}>Show Notes
@@ -121,7 +121,7 @@ const EntryItem = ({
         <ItemName>Recycling</ItemName>
         <ItemQuantity>&times; {recycling_count}</ItemQuantity>
       </SingleItem>
-      <Expand 
+      <Expand
           onClick={()=>{
             expandContainer();
           }}>Hide Notes
