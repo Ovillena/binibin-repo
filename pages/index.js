@@ -2,21 +2,17 @@ import FooterComp from "../comps/footer";
 
 import styled from "styled-components";
 import React, { useState, useEffect } from "react";
-
 import axios from "axios";
 
 import HeaderText from "../comps/HeaderText";
 import HeroComp from "../comps/HeroComp";
-import CircleImage from "../comps/CircleImage";
 import MyButton from "../comps/Button";
 import Subhead from "../comps/SubheadText";
 
-import EduImage from "../comps/EduImage";
 import FeaturesCard from "../comps/FeaturesCard";
 
 import { motion } from "framer-motion";
 import PulseLoader from "react-spinners/PulseLoader";
-
 
 const PageCont = styled(motion.div)`
 	display: flex;
@@ -84,7 +80,6 @@ const LoadDiv = styled.div`
   height:100vh;
 `
 
-
 export default function Home() {
   const [user, setUser] = useState(null);
 
@@ -116,15 +111,13 @@ export default function Home() {
     //<div className={styles.container}>
     
     loading ? 
-
     <LoadDiv>
       <PulseLoader 
-      color={'#417505'} 
+      color={'#003274'} 
       loading={loading} 
       size={20}
       />
       </LoadDiv>
-
       : 
     
     <PageCont
@@ -132,13 +125,19 @@ export default function Home() {
     // animate={{opacity:100, transition:{duration:1, delay:1}}}
     >
 
+      <motion.div
+      as={motion.div}  
+      initial={{opacity:0}} 
+      animate={{opacity:100, transition:{ease:"easeIn", duration:1, delay:0}}}
+      >
       <HeroComp></HeroComp>
+      </motion.div>
 
     <MultiColumn>
       <ParagraphSec 
       as={motion.div}  
       initial={{opacity:0}} 
-      animate={{opacity:100, transition:{duration:1, delay:0.5}}}
+      animate={{opacity:100, transition:{ease:"easeIn", duration:1, delay:0.5}}}
       >
         <Subhead text="About BiniBin"></Subhead>
         <BodyText>BiniBin provides a simple way for grade schools to track their garbage, compost, and recycling with a quick input system and dynamically generated graphs. </BodyText>
@@ -147,7 +146,7 @@ export default function Home() {
       <ParagraphSec
       as={motion.div}  
       initial={{opacity:0}} 
-      animate={{opacity:100, transition:{duration:1, delay:0.5}}}
+      animate={{opacity:100, transition:{ease:"easeIn", duration:1, delay:0.5}}}
       >
         <Subhead text="Benefits"></Subhead>
         <BodyText>Educate students and staff about recycling, see measurable statistics to track waste management, and earn revenue from transfer stations. </BodyText>
@@ -158,7 +157,7 @@ export default function Home() {
       <ParagraphSec
       as={motion.div}  
       initial={{opacity:0}} 
-      animate={{opacity:100, transition:{duration:1, delay:0.5}}}
+      animate={{opacity:100, transition:{ease:"easeIn", duration:1, delay:0.5}}}
       >
         <Subhead text="Our Goal"></Subhead>
         <BodyText>Our goal is to foster a generation that keeps the planet’s environment at the forefront of their minds by habit.</BodyText>
@@ -167,7 +166,7 @@ export default function Home() {
       <ParagraphSec
       as={motion.div}  
       initial={{opacity:0}} 
-      animate={{opacity:100, transition:{duration:1, delay:0.5}}}
+      animate={{opacity:100, transition:{ease:"easeIn", duration:1, delay:0.5}}}
       >
         <Subhead text="Our Mission"></Subhead>
         <BodyText>Our mission is to lessen the harmful impacts to the waste system by teaching and encouraging students how to appropriately dispose wastes.</BodyText>
@@ -178,7 +177,9 @@ export default function Home() {
     as={motion.div}
     initial={{ opacity: 0}}
     whileInView={{ opacity: 1, scale:1.1 }}
-    viewport={{ once: true }}>
+    viewport={{ once: true }}
+    
+    >
       <HeaderText text="Features"></HeaderText>
     </HeaderCont>
 
@@ -197,12 +198,20 @@ export default function Home() {
       </FeaturesCont>
 
 
-    <ParagraphSec>
+    <ParagraphSec
+    as={motion.div}  
+    initial={{opacity:0}} 
+    animate={{opacity:100, transition:{ease:"easeIn", duration:1, delay:0.5}}}
+    >
       <Subhead text="Recycling Problems"></Subhead>
       <BodyText>People are sorting their wastes incorrectly because they are unsure about what is recyclable/compostable. Consequently, things that could be recycled/composted end up in the landfill. Worse yet, things that could not be recycled/composted but are thrown into the recycling or compost bin will contaminate the entire waste collection truck. When the threshold (of about 10%) is exceeded, everything gets sent to the landfill. </BodyText>
     </ParagraphSec>
 
-    <ParagraphSec>
+    <ParagraphSec
+    as={motion.div}  
+    initial={{opacity:0}} 
+    animate={{opacity:100, transition:{ease:"easeIn", duration:1, delay:0.5}}}
+    >
       <Subhead text="You can make a difference"></Subhead>
       <BodyText>We encourage schools to help students develop an awareness of waste management, recycling, reduction by providing a visual tool to track the quantity and the breakdown of the waste produced by their schools.</BodyText>
     </ParagraphSec>

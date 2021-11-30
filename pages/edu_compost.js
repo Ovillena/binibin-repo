@@ -30,7 +30,7 @@ export default function EduCompost(){
     //<div className={styles.container}>
       <PageCont
       initial={{opacity:0}} 
-      animate={{opacity:1, transition:{duration:2, delay:0}}}
+      animate={{opacity:1, transition:{duration:0.5, delay:0}}}
       >
         <RowCont>
           <ItemCont as={motion.div} whileHover={{scale:1.1 }}>

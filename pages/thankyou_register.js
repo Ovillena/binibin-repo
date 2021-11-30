@@ -1,13 +1,15 @@
 import FooterComp from '../comps/footer'
 
 import styled from 'styled-components';
-import React from 'react';
-
+import React,{useEffect, useState} from 'react';
 
 import HeaderText from '../comps/HeaderText';
 import MyButton from '../comps/Button';
 import Subhead from '../comps/SubheadText';
 import EduImage from '../comps/EduImage';
+
+import { motion } from "framer-motion";
+import PulseLoader from "react-spinners/PulseLoader";
 
 const PageCont = styled.div`
   display:flex;
@@ -15,14 +17,13 @@ const PageCont = styled.div`
   min-height:100vh;
 `
 
-
 const TextCont = styled.div`
-    display:flex;
-    flex:1;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    margin-top:200px;
+  display:flex;
+  flex:1;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  margin-top:200px;
 `
 
 const Div = styled.div`
@@ -43,21 +44,49 @@ const ButtonCont = styled.div`
 
 const ImageDiv = styled.div`
   z-index:-1;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 `
+
+const LoadDiv = styled.div`
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+`
+
 // background-image:url('/13095.png');
 // background-size:cover;
 // background-repeat: no-repeat;
 
 export default function Register(){
+    //-------Loading screen-----------
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+      setLoading(true)
+      setTimeout(() => {
+        setLoading(false)
+      }, 500)
+    }, [])
+
   return (
     //<div className={styles.container}>
+    
+    loading ? 
+    <LoadDiv>
+      <PulseLoader 
+      color={'#003274'} 
+      loading={loading} 
+      size={20}
+      />
+      </LoadDiv>
+      : 
+
       <PageCont>
 
-
-
-
     <TextCont>
-
     <Div>
       <HeaderText text="Thanks for registering!"></HeaderText>
     </Div>

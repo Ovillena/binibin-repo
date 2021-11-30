@@ -20,6 +20,7 @@ const TitleCont = styled.div`
 
 const Title = styled.h3`
     color:#ffffff;
+    cursor: pointer;
 `
 
 

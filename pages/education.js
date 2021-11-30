@@ -1,13 +1,15 @@
 import FooterComp from '../comps/footer'
 
 import styled from 'styled-components';
-import React from 'react';
-
+import React, {useEffect, useState} from 'react';
 
 import HeaderText from '../comps/HeaderText';
 import HelpfulResource from '../comps/HelpfulResource';
 import Subhead from '../comps/SubheadText';
 import EducationTab from '../comps/EducationTab';
+
+import { motion } from "framer-motion";
+import PulseLoader from "react-spinners/PulseLoader";
 
 const PageCont = styled.div`
   display:flex;
@@ -37,7 +39,9 @@ const LinksRow = styled.div`
   padding:10px;
 `
 
-const LinksGroup = styled.div``
+const LinksGroup = styled.div`
+
+`
 
 const TabCont = styled.div`
   display:flex;
@@ -45,12 +49,41 @@ const TabCont = styled.div`
   align-items:center;
 `
 
+const LoadDiv = styled.div`
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+`
 
 export default function Education(){
+
+    //-------Loading screen-----------
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+      setLoading(true)
+      setTimeout(() => {
+        setLoading(false)
+      }, 500)
+    }, [])
+
   return (
     //<div className={styles.container}>
-      <PageCont>
+      
+    loading ? 
 
+    <LoadDiv>
+      <PulseLoader 
+      color={'#003274'} 
+      loading={loading} 
+      size={20}
+      />
+      </LoadDiv>
+
+      : 
+      
+      <PageCont>
 
     <HeaderCont>
       <HeaderText text ="What Goes Where?"></HeaderText>
