@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Image from 'next/image';
 
+import { motion } from 'framer-motion';
 
 const ImgCont = styled.div`
   width:${props=>props.width};
