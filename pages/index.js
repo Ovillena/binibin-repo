@@ -217,8 +217,8 @@ export default function Home() {
     </ParagraphSec>
 
     <ButtonCont>
-      <MyButton routeTo="education" width="260px" height="65px" bgcolor="#E5A500" hoverbg="#FFC800" textcolor="#000" text="Learn how to sort"></MyButton>
-      <MyButton width="180px" height="65px" bgcolor="#E5A500" hoverbg="#FFC800" textcolor="#000" text="Register" routeTo="signup"></MyButton>
+      <MyButton routeTo="education" width="260px" height="65px" bgcolor="#FFC800" hoverbg="#E5A500" textcolor="#000" text="Learn how to sort"></MyButton>
+      <MyButton width="180px" height="65px" bgcolor="#FFC800" hoverbg="#E5A500" textcolor="#000" text="Register" routeTo="signup"></MyButton>
     </ButtonCont>
 
 

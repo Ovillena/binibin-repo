@@ -6,7 +6,7 @@ const DateCont = styled.div`
 `;
 
 const EntryDate = ({
-  entry_date="November 4"
+  entry_date="date"
 }) => {
   return <DateCont>
       <BoldText text={entry_date}/>

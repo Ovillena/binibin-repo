@@ -55,11 +55,11 @@ function MyApp({ Component, pageProps }) {
 				}
 			})
 			.then((response) => {
-				let userObj = response.json();
+				let userObj = JSON.stringify(response);
 				console.log('---------check auth resp----------------------');
 				console.log(userObj);
 				// alert(userObj);
-				signIn(userObj);
+				// signIn(userObj);
 			})
 			.catch((err) => {
 				console.log(err);

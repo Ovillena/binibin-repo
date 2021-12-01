@@ -92,7 +92,14 @@ export default function Dashboard() {
 					<motion.div whileHover={{scale:1.1 }}>
 					<IconComp iconSymbol='calendar check outline' routeTo='input'></IconComp>
 					</motion.div>
-					<Subhead text='Record New Entries' fontsize='24px'></Subhead>
+					<Subhead text='New Entries' fontsize='24px'></Subhead>
+				</IconDiv>
+
+				<IconDiv>
+					<motion.div whileHover={{scale:1.1 }}>
+					<IconComp iconSymbol='list' routeTo='pastentries'></IconComp>
+					</motion.div>
+					<Subhead text='Past Entries' fontsize='24px'></Subhead>
 				</IconDiv>
 
 				<IconDiv>
@@ -100,13 +107,6 @@ export default function Dashboard() {
 					<IconComp iconSymbol='chart bar' routeTo='graphs'></IconComp>
 					</motion.div>
 					<Subhead text='View Graphs' fontsize='24px'></Subhead>
-				</IconDiv>
-
-				<IconDiv>
-					<motion.div whileHover={{scale:1.1 }}>
-					<IconComp iconSymbol='list' routeTo='pastentries'></IconComp>
-					</motion.div>
-					<Subhead text='View Past Entries' fontsize='24px'></Subhead>
 				</IconDiv>
 			</TopIcons>
 

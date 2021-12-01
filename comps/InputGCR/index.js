@@ -1,14 +1,9 @@
 import styled from 'styled-components';
 import BoldText from '../BoldText';
 import Image from 'next/image';
-import EduImage from '../EduImage';
-import { useState, useEffect } from 'react';
-import { colors } from '@mui/material';
+import {useEffect, useState} from 'react';
 import React from 'react';
 import Modal from '../Modal';
-
-import EntryItem from '../EntryItem';
-import InputCounter from '../InputCounter';
 
 const PageCont = styled.div``;
 
@@ -16,7 +11,8 @@ const ItemCont = styled.form`
 	display: flex;
 	flex-direction: column;
 	margin: 10px;
-	padding: 10px;
+	padding: 20px;
+	border-radius: 10px;
 	background-color: ${props => props.colors};
 	align-items: center;
 `;
@@ -25,7 +21,7 @@ const ItemCont = styled.form`
 const TopCont = styled.div`
 	display: flex;
 	gap: 10px;
-	margin-top:20px;
+	margin-top: 20px;
 `;
 
 const Description = styled.p`
@@ -43,16 +39,26 @@ const Number = styled.input`
 const Select = styled.select`
 	display: flex;
 	min-height: 35px;
-	max-width: 90px;
+	min-width: 90px;
+	border-radius: 10px;
 `;
 
 const TextBox = styled.textarea`
 	min-height: 60px;
+	border-radius: 10px;
+	padding: 10px;
 `;
 
 const Submit = styled.input`
-	min-height: 35px;
-	margin-top: 10px;
+	margin: 10px;
+	padding: 10px;
+	background-color: #FFC800;
+	border: none;
+  border-radius: 10px;
+  font-weight: 600;
+	&:hover {
+		background-color: #E5A500;
+	}
 `;
 
 // -----------------CART COMP----------------------------
@@ -62,7 +68,6 @@ const CartCont = styled.div`
 	border-radius: 10px;
 	flex-direction: column;
 	margin-top: 10px;
-	
 `;
 
 const TypeCont = styled.div`
@@ -79,7 +84,7 @@ const SquareCont = styled.div`
 	min-height: 30px;
 	max-height: 30px;
 	border-radius: 5px;
-	background-color: ${props => props.color};
+	background-color: ${(props) => props.color};
 `;
 const ItemName = styled.p`
 	font-weight: bold;
@@ -108,11 +113,11 @@ const BotCart = styled.div`
 `;
 
 const ModalText = styled.h1`
-display:flex;
-text-align:center;
-font-size:30px;
-color:grey;
-`
+	display: flex;
+	text-align: center;
+	font-size: 30px;
+	color: grey;
+`;
 //-----------------On submit stuff-----------------//
 let formData = {};
 
@@ -127,42 +132,6 @@ const resetStore = () => {
 	localStorage.recyclingText = '';
 };
 
-const onSubmit = async (e) => {
-	e.preventDefault();
-	formData = {
-		garbage_text: localStorage.garbageText,
-		garbage_count: parseInt(localStorage.garbageCount),
-		compost_text: localStorage.compostText,
-		compost_count: parseInt(localStorage.compostCount),
-		recycling_text: localStorage.recyclingText,
-		recycling_count: parseInt(localStorage.recyclingCount),
-		account_id: '2',
-	};
-  console.log(formData);
-  const requestOptions = {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json',
-			'Access-Control-Allow-Origin': 'http://localhost:3000',
-		},
-		body: JSON.stringify(formData),
-  };
-	await fetch('http://localhost:8080/api/entries/add', requestOptions)
-		// await fetch('https://binibin-server.herokuapp.com/api/entries/add', requestOptions)
-		.then((response) => {
-      if (response.ok) {
-        console.log(response);
-        alert(`Your entry has been submitted!`);
-        resetStore();
-			} else {
-				throw new Error('Unable to perform POST request');
-			}
-		})
-		.catch((err) => {
-			console.log(err);
-		});
-};
-
 const myLoader = ({ src }) => {
 	return `${src}`;
 };
@@ -174,23 +143,21 @@ const IGCR = ({
 	unit = 'g',
 	src = 'garbagebag.png',
 	alt = 'garbage bag',
-	optional = 'optional',
 	color = 'black',
 	item_count = '0',
 	garbage_color = '#E9E9E9',
 	comp_color = '#E2EED7',
 	recycle_color = '#DFEAEF',
 
-}) => {	
-	
-	// Modal Function 
-		const [isOpen, setIsOpen] = useState(false);
+}) => {
+
+
 
 	//-------Click garbage function-----------
 
 	function clickGarbage() {
 
-	
+
 
 		//NUMBER OF GARBAGE ITEMS
 
@@ -202,13 +169,12 @@ const IGCR = ({
 			if (localStorage.garbageCount) {
 				//add the selected option to the current garbageCount value in localstorage
 				localStorage.garbageCount = parseFloat(localStorage.garbageCount) + g;
-				document.getElementById('garbageSelect').selectedIndex = 0
+				document.getElementById('garbageSelect').selectedIndex = 0;
 			} else {
 				//if there were no garbage entries, set the garbageCount to zero
 				localStorage.garbageCount = g;
-				document.getElementById('garbageSelect').selectedIndex = 0
+				document.getElementById('garbageSelect').selectedIndex = 0;
 			}
-
 		}
 		//display the garbage count in HTML
 		document.getElementById('garbageCount').innerHTML = localStorage.garbageCount;
@@ -329,7 +295,43 @@ const IGCR = ({
 		// creating default state for localStorage
 		resetStore();
 	}, []);
-
+		// Modal Function
+	const [isOpen, setIsOpen] = useState(false);
+	const onSubmit = async (e) => {
+		e.preventDefault();
+		formData = {
+			garbage_text: localStorage.garbageText,
+			garbage_count: parseInt(localStorage.garbageCount),
+			compost_text: localStorage.compostText,
+			compost_count: parseInt(localStorage.compostCount),
+			recycling_text: localStorage.recyclingText,
+			recycling_count: parseInt(localStorage.recyclingCount),
+			account_id: '2',
+		};
+		console.log(`i am form data~~~~ from on submit${formData}`);
+		const requestOptions = {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				'Access-Control-Allow-Origin': 'https://binibinapp.vercel.app/',
+			},
+			body: JSON.stringify(formData),
+		};
+		// await fetch('http://localhost:8080/api/entries/add', requestOptions)
+		await fetch('https://binibin-server.herokuapp.com/api/entries/add', requestOptions)
+			.then((response) => {
+				if (response.ok) {
+					console.log(response);
+					resetStore();
+					setIsOpen(true);
+				} else {
+					throw new Error('Unable to perform POST request');
+				}
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	};
 	return (
 		<PageCont>
 			{/* ----------------------GARBAGE------------------------- */}
@@ -358,7 +360,7 @@ const IGCR = ({
 						<option value='9'>9</option>
 						<option value='10'>10</option>
 					</Select>
-					<Description>Write a note to remember this entry ({optional})</Description>
+					<Description>Write a note to remember this entry</Description>
 					<TextBox id='garbageText' placeholder={note}></TextBox>
 					<Submit type='button' value='Add Entry' onClick={clickGarbage}></Submit>
 				</ItemCont>
@@ -388,8 +390,11 @@ const IGCR = ({
 						<option value='9'>9</option>
 						<option value='10'>10</option>
 					</Select>
-					<Description>Write a note to remember this entry ({optional})</Description>
-					<TextBox id='compostText' placeholder={note}></TextBox>
+					<Description>Write a note to remember this entry</Description>
+					<TextBox
+						id='compostText'
+						placeholder='Example: one apple core and one banana peel'
+					></TextBox>
 					<Submit type='button' value='Add Entry' onClick={clickCompost}></Submit>
 				</ItemCont>
 
@@ -418,8 +423,11 @@ const IGCR = ({
 						<option value='9'>9</option>
 						<option value='10'>10</option>
 					</Select>
-					<Description>Write a note to remember this entry ({optional})</Description>
-					<TextBox id='recycleText' placeholder={note}></TextBox>
+					<Description>Write a note to remember this entry</Description>
+					<TextBox
+						id='recycleText'
+						placeholder='Example: one juice box and two yogurt containers'
+					></TextBox>
 					<Submit type='button' value='Add Entry' onClick={clickRecycle}></Submit>
 				</ItemCont>
 			</TopCont>
@@ -460,11 +468,9 @@ const IGCR = ({
 						<TextG id='textRecycle'></TextG>
 					</TextCont>
 				</BotCart>
-				<Submit type='button' value='Submit' onClick={onSubmit} onClick={() => setIsOpen(true)}></Submit>
-				<Modal open={isOpen} onClose={() => setIsOpen(false)}> 
-				<ModalText>
-				Your Input has been confirm and has been submitted
-				</ModalText>
+				<Submit type='button' value='Save Entries' onClick={onSubmit}></Submit>
+				<Modal open={isOpen} onClose={() => setIsOpen(false)}>
+					<ModalText>Your Input has been confirm and has been submitted</ModalText>
 				</Modal>
 			</CartCont>
 		</PageCont>
