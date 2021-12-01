@@ -2,18 +2,20 @@ import styled from "styled-components";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-
 import Header from "../comps/HeaderText";
 import Footer from "../comps/footer";
 import Image from "next/image";
 import LoginComp from "../comps/LoginForm";
+
+import { motion } from "framer-motion";
+import PulseLoader from "react-spinners/PulseLoader";
 
 const PageCont = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: column;
 	justify-content: space-between;
-	min-height: 90vh;
+	min-height: 100vh;
 	background-color: #eef9ff;
 	padding-top: 3em;
 `;
@@ -43,6 +45,13 @@ const RightCont = styled.div`
 const FooterCont = styled.div`
   display: flex;
   align-items: flex-end;
+`;
+
+const LoadDiv = styled.div`
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
 `;
 
 //Fake Data
@@ -88,11 +97,30 @@ export default function Login() {
   //   GetUser();
   // }, []);
 
+  //-------Loading screen-----------
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+    }, 500)
+  }, [])
+
   return (
     //<div className={styles.container}>
+
+    loading ? 
+    <LoadDiv>
+      <PulseLoader 
+      color={'#003274'} 
+      loading={loading} 
+      size={20}
+      />
+      </LoadDiv>
+      : 
+
     <PageCont>
-
-
       {/* {
         user.map((o,i)=>(
           <CardWrapper key={i}>
@@ -102,7 +130,11 @@ export default function Login() {
         )
       } */}
 
-      <MidCont>
+      <MidCont
+      as={motion.div}  
+      initial={{opacity:0}} 
+      animate={{opacity:100, transition:{ease:"easeIn", duration:2, delay:0}}}
+      >
         <RightCont>
           <Header text="Login"></Header>
           <LoginComp></LoginComp>

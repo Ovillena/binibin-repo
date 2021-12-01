@@ -2,20 +2,19 @@ import FooterComp from "../comps/footer";
 
 import styled from "styled-components";
 import React, { useState, useEffect } from "react";
-
 import axios from "axios";
-
 
 import HeaderText from "../comps/HeaderText";
 import HeroComp from "../comps/HeroComp";
-import CircleImage from "../comps/CircleImage";
 import MyButton from "../comps/Button";
 import Subhead from "../comps/SubheadText";
 
-import EduImage from "../comps/EduImage";
 import FeaturesCard from "../comps/FeaturesCard";
 
-const PageCont = styled.div`
+import { motion } from "framer-motion";
+import PulseLoader from "react-spinners/PulseLoader";
+
+const PageCont = styled(motion.div)`
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
@@ -74,6 +73,13 @@ const MultiColumn = styled.div`
   }
 `
 
+const LoadDiv = styled.div`
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+`
+
 export default function Home() {
   const [user, setUser] = useState(null);
 
@@ -91,54 +97,121 @@ export default function Home() {
   //     console.log(err);
   //   });
 
+  //-------Loading screen-----------
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+    }, 500)
+  }, [])
+
   return (
     //<div className={styles.container}>
-    <PageCont>
+    
+    loading ? 
+    <LoadDiv>
+      <PulseLoader 
+      color={'#003274'} 
+      loading={loading} 
+      size={20}
+      />
+      </LoadDiv>
+      : 
+    
+    <PageCont
+    // initial={{opacity:0}}
+    // animate={{opacity:100, transition:{duration:1, delay:1}}}
+    >
 
-
+      <motion.div
+      as={motion.div}  
+      initial={{opacity:0}} 
+      animate={{opacity:100, transition:{ease:"easeIn", duration:1, delay:0}}}
+      >
       <HeroComp></HeroComp>
+      </motion.div>
 
     <MultiColumn>
-      <ParagraphSec>
+      <ParagraphSec 
+      as={motion.div}  
+      initial={{opacity:0}} 
+      animate={{opacity:100, transition:{ease:"easeIn", duration:1, delay:0.5}}}
+      >
         <Subhead text="About BiniBin"></Subhead>
         <BodyText>BiniBin provides a simple way for grade schools to track their garbage, compost, and recycling with a quick input system and dynamically generated graphs. </BodyText>
       </ParagraphSec>
 
-      <ParagraphSec>
+      <ParagraphSec
+      as={motion.div}  
+      initial={{opacity:0}} 
+      animate={{opacity:100, transition:{ease:"easeIn", duration:1, delay:0.5}}}
+      >
         <Subhead text="Benefits"></Subhead>
         <BodyText>Educate students and staff about recycling, see measurable statistics to track waste management, and earn revenue from transfer stations. </BodyText>
       </ParagraphSec>
     </MultiColumn>
 
     <MultiColumn>
-      <ParagraphSec>
+      <ParagraphSec
+      as={motion.div}  
+      initial={{opacity:0}} 
+      animate={{opacity:100, transition:{ease:"easeIn", duration:1, delay:0.5}}}
+      >
         <Subhead text="Our Goal"></Subhead>
         <BodyText>Our goal is to foster a generation that keeps the planet’s environment at the forefront of their minds by habit.</BodyText>
       </ParagraphSec>
 
-      <ParagraphSec>
+      <ParagraphSec
+      as={motion.div}  
+      initial={{opacity:0}} 
+      animate={{opacity:100, transition:{ease:"easeIn", duration:1, delay:0.5}}}
+      >
         <Subhead text="Our Mission"></Subhead>
         <BodyText>Our mission is to lessen the harmful impacts to the waste system by teaching and encouraging students how to appropriately dispose wastes.</BodyText>
       </ParagraphSec>
     </MultiColumn>
 
-    <HeaderCont>
+    <HeaderCont 
+    as={motion.div}
+    initial={{ opacity: 0}}
+    whileInView={{ opacity: 1, scale:1.1 }}
+    viewport={{ once: true }}
+    
+    >
       <HeaderText text="Features"></HeaderText>
     </HeaderCont>
 
     <FeaturesCont>
+      <motion.div whileHover={{scale:1.1 }}>
         <FeaturesCard src="/input.png" alt="input" h="Input" p="Use a simple visual tool to input how much compost, recycling, and garbage is produced at school."></FeaturesCard>
+      </motion.div>
+
+      <motion.div whileHover={{scale:1.1 }}>
         <FeaturesCard src="/bar-graph.png" alt="graph" h="Track" p="View a list of your inputted entries to track the breakdown of wastes produced at school."></FeaturesCard>
+       </motion.div>
+       
+       <motion.div whileHover={{scale:1.1 }}>
         <FeaturesCard src="/reducing.png" alt="reduce" h="Reduce" p="Read dynamically-generated graphs of each type of waste and make a plan to reduce your garbage."></FeaturesCard>
+        </motion.div>
       </FeaturesCont>
 
 
-    <ParagraphSec>
+    <ParagraphSec
+    as={motion.div}  
+    initial={{opacity:0}} 
+    animate={{opacity:100, transition:{ease:"easeIn", duration:1, delay:0.5}}}
+    >
       <Subhead text="Recycling Problems"></Subhead>
       <BodyText>People are sorting their wastes incorrectly because they are unsure about what is recyclable/compostable. Consequently, things that could be recycled/composted end up in the landfill. Worse yet, things that could not be recycled/composted but are thrown into the recycling or compost bin will contaminate the entire waste collection truck. When the threshold (of about 10%) is exceeded, everything gets sent to the landfill. </BodyText>
     </ParagraphSec>
 
-    <ParagraphSec>
+    <ParagraphSec
+    as={motion.div}  
+    initial={{opacity:0}} 
+    animate={{opacity:100, transition:{ease:"easeIn", duration:1, delay:0.5}}}
+    >
       <Subhead text="You can make a difference"></Subhead>
       <BodyText>We encourage schools to help students develop an awareness of waste management, recycling, reduction by providing a visual tool to track the quantity and the breakdown of the waste produced by their schools.</BodyText>
     </ParagraphSec>
@@ -158,6 +231,7 @@ export default function Home() {
 
     //</div>
   );
+  
   // if (user) {
   //   return (
   //     //<div className={styles.container}>
