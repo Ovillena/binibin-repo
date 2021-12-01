@@ -36,36 +36,36 @@ function MyApp({ Component, pageProps }) {
 		}
 	};
 
-	// useEffect(() => {
-	// 	axios
-	// 		.get(
-	// 			'https://binibin-server.herokuapp.com/auth/checkauth',
-	// 			// 'http://localhost:8080/auth/checkauth',
-	// 			{ withCredentials: true }
-	// 		)
-	// 		.then((response) => {
-	// 			console.log(loginStatus);
-	// 			let loggedIn = response.data['logged in'];
-	// 			if (!viewableIfLoggedOut(Router.pathname) && (!loggedIn || !loginStatus)) {
-	// 				return Router.push('/login');
-	// 			} else if (viewableIfLoggedOut(Router.pathname) && (!loggedIn || !loginStatus)) {
-	// 				throw new Error('No session cookie detected');
-	// 			} else {
-	// 				return response;
-	// 			}
-	// 		})
-	// 		.then((response) => {
-	// 			let userObj = JSON.stringify(response);
-	// 			console.log('---------check auth resp----------------------');
-	// 			console.log(userObj);
-	// 			// alert(userObj);
-	// 			// signIn(userObj);
-	// 		})
-	// 		.catch((err) => {
-	// 			console.log(err);
-	// 		});
-	// 	// alert(JSON.stringify(user));
-	// }, [user]);
+	useEffect(() => {
+		axios
+			.get(
+				'https://binibin-server.herokuapp.com/auth/checkauth',
+				// 'http://localhost:8080/auth/checkauth',
+				{ withCredentials: true }
+			)
+			.then((response) => {
+				console.log(loginStatus);
+				let loggedIn = response.data['logged in'];
+				if (!viewableIfLoggedOut(Router.pathname) && (!loggedIn || !loginStatus)) {
+					return Router.push('/login');
+				} else if (viewableIfLoggedOut(Router.pathname) && (!loggedIn || !loginStatus)) {
+					throw new Error('No session cookie detected');
+				} else {
+					return response;
+				}
+			})
+			.then((response) => {
+				let userObj = JSON.stringify(response);
+				console.log('---------check auth resp----------------------');
+				console.log(userObj);
+				// alert(userObj);
+				// signIn(userObj);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+		// alert(JSON.stringify(user));
+	}, [user]);
 
 	return (
 		<UserContext.Provider value={{ user: user, signIn: signIn, loginStatus: loginStatus }}>
