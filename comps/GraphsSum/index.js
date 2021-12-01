@@ -100,7 +100,7 @@ const GraphsSum = (props) => {
 								data: itemCG,
 								fill: false,
 								backgroundColor: ['black'],
-								borderColor: 'black',
+								borderColor: `black`,
 								borderWidth: 4,
 								borderRadius: 10,
 							},
@@ -131,7 +131,7 @@ const GraphsSum = (props) => {
 
 			axios
 				.get(
-					'https://binibin-server.herokuapp.com/api/entries/recycling/2021-11-01/2030-11-30'
+					`https://binibin-server.herokuapp.com/api/entries/recycling/${props.firstDay}/${props.today}`
 				)
 				.then((res) => {
 					// console.log(res.data);
@@ -184,7 +184,7 @@ const GraphsSum = (props) => {
 
 			axios
 				.get(
-					'https://binibin-server.herokuapp.com/api/entries/compost/2021-11-01/2030-11-30'
+					`https://binibin-server.herokuapp.com/api/entries/compost/${props.firstDay}/${props.today}`
 				)
 				.then((res) => {
 					// console.log(res.data);
