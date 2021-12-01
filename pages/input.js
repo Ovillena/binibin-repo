@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 
 import GuestNavBar from '../comps/GuestNavBar';
 import Header from '../comps/HeaderText';
@@ -11,7 +11,10 @@ import UserNav from '../comps/UserNav';
 import FooterComp from '../comps/footer';
 import InputCounter from '../comps/InputCounter';
 
-const Cont = styled.div`
+import { motion } from "framer-motion";
+import PulseLoader from "react-spinners/PulseLoader";
+
+const Cont = styled(motion.div)`
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -43,13 +46,43 @@ const CartCont = styled.div`
 
 const TypeCont = styled.div`
   display:flex;
+`
 
+const LoadDiv = styled.div`
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
 `
 
 export default function Home() {
 
+    //-------Loading screen-----------
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+      setLoading(true)
+      setTimeout(() => {
+        setLoading(false)
+      }, 300)
+    }, [])
+
   return(
-    <Cont>
+
+    loading ? 
+    <LoadDiv>
+      <PulseLoader 
+      color={'#003274'} 
+      loading={loading} 
+      size={20}
+      />
+      </LoadDiv>
+      : 
+      
+    <Cont
+    initial={{opacity:0}} 
+    animate={{opacity:100, transition:{ease:"easeIn", duration:3, delay:0}}}
+    >
 			<SubCont>
 				<Header text='Record New Entries'></Header>
 			</SubCont>

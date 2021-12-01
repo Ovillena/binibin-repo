@@ -68,7 +68,7 @@ export default function Register(){
       setLoading(true)
       setTimeout(() => {
         setLoading(false)
-      }, 500)
+      }, 300)
     }, [])
 
   return (

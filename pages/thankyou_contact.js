@@ -53,9 +53,6 @@ export default function Contact(){
   return (
     //<div className={styles.container}>
       <PageCont>
-
-
-
     <TextCont>
 
     <Div>

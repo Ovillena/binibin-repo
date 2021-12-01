@@ -11,7 +11,7 @@ import EducationTab from '../comps/EducationTab';
 import { motion } from "framer-motion";
 import PulseLoader from "react-spinners/PulseLoader";
 
-const PageCont = styled.div`
+const PageCont = styled(motion.div)`
   display:flex;
   flex-direction:column;
   min-height:100vh;
@@ -65,7 +65,7 @@ export default function Education(){
       setLoading(true)
       setTimeout(() => {
         setLoading(false)
-      }, 500)
+      }, 300)
     }, [])
 
   return (
@@ -83,7 +83,10 @@ export default function Education(){
 
       : 
       
-      <PageCont>
+      <PageCont
+      initial={{opacity:0}} 
+      animate={{opacity:100, transition:{ease:"easeIn", duration:3, delay:0}}}
+      >
 
     <HeaderCont>
       <HeaderText text ="What Goes Where?"></HeaderText>

@@ -58,7 +58,7 @@ export default function CustomerService() {
     setLoading(true)
     setTimeout(() => {
       setLoading(false)
-    }, 500)
+    }, 300)
   }, [])
 
   return (

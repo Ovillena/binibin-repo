@@ -10,7 +10,7 @@ import HelpfulResource from '../comps/HelpfulResource';
 import { motion } from "framer-motion";
 import PulseLoader from "react-spinners/PulseLoader";
 
-const PageCont = styled.div`
+const PageCont = styled(motion.div)`
 display:flex;
 flex-direction:column;
 min-height:100vh;
@@ -65,7 +65,7 @@ export default function AboutUs(){
     setLoading(true)
     setTimeout(() => {
       setLoading(false)
-    }, 500)
+    }, 300)
   }, [])
 
   return (
@@ -84,7 +84,6 @@ export default function AboutUs(){
       : 
 
       <PageCont
-      as={motion.div}  
       initial={{opacity:0}} 
       animate={{opacity:100, transition:{ease:"easeIn", duration:2, delay:0}}}
       >
