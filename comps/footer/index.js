@@ -19,9 +19,13 @@ const TitleCont = styled.div`
 `
 
 const Title = styled.h3`
-    color:#ffffff;
-    cursor: pointer;
-`
+	color: #ffffff;
+	cursor: pointer;
+	&:hover {
+		background-color: #eef9ff;
+		color: #003274;
+	}
+`;
 
 
 const FooterComp = ({})=>{

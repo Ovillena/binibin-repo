@@ -1,24 +1,28 @@
 import { height } from '@mui/system';
 import React from 'react';
+import { Router, useRouter } from 'next/router';
+import styles from './index.module.css';
 
 const MODAL_STYLES = {
-	backgroundColor: ' rgba(233,233,233,1) 0%, rgba(226,238,215,1) 35%, rgba(223,234,239,1)',
-	padding: '50px',
-	zIndex: 1000,
+	backgroundColor: 'rgba(233,233,233,1)',
+	padding: '20px',
+	zIndex: 2,
 	width: '500px',
-	height: '200px',
+	height: 'min-content',
+	display: 'flex',
+	flexDirection: 'column',
+	alignItems: 'flex-end',
+	borderRadius: '10px'
 };
 
 const ButtonStyle = {
 	display: 'flex',
-	marginTop: '10px',
-	alignItems: 'flex-end',
-};
-
-const ModalStyle = {
-	display: 'flex',
-	alignContent: 'center',
-	alignItems: 'center',
+    alignItems: 'center',
+    padding: '10px',
+    border: 'none',
+	borderRadius: '10px',
+	width: 'fit-content',
+		cursor: 'pointer'
 };
 
 const OVERLAY_STYLE = {
@@ -26,25 +30,35 @@ const OVERLAY_STYLE = {
 	alignContent: 'center',
 	alignItems: 'center',
 	justifyContent: 'center',
-	position: 'absolute',
+	position: 'fixed',
 	top: 0,
 	left: 0,
 	right: 0,
 	bottom: 0,
 	backgroundColor: 'rgba(0,0,0,.7)',
-	zIndex: 1000,
+	zIndex: 1,
 };
 
-export default function Modal({ open, children, onClose }) {
+export default function Modal({ open, children, onClose, router = useRouter() }) {
 	if (!open) return null;
 	return (
 		// <div style={ModalStyle}>
 		<div style={OVERLAY_STYLE}>
 			<div style={MODAL_STYLES}>
-				{children}
-				<button style={ButtonStyle} onClick={onClose}>
-					Close
+				<button className={styles.btnClose} style={ButtonStyle} onClick={onClose}>
+					X
 				</button>
+				<span className={styles.message}>{children}</span>
+				<div className={styles.btnContainer}>
+					<button
+						className={styles.btnEntries}
+						style={ButtonStyle}
+						onClick={() => router.push('/pastentries')}
+					>
+						View Entries
+					</button>
+
+				</div>
 			</div>
 			{/* </div> */}
 		</div>
