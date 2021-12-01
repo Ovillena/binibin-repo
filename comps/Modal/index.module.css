@@ -1,0 +1,26 @@
+.btnContainer {
+    display: flex;
+    justify-content: center;
+}
+.btnEntries {
+    background-color: #FFC800;
+    font-weight: bold;
+    margin: auto;
+}
+
+.btnEntries:hover {
+    background-color: #E5A500;
+}
+
+.btnClose {
+    background-color: rgba(233, 233, 233, 1);
+    color: #808080;
+}
+
+.btnClose:hover {
+    color: black;
+}
+
+.message {
+    padding: 1em 2em 2em
+}
