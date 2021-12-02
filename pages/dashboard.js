@@ -12,8 +12,9 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 
 import { motion } from 'framer-motion';
+import PulseLoader from "react-spinners/PulseLoader";
 
-const PageCont = styled.div`
+const PageCont = styled(motion.div)`
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
@@ -31,7 +32,7 @@ const FooterCont = styled.div`
 	align-items: flex-end;
 `;
 
-const TopIcons = styled.div`
+const TopIcons = styled(motion.div)`
 	display: flex;
 	justify-content: space-evenly;
 	flex: 1;
@@ -39,7 +40,7 @@ const TopIcons = styled.div`
 	flex-direction: row;
 `;
 
-const BotRow = styled.div`
+const BotRow = styled(motion.div)`
 	display: flex;
 	justify-content: space-evenly;
 	flex-wrap: wrap;
@@ -52,7 +53,16 @@ const IconDiv = styled.div`
 	flex-direction: column;
 `;
 
-const CardWrapper = styled.div``;
+const CardWrapper = styled.div`
+
+`;
+
+const LoadDiv = styled.div`
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+`
 
 //Fake Data
 const fakeData = [
@@ -80,14 +90,41 @@ export default function Dashboard() {
 	const { user } = useContext(UserContext);
 	console.log('------------------dashboard--------------------------');
 	console.log(user);
+	
+	  //-------Loading screen-----------
+	  const [loading, setLoading] = useState(false);
+
+	  useEffect(() => {
+		setLoading(true)
+		setTimeout(() => {
+		  setLoading(false)
+		}, 300)
+	  }, [])
 
 	return (
-		<PageCont>
+
+		loading ? 
+		<LoadDiv>
+		  <PulseLoader 
+		  color={'#003274'} 
+		  loading={loading} 
+		  size={20}
+		  />
+		  </LoadDiv>
+		  : 
+
+		<PageCont
+		initial={{opacity:0}} 
+		animate={{opacity:100, transition:{ease:"easeIn", duration:3, delay:0}}}
+		>
 			<HeaderCont>
 				<HeaderText text='Your Dashboard'></HeaderText>
 			</HeaderCont>
 
-			<TopIcons>
+			<TopIcons
+			initial={{opacity:0}} 
+			animate={{opacity:100, transition:{ease:"easeIn", duration:1, delay:0}}}
+			>
 				<IconDiv>
 					<motion.div whileHover={{scale:1.1 }}>
 					<IconComp iconSymbol='calendar check outline' routeTo='input'></IconComp>
@@ -110,7 +147,9 @@ export default function Dashboard() {
 				</IconDiv>
 			</TopIcons>
 
-			<BotRow>
+			<BotRow
+			
+			>
 				<IconDiv>
 					<motion.div whileHover={{scale:1.1 }}>
 					<IconComp iconSymbol='wrench' routeTo='setting'></IconComp>

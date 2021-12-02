@@ -8,6 +8,11 @@ import EntryItem from '../comps/EntryItem';
 import EntryDate from '../comps/EntryDate';
 import FooterComp from '../comps/footer';
 
+import { motion } from 'framer-motion';
+import PulseLoader from 'react-spinners/PulseLoader';
+
+const ContDiv = styled(motion.div)``;
+
 const HeaderCont = styled.div`
 	display: flex;
 	justify-content: center;
@@ -19,7 +24,7 @@ const FooterCont = styled.div`
 	align-items: flex-end;
 `;
 
-const Cont = styled.div`
+const Cont = styled(motion.div)`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -53,29 +58,57 @@ const SideSection = styled.div`
 	margin: 10px;
 `;
 
+const LoadDiv = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+`;
+
 export default function Home() {
 	const [entries, setEntries] = useState(null);
-	const GetEntries = async () => {
-		await axios
-			.get('https://binibin-server.herokuapp.com/api/entries')
-			.then((resp) => {
-				console.log(resp.data);
-				setEntries(resp.data);
-			})
-			.catch((err) => {
-				console.log(err);
-			});
-	};
+
 	useEffect(() => {
+		const GetEntries = async () => {
+			await axios
+				.get('https://binibin-server.herokuapp.com/api/entries')
+				.then((resp) => {
+					console.log(resp.data);
+					setEntries(resp.data);
+				})
+				.catch((err) => {
+					console.log(err);
+				});
+		};
 		GetEntries();
 	}, []);
 
-	return (
-		<>
+	//-------Loading screen-----------
+	const [loading, setLoading] = useState(false);
+
+	useEffect(() => {
+		setLoading(true);
+		setTimeout(() => {
+			setLoading(false);
+		}, 300);
+	}, []);
+
+	return loading ? (
+		<LoadDiv>
+			<PulseLoader color={'#003274'} loading={loading} size={20} />
+		</LoadDiv>
+	) : (
+		<ContDiv
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 100, transition: { ease: 'easeIn', duration: 3, delay: 0 } }}
+		>
 			<HeaderCont>
 				<Header text='Review Your Past Entries'></Header>
 			</HeaderCont>
-			<Cont>
+			<Cont
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 100, transition: { ease: 'easeIn', duration: 3, delay: 0 } }}
+			>
 				{entries ? (
 					entries.map((o, i) => (
 						<AllDaysList key={i}>
@@ -106,6 +139,6 @@ export default function Home() {
 			<FooterCont>
 				<FooterComp></FooterComp>
 			</FooterCont>
-		</>
+		</ContDiv>
 	);
 }
