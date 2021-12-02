@@ -40,6 +40,7 @@ const Notes = styled.div`
 
 const Text = styled.span`
 	white-space: pre-line;
+	word-wrap: break-word;
 	width: 33%;
 	margin-right: 5px;
 	padding: 10px;
@@ -63,6 +64,7 @@ const Expand = styled.button`
 	height: 25px;
 	margin-top: 8px;
 	margin-left: 10px;
+	cursor: pointer;
 	&:hover {
 		background-color: #e5a500;
 	}
