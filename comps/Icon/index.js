@@ -5,8 +5,9 @@ import router, { useRouter } from "next/router";
 import { Icon } from "semantic-ui-react";
 
 const IconCont = styled.div`
-
-`
+	cursor: pointer;
+	border-radius: 50%;
+`;
 
 const IconComp = ({
     iconSymbol="users",
@@ -14,7 +15,7 @@ const IconComp = ({
     routeTo = "/"
 
 }) => {
-    return <IconCont >    
+    return <IconCont >
         <Icon circular inverted color={bgcolor} name={iconSymbol} size='huge' onClick={()=>router.push(routeTo)}/>
     </IconCont>
 
