@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { useState } from 'react';
 
 const ItemCont = styled.div`
 	display: flex;
@@ -74,10 +75,11 @@ const EntryItem = ({
 	compost_count,
 	recycling_text,
 	recycling_count,
-	expandContainer,
-	show = false,
 }) => {
-	if (show === false) {
+	const [showNotes, setShowNotes] = useState(false);
+	const expandContainer = () => (showNotes ? setShowNotes(false) : setShowNotes(true));
+
+	if (showNotes === false) {
 		return (
 			<ItemCont>
 				<Minimized>
@@ -106,40 +108,35 @@ const EntryItem = ({
 				</Minimized>
 			</ItemCont>
 		);
+	} else {
+		return (
+			<ItemCont>
+				<Minimized>
+					<SingleItem>
+						<Square color='#000' />
+						<ItemName>Garbage</ItemName>
+						<ItemQuantity>&times; {garbage_count}</ItemQuantity>
+					</SingleItem>
+					<SingleItem>
+						<Square color='#598B2C' />
+						<ItemName>Compost</ItemName>
+						<ItemQuantity>&times; {compost_count}</ItemQuantity>
+					</SingleItem>
+					<SingleItem>
+						<Square color='#2C5489' />
+						<ItemName>Recycling</ItemName>
+						<ItemQuantity>&times; {recycling_count}</ItemQuantity>
+					</SingleItem>
+          <Expand onClick={() => { expandContainer() }}>Hide Notes</Expand>
+				</Minimized>
+				<Notes>
+					<Text color='garbage'>{garbage_text} </Text>
+					<Text color='compost'>{compost_text} </Text>
+					<Text color='recycling'>{recycling_text} </Text>
+				</Notes>
+			</ItemCont>
+		);
 	}
-	return (
-		<ItemCont>
-			<Minimized>
-				<SingleItem>
-					<Square color='#000' />
-					<ItemName>Garbage</ItemName>
-					<ItemQuantity>&times; {garbage_count}</ItemQuantity>
-				</SingleItem>
-				<SingleItem>
-					<Square color='#598B2C' />
-					<ItemName>Compost</ItemName>
-					<ItemQuantity>&times; {compost_count}</ItemQuantity>
-				</SingleItem>
-				<SingleItem>
-					<Square color='#2C5489' />
-					<ItemName>Recycling</ItemName>
-					<ItemQuantity>&times; {recycling_count}</ItemQuantity>
-				</SingleItem>
-				<Expand
-					onClick={() => {
-						expandContainer();
-					}}
-				>
-					Hide Notes
-				</Expand>
-			</Minimized>
-			<Notes>
-				<Text color='garbage'>{garbage_text} </Text>
-				<Text color='compost'>{compost_text} </Text>
-				<Text color='recycling'>{recycling_text} </Text>
-			</Notes>
-		</ItemCont>
-	);
 };
 
 export default EntryItem;
