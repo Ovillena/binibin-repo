@@ -44,7 +44,7 @@ const TopGraphs = styled.div`
 	flex-wrap: wrap;
 	height: content;
 	width: content;
-	max-height: 600px;
+	
 `;
 
 const GraphDiv = styled(motion.div)`
