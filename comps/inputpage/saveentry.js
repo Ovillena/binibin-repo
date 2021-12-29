@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-import BoldText from '../BoldText';
-import Image from 'next/image';
 import {useEffect, useState} from 'react';
 import React from 'react';
 import Modal from '../Modal';
@@ -75,16 +73,8 @@ const ModalText = styled.h1`
 
 const SaveEntry = ({
 	item_name = 'Garbage',
-	waste_type = 'garbage',
-	note = 'Example: two snack wrappers and a straw',
-	unit = 'g',
-	src = 'garbagebag.png',
-	alt = 'garbage bag',
 	color = 'black',
-	item_count = '0',
-	garbage_color = '#E9E9E9',
-	comp_color = '#E2EED7',
-	recycle_color = '#DFEAEF',
+  value = 0,
   onSubmitInteract = () => {}
 }) => {
 
@@ -96,7 +86,7 @@ const SaveEntry = ({
       <TypeCont>
         <SquareCont color={color} />
         <ItemName>{item_name} &times;</ItemName>
-        <ItemQuantity id='garbageCount'></ItemQuantity>
+        <ItemQuantity id='garbageCount'>{value}</ItemQuantity>
       </TypeCont>
 
       <TypeCont>
@@ -127,7 +117,7 @@ const SaveEntry = ({
     </BotCart>
     <Submit type='button' value='Save Entries' onClick={onSubmitInteract()}></Submit>
     <Modal open={isOpen} onClose={() => setIsOpen(false)}>
-      <ModalText>Your Input has been confirm and has been submitted</ModalText>
+      <ModalText>Your input has been submitted</ModalText>
     </Modal>
     </CartCont>
   );

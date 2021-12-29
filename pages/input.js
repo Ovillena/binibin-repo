@@ -12,6 +12,7 @@ import FooterComp from '../comps/footer';
 import InputCounter from '../comps/InputCounter';
 import AddEntry from '../comps/inputpage/addentry';
 import SaveEntry from '../comps/inputpage/saveentry';
+import Counter from '../comps/inputpage/counter';
 
 import { motion } from "framer-motion";
 import PulseLoader from "react-spinners/PulseLoader";
@@ -36,7 +37,7 @@ const FooterCont = styled.div`
   width:100vw;
 `;
 
-const SubCont = styled.div`
+const RowCont = styled.div`
   display:flex;
 `;
 
@@ -70,6 +71,7 @@ const resetStore = () => {
 	localStorage.recyclingText = '';
 };
 
+
 export default function Input() {
 
     //-------Loading screen-----------
@@ -84,140 +86,74 @@ export default function Input() {
 
     	//-------Click garbage function-----------
 
-	const clickGarbage = () => {
+      // function ClickGarbage() {
+    // const [itemcount, setItemCount] = useState(0);
+        
+    // var value = 0;
+    // if(itemcount){
+    //   value = AddEntry.itemcount
+    // }
+
+    // const ClickGarbage = async (e) => {
+      // e.preventDefault();
+      // console.log(`waste type: ${AddEntry.waste_type}; `)
+        // weight: ${AddEntry.event.weight.value}; 
+        // note: ${AddEntry.event.target.textnote.value};
+      // console.log(localStorage.garbageCount);
+      // console.log(value);
+      // setItemCount(itemcount);
+      // setItemCount(itemcount);
+    // };
 
 		//NUMBER OF GARBAGE ITEMS
+    // const [Garvalue, setGarValue] = useState(0);
 
 		//get the selected number of garbage option and turn it into a float
-		var g = parseFloat(document.getElementById('garbageSelect').value);
+    // function componentDidUpdate() {
+    //   var g = JSON.stringify(this.state);
+    //   localStorage.setItem('garbage', g);
+    // }
+    // var g = parseFloat(document.getElementById('garbageSelect').value);
+    // var g = AddEntry.value
+    // console.log(g)
 
-		if (typeof Storage !== 'undefined') {
-			//if there is something already stored in garbageCount,
-			if (localStorage.garbageCount) {
-				//add the selected option to the current garbageCount value in localstorage
-				localStorage.garbageCount = parseFloat(localStorage.garbageCount) + g;
-				document.getElementById('garbageSelect').selectedIndex = 0;
-			} else {
-				//if there were no garbage entries, set the garbageCount to zero
-				localStorage.garbageCount = g;
-				document.getElementById('garbageSelect').selectedIndex = 0;
-			}
-		}
+    // const [value, setValue] = useState('');
+		// if (typeof Storage !== 'undefined') {
+		// 	//if there is something already stored in garbageCount,
+		// 	if (localStorage.garbageCount) {
+		// 		//add the selected option to the current garbageCount value in localstorage
+		// 		localStorage.garbageCount = parseFloat(localStorage.garbageCount) + g;
+		// 		document.getElementById('garbageSelect').selectedIndex = 0;
+		// 	} else {
+		// 		//if there were no garbage entries, set the garbageCount to zero
+		// 		localStorage.garbageCount = g;
+		// 		document.getElementById('garbageSelect').selectedIndex = 0;
+		// 	}
+		// }
 		//display the garbage count in HTML
-		document.getElementById('garbageCount').innerHTML = localStorage.garbageCount;
+		// document.getElementById('garbageCount').innerHTML = localStorage.garbageCount;
 
-		//GARBAGE NOTES
+		// //GARBAGE NOTES
 
-		//get the newest inputted note for garbage
-		var setGarbage = document.getElementById('garbageText').value;
+		// //get the newest inputted note for garbage
+		// var setGarbage = document.getElementById('garbageText').value;
 
-		var addGarbageNote = function (garbageText, garinput, delimiter) {
-			//get the existing notes stored in garbageText
-			var existing = localStorage.getItem(garbageText);
-			//add the newest inputted note to the existing notes
-			var data = existing ? existing + delimiter + garinput : garinput;
-			//save the new note
-			localStorage.setItem(garbageText, data);
-		};
-		if (setGarbage !== '') {
-			addGarbageNote('garbageText', setGarbage, ', ');
-			document.getElementById('garbageText').value = '';
-		}
+		// var addGarbageNote = function (garbageText, garinput, delimiter) {
+		// 	//get the existing notes stored in garbageText
+		// 	var existing = localStorage.getItem(garbageText);
+		// 	//add the newest inputted note to the existing notes
+		// 	var data = existing ? existing + delimiter + garinput : garinput;
+		// 	//save the new note
+		// 	localStorage.setItem(garbageText, data);
+		// };
+		// if (setGarbage !== '') {
+		// 	addGarbageNote('garbageText', setGarbage, ', ');
+		// 	document.getElementById('garbageText').value = '';
+		// }
 
-		//display the garbage note in HTML
-		document.getElementById('textGarbage').innerHTML = localStorage.garbageText;
-	} // End of clickGarbage function
-
-	//-------Click compost function-----------
-
-	const clickCompost = () => {
-		//NUMBER OF COMPOST ITEMS
-
-		//get the selected number of compost option and turn it into a float
-		var c = parseFloat(document.getElementById('compostSelect').value);
-
-		if (typeof Storage !== 'undefined') {
-			//if there is something already stored in compostCount,
-			if (localStorage.compostCount) {
-				//add the selected option to the current compostCount value in localstorage
-				localStorage.compostCount = parseFloat(localStorage.compostCount) + c;
-				document.getElementById('compostSelect').selectedIndex = 0;
-			} else {
-				//if there were no compost entries, set the compostCount to zero
-				localStorage.compostCount = c;
-				document.getElementById('compostSelect').selectedIndex = 0;
-			}
-		}
-		//display the compost count in HTML
-		document.getElementById('compostCount').innerHTML = localStorage.compostCount;
-
-		//COMPOST NOTES
-
-		//get the newest inputted note for compost
-		var cominput = document.getElementById('compostText').value;
-
-		var addCompostNote = function (compostText, cominput, delimiter) {
-			//get the existing notes stored in compostText
-			var existing = localStorage.getItem(compostText);
-			//add the newest inputted note to the existing notes
-			var data = existing ? existing + delimiter + cominput : cominput;
-			//save the new note
-			localStorage.setItem(compostText, data);
-		};
-		if (cominput !== '') {
-			addCompostNote('compostText', cominput, ', ');
-			document.getElementById('compostText').value = '';
-		}
-
-		//display the compost note in HTML
-		document.getElementById('textCompost').innerHTML = localStorage.compostText;
-	} // End of clickCompost function
-
-	//---------CLICK RECYCLE FUNCTION-----------
-
-	const clickRecycle = () => {
-		//NUMBER OF RECYCLABLE ITEMS
-
-		//get the selected number of recycle option and turn it into a float
-		var r = parseFloat(document.getElementById('recycleSelect').value);
-
-		if (typeof Storage !== 'undefined') {
-			//if there is something already stored in recyclingCount,
-			if (localStorage.recyclingCount) {
-				//add the selected option to the current recyclingCount value in localstorage
-				localStorage.recyclingCount = parseFloat(localStorage.recyclingCount) + r;
-				document.getElementById('recycleSelect').selectedIndex = 0;
-			} else {
-				//if there were no recycle entries, set the recyclingCount to zero
-				localStorage.recyclingCount = r;
-				document.getElementById('recycleSelect').selectedIndex = 0;
-			}
-		}
-		//display the recycle count in HTML
-		document.getElementById('recycleCount').innerHTML = localStorage.recyclingCount;
-
-		//RECYCLABLE NOTES
-
-		//get the newest inputted note for recycle
-		var recinput = document.getElementById('recycleText').value;
-
-		var addRecycleNote = function (recyclingText, recinput, delimiter) {
-			//get the existing notes stored in recyclingText
-			var existing = localStorage.getItem(recyclingText);
-			//add the newest inputted note to the existing notes
-			var data = existing ? existing + delimiter + recinput : recinput;
-			//save the new note
-			localStorage.setItem(recyclingText, data);
-		};
-		if (recinput !== '') {
-			addRecycleNote('recyclingText', recinput, ', ');
-			document.getElementById('recycleText').value = '';
-		}
-
-		//display the recbage note in HTML
-		document.getElementById('textRecycle').innerHTML = localStorage.recyclingText;
-	} // End of clickRecycle function
-
+		// //display the garbage note in HTML
+		// document.getElementById('textGarbage').innerHTML = localStorage.garbageText;
+	// } // End of clickGarbage function
 
 	useEffect(() => {
 		// creating default state for localStorage
@@ -227,6 +163,9 @@ export default function Input() {
 	const [isOpen, setIsOpen] = useState(false);
 	const onSubmit = async (e) => {
 		e.preventDefault();
+    // for (var i = 0; i < localStorage.length; i++){
+    //   console.log(localStorage.getItem(localStorage.key(i)));
+    // }
 		formData = {
 			garbage_text: localStorage.garbageText,
 			garbage_count: parseInt(localStorage.garbageCount),
@@ -277,24 +216,42 @@ export default function Input() {
     initial={{opacity:0}} 
     animate={{opacity:100, transition:{ease:"easeIn", duration:3, delay:0}}}
     >
-			<SubCont>
+			<RowCont>
 				<Header text='Record New Entries'></Header>
-			</SubCont>
-      <SubCont>
+			</RowCont>
+      <RowCont>
         {/* <IGCR/> */}
-        <AddEntry onButtonInteract={()=>{
-          clickGarbage();
-        }}/>
-        <AddEntry onButtonInteract={()=>{
-          clickCompost();
-        }}/>
-        <AddEntry onButtonInteract={()=>{
-          clickRecycle();
-        }}/>
-      </SubCont>
-      <SubCont>
-        <SaveEntry />
-      </SubCont>
+        <AddEntry 
+          item_name = 'Garbage'
+          color = '#E9E9E9'
+        //   onButtonInteract = { () => {
+        //   ClickGarbage();
+        // } }
+        />
+        <AddEntry 
+          item_name = 'Compost'
+          img_src='/tea-bag.png'
+          alt = 'compost bag'
+          color = '#E2EED7'
+        //   onButtonInteract={()=>{
+        //   clickCompost();
+        // }}
+        />
+        <AddEntry 
+          item_name = 'Recycling'
+          img_src='/newspaper.png'
+          alt = 'newspaper'
+          color = '#DFEAEF'
+        //   onButtonInteract={()=>{
+        //   clickRecycle();
+        // }}
+        />
+      </RowCont>
+      <RowCont>
+        <SaveEntry 
+          onSubmitInteract = { () => {onSubmit} }
+        />
+      </RowCont>
       <FooterCont>
         <FooterComp></FooterComp>
       </FooterCont>
