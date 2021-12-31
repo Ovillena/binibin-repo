@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import BoldText from '../BoldText';
 import Image from 'next/image';
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import React from 'react';
 import Modal from '../Modal';
 
@@ -13,7 +13,7 @@ const ItemCont = styled.form`
 	margin: 10px;
 	padding: 20px;
 	border-radius: 10px;
-	background-color: ${props => props.colors};
+	background-color: ${(props) => props.colors};
 	align-items: center;
 `;
 
@@ -52,12 +52,12 @@ const TextBox = styled.textarea`
 const Submit = styled.input`
 	margin: 10px;
 	padding: 10px;
-	background-color: #FFC800;
+	background-color: #ffc800;
 	border: none;
-  border-radius: 10px;
-  font-weight: 600;
+	border-radius: 10px;
+	font-weight: 600;
 	&:hover {
-		background-color: #E5A500;
+		background-color: #e5a500;
 	}
 `;
 
@@ -148,17 +148,10 @@ const IGCR = ({
 	garbage_color = '#E9E9E9',
 	comp_color = '#E2EED7',
 	recycle_color = '#DFEAEF',
-
 }) => {
-
-
-
 	//-------Click garbage function-----------
 
 	function clickGarbage() {
-
-
-
 		//NUMBER OF GARBAGE ITEMS
 
 		//get the selected number of garbage option and turn it into a float
@@ -295,7 +288,7 @@ const IGCR = ({
 		// creating default state for localStorage
 		resetStore();
 	}, []);
-		// Modal Function
+	// Modal Function
 	const [isOpen, setIsOpen] = useState(false);
 	const onSubmit = async (e) => {
 		e.preventDefault();
@@ -306,18 +299,21 @@ const IGCR = ({
 			compost_count: parseInt(localStorage.compostCount),
 			recycling_text: localStorage.recyclingText,
 			recycling_count: parseInt(localStorage.recyclingCount),
-			account_id: '2',
 		};
 		console.log(`i am form data~~~~ from on submit${formData}`);
+
+		const token = window.localStorage.getItem('token');
+
 		const requestOptions = {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
 				'Access-Control-Allow-Origin': 'https://binibinapp.vercel.app/',
+				Authorization: `Bearer ${token}`,
 			},
 			body: JSON.stringify(formData),
 		};
-		// await fetch('http://localhost:8080/api/entries/add', requestOptions)
+		// await fetch('https://binibin-server.herokuapp.com/api/entries/add', requestOptions)
 		await fetch('https://binibin-server.herokuapp.com/api/entries/add', requestOptions)
 			.then((response) => {
 				if (response.ok) {

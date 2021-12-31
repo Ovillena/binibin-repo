@@ -68,9 +68,20 @@ const GraphsSum = (props) => {
 			let itemDR = [];
 			let itemDC = [];
 
+			const token = window.localStorage.getItem('token');
+			if (!token) {
+				console.log('you need to login');
+				return;
+			}
+
 			axios
 				.get(
-					`https://binibin-server.herokuapp.com/api/entries/garbage/${props.firstDay}/${props.today}`
+					`https://binibin-server.herokuapp.com/api/entries/garbage/${props.firstDay}/${props.today}`,
+					{
+						headers: {
+							Authorization: `Bearer ${token}`,
+						},
+					}
 				)
 				.then((res) => {
 					// console.log(res.data);
@@ -131,7 +142,12 @@ const GraphsSum = (props) => {
 
 			axios
 				.get(
-					`https://binibin-server.herokuapp.com/api/entries/recycling/${props.firstDay}/${props.today}`
+					`https://binibin-server.herokuapp.com/api/entries/recycling/${props.firstDay}/${props.today}`,
+					{
+						headers: {
+							Authorization: `Bearer ${token}`,
+						},
+					}
 				)
 				.then((res) => {
 					// console.log(res.data);
@@ -184,7 +200,13 @@ const GraphsSum = (props) => {
 
 			axios
 				.get(
-					`https://binibin-server.herokuapp.com/api/entries/compost/${props.firstDay}/${props.today}`
+					`https://binibin-server.herokuapp.com/api/entries/compost/${props.firstDay}/${props.today}`,
+
+					{
+						headers: {
+							Authorization: `Bearer ${token}`,
+						},
+					}
 				)
 				.then((res) => {
 					// console.log(res.data);

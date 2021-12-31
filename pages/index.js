@@ -1,18 +1,18 @@
-import FooterComp from "../comps/footer";
+import FooterComp from '../comps/footer';
 
-import styled from "styled-components";
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import styled from 'styled-components';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-import HeaderText from "../comps/HeaderText";
-import HeroComp from "../comps/HeroComp";
-import MyButton from "../comps/Button";
-import Subhead from "../comps/SubheadText";
+import HeaderText from '../comps/HeaderText';
+import HeroComp from '../comps/HeroComp';
+import MyButton from '../comps/Button';
+import Subhead from '../comps/SubheadText';
 
-import FeaturesCard from "../comps/FeaturesCard";
+import FeaturesCard from '../comps/FeaturesCard';
 
-import { motion } from "framer-motion";
-import PulseLoader from "react-spinners/PulseLoader";
+import { motion } from 'framer-motion';
+import PulseLoader from 'react-spinners/PulseLoader';
 
 const PageCont = styled(motion.div)`
 	display: flex;
@@ -22,413 +22,479 @@ const PageCont = styled(motion.div)`
 `;
 
 const HeaderCont = styled.div`
-  display: flex;
-  justify-content: center;
-  margin: 50px;
+	display: flex;
+	justify-content: center;
+	margin: 50px;
 `;
 
 const FooterCont = styled.div`
-  display: flex;
-  flex: 1;
-  align-items: flex-end;
+	display: flex;
+	flex: 1;
+	align-items: flex-end;
 `;
 
 const ParagraphSec = styled.div`
-  display: flex;
-  flex: 1;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  padding: 20px;
+	display: flex;
+	flex: 1;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+	padding: 20px;
 `;
 
 const BodyText = styled.p`
-  font-size:18px;
-  max-width:1000px;
-`
+	font-size: 18px;
+	max-width: 1000px;
+`;
 const ButtonCont = styled.div`
-  display: flex;
-  justify-content: center;
-  padding: 20px;
+	display: flex;
+	justify-content: center;
+	padding: 20px;
 `;
 
 const FeaturesCont = styled.div`
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-wrap:wrap;
-`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+`;
 
 const MultiColumn = styled.div`
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  @media (max-width:1000px) {
-    margin: 0;
-  }
-  margin: 0 5%;
-  & ${BodyText} {
-    max-width:500px;
-  }
-`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	@media (max-width: 1000px) {
+		margin: 0;
+	}
+	margin: 0 5%;
+	& ${BodyText} {
+		max-width: 500px;
+	}
+`;
 
 const LoadDiv = styled.div`
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
-`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+`;
 
 export default function Home() {
-  const [user, setUser] = useState(null);
+	const [user, setUser] = useState(null);
 
-  // axios
-  //   .get(
-  //     "https://binibin-server.herokuapp.com/auth/checkauth",
-  //     // "http://localhost:8080/auth/checkauth",
-  //     { withCredentials: true }
-  //   )
-  //   .then((res) => {
-  //     console.log(res.data);
-  //     setUser(res.data.username);
-  //   })
-  //   .catch((err) => {
-  //     console.log(err);
-  //   });
+	// axios
+	//   .get(
+	//     "https://binibin-server.herokuapp.com/auth/checkauth",
+	//     // "https://binibin-server.herokuapp.com/auth/checkauth",
+	//     { withCredentials: true }
+	//   )
+	//   .then((res) => {
+	//     console.log(res.data);
+	//     setUser(res.data.username);
+	//   })
+	//   .catch((err) => {
+	//     console.log(err);
+	//   });
 
-  //-------Loading screen-----------
-  const [loading, setLoading] = useState(false);
+	//-------Loading screen-----------
+	const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    setLoading(true)
-    setTimeout(() => {
-      setLoading(false)
-    }, 300)
-  }, [])
+	useEffect(() => {
+		setLoading(true);
+		setTimeout(() => {
+			setLoading(false);
+		}, 300);
+	}, []);
 
-  return (
-    //<div className={styles.container}>
-    
-    loading ? 
-    <LoadDiv>
-      <PulseLoader 
-      color={'#003274'} 
-      loading={loading} 
-      size={20}
-      />
-      </LoadDiv>
-      : 
-    
-    <PageCont
-    // initial={{opacity:0}}
-    // animate={{opacity:100, transition:{duration:1, delay:1}}}
-    >
+	return (
+		//<div className={styles.container}>
 
-      <motion.div
-      as={motion.div}  
-      initial={{opacity:0}} 
-      animate={{opacity:100, transition:{ease:"easeIn", duration:1, delay:0}}}
-      >
-      <HeroComp></HeroComp>
-      </motion.div>
+		loading ? (
+			<LoadDiv>
+				<PulseLoader color={'#003274'} loading={loading} size={20} />
+			</LoadDiv>
+		) : (
+			<PageCont
+			// initial={{opacity:0}}
+			// animate={{opacity:100, transition:{duration:1, delay:1}}}
+			>
+				<motion.div
+					as={motion.div}
+					initial={{ opacity: 0 }}
+					animate={{
+						opacity: 100,
+						transition: { ease: 'easeIn', duration: 1, delay: 0 },
+					}}
+				>
+					<HeroComp></HeroComp>
+				</motion.div>
 
-    <MultiColumn>
-      <ParagraphSec 
-      as={motion.div}  
-      initial={{opacity:0}} 
-      animate={{opacity:100, transition:{ease:"easeIn", duration:1, delay:0.5}}}
-      >
-        <Subhead text="About BiniBin"></Subhead>
-        <BodyText>BiniBin provides a simple way for grade schools to track their garbage, compost, and recycling with a quick input system and dynamically generated graphs. </BodyText>
-      </ParagraphSec>
+				<MultiColumn>
+					<ParagraphSec
+						as={motion.div}
+						initial={{ opacity: 0 }}
+						animate={{
+							opacity: 100,
+							transition: { ease: 'easeIn', duration: 1, delay: 0.5 },
+						}}
+					>
+						<Subhead text='About BiniBin'></Subhead>
+						<BodyText>
+							BiniBin provides a simple way for grade schools to track their garbage,
+							compost, and recycling with a quick input system and dynamically
+							generated graphs.{' '}
+						</BodyText>
+					</ParagraphSec>
 
-      <ParagraphSec
-      as={motion.div}  
-      initial={{opacity:0}} 
-      animate={{opacity:100, transition:{ease:"easeIn", duration:1, delay:0.5}}}
-      >
-        <Subhead text="Benefits"></Subhead>
-        <BodyText>Educate students and staff about recycling, see measurable statistics to track waste management, and earn revenue from transfer stations. </BodyText>
-      </ParagraphSec>
-    </MultiColumn>
+					<ParagraphSec
+						as={motion.div}
+						initial={{ opacity: 0 }}
+						animate={{
+							opacity: 100,
+							transition: { ease: 'easeIn', duration: 1, delay: 0.5 },
+						}}
+					>
+						<Subhead text='Benefits'></Subhead>
+						<BodyText>
+							Educate students and staff about recycling, see measurable statistics to
+							track waste management, and earn revenue from transfer stations.{' '}
+						</BodyText>
+					</ParagraphSec>
+				</MultiColumn>
 
-    <MultiColumn>
-      <ParagraphSec
-      as={motion.div}  
-      initial={{opacity:0}} 
-      animate={{opacity:100, transition:{ease:"easeIn", duration:1, delay:0.5}}}
-      >
-        <Subhead text="Our Goal"></Subhead>
-        <BodyText>Our goal is to foster a generation that keeps the planet’s environment at the forefront of their minds by habit.</BodyText>
-      </ParagraphSec>
+				<MultiColumn>
+					<ParagraphSec
+						as={motion.div}
+						initial={{ opacity: 0 }}
+						animate={{
+							opacity: 100,
+							transition: { ease: 'easeIn', duration: 1, delay: 0.5 },
+						}}
+					>
+						<Subhead text='Our Goal'></Subhead>
+						<BodyText>
+							Our goal is to foster a generation that keeps the planet’s environment
+							at the forefront of their minds by habit.
+						</BodyText>
+					</ParagraphSec>
 
-      <ParagraphSec
-      as={motion.div}  
-      initial={{opacity:0}} 
-      animate={{opacity:100, transition:{ease:"easeIn", duration:1, delay:0.5}}}
-      >
-        <Subhead text="Our Mission"></Subhead>
-        <BodyText>Our mission is to lessen the harmful impacts to the waste system by teaching and encouraging students how to appropriately dispose wastes.</BodyText>
-      </ParagraphSec>
-    </MultiColumn>
+					<ParagraphSec
+						as={motion.div}
+						initial={{ opacity: 0 }}
+						animate={{
+							opacity: 100,
+							transition: { ease: 'easeIn', duration: 1, delay: 0.5 },
+						}}
+					>
+						<Subhead text='Our Mission'></Subhead>
+						<BodyText>
+							Our mission is to lessen the harmful impacts to the waste system by
+							teaching and encouraging students how to appropriately dispose wastes.
+						</BodyText>
+					</ParagraphSec>
+				</MultiColumn>
 
-    <HeaderCont 
-    as={motion.div}
-    initial={{ opacity: 0}}
-    whileInView={{ opacity: 1, scale:1.1 }}
-    viewport={{ once: true }}
-    
-    >
-      <HeaderText text="Features"></HeaderText>
-    </HeaderCont>
+				<HeaderCont
+					as={motion.div}
+					initial={{ opacity: 0 }}
+					whileInView={{ opacity: 1, scale: 1.1 }}
+					viewport={{ once: true }}
+				>
+					<HeaderText text='Features'></HeaderText>
+				</HeaderCont>
 
-    <FeaturesCont>
-      <motion.div whileHover={{scale:1.1 }}>
-        <FeaturesCard src="/input.png" alt="input" h="Input" p="Use a simple visual tool to input how much compost, recycling, and garbage is produced at school."></FeaturesCard>
-      </motion.div>
+				<FeaturesCont>
+					<motion.div whileHover={{ scale: 1.1 }}>
+						<FeaturesCard
+							src='/input.png'
+							alt='input'
+							h='Input'
+							p='Use a simple visual tool to input how much compost, recycling, and garbage is produced at school.'
+						></FeaturesCard>
+					</motion.div>
 
-      <motion.div whileHover={{scale:1.1 }}>
-        <FeaturesCard src="/bar-graph.png" alt="graph" h="Track" p="View a list of your inputted entries to track the breakdown of wastes produced at school."></FeaturesCard>
-       </motion.div>
-       
-       <motion.div whileHover={{scale:1.1 }}>
-        <FeaturesCard src="/reducing.png" alt="reduce" h="Reduce" p="Read dynamically-generated graphs of each type of waste and make a plan to reduce your garbage."></FeaturesCard>
-        </motion.div>
-      </FeaturesCont>
+					<motion.div whileHover={{ scale: 1.1 }}>
+						<FeaturesCard
+							src='/bar-graph.png'
+							alt='graph'
+							h='Track'
+							p='View a list of your inputted entries to track the breakdown of wastes produced at school.'
+						></FeaturesCard>
+					</motion.div>
 
+					<motion.div whileHover={{ scale: 1.1 }}>
+						<FeaturesCard
+							src='/reducing.png'
+							alt='reduce'
+							h='Reduce'
+							p='Read dynamically-generated graphs of each type of waste and make a plan to reduce your garbage.'
+						></FeaturesCard>
+					</motion.div>
+				</FeaturesCont>
 
-    <ParagraphSec
-    as={motion.div}  
-    initial={{opacity:0}} 
-    animate={{opacity:100, transition:{ease:"easeIn", duration:1, delay:0.5}}}
-    >
-      <Subhead text="Recycling Problems"></Subhead>
-      <BodyText>People are sorting their wastes incorrectly because they are unsure about what is recyclable/compostable. Consequently, things that could be recycled/composted end up in the landfill. Worse yet, things that could not be recycled/composted but are thrown into the recycling or compost bin will contaminate the entire waste collection truck. When the threshold (of about 10%) is exceeded, everything gets sent to the landfill. </BodyText>
-    </ParagraphSec>
+				<ParagraphSec
+					as={motion.div}
+					initial={{ opacity: 0 }}
+					animate={{
+						opacity: 100,
+						transition: { ease: 'easeIn', duration: 1, delay: 0.5 },
+					}}
+				>
+					<Subhead text='Recycling Problems'></Subhead>
+					<BodyText>
+						People are sorting their wastes incorrectly because they are unsure about
+						what is recyclable/compostable. Consequently, things that could be
+						recycled/composted end up in the landfill. Worse yet, things that could not
+						be recycled/composted but are thrown into the recycling or compost bin will
+						contaminate the entire waste collection truck. When the threshold (of about
+						10%) is exceeded, everything gets sent to the landfill.{' '}
+					</BodyText>
+				</ParagraphSec>
 
-    <ParagraphSec
-    as={motion.div}  
-    initial={{opacity:0}} 
-    animate={{opacity:100, transition:{ease:"easeIn", duration:1, delay:0.5}}}
-    >
-      <Subhead text="You can make a difference"></Subhead>
-      <BodyText>We encourage schools to help students develop an awareness of waste management, recycling, reduction by providing a visual tool to track the quantity and the breakdown of the waste produced by their schools.</BodyText>
-    </ParagraphSec>
+				<ParagraphSec
+					as={motion.div}
+					initial={{ opacity: 0 }}
+					animate={{
+						opacity: 100,
+						transition: { ease: 'easeIn', duration: 1, delay: 0.5 },
+					}}
+				>
+					<Subhead text='You can make a difference'></Subhead>
+					<BodyText>
+						We encourage schools to help students develop an awareness of waste
+						management, recycling, reduction by providing a visual tool to track the
+						quantity and the breakdown of the waste produced by their schools.
+					</BodyText>
+				</ParagraphSec>
 
-    <ButtonCont>
-      <MyButton routeTo="education" width="260px" height="65px" bgcolor="#FFC800" hoverbg="#E5A500" textcolor="#000" text="Learn how to sort"></MyButton>
-      <MyButton width="180px" height="65px" bgcolor="#FFC800" hoverbg="#E5A500" textcolor="#000" text="Register" routeTo="signup"></MyButton>
-    </ButtonCont>
+				<ButtonCont>
+					<MyButton
+						routeTo='education'
+						width='260px'
+						height='65px'
+						bgcolor='#FFC800'
+						hoverbg='#E5A500'
+						textcolor='#000'
+						text='Learn how to sort'
+					></MyButton>
+					<MyButton
+						width='180px'
+						height='65px'
+						bgcolor='#FFC800'
+						hoverbg='#E5A500'
+						textcolor='#000'
+						text='Register'
+						routeTo='signup'
+					></MyButton>
+				</ButtonCont>
 
+				<FooterCont>
+					<FooterComp></FooterComp>
+				</FooterCont>
+			</PageCont>
+		)
 
-    <FooterCont>
-      <FooterComp></FooterComp>
-    </FooterCont>
+		//</div>
+	);
 
+	// if (user) {
+	//   return (
+	//     //<div className={styles.container}>
+	//     <PageCont>
+	//       <TopRow>
+	//         <UserNav displayName={user}></UserNav>
+	//       </TopRow>
 
-      </PageCont>
+	//       <HeroComp></HeroComp>
 
-    //</div>
-  );
-  
-  // if (user) {
-  //   return (
-  //     //<div className={styles.container}>
-  //     <PageCont>
-  //       <TopRow>
-  //         <UserNav displayName={user}></UserNav>
-  //       </TopRow>
+	//       <HeaderCont>
+	//         <HeaderText>Our Mission</HeaderText>
+	//       </HeaderCont>
 
-  //       <HeroComp></HeroComp>
+	//       <MissionRow>
+	//         <MissionCont>
+	//           <EduImage src="image 46.png"></EduImage>
+	//           <Subhead text="Educate"></Subhead>
+	//           <BodyText>
+	//             Learn where your garbage should be going to lessen harmful impacts
+	//             to the waste system.
+	//           </BodyText>
+	//         </MissionCont>
 
-  //       <HeaderCont>
-  //         <HeaderText>Our Mission</HeaderText>
-  //       </HeaderCont>
+	//         <MissionCont>
+	//           <EduImage src="bar-graph.png"></EduImage>
+	//           <Subhead text="Track"></Subhead>
+	//           <BodyText>
+	//             Learn where your garbage should be going to lessen harmful impacts
+	//             to the waste system.
+	//           </BodyText>
+	//         </MissionCont>
 
-  //       <MissionRow>
-  //         <MissionCont>
-  //           <EduImage src="image 46.png"></EduImage>
-  //           <Subhead text="Educate"></Subhead>
-  //           <BodyText>
-  //             Learn where your garbage should be going to lessen harmful impacts
-  //             to the waste system.
-  //           </BodyText>
-  //         </MissionCont>
+	//         <MissionCont>
+	//           <EduImage src="reducing.png"></EduImage>
+	//           <Subhead text="Reduce"></Subhead>
+	//           <BodyText>
+	//             Learn where your garbage should be going to lessen harmful impacts
+	//             to the waste system.
+	//           </BodyText>
+	//         </MissionCont>
+	//       </MissionRow>
 
-  //         <MissionCont>
-  //           <EduImage src="bar-graph.png"></EduImage>
-  //           <Subhead text="Track"></Subhead>
-  //           <BodyText>
-  //             Learn where your garbage should be going to lessen harmful impacts
-  //             to the waste system.
-  //           </BodyText>
-  //         </MissionCont>
+	//       <HeaderCont>
+	//         <HeaderText text="Features"></HeaderText>
+	//       </HeaderCont>
 
-  //         <MissionCont>
-  //           <EduImage src="reducing.png"></EduImage>
-  //           <Subhead text="Reduce"></Subhead>
-  //           <BodyText>
-  //             Learn where your garbage should be going to lessen harmful impacts
-  //             to the waste system.
-  //           </BodyText>
-  //         </MissionCont>
-  //       </MissionRow>
+	//       <FeaturesCont>
+	//         <FeaturesCard></FeaturesCard>
+	//         <FeaturesCard
+	//           src="/icon_throw_away.png"
+	//           alt="throw away"
+	//           h="Track"
+	//           p="A visual tool to track the quantity and the breakdown of the waste produced the school"
+	//         ></FeaturesCard>
+	//         <FeaturesCard
+	//           src="/icon_combo_chart.png"
+	//           alt="chart"
+	//           h="Reduce"
+	//           p="Increase awareness of the environment to encourage the appropriate disposal of waste"
+	//         ></FeaturesCard>
+	//       </FeaturesCont>
 
-  //       <HeaderCont>
-  //         <HeaderText text="Features"></HeaderText>
-  //       </HeaderCont>
+	//       <ParagraphSec>
+	//         <Subhead text="Recycling Problems"></Subhead>
+	//         <BodyText>
+	//           Many people don’t know what to recycle or people are throwing away
+	//           things that are recyclable. People are not aware of how much garbage
+	//           they are sending to the landfill when portions of it may be
+	//           compostable or recyclable.
+	//         </BodyText>
+	//       </ParagraphSec>
 
-  //       <FeaturesCont>
-  //         <FeaturesCard></FeaturesCard>
-  //         <FeaturesCard
-  //           src="/icon_throw_away.png"
-  //           alt="throw away"
-  //           h="Track"
-  //           p="A visual tool to track the quantity and the breakdown of the waste produced the school"
-  //         ></FeaturesCard>
-  //         <FeaturesCard
-  //           src="/icon_combo_chart.png"
-  //           alt="chart"
-  //           h="Reduce"
-  //           p="Increase awareness of the environment to encourage the appropriate disposal of waste"
-  //         ></FeaturesCard>
-  //       </FeaturesCont>
+	//       <ParagraphSec>
+	//         <Subhead text="You can make a difference"></Subhead>
+	//         <BodyText>
+	//           We encourage schools to promote waste reduction awareness to their
+	//           students by providing a visual tool to track the quantity and the
+	//           breakdown of the waste produced by their schools.
+	//         </BodyText>
+	//       </ParagraphSec>
 
-  //       <ParagraphSec>
-  //         <Subhead text="Recycling Problems"></Subhead>
-  //         <BodyText>
-  //           Many people don’t know what to recycle or people are throwing away
-  //           things that are recyclable. People are not aware of how much garbage
-  //           they are sending to the landfill when portions of it may be
-  //           compostable or recyclable.
-  //         </BodyText>
-  //       </ParagraphSec>
+	//       <ButtonCont>
+	//         <MyButton
+	//           routeTo="education"
+	//           width="200px"
+	//           height="65px"
+	//           bgcolor="#FFC800"
+	//           text="Learn More"
+	//         ></MyButton>
+	//       </ButtonCont>
 
-  //       <ParagraphSec>
-  //         <Subhead text="You can make a difference"></Subhead>
-  //         <BodyText>
-  //           We encourage schools to promote waste reduction awareness to their
-  //           students by providing a visual tool to track the quantity and the
-  //           breakdown of the waste produced by their schools.
-  //         </BodyText>
-  //       </ParagraphSec>
+	//       <FooterCont>
+	//         <FooterComp></FooterComp>
+	//       </FooterCont>
+	//     </PageCont>
 
-  //       <ButtonCont>
-  //         <MyButton
-  //           routeTo="education"
-  //           width="200px"
-  //           height="65px"
-  //           bgcolor="#FFC800"
-  //           text="Learn More"
-  //         ></MyButton>
-  //       </ButtonCont>
+	//     //</div>
+	//   );
+	// } else {
+	//   return (
+	//     //<div className={styles.container}>
+	//     <PageCont>
+	//       <TopRow>
+	//         <GuestNavBar></GuestNavBar>
+	//       </TopRow>
 
-  //       <FooterCont>
-  //         <FooterComp></FooterComp>
-  //       </FooterCont>
-  //     </PageCont>
+	//       <HeroComp></HeroComp>
 
-  //     //</div>
-  //   );
-  // } else {
-  //   return (
-  //     //<div className={styles.container}>
-  //     <PageCont>
-  //       <TopRow>
-  //         <GuestNavBar></GuestNavBar>
-  //       </TopRow>
+	//       <HeaderCont>
+	//         <HeaderText>Our Mission</HeaderText>
+	//       </HeaderCont>
 
-  //       <HeroComp></HeroComp>
+	//       <MissionRow>
+	//         <MissionCont>
+	//           <EduImage src="image 46.png"></EduImage>
+	//           <Subhead text="Educate"></Subhead>
+	//           <BodyText>
+	//             Learn where your garbage should be going to lessen harmful impacts
+	//             to the waste system.
+	//           </BodyText>
+	//         </MissionCont>
 
-  //       <HeaderCont>
-  //         <HeaderText>Our Mission</HeaderText>
-  //       </HeaderCont>
+	//         <MissionCont>
+	//           <EduImage src="bar-graph.png"></EduImage>
+	//           <Subhead text="Track"></Subhead>
+	//           <BodyText>
+	//             Learn where your garbage should be going to lessen harmful impacts
+	//             to the waste system.
+	//           </BodyText>
+	//         </MissionCont>
 
-  //       <MissionRow>
-  //         <MissionCont>
-  //           <EduImage src="image 46.png"></EduImage>
-  //           <Subhead text="Educate"></Subhead>
-  //           <BodyText>
-  //             Learn where your garbage should be going to lessen harmful impacts
-  //             to the waste system.
-  //           </BodyText>
-  //         </MissionCont>
+	//         <MissionCont>
+	//           <EduImage src="reducing.png"></EduImage>
+	//           <Subhead text="Reduce"></Subhead>
+	//           <BodyText>
+	//             Learn where your garbage should be going to lessen harmful impacts
+	//             to the waste system.
+	//           </BodyText>
+	//         </MissionCont>
+	//       </MissionRow>
 
-  //         <MissionCont>
-  //           <EduImage src="bar-graph.png"></EduImage>
-  //           <Subhead text="Track"></Subhead>
-  //           <BodyText>
-  //             Learn where your garbage should be going to lessen harmful impacts
-  //             to the waste system.
-  //           </BodyText>
-  //         </MissionCont>
+	//       <HeaderCont>
+	//         <HeaderText text="Features"></HeaderText>
+	//       </HeaderCont>
 
-  //         <MissionCont>
-  //           <EduImage src="reducing.png"></EduImage>
-  //           <Subhead text="Reduce"></Subhead>
-  //           <BodyText>
-  //             Learn where your garbage should be going to lessen harmful impacts
-  //             to the waste system.
-  //           </BodyText>
-  //         </MissionCont>
-  //       </MissionRow>
+	//       <FeaturesCont>
+	//         <FeaturesCard></FeaturesCard>
+	//         <FeaturesCard
+	//           src="/icon_throw_away.png"
+	//           alt="throw away"
+	//           h="Track"
+	//           p="A visual tool to track the quantity and the breakdown of the waste produced the school"
+	//         ></FeaturesCard>
+	//         <FeaturesCard
+	//           src="/icon_combo_chart.png"
+	//           alt="chart"
+	//           h="Reduce"
+	//           p="Increase awareness of the environment to encourage the appropriate disposal of waste"
+	//         ></FeaturesCard>
+	//       </FeaturesCont>
 
-  //       <HeaderCont>
-  //         <HeaderText text="Features"></HeaderText>
-  //       </HeaderCont>
+	//       <ParagraphSec>
+	//         <Subhead text="Recycling Problems"></Subhead>
+	//         <BodyText>
+	//           Many people don’t know what to recycle or people are throwing away
+	//           things that are recyclable. People are not aware of how much garbage
+	//           they are sending to the landfill when portions of it may be
+	//           compostable or recyclable.
+	//         </BodyText>
+	//       </ParagraphSec>
 
-  //       <FeaturesCont>
-  //         <FeaturesCard></FeaturesCard>
-  //         <FeaturesCard
-  //           src="/icon_throw_away.png"
-  //           alt="throw away"
-  //           h="Track"
-  //           p="A visual tool to track the quantity and the breakdown of the waste produced the school"
-  //         ></FeaturesCard>
-  //         <FeaturesCard
-  //           src="/icon_combo_chart.png"
-  //           alt="chart"
-  //           h="Reduce"
-  //           p="Increase awareness of the environment to encourage the appropriate disposal of waste"
-  //         ></FeaturesCard>
-  //       </FeaturesCont>
+	//       <ParagraphSec>
+	//         <Subhead text="You can make a difference"></Subhead>
+	//         <BodyText>
+	//           We encourage schools to promote waste reduction awareness to their
+	//           students by providing a visual tool to track the quantity and the
+	//           breakdown of the waste produced by their schools.
+	//         </BodyText>
+	//       </ParagraphSec>
 
-  //       <ParagraphSec>
-  //         <Subhead text="Recycling Problems"></Subhead>
-  //         <BodyText>
-  //           Many people don’t know what to recycle or people are throwing away
-  //           things that are recyclable. People are not aware of how much garbage
-  //           they are sending to the landfill when portions of it may be
-  //           compostable or recyclable.
-  //         </BodyText>
-  //       </ParagraphSec>
+	//       <ButtonCont>
+	//         <MyButton
+	//           routeTo="education"
+	//           width="200px"
+	//           height="65px"
+	//           bgcolor="#FFC800"
+	//           text="Learn More"
+	//         ></MyButton>
+	//       </ButtonCont>
 
-  //       <ParagraphSec>
-  //         <Subhead text="You can make a difference"></Subhead>
-  //         <BodyText>
-  //           We encourage schools to promote waste reduction awareness to their
-  //           students by providing a visual tool to track the quantity and the
-  //           breakdown of the waste produced by their schools.
-  //         </BodyText>
-  //       </ParagraphSec>
+	//       <FooterCont>
+	//         <FooterComp></FooterComp>
+	//       </FooterCont>
+	//     </PageCont>
 
-  //       <ButtonCont>
-  //         <MyButton
-  //           routeTo="education"
-  //           width="200px"
-  //           height="65px"
-  //           bgcolor="#FFC800"
-  //           text="Learn More"
-  //         ></MyButton>
-  //       </ButtonCont>
-
-  //       <FooterCont>
-  //         <FooterComp></FooterComp>
-  //       </FooterCont>
-  //     </PageCont>
-
-  //     //</div>
-  //   );
-  // }
+	//     //</div>
+	//   );
+	// }
 }

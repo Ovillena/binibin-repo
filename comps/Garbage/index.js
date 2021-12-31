@@ -2,9 +2,9 @@ import styled from 'styled-components';
 import React from 'react';
 import axios from 'axios';
 import Image from 'next/image';
-import {Button} from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
 import EduImage from '../EduImage';
-import {useState} from 'react';
+import { useState } from 'react';
 // import Modal from '../../pages/api/modal';
 
 //inputs
@@ -130,18 +130,21 @@ const Ml = styled.h3`
 	color: black;
 `;
 
-const myLoader = ({src}) => {
+const myLoader = ({ src }) => {
 	return `${src}`;
 };
 
-const Garbages = (props,{
-	width = '158px',
-	height = '56px',
-	bgcolor = '#95AFBA',
-	text = 'Add Entry',
-	textcolor = 'white',
-	src = 'garbagebag.png',
-}) => {
+const Garbages = (
+	props,
+	{
+		width = '158px',
+		height = '56px',
+		bgcolor = '#95AFBA',
+		text = 'Add Entry',
+		textcolor = 'white',
+		src = 'garbagebag.png',
+	}
+) => {
 	const [isOpen, setIsOpen] = useState(false);
 
 	const [count, setCount] = React.useState(0);
@@ -162,7 +165,7 @@ const Garbages = (props,{
 
 	const requestOptions = {
 		method: 'POST',
-		headers: {'Content-Type': 'application/json'},
+		headers: { 'Content-Type': 'application/json' },
 		body: JSON.stringify(postData),
 	};
 
@@ -186,15 +189,15 @@ const Garbages = (props,{
 			<Container>
 				<Inputs>
 					<Items>
-						<EduImage src="garbagebag.png"></EduImage>
+						<EduImage src='garbagebag.png'></EduImage>
 					</Items>
 
 					<Div>
-            <Headers>{props.label}</Headers>
+						<Headers>{props.label}</Headers>
 						<Ml>Number of bags</Ml>
 						<Entrydiv>
 							<Button onClick={dec}>-</Button>
-							<input type="number" value={count}></input>
+							<input type='number' value={count}></input>
 							<Button onClick={inc}>+</Button>
 						</Entrydiv>
 
@@ -213,7 +216,6 @@ const Garbages = (props,{
 						</ClickButton>
 					</Div>
 				</Inputs>
-
 			</Container>
 		</Inside>
 	);
