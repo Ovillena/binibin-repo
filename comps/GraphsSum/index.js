@@ -65,7 +65,7 @@ const GraphsSum = (props) => {
 	// const [isLoading, setLoading] = useState(true);
 	const [graphDate, setGraphDate] = useState(false);
 
-	//Variables outside useeffect
+
 	let itemCG = [];
 	let itemCR = [];
 	let itemCC = [];
@@ -220,10 +220,10 @@ const GraphsSum = (props) => {
 						// console.log(itemCC, itemDR);
 					}
 
-					//Converts the x-axis dates into miliseconds
-					const convertedDates = itemDC.map(date => new Date(date).setHours(0,0,0,0));
-					convResult = convertedDates
-					console.log(convResult)
+					// //Converts the x-axis dates into miliseconds
+					// const convertedDates = itemDC.map(date => new Date(date).setHours(0,0,0,0));
+					// convResult = convertedDates
+					// console.log(convResult)
 
 					// //Converts the x-axis dates into miliseconds
 					// const convertedDates = itemDC.map(date => new Date(date).setHours(0,0,0,0));
@@ -270,6 +270,10 @@ const GraphsSum = (props) => {
 							},
 						],
 					});
+					//Converts the x-axis dates into miliseconds
+					const convertedDates = itemDG.map(date => new Date(date).setHours(0,0,0,0));
+					convResult = convertedDates
+					console.log(convResult)
 				})
 				.catch((err) => {
 					console.log(err);
@@ -295,25 +299,6 @@ const GraphsSum = (props) => {
 		// console.log(filterDates)
 		console.log(convResult)
 	}
-
-	// const filterDate = async () => {
-	// 	//Converts the x-axis dates into miliseconds
-	// 	const convertedDates = itemDC.map(date => new Date(date).setHours(0,0,0,0));
-	// 	console.log(convertedDates)
-
-	// 	//Convert start date to miliseconds
-	// 	const start1 = new Date(document.getElementById('startDate').value);
-	// 	const start = start1.setHours(0,0,0,0); 
-	// 	console.log(start)
-		
-	// 	//Convert end date to miliseconds
-	// 	const end1 = new Date(document.getElementById('endDate').value);
-	// 	const end = end1.setHours(0,0,0,0); 
-	// 	console.log(end)
-
-	// 	const filterDates = convertedDates.filter(date => date >= start && date <= end)
-	// 	console.log(filterDates)
-	// }
  
 	useEffect(() => {
 		// //Convert start date to miliseconds
@@ -401,9 +386,8 @@ const GraphsSum = (props) => {
 				<input type="date" id="startDate"></input>
 				<input type="date" id="endDate"></input>
 				{/* <ButtonDiv onClick={() => setGraphDate(true)}>Filter</ButtonDiv> */}
-				<ButtonDiv onClick={() => setGraphDate(true)}>Filter</ButtonDiv>
+				<ButtonDiv onClick={filterDate}>Filter</ButtonDiv>
 				<ButtonDiv onClick={resetDate}>Reset</ButtonDiv>
-				<button onClick={filterDate}>test</button>
 			</>
 		);
 	}
