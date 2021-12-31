@@ -53,7 +53,7 @@ const AddEntry = ({
         <BoldText text={item_name}/>
       </Description>
 
-      <Select placeholder='0' type = 'text' id = 'weight' name = 'inputweight' list = 'inputweight' 
+      <Select placeholder='0' type = 'number' id = 'weight' name = 'inputweight' list = 'inputweight' 
         onChange = {(event) => localStorage.setItem(`${waste_type}Count`, event.target.value)}
         />
         <datalist id='inputweight'>
