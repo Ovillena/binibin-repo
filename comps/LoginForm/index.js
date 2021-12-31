@@ -12,7 +12,7 @@ const LoginForm = () => {
 		e.preventDefault();
 		console.log(e.target.username.value);
 		const result = await fetch(
-			// 'http://localhost:8080/auth/login',
+			// 'https://binibin-server.herokuapp.com/auth/login',
 			'https://binibin-server.herokuapp.com/auth/login',
 			{
 				credentials: 'include',
@@ -29,10 +29,10 @@ const LoginForm = () => {
 					return response.json();
 				}
 			})
-			.then((response) => {
-				console.log('---------RESponse obj----------------------');
-				console.log(JSON.stringify(response));
-				signIn(response);
+			.then((token) => {
+				console.log('---------token obj----------------------');
+				console.log(token);
+				signIn(token);
 				// alert(JSON.stringify(user));
 			})
 			.then(() => router.push('/dashboard'));
