@@ -135,10 +135,11 @@ export default function Input() {
 				<Header text='Record New Entries'/>
 			</FlexCont>
       <FlexCont>
-        <AllEntries/>
+        {/* The date and account inputs: */}
+        {/* <AllEntries/> */}
       </FlexCont>
       <FlexCont>
-        <AddEntry 
+        {/* <AddEntry 
           item_name = 'Garbage'
           color = '#E9E9E9'
         />
@@ -152,6 +153,18 @@ export default function Input() {
           item_name = 'Recycling'
           img_src='/newspaper.png'
           alt = 'newspaper'
+          color = '#DFEAEF'
+        /> */}
+        <AddEntry 
+          item_name = 'Item 1'
+          color = '#E9E9E9'
+        />
+        <AddEntry 
+          item_name = 'Item 2'
+          color = '#E2EED7'
+        />
+        <AddEntry 
+          item_name = 'Item 3'
           color = '#DFEAEF'
         />
       </FlexCont>
