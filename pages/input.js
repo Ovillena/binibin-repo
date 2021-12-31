@@ -3,36 +3,42 @@ import React, {useState, useEffect} from 'react';
 
 import Header from '@/comps/HeaderText';
 import FooterComp from '@/comps/footer';
+import AllEntries from '@/comps/Input/allentries';
 import AddEntry from '@/comps/Input/addentry';
 import SaveEntry from '@/comps/Input/saveentry';
+import Modal from '@/comps/Modal';
 
 import { motion } from "framer-motion";
 import PulseLoader from "react-spinners/PulseLoader";
+import BoldText from '@/comps/BoldText';
 
 const PageCont = styled(motion.div)`
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
 `;
 
 const FooterCont = styled.div`
-  display:flex;
-  flex:1;
-  align-items:flex-end;
-  width:100vw;
+  display: flex;
+  flex: 1;
+  align-items: flex-end;
+  width: 100vw;
 `;
 
 const FlexCont = styled.div`
-  display:flex;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
 `;
 
 const LoadDiv = styled.div`
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 `
 
 const resetStore = () => {
@@ -42,26 +48,29 @@ const resetStore = () => {
 };
 
 export default function Input() {
-
-    // loading screen
-    const [loading, setLoading] = useState(false);
-
-    useEffect(() => {
-      setLoading(true)
-      setTimeout(() => {
-        setLoading(false)
-      }, 300)
-    }, [])
-
+  
+  // loading screen
+  const [loading, setLoading] = useState(false);
+  
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+    }, 300)
+  }, [])
+  
+  // on submit stuff
+  let formData = {};
+  
 	useEffect(() => {
-		// creating default state for localStorage
+    // creating default state for localStorage
 		resetStore();
 	}, []);
-
-		// modal function
+  
+  // modal function
 	const [isOpen, setIsOpen] = useState(false);
-	
-    // submit function
+
+  // submit function
   const onSubmit = async (e) => {
     e.preventDefault();
     // logging all items in localStorage
@@ -74,29 +83,36 @@ export default function Input() {
       }
     }
     console.log("END OF data to be submitted")
-    //
-		// const requestOptions = {
-		// 	method: 'POST',
-		// 	headers: {
-		// 		'Content-Type': 'application/json',
-		// 		'Access-Control-Allow-Origin': 'https://binibinapp.vercel.app/',
-		// 	},
-		// 	body: JSON.stringify(formData),
-		// };
-		// // await fetch('http://localhost:8080/api/entries/add', requestOptions)
-		// await fetch('https://binibin-server.herokuapp.com/api/entries/add', requestOptions)
-		// 	.then((response) => {
-		// 		if (response.ok) {
-		// 			console.log(response);
-		// 			resetStore();
-		// 			setIsOpen(true);
-		// 		} else {
-		// 			throw new Error('Unable to perform POST request');
-		// 		}
-		// 	})
-		// 	.catch((err) => {
-		// 		console.log(err);
-		// 	});
+    formData = {
+      date: localStorage.date,
+      subacct: localStorage.subacct,
+      garbage_count: parseInt(localStorage.garbageCount),
+      compost_count: parseInt(localStorage.compostCount),
+      recycling_count: parseInt(localStorage.recyclingCount),
+    }
+    
+		const requestOptions = {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				'Access-Control-Allow-Origin': 'https://binibinapp.vercel.app/',
+			},
+			body: JSON.stringify(formData),
+		};
+		// await fetch('http://localhost:8080/api/entries/add', requestOptions)
+		await fetch('https://binibin-server.herokuapp.com/api/entries/add', requestOptions)
+			.then((response) => {
+				if (response.ok) {
+					console.log(response);
+					resetStore();
+					setIsOpen(true);
+				} else {
+					throw new Error('Unable to perform POST request');
+				}
+			})
+			.catch((err) => {
+				console.log(err);
+			});
 	};
 
   return(
@@ -119,7 +135,7 @@ export default function Input() {
 				<Header text='Record New Entries'/>
 			</FlexCont>
       <FlexCont>
-
+        <AllEntries/>
       </FlexCont>
       <FlexCont>
         <AddEntry 
@@ -140,6 +156,9 @@ export default function Input() {
         />
       </FlexCont>
       <FlexCont>
+        <Modal open={isOpen} onClose={() => setIsOpen(false)}>
+          <BoldText text='Success! Your entries have been submitted.' />
+        </Modal>
         <SaveEntry 
           onSubmitInteract = { (e) => {onSubmit(e)} }
         />

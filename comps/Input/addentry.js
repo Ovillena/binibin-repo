@@ -1,17 +1,15 @@
 import styled from 'styled-components';
 import BoldText from '../BoldText';
 import Image from 'next/image';
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 
-//change date, new waste type, new weight unit
 const ItemCont = styled.form`
 	display: flex;
-	flex-direction: column;
 	margin: 10px;
 	padding: 20px;
 	border-radius: 10px;
-	background-color: ${props => props.colors};
-	align-items: center;
+	background-color: ${props => props.bgcolor};
+	align-items: baseline;
 `;
 
 const Description = styled.label`
@@ -23,28 +21,10 @@ const Description = styled.label`
 
 const Select = styled.input`
 	display: flex;
-	max-width: 180px;
-	border-radius: 10px;
+	max-width: 90px;
+	border-radius: 5px;
   border: solid 1px;
-  padding: 20px;
-`;
-
-const TextBox = styled.textarea`
-	min-height: 60px;
-	border-radius: 10px;
-	padding: 10px;
-`;
-
-const Submit = styled.button`
-	margin: 10px;
-	padding: 10px;
-	background-color: #FFC800;
-	border: none;
-  border-radius: 10px;
-  font-weight: 600;
-	&:hover {
-		background-color: #E5A500;
-	}
+  padding: 5px;
 `;
 
 const myLoader = ({ src, width }) => {
@@ -59,37 +39,22 @@ const AddEntry = ({
 	img_src = 'garbagebag.png',
 	alt = 'garbage bag',
 	color = 'black',
-	// itemcount = 0,
-  g = 0,
-  onButtonInteract = () => {
-    
-    // console.log(item_count);
-    // setValue(Select.currentTarget.value);
-    // console.log(value);
-  }
 }) => {
-  const [gar, setgar] = useState(g);
-
-  // const [value, setValue] = useState(item_count);
   return (
-    <ItemCont colors={color}>
-      <BoldText text={item_name}></BoldText>
+    <ItemCont bgcolor={color}>
       <Image
         loader = {myLoader}
         src = {img_src}
-        width = {150}
-        height = {150}
+        width = {20}
+        height = {20}
         alt = {alt}
         />
-      <Description htmlFor = 'weight'>How many <b>{unit}</b> of <b>{waste_type}</b> have you collected?</Description>
-      
-      {/* <Select type='text' list='inputnumber' onButtonInteract={e => {setValue(e.currentTarget.value);}}/> */}
-      {/* <Select type='text' list='inputnumber' gar={gar} onChange={ e => {setgar(e.currentTarget.value)} } onKeyDown={(event) => console.log(gar)} /> */}
-      <Select placeholder="0" type = 'text' id = 'weight' name = 'inputweight' list = 'inputweight' 
-        // onChange = { (e) => {setgar(gar, e.target.value)} } 
-        // onKeyUp = {(event) => console.log(event.target.value)} 
+      <Description htmlFor = 'weight'>
+        <BoldText text={item_name}/>
+      </Description>
+
+      <Select placeholder='0' type = 'text' id = 'weight' name = 'inputweight' list = 'inputweight' 
         onChange = {(event) => localStorage.setItem(`${waste_type}Count`, event.target.value)}
-        // onSubmit = { () => {onButtonInteract(gar)} }
         />
         <datalist id='inputweight'>
           <option value='0'/>
@@ -104,11 +69,7 @@ const AddEntry = ({
           <option value='9'/>
           <option value='10'/>
         </datalist>
-      <Description htmlFor = 'textnote'> Add an optional note </Description>
-      <TextBox id = 'textnote' placeholder = 'subaccount'
-      onChange = {(event) => localStorage.setItem(`${waste_type}Text`, JSON.stringify(event.target.value))} />
-      {/* <Submit type = 'button' value = 'Add Entry' onClick = { () => {onButtonInteract()} }/> */}
-      {/* <Submit type = 'submit' onClick = { () => {onButtonInteract()} }> Add Entry </Submit> */}
+        <BoldText text={unit}/>
     </ItemCont>
   );
 };
