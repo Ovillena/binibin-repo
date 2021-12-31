@@ -58,7 +58,7 @@ const GraphsCompost = (props) => {
 	const [itemDate, setItemDate] = useState([]);
 	// const [isLoading, setLoading] = useState(true);
 
-	
+
 
 	useEffect(() => {
 		const GetData = async () => {
@@ -73,7 +73,7 @@ const GraphsCompost = (props) => {
 
 			axios
 				.get(
-					`http://localhost:8080/api/entries/compost/${props.firstDay}/${props.today}`,
+					`https://binibin-server.herokuapp.com/api/entries/compost/${props.firstDay}/${props.today}`,
 					{
 						headers: {
 							'Authorization': `Bearer ${token}`

@@ -82,7 +82,7 @@ export default function Login() {
   // useEffect(() => {
   //   const GetUser = async () => {
   //     const resp = await axios.get(
-  //       "http://localhost:8080/auth/login"
+  //       "https://binibin-server.herokuapp.com/auth/login"
   //     );
   //     // .catch((err)=>{
   //     //   console.log(err);
@@ -110,15 +110,15 @@ export default function Login() {
   return (
     //<div className={styles.container}>
 
-    loading ? 
+    loading ?
     <LoadDiv>
-      <PulseLoader 
-      color={'#003274'} 
-      loading={loading} 
+      <PulseLoader
+      color={'#003274'}
+      loading={loading}
       size={20}
       />
       </LoadDiv>
-      : 
+      :
 
     <PageCont>
       {/* {
@@ -131,8 +131,8 @@ export default function Login() {
       } */}
 
       <MidCont
-      as={motion.div}  
-      initial={{opacity:0}} 
+      as={motion.div}
+      initial={{opacity:0}}
       animate={{opacity:100, transition:{ease:"easeIn", duration:2, delay:0}}}
       >
         <RightCont>

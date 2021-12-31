@@ -12,8 +12,8 @@ const LoginForm = () => {
 		e.preventDefault();
 		console.log(e.target.username.value);
 		const result = await fetch(
-			// 'http://localhost:8080/auth/login',
-			'http://localhost:8080/auth/login',
+			// 'https://binibin-server.herokuapp.com/auth/login',
+			'https://binibin-server.herokuapp.com/auth/login',
 			{
 				credentials: 'include',
 				method: 'POST',

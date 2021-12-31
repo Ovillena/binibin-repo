@@ -58,7 +58,7 @@ const GraphsRecycle = (props) => {
 	const [itemDate, setItemDate] = useState([]);
 	// const [isLoading, setLoading] = useState(true);
 
-	
+
 
 	useEffect(() => {
 		const GetData = async () => {
@@ -70,10 +70,10 @@ const GraphsRecycle = (props) => {
 				console.log("you need to login")
 				return
 			}
-			
+
 			axios
 				.get(
-					`http://localhost:8080/api/entries/recycling/${props.firstDay}/${props.today}`,
+					`https://binibin-server.herokuapp.com/api/entries/recycling/${props.firstDay}/${props.today}`,
 					{
 						headers: {
 							'Authorization': `Bearer ${token}`
