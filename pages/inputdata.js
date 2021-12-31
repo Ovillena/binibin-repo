@@ -66,7 +66,7 @@ export default function Home() {
 
 	// const onSubmit = async (e) => {
 	// 	e.preventDefault();
-	// 	await fetch('https://binibin-server.herokuapp.com/api/entries/add', requestOptions)
+	// 	await fetch('http://localhost:8080/api/entries/add', requestOptions)
 	// 		.then((response) => {
 	// 			if (response.ok) {
 	// 				console.log(response);

@@ -82,7 +82,7 @@ export default function Login() {
   // useEffect(() => {
   //   const GetUser = async () => {
   //     const resp = await axios.get(
-  //       "https://binibin-server.herokuapp.com/auth/login"
+  //       "http://localhost:8080/auth/login"
   //     );
   //     // .catch((err)=>{
   //     //   console.log(err);

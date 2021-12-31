@@ -73,12 +73,24 @@ const GraphsGarbage = (props) => {
   // const [isLoading, setLoading] = useState(true);
 
   useEffect(()=>{
+
+    const token = window.localStorage.getItem("token")
+    if (!token) {
+      console.log("you need to login")
+      return
+    }
+
     const GetData = async()=>{
       let itemC = [];
       let itemD = [];
 
       axios
-			.get(`https://binibin-server.herokuapp.com/api/entries/garbage/${props.firstDay}/${props.today}`)
+			.get(`http://localhost:8080/api/entries/garbage/${props.firstDay}/${props.today}`,
+      {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      })
 			.then((res) => {
 				// console.log(res.data);
 				for (const dataObj of res.data) {
@@ -125,7 +137,7 @@ const GraphsGarbage = (props) => {
     GetData();
   }, []);
 
-    // axios.get("https://binibin-server.herokuapp.com/api/entries")
+    // axios.get("http://localhost:8080/api/entries")
     // .then(res => {
     //   console.log(res.data);
     //   for(const dataObj of res.data){

@@ -306,19 +306,22 @@ const IGCR = ({
 			compost_count: parseInt(localStorage.compostCount),
 			recycling_text: localStorage.recyclingText,
 			recycling_count: parseInt(localStorage.recyclingCount),
-			account_id: '2',
 		};
 		console.log(`i am form data~~~~ from on submit${formData}`);
+
+		const token = window.localStorage.getItem("token")
+
 		const requestOptions = {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
 				'Access-Control-Allow-Origin': 'https://binibinapp.vercel.app/',
+				'Authorization': `Bearer ${token}`
 			},
 			body: JSON.stringify(formData),
 		};
 		// await fetch('http://localhost:8080/api/entries/add', requestOptions)
-		await fetch('https://binibin-server.herokuapp.com/api/entries/add', requestOptions)
+		await fetch('http://localhost:8080/api/entries/add', requestOptions)
 			.then((response) => {
 				if (response.ok) {
 					console.log(response);

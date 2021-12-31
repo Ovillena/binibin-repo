@@ -69,9 +69,17 @@ export default function Home() {
 	const [entries, setEntries] = useState(null);
 
 	useEffect(() => {
+
+		const token = window.localStorage.getItem("token")
+
 		const GetEntries = async () => {
 			await axios
-				.get('https://binibin-server.herokuapp.com/api/entries')
+				.get('http://localhost:8080/api/entries',
+				{
+					headers: {
+						'Authorization': `Bearer ${token}`
+					}
+				})
 				.then((resp) => {
 					console.log(resp.data);
 					setEntries(resp.data);

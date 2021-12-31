@@ -85,7 +85,7 @@ export default function Home() {
 
   // axios
   //   .get(
-  //     "https://binibin-server.herokuapp.com/auth/checkauth",
+  //     "http://localhost:8080/auth/checkauth",
   //     // "http://localhost:8080/auth/checkauth",
   //     { withCredentials: true }
   //   )

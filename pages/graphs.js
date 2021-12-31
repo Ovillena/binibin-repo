@@ -74,13 +74,13 @@ const LoadDiv = styled.div`
 `;
 
 export default function Graphs() {
-	let todayObj = new Date();
+	let todayObj = new Date(new Date().toUTCString())
 	let firstDayObj = new Date(new Date().setDate(todayObj.getDate() - 30));
 
 	const dateToYMD = (date) => {
-		let yyyy = date.getFullYear();
-		let mm = date.getMonth() + 1;
-		let dd = date.getDate();
+		let yyyy = date.getUTCFullYear();
+		let mm = date.getUTCMonth() + 1;
+		let dd = date.getUTCDate();
 		return `${yyyy}-${mm}-${dd}`;
 	};
 	const firstDay = dateToYMD(firstDayObj);
