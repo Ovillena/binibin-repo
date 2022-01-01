@@ -5,6 +5,7 @@ import { Bar } from 'react-chartjs-2';
 import Subhead from '../SubheadText';
 
 import axios from 'axios';
+import { getGarbage } from '../../network';
 import { useState, useEffect } from 'react';
 import { render } from 'react-dom';
 
