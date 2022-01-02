@@ -65,13 +65,11 @@ function MyApp({ Component, pageProps }) {
 				console.log('Error decoding token');
 			}
 		}
-
+		/* redirect user to login if protected page */
 		if (!viewableIfLoggedOut(Router.pathname) && !loggedIn) {
 			return Router.push('/login');
-		} else if (viewableIfLoggedOut(Router.pathname) && !loggedIn) {
-			throw new Error('Something weird');
 		} else {
-			// return response;
+			return;
 		}
 	}, [token]);
 
