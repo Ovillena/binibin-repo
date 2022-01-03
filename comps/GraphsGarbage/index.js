@@ -73,25 +73,17 @@ const GraphsGarbage = (props) => {
 	// const [isLoading, setLoading] = useState(true);
 
 	useEffect(() => {
-		const token = window.localStorage.getItem('token');
-		if (!token) {
-			console.log('you need to login');
-			return;
-		}
+		// const token = window.localStorage.getItem('token');
+		// if (!token) {
+		// 	console.log('you need to login');
+		// 	return;
+		// }
 
 		const GetData = async () => {
 			let itemC = [];
 			let itemD = [];
 
-			axios
-				.get(
-					`https://binibin-server.herokuapp.com/api/entries/garbage/${props.firstDay}/${props.today}`,
-					{
-						headers: {
-							Authorization: `Bearer ${token}`,
-						},
-					}
-				)
+			getGarbage(props.firstDay, props.today)
 				.then((res) => {
 					// console.log(res.data);
 					for (const dataObj of res.data) {
@@ -117,7 +109,43 @@ const GraphsGarbage = (props) => {
 				})
 				.catch((err) => {
 					console.log(err);
-				});
+				});;
+
+			// axios
+			// 	.get(
+			// 		`https://binibin-server.herokuapp.com/api/entries/garbage/${props.firstDay}/${props.today}`,
+			// 		{
+			// 			headers: {
+			// 				Authorization: `Bearer ${token}`,
+			// 			},
+			// 		}
+			// 	)
+			// 	.then((res) => {
+			// 		// console.log(res.data);
+			// 		for (const dataObj of res.data) {
+			// 			itemC.push(parseInt(dataObj.total_items));
+			// 			// itemD.push(`${dataObj.month}/${dataObj.day}`)
+			// 			itemD.push(dataObj.entry_date);
+			// 			// console.log(itemC, itemD);
+			// 		}
+			// 		setChartData({
+			// 			//x axis
+			// 			labels: itemD,
+			// 			datasets: [
+			// 				{
+			// 					label: '# of garbage',
+			// 					//y axis
+			// 					data: itemC,
+			// 					backgroundColor: ['black'],
+			// 					borderWidth: 1,
+			// 					borderRadius: 10,
+			// 				},
+			// 			],
+			// 		});
+			// 	})
+			// 	.catch((err) => {
+			// 		console.log(err);
+			// 	});
 
 			// setChartData({
 			//   //x axis
