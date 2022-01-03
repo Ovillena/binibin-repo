@@ -8,18 +8,22 @@ const SectionCont = styled.div`
 	border-radius: 10px;
 	margin-top: 10px;
   align-items: baseline;
-  padding: 22px 10px 30px 0;
+  padding: 5px 10px 12px 0;
   flex-wrap: wrap;
   flex-direction: column;
+  gap: 5px;
 `;
-
+  
 const ItemCont = styled.div`
   display: flex;
   align-items: baseline;
+  :first-child {
+    margin-left:23px;
+  }
 `;
 
 const Description = styled.label`
-	margin-top: 10px;
+  margin-top: 10px;
 	max-width: 180px;
 	word-wrap: wrap;
   text-align: left;
@@ -28,7 +32,6 @@ const Description = styled.label`
 const Calendar = styled.input`
   border: solid 1px;
   border-radius: 5px;
-  margin: 0 0 23px 23px;
 `;
 
 const Account = styled.input`
@@ -39,7 +42,7 @@ const Account = styled.input`
   padding: 5px;
 `;
 
-const AllEntries = () => {
+const SetEntries = () => {
   return (
     <SectionCont>
       <ItemCont>
@@ -50,17 +53,17 @@ const AllEntries = () => {
       </ItemCont>
       <ItemCont>
         <Description htmlFor = 'subacct'> <BoldText text='Account'/> </Description>
-        <Account placeholder='select an account' type = 'text' id = 'subacct' name = 'inputsubacct' list = 'inputsubacct' 
-          onChange = {(event) => localStorage.setItem('subacct', event.target.value)}
+        <Account placeholder='Select an account' type = 'text' id = 'subacct' name = 'inputsubacct' list = 'inputsubacct' 
+          onChange = {(event) => localStorage.setItem('subacct', event.target.value.toLowerCase().split(' ').join('_'))}
         />
       </ItemCont>
       <datalist id = 'inputsubacct'>
-        <option value='client 1'/>
-        <option value='client 2'/>
-        <option value='client 3'/>
+        <option value='Client 1'/>
+        <option value='Client 2'/>
+        <option value='Client 3'/>
       </datalist>
     </SectionCont>
   )
 }
 
-export default AllEntries;
+export default SetEntries;

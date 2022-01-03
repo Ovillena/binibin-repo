@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react';
 
 import Header from '@/comps/HeaderText';
 import FooterComp from '@/comps/footer';
-import AllEntries from '@/comps/Input/allentries';
+import SetEntries from '@/comps/Input/entrysettings';
 import AddEntry from '@/comps/Input/addentry';
 import SaveEntry from '@/comps/Input/saveentry';
 import Modal from '@/comps/Modal';
@@ -135,8 +135,7 @@ export default function Input() {
 				<Header text='Record New Entries'/>
 			</FlexCont>
       <FlexCont>
-        {/* The date and account inputs: */}
-        {/* <AllEntries/> */}
+        <SetEntries/>
       </FlexCont>
       <FlexCont>
         {/* <AddEntry 

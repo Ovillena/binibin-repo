@@ -25,6 +25,11 @@ const Select = styled.input`
 	border-radius: 5px;
   border: solid 1px;
   padding: 5px;
+  ::-webkit-outer-spin-button,
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 `;
 
 const myLoader = ({ src, width }) => {
@@ -34,7 +39,7 @@ const myLoader = ({ src, width }) => {
 
 const AddEntry = ({
   item_name = 'Garbage',
-	waste_type = item_name.toLowerCase(),
+	waste_type = item_name.toLowerCase().split(' ').join('_'),
 	unit = 'kg',
 	img_src = 'garbagebag.png',
 	alt = 'garbage bag',
@@ -53,8 +58,13 @@ const AddEntry = ({
         <BoldText text={item_name}/>
       </Description>
 
-      <Select placeholder='0' type = 'number' id = 'weight' name = 'inputweight' list = 'inputweight' 
-        onChange = {(event) => localStorage.setItem(`${waste_type}Count`, event.target.value)}
+      <Select 
+        placeholder='0' 
+        type = 'number' 
+        id = 'weight' 
+        name = 'inputweight' 
+        list = 'inputweight' 
+        onChange = {(event) => localStorage.setItem(`${waste_type}_count`, event.target.value)}
         />
         <datalist id='inputweight'>
           <option value='0'/>
