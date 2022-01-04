@@ -5,8 +5,8 @@ function authAxios() {
 	const token = window.localStorage.getItem('token');
 
 	const authInstance = axios.create({
-		baseURL: 'https://binibin-server.herokuapp.com',
-		// baseURL: 'http://localhost:8080',
+		// baseURL: 'https://binibin-server.herokuapp.com',
+		baseURL: 'http://localhost:8080',
 		headers: { Authorization: `Bearer ${token}` },
 	});
 
@@ -28,16 +28,15 @@ export async function getData(startDate, endDate, itemName) {
 
 // Submitting a new entry
 export async function postEntry(entryContent) {
-	return await authAxios().post(`/api/entries/add`, { entryContent });
+	return await authAxios().post(`/api/entries/add`, { data: entryContent });
 }
 
-//BUG: login request - unable to receive the user token from server //
-
+// login request - unable to receive the user token from server //
 export async function loginUser(username, password) {
 	console.log('network loginUser --- user: ' + username + password);
 	return await authAxios().post(`/auth/login`, {
 		credentials: 'include',
-		body: {
+		data: {
 			username,
 			password,
 		},
