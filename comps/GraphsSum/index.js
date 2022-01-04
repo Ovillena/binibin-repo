@@ -20,12 +20,12 @@ const GraphsSum = (props) => {
 
 	useEffect(() => {
 		const GetData = async () => {
-			let itemCG = [];
-			let itemCR = [];
-			let itemCC = [];
-			let itemDG = [];
-			let itemDR = [];
-			let itemDC = [];
+			let garbageCountArr = [];
+			let recyclingCountArr = [];
+			let compostCountArr = [];
+			let garbageDateArr = [];
+			let recyclingDateArr = [];
+			let compostDateArr = [];
 
 			const token = window.localStorage.getItem('token');
 			if (!token) {
@@ -45,19 +45,19 @@ const GraphsSum = (props) => {
 				.then((res) => {
 					// console.log(res.data);
 					for (const dataObj of res.data) {
-						itemCG.push(parseInt(dataObj.total_items));
-						itemDG.push(dataObj.entry_date);
+						garbageCountArr.push(parseInt(dataObj.total_items));
+						garbageDateArr.push(dataObj.entry_date);
 
 					}
 
 					setChartData({
 						//x axis
-						labels: itemDG,
+						labels: garbageDateArr,
 						datasets: [
 							{
 								label: '# of bags thrown in garbage',
 								//y axis
-								data: itemCG,
+								data: garbageCountArr,
 								fill: false,
 								backgroundColor: ['black'],
 								borderColor: `black`,
@@ -67,7 +67,7 @@ const GraphsSum = (props) => {
 							{
 								label: '# of bags put in compost',
 								//y axis
-								data: itemCC,
+								data: compostCountArr,
 								fill: false,
 								backgroundColor: ['#598B2C'],
 								borderColor: '#598B2C',
@@ -77,7 +77,7 @@ const GraphsSum = (props) => {
 							{
 								label: '# of items recycled',
 								//y axis
-								data: itemCR,
+								data: recyclingCountArr,
 								backgroundColor: ['#3C64B1'],
 								borderColor: '#3C64B1',
 								borderWidth: 4,
@@ -101,21 +101,21 @@ const GraphsSum = (props) => {
 				.then((res) => {
 					// console.log(res.data);
 					for (const dataObj of res.data) {
-						itemCR.push(parseInt(dataObj.total_items));
+						recyclingCountArr.push(parseInt(dataObj.total_items));
 						// itemD.push(`${dataObj.month}/${dataObj.day}`)
-						itemDR.push(dataObj.entry_date);
+						recyclingDateArr.push(dataObj.entry_date);
 						// console.log("---------")
-						// console.log(itemCR, itemDG);
+						// console.log(recyclingCountArr, garbageDateArr);
 					}
 
 					setChartData({
 						//x axis
-						labels: itemDR,
+						labels: recyclingDateArr,
 						datasets: [
 							{
 								label: '# of bags thrown in garbage',
 								//y axis
-								data: itemCG,
+								data: garbageCountArr,
 								fill: false,
 								backgroundColor: ['black'],
 								borderColor: 'black',
@@ -125,7 +125,7 @@ const GraphsSum = (props) => {
 							{
 								label: '# of bags put in compost',
 								//y axis
-								data: itemCC,
+								data: compostCountArr,
 								fill: false,
 								backgroundColor: ['#598B2C'],
 								borderColor: '#598B2C',
@@ -135,7 +135,7 @@ const GraphsSum = (props) => {
 							{
 								label: '# of items recycled',
 								//y axis
-								data: itemCR,
+								data: recyclingCountArr,
 								backgroundColor: ['#3C64B1'],
 								borderColor: '#3C64B1',
 								borderWidth: 4,
@@ -160,21 +160,21 @@ const GraphsSum = (props) => {
 				.then((res) => {
 					// console.log(res.data);
 					for (const dataObj of res.data) {
-						itemCC.push(parseInt(dataObj.total_items));
+						compostCountArr.push(parseInt(dataObj.total_items));
 						// itemD.push(`${dataObj.month}/${dataObj.day}`)
-						itemDC.push(dataObj.entry_date);
+						compostDateArr.push(dataObj.entry_date);
 						// console.log("---------")
-						// console.log(itemCC, itemDR);
+						// console.log(compostCountArr, recyclingDateArr);
 					}
 
 					setChartData({
 						//x axis
-						labels: itemDC,
+						labels: compostDateArr,
 						datasets: [
 							{
 								label: '# of bags thrown in garbage',
 								//y axis
-								data: itemCG,
+								data: garbageCountArr,
 								fill: false,
 								backgroundColor: ['black'],
 								borderColor: 'black',
@@ -184,7 +184,7 @@ const GraphsSum = (props) => {
 							{
 								label: '# of bags put in compost',
 								//y axis
-								data: itemCC,
+								data: compostCountArr,
 								fill: false,
 								backgroundColor: ['#598B2C'],
 								borderColor: '#598B2C',
@@ -194,7 +194,7 @@ const GraphsSum = (props) => {
 							{
 								label: '# of items recycled',
 								//y axis
-								data: itemCR,
+								data: recyclingCountArr,
 								backgroundColor: ['#3C64B1'],
 								borderColor: '#3C64B1',
 								borderWidth: 4,
