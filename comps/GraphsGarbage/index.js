@@ -4,63 +4,8 @@ import { Bar } from 'react-chartjs-2';
 
 import Subhead from '../SubheadText';
 
-import axios from 'axios';
-import { getGarbage, getData } from '../../network';
+import {  getData } from '../../network';
 import { useState, useEffect } from 'react';
-import { render } from 'react-dom';
-
-const data = {
-	labels: ['Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'],
-	datasets: [
-		{
-			label: '# of Garbage',
-			data: [12, 19, 3, 5, 2, 3, 8],
-			backgroundColor: [
-				'#000000',
-				'#000000',
-				'#000000',
-				'#000000',
-				'#000000',
-				'#000000',
-				'#000000',
-			],
-			borderColor: [
-				'#000000',
-				'#000000',
-				'#000000',
-				'#000000',
-				'#000000',
-				'#000000',
-				'#000000',
-			],
-			borderWidth: 1,
-		},
-	],
-};
-
-// const options = {
-//   scales: {
-//     x:{
-//       grid:{
-//         display:false
-//       },
-//     },
-//     xAxes:[{
-//     }],
-//     // y:{
-//     //   grid:{
-//     //     display:false
-//     //   },
-//     // },
-//     yAxes: [
-//       {
-//         ticks: {
-//           beginAtZero: true,
-//         },
-//       },
-//     ],
-//   },
-// };
 
 const GraphCont = styled.div`
 	display: flex;
@@ -70,25 +15,17 @@ const GraphCont = styled.div`
 
 const GraphsGarbage = (props) => {
 	const [chartData, setChartData] = useState(false);
-	// const [isLoading, setLoading] = useState(true);
 
 	useEffect(() => {
-		// const token = window.localStorage.getItem('token');
-		// if (!token) {
-		// 	console.log('you need to login');
-		// 	return;
-		// }
 
-		// const GetData = async () => {
 			let itemC = [];
 			let itemD = [];
 
-			getGarbage(props.firstDay, props.today)
+			getData(props.firstDay, props.today, 'garbage')
 				.then((res) => {
 					// console.log(res.data);
 					for (const dataObj of res.data) {
 						itemC.push(parseInt(dataObj.total_items));
-						// itemD.push(`${dataObj.month}/${dataObj.day}`)
 						itemD.push(dataObj.entry_date);
 						// console.log(itemC, itemD);
 					}
@@ -97,7 +34,7 @@ const GraphsGarbage = (props) => {
 						labels: itemD,
 						datasets: [
 							{
-								label: '# of garbage',
+								label: `Kg of garbage`,
 								//y axis
 								data: itemC,
 								backgroundColor: ['black'],
@@ -137,13 +74,6 @@ const GraphsGarbage = (props) => {
 								y: {
 									min: 0,
 								},
-								yAxes: [
-									// {
-									//   ticks:{
-									//     beginAtZero:true
-									//   },
-									// }
-								],
 							},
 						}}
 					/>

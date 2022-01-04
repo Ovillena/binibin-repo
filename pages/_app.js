@@ -105,7 +105,7 @@ function MyApp({ Component, pageProps }) {
 	// }, [user]);
 
 	return (
-		<UserContext.Provider value={{ user: user, signIn: signIn, loginStatus: loginStatus, useLocalStorage }}>
+		<UserContext.Provider value={{ user: user, signIn: signIn, loginStatus: loginStatus }}>
 			{loginStatus ? (
 				<UserNav displayName={user['display_name']}></UserNav>
 			) : (
