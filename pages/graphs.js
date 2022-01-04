@@ -9,8 +9,8 @@ import GraphsCompost from '../comps/GraphsCompost';
 import RecycleBar from '../comps/GraphsRecycle';
 import GraphsSum from '../comps/GraphsSum';
 
-import { motion } from "framer-motion";
-import PulseLoader from "react-spinners/PulseLoader";
+import { motion } from 'framer-motion';
+import PulseLoader from 'react-spinners/PulseLoader';
 
 const PageCont = styled(motion.div)`
 	display: flex;
@@ -44,7 +44,6 @@ const TopGraphs = styled.div`
 	flex-wrap: wrap;
 	height: content;
 	width: content;
-	max-height: 600px;
 `;
 
 const GraphDiv = styled(motion.div)`
@@ -67,14 +66,14 @@ const Subtitle = styled.h2`
 `;
 
 const LoadDiv = styled.div`
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
 `;
 
 export default function Graphs() {
-	let todayObj = new Date(new Date().toUTCString())
+	let todayObj = new Date(new Date().toUTCString());
 	let firstDayObj = new Date(new Date().setDate(todayObj.getDate() - 30));
 
 	const dateToYMD = (date) => {
@@ -87,45 +86,42 @@ export default function Graphs() {
 	const today = dateToYMD(todayObj);
 	let headerStr = `${firstDayObj.toLocaleString('default', {
 		month: 'long',
-	})} ${firstDayObj.getDate()} to ${todayObj.toLocaleString('default', { month: 'long' })} ${todayObj.getDate()}`;
+	})} ${firstDayObj.getDate()} to ${todayObj.toLocaleString('default', {
+		month: 'long',
+	})} ${todayObj.getDate()}`;
 	useEffect(() => {
 		console.log('first day: ' + firstDay);
 		console.log('today: ' + today);
 	}, []);
 
-  //-------Loading screen-----------
-  const [loading, setLoading] = useState(false);
+	//-------Loading screen-----------
+	const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    setLoading(true)
-    setTimeout(() => {
-      setLoading(false)
-    }, 300)
-  }, [])
-	
+	useEffect(() => {
+		setLoading(true);
+		setTimeout(() => {
+			setLoading(false);
+		}, 300);
+	}, []);
+
 	return (
 		//<div className={styles.container}>
-		loading ? 
-		<LoadDiv>
-		  <PulseLoader 
-		  color={'#003274'} 
-		  loading={loading} 
-		  size={20}
-		  />
-		  </LoadDiv>
-		  : 
+		loading ? (
+			<LoadDiv>
+				<PulseLoader color={'#003274'} loading={loading} size={20} />
+			</LoadDiv>
+		) : (
+			<PageCont
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 100, transition: { ease: 'easeIn', duration: 3, delay: 0 } }}
+			>
+				<HeaderCont>
+					<Header text='Your progress from'></Header>
 
-		<PageCont
-		initial={{opacity:0}} 
-		animate={{opacity:100, transition:{ease:"easeIn", duration:3, delay:0}}}
-		>
-			<HeaderCont>
-				<Header text='Your progress from'></Header>
+					<Subtitle>{headerStr}</Subtitle>
+				</HeaderCont>
 
-				<Subtitle>{headerStr}</Subtitle>
-			</HeaderCont>
-
-			{/* <WeekCont>
+				{/* <WeekCont>
         <WeekOfComp onPrevInteract={()=>{
 
         }}
@@ -135,7 +131,7 @@ export default function Graphs() {
         ></WeekOfComp>
       </WeekCont> */}
 
-			{/* {
+				{/* {
         number.map((o,i)=>(
           <CardWrapper key={i}>
           <GraphsGarbage item_count={o.item_count}/>
@@ -144,42 +140,55 @@ export default function Graphs() {
         )
       } */}
 
-			<TopGraphs>
-				<GraphDiv
-				initial={{opacity:0}} 
-				animate={{opacity:100, transition:{ease:"easeIn", duration:1, delay:0.5}}}
-				>
-					<GraphsSum today={today} firstDay={firstDay}></GraphsSum>
-				</GraphDiv>
-			</TopGraphs>
+				<TopGraphs>
+					<GraphDiv
+						initial={{ opacity: 0 }}
+						animate={{
+							opacity: 100,
+							transition: { ease: 'easeIn', duration: 1, delay: 0.5 },
+						}}
+					>
+						<GraphsSum today={today} firstDay={firstDay}></GraphsSum>
+					</GraphDiv>
+				</TopGraphs>
 
-			<BottomGraphs>
-				<GraphDiv
-				initial={{opacity:0}} 
-				animate={{opacity:100, transition:{ease:"easeIn", duration:1, delay:1.5}}}
-				>
-					<GraphsCompost today={today} firstDay={firstDay}></GraphsCompost>
-				</GraphDiv>
+				<BottomGraphs>
+					<GraphDiv
+						initial={{ opacity: 0 }}
+						animate={{
+							opacity: 100,
+							transition: { ease: 'easeIn', duration: 1, delay: 1.5 },
+						}}
+					>
+						<GraphsCompost today={today} firstDay={firstDay}></GraphsCompost>
+					</GraphDiv>
 
-				<GraphDiv
-				initial={{opacity:0}} 
-				animate={{opacity:100, transition:{ease:"easeIn", duration:1, delay:2}}}
-				>
-					<RecycleBar today={today} firstDay={firstDay}></RecycleBar>
-				</GraphDiv>
+					<GraphDiv
+						initial={{ opacity: 0 }}
+						animate={{
+							opacity: 100,
+							transition: { ease: 'easeIn', duration: 1, delay: 2 },
+						}}
+					>
+						<RecycleBar today={today} firstDay={firstDay}></RecycleBar>
+					</GraphDiv>
 
-				<GraphDiv
-				initial={{opacity:0}} 
-				animate={{opacity:100, transition:{ease:"easeIn", duration:1, delay:1}}}
-				>
-					<GraphsGarbage today={today} firstDay={firstDay}></GraphsGarbage>
-				</GraphDiv>
-			</BottomGraphs>
+					<GraphDiv
+						initial={{ opacity: 0 }}
+						animate={{
+							opacity: 100,
+							transition: { ease: 'easeIn', duration: 1, delay: 1 },
+						}}
+					>
+						<GraphsGarbage today={today} firstDay={firstDay}></GraphsGarbage>
+					</GraphDiv>
+				</BottomGraphs>
 
-			<FooterCont>
-				<Footer></Footer>
-			</FooterCont>
-		</PageCont>
+				<FooterCont>
+					<Footer></Footer>
+				</FooterCont>
+			</PageCont>
+		)
 		//</div>
 	);
 }

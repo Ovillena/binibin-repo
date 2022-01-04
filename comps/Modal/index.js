@@ -1,6 +1,5 @@
-import { height } from '@mui/system';
 import React from 'react';
-import { Router, useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import styles from './index.module.css';
 
 const MODAL_STYLES = {
@@ -11,7 +10,7 @@ const MODAL_STYLES = {
 	height: 'min-content',
 	display: 'flex',
 	flexDirection: 'column',
-	alignItems: 'flex-end',
+	alignItems: 'center',
 	borderRadius: '10px'
 };
 
@@ -45,17 +44,31 @@ export default function Modal({ open, children, onClose, router = useRouter() })
 		// <div style={ModalStyle}>
 		<div style={OVERLAY_STYLE}>
 			<div style={MODAL_STYLES}>
-				<button className={styles.btnClose} style={ButtonStyle} onClick={onClose}>
+				{/* <button className={styles.btnClose} style={ButtonStyle} onClick={onClose}>
 					X
-				</button>
+				</button> */}
 				<span className={styles.message}>{children}</span>
 				<div className={styles.btnContainer}>
+					<button
+						className={styles.btnEntries}
+						style={ButtonStyle}
+						onClick={onClose}
+					>
+						Close
+					</button>
 					<button
 						className={styles.btnEntries}
 						style={ButtonStyle}
 						onClick={() => router.push('/pastentries')}
 					>
 						View Entries
+					</button>
+					<button
+						className={styles.btnEntries}
+						style={ButtonStyle}
+						onClick={() => router.push('/graphs')}
+					>
+						View Graphs
 					</button>
 
 				</div>

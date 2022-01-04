@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { useRouter as router } from 'next/router';
 
 // Axios config to send JWT in the header with each request
 function authAxios() {
