@@ -2,10 +2,11 @@
     display: flex;
     justify-content: center;
 }
+
 .btnEntries {
     background-color: #FFC800;
     font-weight: bold;
-    margin: auto;
+    margin: 5px;
 }
 
 .btnEntries:hover {
