@@ -1,18 +1,17 @@
 import React from 'react';
-import { Router, useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import { useContext } from 'react';
 import UserContext from '../../comps/UserContext';
-import axios from 'axios';
+import { loginUser } from '../../network';
 
 const LoginForm = () => {
 	const router = useRouter();
-	const { user, signIn } = useContext(UserContext);
+	const { signIn } = useContext(UserContext);
 
 	async function onSubmit(e) {
 		e.preventDefault();
 		console.log(e.target.username.value);
 		const result = await fetch(
-			// 'https://binibin-server.herokuapp.com/auth/login',
 			'https://binibin-server.herokuapp.com/auth/login',
 			{
 				credentials: 'include',
@@ -24,7 +23,10 @@ const LoginForm = () => {
 				headers: { 'Content-Type': 'application/json' },
 			}
 		)
+		// loginUser(e.target.username.value, e.target.password.value)
 			.then((response) => {
+				console.log('---------reponse obj----------------------');
+				console.log(response);
 				if (response.ok) {
 					return response.json();
 				}
@@ -32,11 +34,10 @@ const LoginForm = () => {
 			.then((token) => {
 				console.log('---------token obj----------------------');
 				console.log(token);
-				signIn(token);
-				// alert(JSON.stringify(user));
-			})
-			.then(() => router.push('/dashboard'));
-		console.log('------------------LOG IN ROUTE--------------------------');
+				if (signIn(token)) {
+					router.push('/dashboard');
+				}
+			});
 	}
 
 	return (

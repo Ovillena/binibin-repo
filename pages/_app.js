@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }) {
 	const [loginStatus, setLoginStatus] = useState(false);
 
 	const signIn = (data) => {
-		if (!data.token) {
+		if (!data || !data.token) {
 			console.log('user not logged in! deal with this');
 			return;
 		}
@@ -32,8 +32,10 @@ function MyApp({ Component, pageProps }) {
 			const user = jwt_decode(token);
 			setLoginStatus(true);
 			setUser(user);
+			return true;
 		} catch (error) {
 			console.log('Error decoding token');
+			return false;
 		}
 		// alert(JSON.stringify(user));
 	};
