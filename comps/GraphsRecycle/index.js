@@ -4,47 +4,8 @@ import { Bar } from 'react-chartjs-2';
 
 import Subhead from '../SubheadText';
 
-import axios from 'axios';
+import { getData } from '../../network';
 import { useState, useEffect } from 'react';
-import { render } from 'react-dom';
-
-const data = {
-	labels: ['Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'],
-	datasets: [
-		{
-			label: '# of Garbage',
-			data: [12, 19, 3, 5, 2, 3, 8],
-			backgroundColor: ['#3C64B1'],
-			borderColor: ['#3C64B1'],
-			borderWidth: 1,
-			borderRadius: 10,
-		},
-	],
-};
-
-// const options = {
-//   scales: {
-//     x:{
-//       grid:{
-//         display:false
-//       },
-//     },
-//     xAxes:[{
-//     }],
-//     // y:{
-//     //   grid:{
-//     //     display:false
-//     //   },
-//     // },
-//     yAxes: [
-//       {
-//         ticks: {
-//           beginAtZero: true,
-//         },
-//       },
-//     ],
-//   },
-// };
 
 const GraphCont = styled.div`
 	display: flex;
@@ -54,60 +15,37 @@ const GraphCont = styled.div`
 
 const GraphsRecycle = (props) => {
 	const [chartData, setChartData] = useState(false);
-	const [itemCount, setItemCount] = useState([]);
-	const [itemDate, setItemDate] = useState([]);
-	// const [isLoading, setLoading] = useState(true);
-
-
 
 	useEffect(() => {
-		const GetData = async () => {
-			let itemC = [];
-			let itemD = [];
+		let itemC = [];
+		let itemD = [];
 
-			const token = window.localStorage.getItem("token")
-			if (!token) {
-				console.log("you need to login")
-				return
-			}
-
-			axios
-				.get(
-					`https://binibin-server.herokuapp.com/api/entries/recycling/${props.firstDay}/${props.today}`,
-					{
-						headers: {
-							'Authorization': `Bearer ${token}`
-						}
-					}
-				)
-				.then((res) => {
-					// console.log(res.data);
-					for (const dataObj of res.data) {
-						itemC.push(parseInt(dataObj.total_items));
-						// itemD.push(`${dataObj.month}/${dataObj.day}`)
-						itemD.push(dataObj.entry_date);
-						// console.log(itemC, itemD);
-					}
-					setChartData({
-						//x axis
-						labels: itemD,
-						datasets: [
-							{
-								label: '# of Recycling',
-								//y axis
-								data: itemC,
-								backgroundColor: ['#3C64B1'],
-								borderWidth: 1,
-								borderRadius: 10,
-							},
-						],
-					});
-				})
-				.catch((err) => {
-					console.log(err);
+		getData(props.firstDay, props.today, 'recycling')
+			.then((res) => {
+				// console.log(res.data);
+				for (const dataObj of res.data) {
+					itemC.push(parseInt(dataObj.total_items));
+					itemD.push(dataObj.entry_date);
+					// console.log(itemC, itemD);
+				}
+				setChartData({
+					//x axis
+					labels: itemD,
+					datasets: [
+						{
+							label: 'Kg of Recycling',
+							//y axis
+							data: itemC,
+							backgroundColor: ['#3C64B1'],
+							borderWidth: 1,
+							borderRadius: 10,
+						},
+					],
 				});
-		};
-		GetData();
+			})
+			.catch((err) => {
+				console.log(err);
+			});
 	}, []);
 
 	if (chartData) {
@@ -134,13 +72,6 @@ const GraphsRecycle = (props) => {
 								y: {
 									min: 0,
 								},
-								yAxes: [
-									// {
-									// 	ticks: {
-									// 		beginAtZero: true,
-									// 	},
-									// },
-								],
 							},
 						}}
 					/>
