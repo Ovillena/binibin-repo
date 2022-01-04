@@ -5,6 +5,7 @@ import { Line } from 'react-chartjs-2';
 import Subhead from '../SubheadText';
 
 import axios from 'axios';
+import { getData } from '../../network';
 import { useState, useEffect } from 'react';
 
 const GraphCont = styled.div`
@@ -27,136 +28,102 @@ const GraphsSum = (props) => {
 			let recyclingDateArr = [];
 			let compostDateArr = [];
 
-			const token = window.localStorage.getItem('token');
-			if (!token) {
-				console.log('you need to login');
-				return;
-			}
+			getData(props.firstDay, props.today, 'garbage').then((res) => {
+				// console.log(res.data);
+				for (const dataObj of res.data) {
+					garbageCountArr.push(parseInt(dataObj.total_items));
+					garbageDateArr.push(dataObj.entry_date);
+				}
 
-			axios
-				.get(
-					`https://binibin-server.herokuapp.com/api/entries/garbage/${props.firstDay}/${props.today}`,
-					{
-						headers: {
-							Authorization: `Bearer ${token}`,
+				setChartData({
+					//x axis
+					labels: garbageDateArr,
+					datasets: [
+						{
+							label: '# of bags thrown in garbage',
+							//y axis
+							data: garbageCountArr,
+							fill: false,
+							backgroundColor: ['black'],
+							borderColor: `black`,
+							borderWidth: 4,
+							borderRadius: 10,
 						},
-					}
-				)
-				.then((res) => {
-					// console.log(res.data);
-					for (const dataObj of res.data) {
-						garbageCountArr.push(parseInt(dataObj.total_items));
-						garbageDateArr.push(dataObj.entry_date);
-
-					}
-
-					setChartData({
-						//x axis
-						labels: garbageDateArr,
-						datasets: [
-							{
-								label: '# of bags thrown in garbage',
-								//y axis
-								data: garbageCountArr,
-								fill: false,
-								backgroundColor: ['black'],
-								borderColor: `black`,
-								borderWidth: 4,
-								borderRadius: 10,
-							},
-							{
-								label: '# of bags put in compost',
-								//y axis
-								data: compostCountArr,
-								fill: false,
-								backgroundColor: ['#598B2C'],
-								borderColor: '#598B2C',
-								borderWidth: 4,
-								borderRadius: 10,
-							},
-							{
-								label: '# of items recycled',
-								//y axis
-								data: recyclingCountArr,
-								backgroundColor: ['#3C64B1'],
-								borderColor: '#3C64B1',
-								borderWidth: 4,
-								borderRadius: 10,
-							},
-						],
-					});
+						{
+							label: '# of bags put in compost',
+							//y axis
+							data: compostCountArr,
+							fill: false,
+							backgroundColor: ['#598B2C'],
+							borderColor: '#598B2C',
+							borderWidth: 4,
+							borderRadius: 10,
+						},
+						{
+							label: '# of items recycled',
+							//y axis
+							data: recyclingCountArr,
+							backgroundColor: ['#3C64B1'],
+							borderColor: '#3C64B1',
+							borderWidth: 4,
+							borderRadius: 10,
+						},
+					],
 				});
+			});
 
 			//------------------RECYCLE----------------------------
 
-			axios
-				.get(
-					`https://binibin-server.herokuapp.com/api/entries/recycling/${props.firstDay}/${props.today}`,
-					{
-						headers: {
-							Authorization: `Bearer ${token}`,
-						},
-					}
-				)
-				.then((res) => {
-					// console.log(res.data);
-					for (const dataObj of res.data) {
-						recyclingCountArr.push(parseInt(dataObj.total_items));
-						// itemD.push(`${dataObj.month}/${dataObj.day}`)
-						recyclingDateArr.push(dataObj.entry_date);
-						// console.log("---------")
-						// console.log(recyclingCountArr, garbageDateArr);
-					}
+			getData(props.firstDay, props.today, 'recycling').then((res) => {
+				// console.log(res.data);
+				for (const dataObj of res.data) {
+					recyclingCountArr.push(parseInt(dataObj.total_items));
+					// itemD.push(`${dataObj.month}/${dataObj.day}`)
+					recyclingDateArr.push(dataObj.entry_date);
+					// console.log("---------")
+					// console.log(recyclingCountArr, garbageDateArr);
+				}
 
-					setChartData({
-						//x axis
-						labels: recyclingDateArr,
-						datasets: [
-							{
-								label: '# of bags thrown in garbage',
-								//y axis
-								data: garbageCountArr,
-								fill: false,
-								backgroundColor: ['black'],
-								borderColor: 'black',
-								borderWidth: 4,
-								borderRadius: 10,
-							},
-							{
-								label: '# of bags put in compost',
-								//y axis
-								data: compostCountArr,
-								fill: false,
-								backgroundColor: ['#598B2C'],
-								borderColor: '#598B2C',
-								borderWidth: 4,
-								borderRadius: 10,
-							},
-							{
-								label: '# of items recycled',
-								//y axis
-								data: recyclingCountArr,
-								backgroundColor: ['#3C64B1'],
-								borderColor: '#3C64B1',
-								borderWidth: 4,
-								borderRadius: 10,
-							},
-						],
-					});
+				setChartData({
+					//x axis
+					labels: recyclingDateArr,
+					datasets: [
+						{
+							label: '# of bags thrown in garbage',
+							//y axis
+							data: garbageCountArr,
+							fill: false,
+							backgroundColor: ['black'],
+							borderColor: 'black',
+							borderWidth: 4,
+							borderRadius: 10,
+						},
+						{
+							label: '# of bags put in compost',
+							//y axis
+							data: compostCountArr,
+							fill: false,
+							backgroundColor: ['#598B2C'],
+							borderColor: '#598B2C',
+							borderWidth: 4,
+							borderRadius: 10,
+						},
+						{
+							label: '# of items recycled',
+							//y axis
+							data: recyclingCountArr,
+							backgroundColor: ['#3C64B1'],
+							borderColor: '#3C64B1',
+							borderWidth: 4,
+							borderRadius: 10,
+						},
+					],
 				});
+			});
 
 			//------------------COMPOST----------------------------
 
-			axios
-				.get(
-					`https://binibin-server.herokuapp.com/api/entries/compost/${props.firstDay}/${props.today}`,
-
-					{
-						headers: {
-							Authorization: `Bearer ${token}`,
-						},
-					}
-				)
+			getData(props.firstDay, props.today, 'compost')
 				.then((res) => {
 					// console.log(res.data);
 					for (const dataObj of res.data) {
