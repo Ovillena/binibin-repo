@@ -17,9 +17,9 @@ const SectionCont = styled.div`
 const ItemCont = styled.div`
   display: flex;
   align-items: baseline;
-  :first-child {
-    margin-left:23px;
-  }
+  // :first-child {
+  //   margin-left:23px;
+  // }
 `;
 
 const Description = styled.label`
