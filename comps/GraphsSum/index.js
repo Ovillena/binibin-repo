@@ -6,44 +6,6 @@ import Subhead from '../SubheadText';
 
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { render } from 'react-dom';
-
-const data = {
-	labels: ['Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'],
-	datasets: [
-		{
-			label: '# of Garbage',
-			data: [12, 19, 3, 5, 2, 3, 8],
-			backgroundColor: ['#000000'],
-			borderColor: ['#000000'],
-			borderWidth: 1,
-		},
-	],
-};
-
-// const options = {
-//   scales: {
-//     x:{
-//       grid:{
-//         display:false
-//       },
-//     },
-//     xAxes:[{
-//     }],
-//     // y:{
-//     //   grid:{
-//     //     display:false
-//     //   },
-//     // },
-//     yAxes: [
-//       {
-//         ticks: {
-//           beginAtZero: true,
-//         },
-//       },
-//     ],
-//   },
-// };
 
 const GraphCont = styled.div`
 	display: inline-flex;
@@ -55,9 +17,6 @@ const GraphCont = styled.div`
 
 const GraphsSum = (props) => {
 	const [chartData, setChartData] = useState(false);
-	const [itemCount, setItemCount] = useState([]);
-	const [itemDate, setItemDate] = useState([]);
-	// const [isLoading, setLoading] = useState(true);
 
 	useEffect(() => {
 		const GetData = async () => {
@@ -87,18 +46,8 @@ const GraphsSum = (props) => {
 					// console.log(res.data);
 					for (const dataObj of res.data) {
 						itemCG.push(parseInt(dataObj.total_items));
-						// itemD.push(`${dataObj.month}/${dataObj.day}`)
 						itemDG.push(dataObj.entry_date);
-						// console.log("---------")
-						// console.log(itemCG, itemDG);
-						// for(const dataRec of res.data){
-						//   itemCR.push(parseInt(dataRec.total_items))
-						//   console.log(itemCR, itemD);
-						// }
-						// for(const dataComp of res.data){
-						//   itemCC.push(parseInt(dataComp.total_items))
-						//   console.log(itemCC, itemD);
-						// }
+
 					}
 
 					setChartData({
@@ -287,13 +236,6 @@ const GraphsSum = (props) => {
 								y: {
 									min: 0,
 								},
-								yAxes: [
-									// {
-									// 	ticks: {
-									// 		beginAtZero: true,
-									// 	},
-									// },
-								],
 							},
 						}}
 					/>
