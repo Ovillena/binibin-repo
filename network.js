@@ -6,7 +6,7 @@ function authAxios() {
 
 	const authInstance = axios.create({
 		baseURL: 'https://binibin-server.herokuapp.com',
-		// timeout: 1000,
+		// baseURL: 'http://localhost:8080',
 		headers: { Authorization: `Bearer ${token}` },
 	});
 
@@ -26,7 +26,10 @@ export async function getData(startDate, endDate, itemName) {
 	return await authAxios().get(`/api/entries/${itemName}/${startDate}/${endDate}`);
 }
 
-export async function postEntry() {}
+// Submitting a new entry
+export async function postEntry(entryContent) {
+	return await authAxios().post(`/api/entries/add`, { entryContent });
+}
 
 //BUG: login request - unable to receive the user token from server //
 
@@ -38,6 +41,6 @@ export async function loginUser(username, password) {
 			username,
 			password,
 		},
-		headers: { 'Content-Type': 'application/json' },
+		// headers: { 'Content-Type': 'application/json' },
 	});
 }

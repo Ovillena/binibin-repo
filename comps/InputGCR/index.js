@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import React from 'react';
 import Modal from '../Modal';
+import { postEntry } from '../../network';
 
 const PageCont = styled.div``;
 
@@ -302,22 +303,10 @@ const IGCR = ({
 		};
 		console.log(`i am form data~~~~ from on submit${formData}`);
 
-		const token = window.localStorage.getItem('token');
-
-		const requestOptions = {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-				'Access-Control-Allow-Origin': 'https://binibinapp.vercel.app/',
-				Authorization: `Bearer ${token}`,
-			},
-			body: JSON.stringify(formData),
-		};
-		// await fetch('https://binibin-server.herokuapp.com/api/entries/add', requestOptions)
-		await fetch('https://binibin-server.herokuapp.com/api/entries/add', requestOptions)
+		postEntry(formData)
 			.then((response) => {
-				if (response.ok) {
-					console.log(response);
+				console.log(response);
+				if (response.status == 201) {
 					resetStore();
 					setIsOpen(true);
 				} else {
