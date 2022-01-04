@@ -26,21 +26,27 @@ export async function getData(startDate, endDate, itemName) {
 	return await authAxios().get(`/api/entries/${itemName}/${startDate}/${endDate}`);
 }
 
-// Submitting a new entry
-export async function postEntry(entryContent) {
-	return await authAxios().post(`/api/entries/add`, { entryContent });
+export async function getAllData(startDate, endDate) {
+	if (!startDate || !endDate) {
+		return await authAxios().get(`/api/entries`);
+	}
+	return await authAxios().get(`/api/entries/${startDate}/${endDate}`);
 }
 
-//BUG: login request - unable to receive the user token from server //
+// Submitting a new entry
+export async function postEntry(entryContent) {
+	return await authAxios().post(`/api/entries/add`, { data: entryContent });
+}
 
+// BUG: login request - unable to receive the user token from server //
 export async function loginUser(username, password) {
 	console.log('network loginUser --- user: ' + username + password);
 	return await authAxios().post(`/auth/login`, {
 		credentials: 'include',
-		body: {
+		data: JSON.stringify({
 			username,
 			password,
-		},
-		// headers: { 'Content-Type': 'application/json' },
+		}),
+		headers: { 'Content-Type': 'application/json' },
 	});
 }
