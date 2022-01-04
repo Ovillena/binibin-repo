@@ -5,7 +5,7 @@ import { Bar } from 'react-chartjs-2';
 import Subhead from '../SubheadText';
 
 import axios from 'axios';
-import { getGarbage } from '../../network';
+import { getGarbage, getData } from '../../network';
 import { useState, useEffect } from 'react';
 import { render } from 'react-dom';
 
@@ -79,7 +79,7 @@ const GraphsGarbage = (props) => {
 		// 	return;
 		// }
 
-		const GetData = async () => {
+		// const GetData = async () => {
 			let itemC = [];
 			let itemD = [];
 
@@ -111,73 +111,7 @@ const GraphsGarbage = (props) => {
 					console.log(err);
 				});;
 
-			// axios
-			// 	.get(
-			// 		`https://binibin-server.herokuapp.com/api/entries/garbage/${props.firstDay}/${props.today}`,
-			// 		{
-			// 			headers: {
-			// 				Authorization: `Bearer ${token}`,
-			// 			},
-			// 		}
-			// 	)
-			// 	.then((res) => {
-			// 		// console.log(res.data);
-			// 		for (const dataObj of res.data) {
-			// 			itemC.push(parseInt(dataObj.total_items));
-			// 			// itemD.push(`${dataObj.month}/${dataObj.day}`)
-			// 			itemD.push(dataObj.entry_date);
-			// 			// console.log(itemC, itemD);
-			// 		}
-			// 		setChartData({
-			// 			//x axis
-			// 			labels: itemD,
-			// 			datasets: [
-			// 				{
-			// 					label: '# of garbage',
-			// 					//y axis
-			// 					data: itemC,
-			// 					backgroundColor: ['black'],
-			// 					borderWidth: 1,
-			// 					borderRadius: 10,
-			// 				},
-			// 			],
-			// 		});
-			// 	})
-			// 	.catch((err) => {
-			// 		console.log(err);
-			// 	});
-
-			// setChartData({
-			//   //x axis
-			//   labels: itemD,
-			//   datasets: [
-			//     {
-			//       label:'# of garbage',
-			//       //y axis
-			//       data: itemC,
-			//       backgroundColor:[
-			//         'black'
-			//       ],
-			//       borderWidth: 1
-			//     }
-			//   ]
-			// });
-		};
-		GetData();
 	}, []);
-
-	// axios.get("https://binibin-server.herokuapp.com/api/entries")
-	// .then(res => {
-	//   console.log(res.data);
-	//   for(const dataObj of res.data){
-	//     itemC.push(parseInt(dataObj.item_count))
-	//     itemD.push(parseInt(dataObj.entry_date))
-	//     console.log(itemC, itemD);
-	//   }
-	// })
-	// .catch(err => {
-	//   console.log(err);
-	// });
 
 	if (chartData) {
 		return (
