@@ -40,6 +40,13 @@ function MyApp({ Component, pageProps }) {
 		// alert(JSON.stringify(user));
 	};
 
+	const signOut = () => {
+		localStorage.clear();
+		setLoginStatus(false);
+		setUser('');
+		Router.push('/')
+	}
+
 	const viewableIfLoggedOut = (routePathname) => {
 		switch (routePathname) {
 			case '/':
@@ -107,7 +114,7 @@ function MyApp({ Component, pageProps }) {
 	// }, [user]);
 
 	return (
-		<UserContext.Provider value={{ user: user, signIn: signIn, loginStatus: loginStatus }}>
+		<UserContext.Provider value={{ user: user, signIn: signIn, loginStatus: loginStatus, signOut: signOut }}>
 			{loginStatus ? (
 				<UserNav displayName={user['display_name']}></UserNav>
 			) : (
