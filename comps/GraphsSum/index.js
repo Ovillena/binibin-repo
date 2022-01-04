@@ -1,7 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Line } from 'react-chartjs-2';
-
+import {
+	Chart as ChartJS,
+	CategoryScale,
+	LinearScale,
+	PointElement,
+	LineElement,
+	Title,
+	Tooltip,
+	Legend,
+} from 'chart.js';
 import Subhead from '../SubheadText';
 
 import axios from 'axios';
@@ -20,162 +29,72 @@ const GraphsSum = (props) => {
 	const [chartData, setChartData] = useState(false);
 
 	useEffect(() => {
-		const GetData = async () => {
-			let garbageCountArr = [];
-			let recyclingCountArr = [];
-			let compostCountArr = [];
-			let garbageDateArr = [];
-			let recyclingDateArr = [];
-			let compostDateArr = [];
+		let garbageCountArr = [];
+		let recyclingCountArr = [];
+		let compostCountArr = [];
+		let garbageDateArr = [];
+		let recyclingDateArr = [];
+		let compostDateArr = [];
 
-			getData(props.firstDay, props.today, 'garbage').then((res) => {
-				// console.log(res.data);
+		async function getAllData(startDate, endDate) {
+			await getData(startDate, endDate, 'garbage').then((res) => {
 				for (const dataObj of res.data) {
 					garbageCountArr.push(parseInt(dataObj.total_items));
 					garbageDateArr.push(dataObj.entry_date);
 				}
-
-				setChartData({
-					//x axis
-					labels: garbageDateArr,
-					datasets: [
-						{
-							label: '# of bags thrown in garbage',
-							//y axis
-							data: garbageCountArr,
-							fill: false,
-							backgroundColor: ['black'],
-							borderColor: `black`,
-							borderWidth: 4,
-							borderRadius: 10,
-						},
-						{
-							label: '# of bags put in compost',
-							//y axis
-							data: compostCountArr,
-							fill: false,
-							backgroundColor: ['#598B2C'],
-							borderColor: '#598B2C',
-							borderWidth: 4,
-							borderRadius: 10,
-						},
-						{
-							label: '# of items recycled',
-							//y axis
-							data: recyclingCountArr,
-							backgroundColor: ['#3C64B1'],
-							borderColor: '#3C64B1',
-							borderWidth: 4,
-							borderRadius: 10,
-						},
-					],
-				});
 			});
-
-			//------------------RECYCLE----------------------------
-
-			getData(props.firstDay, props.today, 'recycling').then((res) => {
-				// console.log(res.data);
+			await getData(startDate, endDate, 'recycling').then((res) => {
 				for (const dataObj of res.data) {
 					recyclingCountArr.push(parseInt(dataObj.total_items));
-					// itemD.push(`${dataObj.month}/${dataObj.day}`)
 					recyclingDateArr.push(dataObj.entry_date);
-					// console.log("---------")
-					// console.log(recyclingCountArr, garbageDateArr);
 				}
-
-				setChartData({
-					//x axis
-					labels: recyclingDateArr,
-					datasets: [
-						{
-							label: '# of bags thrown in garbage',
-							//y axis
-							data: garbageCountArr,
-							fill: false,
-							backgroundColor: ['black'],
-							borderColor: 'black',
-							borderWidth: 4,
-							borderRadius: 10,
-						},
-						{
-							label: '# of bags put in compost',
-							//y axis
-							data: compostCountArr,
-							fill: false,
-							backgroundColor: ['#598B2C'],
-							borderColor: '#598B2C',
-							borderWidth: 4,
-							borderRadius: 10,
-						},
-						{
-							label: '# of items recycled',
-							//y axis
-							data: recyclingCountArr,
-							backgroundColor: ['#3C64B1'],
-							borderColor: '#3C64B1',
-							borderWidth: 4,
-							borderRadius: 10,
-						},
-					],
-				});
 			});
+			await getData(startDate, endDate, 'compost').then((res) => {
+				for (const dataObj of res.data) {
+					compostCountArr.push(parseInt(dataObj.total_items));
+					compostDateArr.push(dataObj.entry_date);
+				}
+			});
+		}
 
-			//------------------COMPOST----------------------------
+		getAllData(props.firstDay, props.today).then(() => {
+			setChartData({
+				//x axis
+				labels: garbageDateArr,
+				datasets: [
+					{
+						label: '# of bags thrown in garbage',
+						//y axis
+						data: garbageCountArr,
+						fill: false,
+						backgroundColor: 'black',
+						borderColor: `black`,
+						borderWidth: 4,
+						borderRadius: 10,
+					},
+					{
+						label: '# of bags put in compost',
+						//y axis
+						data: compostCountArr,
+						fill: false,
+						backgroundColor: ['#598B2C'],
+						borderColor: '#598B2C',
+						borderWidth: 4,
+						borderRadius: 10,
+					},
+					{
+						label: '# of items recycled',
+						//y axis
+						data: recyclingCountArr,
+						backgroundColor: ['#3C64B1'],
+						borderColor: '#3C64B1',
+						borderWidth: 4,
+						borderRadius: 10,
+					},
+				],
+			});
+		});
 
-			getData(props.firstDay, props.today, 'compost')
-				.then((res) => {
-					// console.log(res.data);
-					for (const dataObj of res.data) {
-						compostCountArr.push(parseInt(dataObj.total_items));
-						// itemD.push(`${dataObj.month}/${dataObj.day}`)
-						compostDateArr.push(dataObj.entry_date);
-						// console.log("---------")
-						// console.log(compostCountArr, recyclingDateArr);
-					}
-
-					setChartData({
-						//x axis
-						labels: compostDateArr,
-						datasets: [
-							{
-								label: '# of bags thrown in garbage',
-								//y axis
-								data: garbageCountArr,
-								fill: false,
-								backgroundColor: ['black'],
-								borderColor: 'black',
-								borderWidth: 4,
-								borderRadius: 10,
-							},
-							{
-								label: '# of bags put in compost',
-								//y axis
-								data: compostCountArr,
-								fill: false,
-								backgroundColor: ['#598B2C'],
-								borderColor: '#598B2C',
-								borderWidth: 4,
-								borderRadius: 10,
-							},
-							{
-								label: '# of items recycled',
-								//y axis
-								data: recyclingCountArr,
-								backgroundColor: ['#3C64B1'],
-								borderColor: '#3C64B1',
-								borderWidth: 4,
-								borderRadius: 10,
-							},
-						],
-					});
-				})
-
-				.catch((err) => {
-					console.log(err);
-				});
-		};
-		GetData();
 	}, []);
 
 	if (chartData) {
