@@ -47,12 +47,18 @@ const resetStore = () => {
 	console.log('CLEAR local storage');
 	// localStorage.clear();
   /* do not clear localStorage because it holds the token that keeps the user logged in and authorizes access to the server */
-  localStorage.garbageCount = 0;
-  localStorage.garbageText = '';
-  localStorage.compostCount = 0;
-  localStorage.compostText = '';
-  localStorage.recyclingCount = 0;
-  localStorage.recyclingText = '';
+  // localStorage.garbageCount = 0;
+  // localStorage.garbageText = '';
+  // localStorage.compostCount = 0;
+  // localStorage.compostText = '';
+  // localStorage.recyclingCount = 0;
+  // localStorage.recyclingText = '';
+	for (var i = 0; i < localStorage.length; i++) {
+    var key = localStorage.key(i);
+    if (key !== "token") {
+      localStorage.removeItem(key);
+    }
+  }
 };
 
 export default function Input() {
