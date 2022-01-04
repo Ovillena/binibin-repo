@@ -10,6 +10,7 @@ import FooterComp from '../comps/footer';
 
 import { motion } from 'framer-motion';
 import PulseLoader from 'react-spinners/PulseLoader';
+import { getAllData } from '../network';
 
 const ContDiv = styled(motion.div)``;
 
@@ -67,37 +68,22 @@ const LoadDiv = styled.div`
 
 export default function Home() {
 	const [entries, setEntries] = useState(null);
+	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
-		const token = window.localStorage.getItem('token');
-
-		const GetEntries = async () => {
-			await axios
-				.get('https://binibin-server.herokuapp.com/api/entries', {
-					headers: {
-						Authorization: `Bearer ${token}`,
-					},
-				})
-				.then((resp) => {
-					console.log(resp.data);
-					setEntries(resp.data);
-				})
-				.catch((err) => {
-					console.log(err);
-				});
-		};
-		GetEntries();
+		getAllData()
+			.then((resp) => {
+				console.log(resp.data);
+				setEntries(resp.data);
+				//-------Loading screen-----------
+				setLoading(false);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
 	}, []);
 
-	//-------Loading screen-----------
-	const [loading, setLoading] = useState(false);
 
-	useEffect(() => {
-		setLoading(true);
-		setTimeout(() => {
-			setLoading(false);
-		}, 300);
-	}, []);
 
 	return loading ? (
 		<LoadDiv>
