@@ -1,16 +1,16 @@
 import styled from 'styled-components';
 import React, {useState, useEffect} from 'react';
 
-import Header from '@/comps/HeaderText';
-import FooterComp from '@/comps/footer';
-import SetEntries from '@/comps/Input/entrysettings';
-import AddEntry from '@/comps/Input/addentry';
-import SaveEntry from '@/comps/Input/saveentry';
-import Modal from '@/comps/Modal';
+import Header from '../comps/HeaderText';
+import FooterComp from '../comps/footer';
+import SetEntries from '../comps/Input/entrysettings';
+import AddEntry from '../comps/Input/addentry';
+import SaveEntry from '../comps/Input/saveentry';
+import Modal from '../comps/Modal';
 
 import { motion } from "framer-motion";
 import PulseLoader from "react-spinners/PulseLoader";
-import BoldText from '@/comps/BoldText';
+import BoldText from '../comps/BoldText';
 
 const PageCont = styled(motion.div)`
   display: flex;
@@ -48,25 +48,25 @@ const resetStore = () => {
 };
 
 export default function Input() {
-  
+
   // loading screen
   const [loading, setLoading] = useState(false);
-  
+
   useEffect(() => {
     setLoading(true)
     setTimeout(() => {
       setLoading(false)
     }, 300)
   }, [])
-  
+
   // on submit stuff
   let formData = {};
-  
+
 	useEffect(() => {
     // creating default state for localStorage
 		resetStore();
 	}, []);
-  
+
   // modal function
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -90,7 +90,7 @@ export default function Input() {
       compost_count: parseInt(localStorage.compostCount),
       recycling_count: parseInt(localStorage.recyclingCount),
     }
-    
+
 		const requestOptions = {
 			method: 'POST',
 			headers: {
@@ -117,18 +117,18 @@ export default function Input() {
 
   return(
 
-    loading ? 
+    loading ?
     <LoadDiv>
-      <PulseLoader 
-      color={'#003274'} 
-      loading={loading} 
+      <PulseLoader
+      color={'#003274'}
+      loading={loading}
       size={20}
       />
       </LoadDiv>
-      : 
-      
+      :
+
     <PageCont
-      initial={{opacity:0}} 
+      initial={{opacity:0}}
       animate={{opacity:100, transition:{ease:"easeIn", duration:3, delay:0}}}
     >
 			<FlexCont>
@@ -138,31 +138,31 @@ export default function Input() {
         <SetEntries/>
       </FlexCont>
       <FlexCont>
-        {/* <AddEntry 
+        {/* <AddEntry
           item_name = 'Garbage'
           color = '#E9E9E9'
         />
-        <AddEntry 
+        <AddEntry
           item_name = 'Compost'
           img_src='/tea-bag.png'
           alt = 'compost bag'
           color = '#E2EED7'
         />
-        <AddEntry 
+        <AddEntry
           item_name = 'Recycling'
           img_src='/newspaper.png'
           alt = 'newspaper'
           color = '#DFEAEF'
         /> */}
-        <AddEntry 
+        <AddEntry
           item_name = 'Item 1'
           color = '#E9E9E9'
         />
-        <AddEntry 
+        <AddEntry
           item_name = 'Item 2'
           color = '#E2EED7'
         />
-        <AddEntry 
+        <AddEntry
           item_name = 'Item 3'
           color = '#DFEAEF'
         />
@@ -171,7 +171,7 @@ export default function Input() {
         <Modal open={isOpen} onClose={() => setIsOpen(false)}>
           <BoldText text='Success! Your entries have been submitted.' />
         </Modal>
-        <SaveEntry 
+        <SaveEntry
           onSubmitInteract = { (e) => {onSubmit(e)} }
         />
       </FlexCont>

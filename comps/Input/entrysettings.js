@@ -13,7 +13,7 @@ const SectionCont = styled.div`
   flex-direction: column;
   gap: 5px;
 `;
-  
+
 const ItemCont = styled.div`
   display: flex;
   align-items: baseline;
@@ -52,10 +52,10 @@ const SetEntries = () => {
         />
       </ItemCont>
       <ItemCont>
-        <Description htmlFor = 'subacct'> <BoldText text='Account'/> </Description>
-        <Account placeholder='Select an account' type = 'text' id = 'subacct' name = 'inputsubacct' list = 'inputsubacct' 
+        {/* <Description htmlFor = 'subacct'> <BoldText text='Account'/> </Description> */}
+        {/* <Account placeholder='Select an account' type = 'text' id = 'subacct' name = 'inputsubacct' list = 'inputsubacct'
           onChange = {(event) => localStorage.setItem('subacct', event.target.value.toLowerCase().split(' ').join('_'))}
-        />
+        /> */}
       </ItemCont>
       <datalist id = 'inputsubacct'>
         <option value='Client 1'/>
