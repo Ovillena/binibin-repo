@@ -5,7 +5,7 @@ function authAxios() {
 	const token = window.localStorage.getItem('token');
 
 	const authInstance = axios.create({
-		baseURL: 'https://binibin-server.herokuapp.com/api',
+		baseURL: 'https://binibin-server.herokuapp.com',
 		// timeout: 1000,
 		headers: { Authorization: `Bearer ${token}` },
 	});
@@ -15,15 +15,29 @@ function authAxios() {
 
 // ****** Examples ***** //
 export async function getCompost(startDate, endDate) {
-	return await authAxios().get(`/entries/compost/${startDate}/${endDate}`);
+	return await authAxios().get(`/api/entries/compost/${startDate}/${endDate}`);
 }
 export async function getGarbage(startDate, endDate) {
-	return await authAxios().get(`/entries/garbage/${startDate}/${endDate}`);
+	return await authAxios().get(`/api/entries/garbage/${startDate}/${endDate}`);
 }
 
-// ****** more generic function ***** //
+// ****** more generic function to get data for graphs ***** //
 export async function getData(startDate, endDate, itemName) {
-	return await authAxios().get(`/entries/${itemName}/${startDate}/${endDate}`);
+	return await authAxios().get(`/api/entries/${itemName}/${startDate}/${endDate}`);
 }
 
 export async function postEntry() {}
+
+//BUG: login request - unable to receive the user token from server //
+
+export async function loginUser(username, password) {
+	console.log('network loginUser --- user: ' + username + password);
+	return await authAxios().post(`/auth/login`, {
+		credentials: 'include',
+		body: {
+			username,
+			password,
+		},
+		headers: { 'Content-Type': 'application/json' },
+	});
+}
