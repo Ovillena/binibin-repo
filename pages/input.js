@@ -11,6 +11,7 @@ import Modal from '../comps/Modal';
 import { motion } from 'framer-motion';
 import PulseLoader from 'react-spinners/PulseLoader';
 import BoldText from '../comps/BoldText';
+import { postEntry } from '../network';
 
 const PageCont = styled(motion.div)`
 	display: flex;
@@ -44,7 +45,14 @@ const LoadDiv = styled.div`
 const resetStore = () => {
 	// creating default state for localStorage
 	console.log('CLEAR local storage');
-	localStorage.clear();
+	// localStorage.clear();
+  /* do not clear localStorage because it holds the token that keeps the user logged in and authorizes access to the server */
+  localStorage.garbageCount = 0;
+  localStorage.garbageText = '';
+  localStorage.compostCount = 0;
+  localStorage.compostText = '';
+  localStorage.recyclingCount = 0;
+  localStorage.recyclingText = '';
 };
 
 export default function Input() {
@@ -90,19 +98,35 @@ export default function Input() {
 			recycling_count: parseInt(localStorage.recyclingCount),
 		};
 
-		const requestOptions = {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-				'Access-Control-Allow-Origin': 'https://binibinapp.vercel.app/',
-			},
-			body: JSON.stringify(formData),
-		};
-		// await fetch('http://localhost:8080/api/entries/add', requestOptions)
-		await fetch('https://binibin-server.herokuapp.com/api/entries/add', requestOptions)
+		/* No longer making a post request this way */
+		// 	const requestOptions = {
+		// 		method: 'POST',
+		// 		headers: {
+		// 			'Content-Type': 'application/json',
+		// 			'Access-Control-Allow-Origin': 'https://binibinapp.vercel.app/',
+		// 		},
+		// 		body: JSON.stringify(formData),
+		// 	};
+		// 	// await fetch('http://localhost:8080/api/entries/add', requestOptions)
+		// 	await fetch('https://binibin-server.herokuapp.com/api/entries/add', requestOptions)
+		// 		.then((response) => {
+		// 			if (response.ok) {
+		// 				console.log(response);
+		// 				resetStore();
+		// 				setIsOpen(true);
+		// 			} else {
+		// 				throw new Error('Unable to perform POST request');
+		// 			}
+		// 		})
+		// 		.catch((err) => {
+		// 			console.log(err);
+		// 		});
+
+		/* post request being make with functions from network.js */
+		postEntry(formData)
 			.then((response) => {
-				if (response.ok) {
-					console.log(response);
+				console.log(response);
+				if (response.status == 201) {
 					resetStore();
 					setIsOpen(true);
 				} else {
