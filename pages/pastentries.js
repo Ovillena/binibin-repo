@@ -30,8 +30,8 @@ const Cont = styled(motion.div)`
 	flex-direction: column;
 	justify-content: center;
 	margin-top: 20px;
-	margin-left: 20%;
-	margin-right: 20%;
+	margin: auto;
+	max-width: 700px;
 `;
 
 const AllDaysList = styled.div`
