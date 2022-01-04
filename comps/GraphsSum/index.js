@@ -1,49 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Line } from 'react-chartjs-2';
-
+import {
+	Chart as ChartJS,
+	CategoryScale,
+	LinearScale,
+	PointElement,
+	LineElement,
+	Title,
+	Tooltip,
+	Legend,
+} from 'chart.js';
 import Subhead from '../SubheadText';
 
 import axios from 'axios';
+import { getData } from '../../network';
 import { useState, useEffect } from 'react';
-import { render } from 'react-dom';
-
-const data = {
-	labels: ['Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'],
-	datasets: [
-		{
-			label: '# of Garbage',
-			data: [12, 19, 3, 5, 2, 3, 8],
-			backgroundColor: ['#000000'],
-			borderColor: ['#000000'],
-			borderWidth: 1,
-		},
-	],
-};
-
-// const options = {
-//   scales: {
-//     x:{
-//       grid:{
-//         display:false
-//       },
-//     },
-//     xAxes:[{
-//     }],
-//     // y:{
-//     //   grid:{
-//     //     display:false
-//     //   },
-//     // },
-//     yAxes: [
-//       {
-//         ticks: {
-//           beginAtZero: true,
-//         },
-//       },
-//     ],
-//   },
-// };
 
 const GraphCont = styled.div`
 	display: inline-flex;
@@ -55,211 +27,74 @@ const GraphCont = styled.div`
 
 const GraphsSum = (props) => {
 	const [chartData, setChartData] = useState(false);
-	const [itemCount, setItemCount] = useState([]);
-	const [itemDate, setItemDate] = useState([]);
-	// const [isLoading, setLoading] = useState(true);
 
 	useEffect(() => {
-		const GetData = async () => {
-			let itemCG = [];
-			let itemCR = [];
-			let itemCC = [];
-			let itemDG = [];
-			let itemDR = [];
-			let itemDC = [];
+		let garbageCountArr = [];
+		let recyclingCountArr = [];
+		let compostCountArr = [];
+		let garbageDateArr = [];
+		let recyclingDateArr = [];
+		let compostDateArr = [];
 
-			const token = window.localStorage.getItem('token');
-			if (!token) {
-				console.log('you need to login');
-				return;
-			}
+		async function getAllData(startDate, endDate) {
+			await getData(startDate, endDate, 'garbage').then((res) => {
+				for (const dataObj of res.data) {
+					garbageCountArr.push(parseInt(dataObj.total_items));
+					garbageDateArr.push(dataObj.entry_date);
+				}
+			});
+			await getData(startDate, endDate, 'recycling').then((res) => {
+				for (const dataObj of res.data) {
+					recyclingCountArr.push(parseInt(dataObj.total_items));
+					recyclingDateArr.push(dataObj.entry_date);
+				}
+			});
+			await getData(startDate, endDate, 'compost').then((res) => {
+				for (const dataObj of res.data) {
+					compostCountArr.push(parseInt(dataObj.total_items));
+					compostDateArr.push(dataObj.entry_date);
+				}
+			});
+		}
 
-			axios
-				.get(
-					`https://binibin-server.herokuapp.com/api/entries/garbage/${props.firstDay}/${props.today}`,
+		getAllData(props.firstDay, props.today).then(() => {
+			setChartData({
+				//x axis
+				labels: garbageDateArr,
+				datasets: [
 					{
-						headers: {
-							Authorization: `Bearer ${token}`,
-						},
-					}
-				)
-				.then((res) => {
-					// console.log(res.data);
-					for (const dataObj of res.data) {
-						itemCG.push(parseInt(dataObj.total_items));
-						// itemD.push(`${dataObj.month}/${dataObj.day}`)
-						itemDG.push(dataObj.entry_date);
-						// console.log("---------")
-						// console.log(itemCG, itemDG);
-						// for(const dataRec of res.data){
-						//   itemCR.push(parseInt(dataRec.total_items))
-						//   console.log(itemCR, itemD);
-						// }
-						// for(const dataComp of res.data){
-						//   itemCC.push(parseInt(dataComp.total_items))
-						//   console.log(itemCC, itemD);
-						// }
-					}
-
-					setChartData({
-						//x axis
-						labels: itemDG,
-						datasets: [
-							{
-								label: '# of bags thrown in garbage',
-								//y axis
-								data: itemCG,
-								fill: false,
-								backgroundColor: ['black'],
-								borderColor: `black`,
-								borderWidth: 4,
-								borderRadius: 10,
-							},
-							{
-								label: '# of bags put in compost',
-								//y axis
-								data: itemCC,
-								fill: false,
-								backgroundColor: ['#598B2C'],
-								borderColor: '#598B2C',
-								borderWidth: 4,
-								borderRadius: 10,
-							},
-							{
-								label: '# of items recycled',
-								//y axis
-								data: itemCR,
-								backgroundColor: ['#3C64B1'],
-								borderColor: '#3C64B1',
-								borderWidth: 4,
-								borderRadius: 10,
-							},
-						],
-					});
-				});
-
-			//------------------RECYCLE----------------------------
-
-			axios
-				.get(
-					`https://binibin-server.herokuapp.com/api/entries/recycling/${props.firstDay}/${props.today}`,
+						label: '# of bags thrown in garbage',
+						//y axis
+						data: garbageCountArr,
+						fill: false,
+						backgroundColor: 'black',
+						borderColor: `black`,
+						borderWidth: 4,
+						borderRadius: 10,
+					},
 					{
-						headers: {
-							Authorization: `Bearer ${token}`,
-						},
-					}
-				)
-				.then((res) => {
-					// console.log(res.data);
-					for (const dataObj of res.data) {
-						itemCR.push(parseInt(dataObj.total_items));
-						// itemD.push(`${dataObj.month}/${dataObj.day}`)
-						itemDR.push(dataObj.entry_date);
-						// console.log("---------")
-						// console.log(itemCR, itemDG);
-					}
-
-					setChartData({
-						//x axis
-						labels: itemDR,
-						datasets: [
-							{
-								label: '# of bags thrown in garbage',
-								//y axis
-								data: itemCG,
-								fill: false,
-								backgroundColor: ['black'],
-								borderColor: 'black',
-								borderWidth: 4,
-								borderRadius: 10,
-							},
-							{
-								label: '# of bags put in compost',
-								//y axis
-								data: itemCC,
-								fill: false,
-								backgroundColor: ['#598B2C'],
-								borderColor: '#598B2C',
-								borderWidth: 4,
-								borderRadius: 10,
-							},
-							{
-								label: '# of items recycled',
-								//y axis
-								data: itemCR,
-								backgroundColor: ['#3C64B1'],
-								borderColor: '#3C64B1',
-								borderWidth: 4,
-								borderRadius: 10,
-							},
-						],
-					});
-				});
-
-			//------------------COMPOST----------------------------
-
-			axios
-				.get(
-					`https://binibin-server.herokuapp.com/api/entries/compost/${props.firstDay}/${props.today}`,
-
+						label: '# of bags put in compost',
+						//y axis
+						data: compostCountArr,
+						fill: false,
+						backgroundColor: ['#598B2C'],
+						borderColor: '#598B2C',
+						borderWidth: 4,
+						borderRadius: 10,
+					},
 					{
-						headers: {
-							Authorization: `Bearer ${token}`,
-						},
-					}
-				)
-				.then((res) => {
-					// console.log(res.data);
-					for (const dataObj of res.data) {
-						itemCC.push(parseInt(dataObj.total_items));
-						// itemD.push(`${dataObj.month}/${dataObj.day}`)
-						itemDC.push(dataObj.entry_date);
-						// console.log("---------")
-						// console.log(itemCC, itemDR);
-					}
+						label: '# of items recycled',
+						//y axis
+						data: recyclingCountArr,
+						backgroundColor: ['#3C64B1'],
+						borderColor: '#3C64B1',
+						borderWidth: 4,
+						borderRadius: 10,
+					},
+				],
+			});
+		});
 
-					setChartData({
-						//x axis
-						labels: itemDC,
-						datasets: [
-							{
-								label: '# of bags thrown in garbage',
-								//y axis
-								data: itemCG,
-								fill: false,
-								backgroundColor: ['black'],
-								borderColor: 'black',
-								borderWidth: 4,
-								borderRadius: 10,
-							},
-							{
-								label: '# of bags put in compost',
-								//y axis
-								data: itemCC,
-								fill: false,
-								backgroundColor: ['#598B2C'],
-								borderColor: '#598B2C',
-								borderWidth: 4,
-								borderRadius: 10,
-							},
-							{
-								label: '# of items recycled',
-								//y axis
-								data: itemCR,
-								backgroundColor: ['#3C64B1'],
-								borderColor: '#3C64B1',
-								borderWidth: 4,
-								borderRadius: 10,
-							},
-						],
-					});
-				})
-
-				.catch((err) => {
-					console.log(err);
-				});
-		};
-		GetData();
 	}, []);
 
 	if (chartData) {
@@ -287,13 +122,6 @@ const GraphsSum = (props) => {
 								y: {
 									min: 0,
 								},
-								yAxes: [
-									// {
-									// 	ticks: {
-									// 		beginAtZero: true,
-									// 	},
-									// },
-								],
 							},
 						}}
 					/>
