@@ -173,6 +173,8 @@ export default function Input() {
 				<AddEntry item_name='Item 1' color='#E9E9E9' />
 				<AddEntry item_name='Item 2' color='#E2EED7' />
 				<AddEntry item_name='Item 3' color='#DFEAEF' />
+				<AddEntry item_name='Item 4' color='#E2EED7' />
+				<AddEntry item_name='Item 5' color='#DFEAEF' />
 			</FlexCont>
 			<FlexCont>
 				<Modal open={isOpen} onClose={() => setIsOpen(false)}>
