@@ -93,9 +93,9 @@ const UserNav = ({ router = useRouter(), displayName = 'Username' }) => {
 					<NavItems>
 						<TextCont onClick={() => router.push('/input')}>Input</TextCont>
 					</NavItems>
-					<NavItems>
+					{/* <NavItems>
 						<TextCont onClick={() => router.push('/pastentries')}>Entries</TextCont>
-					</NavItems>
+					</NavItems> */}
 					<NavItems>
 						<TextCont onClick={() => router.push('/graphs')}>Graphs</TextCont>
 					</NavItems>

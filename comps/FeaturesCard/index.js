@@ -27,8 +27,8 @@ const Paragraph = styled.p`
 color:white;
 `;
 
-const myLoader = ({src}) => {
-  return `${src}`
+const myLoader = ({ src, width }) => {
+  return `${src}?w=${width}`
 }
 
 const FeaturesCard = ({

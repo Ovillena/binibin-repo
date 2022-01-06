@@ -152,7 +152,7 @@ export default function Graphs() {
 					</GraphDiv>
 				</TopGraphs>
 
-				<BottomGraphs>
+				{/* <BottomGraphs>
 					<GraphDiv
 						initial={{ opacity: 0 }}
 						animate={{
@@ -182,7 +182,7 @@ export default function Graphs() {
 					>
 						<GraphsGarbage today={today} firstDay={firstDay}></GraphsGarbage>
 					</GraphDiv>
-				</BottomGraphs>
+				</BottomGraphs> */}
 
 				<FooterCont>
 					<Footer></Footer>

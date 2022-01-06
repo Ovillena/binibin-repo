@@ -47,12 +47,18 @@ const resetStore = () => {
 	console.log('CLEAR local storage');
 	// localStorage.clear();
   /* do not clear localStorage because it holds the token that keeps the user logged in and authorizes access to the server */
-  localStorage.garbageCount = 0;
-  localStorage.garbageText = '';
-  localStorage.compostCount = 0;
-  localStorage.compostText = '';
-  localStorage.recyclingCount = 0;
-  localStorage.recyclingText = '';
+  // localStorage.garbageCount = 0;
+  // localStorage.garbageText = '';
+  // localStorage.compostCount = 0;
+  // localStorage.compostText = '';
+  // localStorage.recyclingCount = 0;
+  // localStorage.recyclingText = '';
+	for (var i = 0; i < localStorage.length; i++) {
+    var key = localStorage.key(i);
+    if (key !== "token") {
+      localStorage.removeItem(key);
+    }
+  }
 };
 
 export default function Input() {
@@ -85,7 +91,7 @@ export default function Input() {
 		for (var i = 0; i < localStorage.length; i++) {
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
-			if (key !== 'ally-supports-cache') {
+			if (key !== 'ally-supports-cache' && key !=='token') {
 				console.log(key + ': ' + value);
 			}
 		}
@@ -93,9 +99,14 @@ export default function Input() {
 		formData = {
 			date: localStorage.date,
 			subacct: localStorage.subacct,
-			garbage_count: parseInt(localStorage.garbageCount),
-			compost_count: parseInt(localStorage.compostCount),
-			recycling_count: parseInt(localStorage.recyclingCount),
+			// garbage_count: parseInt(localStorage.garbageCount),
+			// compost_count: parseInt(localStorage.compostCount),
+			// recycling_count: parseInt(localStorage.recyclingCount),
+			item_1_count: parseInt(localStorage.item_1_count),
+			item_2_count: parseInt(localStorage.item_2_count),
+			item_3_count: parseInt(localStorage.item_3_count),
+			item_4_count: parseInt(localStorage.item_4_count),
+			item_5_count: parseInt(localStorage.item_5_count),
 		};
 
 		/* No longer making a post request this way */
@@ -173,6 +184,8 @@ export default function Input() {
 				<AddEntry item_name='Item 1' color='#E9E9E9' />
 				<AddEntry item_name='Item 2' color='#E2EED7' />
 				<AddEntry item_name='Item 3' color='#DFEAEF' />
+				<AddEntry item_name='Item 4' color='#E2EED7' />
+				<AddEntry item_name='Item 5' color='#DFEAEF' />
 			</FlexCont>
 			<FlexCont>
 				<Modal open={isOpen} onClose={() => setIsOpen(false)}>

@@ -59,26 +59,14 @@ const AddEntry = ({
       </Description>
 
       <Select 
-        placeholder='0' 
+        placeholder = '0' 
+        min = '0'
         type = 'number' 
         id = 'weight' 
         name = 'inputweight' 
-        list = 'inputweight' 
+        onWheel={(event) => event.target.blur()}
         onChange = {(event) => localStorage.setItem(`${waste_type}_count`, event.target.value)}
         />
-        <datalist id='inputweight'>
-          <option value='0'/>
-          <option value='1'/>
-          <option value='2'/>
-          <option value='3'/>
-          <option value='4'/>
-          <option value='5'/>
-          <option value='6'/>
-          <option value='7'/>
-          <option value='8'/>
-          <option value='9'/>
-          <option value='10'/>
-        </datalist>
         <BoldText text={unit}/>
     </ItemCont>
   );
