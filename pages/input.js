@@ -91,7 +91,7 @@ export default function Input() {
 		for (var i = 0; i < localStorage.length; i++) {
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
-			if (key !== 'ally-supports-cache') {
+			if (key !== 'ally-supports-cache' && key !=='token') {
 				console.log(key + ': ' + value);
 			}
 		}
