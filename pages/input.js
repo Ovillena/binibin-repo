@@ -99,9 +99,14 @@ export default function Input() {
 		formData = {
 			date: localStorage.date,
 			subacct: localStorage.subacct,
-			garbage_count: parseInt(localStorage.garbageCount),
-			compost_count: parseInt(localStorage.compostCount),
-			recycling_count: parseInt(localStorage.recyclingCount),
+			// garbage_count: parseInt(localStorage.garbageCount),
+			// compost_count: parseInt(localStorage.compostCount),
+			// recycling_count: parseInt(localStorage.recyclingCount),
+			item_1_count: parseInt(localStorage.item_1_count),
+			item_2_count: parseInt(localStorage.item_2_count),
+			item_3_count: parseInt(localStorage.item_3_count),
+			item_4_count: parseInt(localStorage.item_4_count),
+			item_5_count: parseInt(localStorage.item_5_count),
 		};
 
 		/* No longer making a post request this way */
