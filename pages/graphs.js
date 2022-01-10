@@ -12,6 +12,7 @@ import GraphsSum from '../comps/GraphsSum';
 import { motion } from 'framer-motion';
 import PulseLoader from 'react-spinners/PulseLoader';
 import { getAllData } from '@/network';
+import SumsDisplay from '../comps/SumsDisplay';
 
 const PageCont = styled(motion.div)`
 	display: flex;
@@ -127,70 +128,71 @@ export default function Graphs() {
 		{
 			input_date: '12/12',
 			item_name: 'compost',
-			total_weight: 3,
+			daily_weight: 3,
 		},
 		{
 			input_date: '12/12',
 			item_name: 'coffee chaff',
-			total_weight: 2,
+			daily_weight: 2,
 		},
 		{
 			input_date: '12/12',
 			item_name: 'single stream',
-			total_weight: 2,
+			daily_weight: 2,
 		},
 		// {
 		// 	input_date: '12/16',
 		// 	item_name: 'compost',
-		// 	total_weight: 2,
+		// 	daily_weight: 2,
 		// },
 		{
 			input_date: '12/16',
 			item_name: 'single stream',
-			total_weight: 2,
+			daily_weight: 2,
 		},
 		{
 			input_date: '12/16',
 			item_name: 'coffee chaff',
-			total_weight: 5,
+			daily_weight: 5,
 		},
 		{
 			input_date: '12/17',
 			item_name: 'coffee chaff',
-			total_weight: 4,
+			daily_weight: 4,
 		},
 		{
 			input_date: '12/17',
 			item_name: 'single stream',
-			total_weight: 5,
+			daily_weight: 5,
 		},
 		{
 			input_date: '12/17',
 			item_name: 'compost',
-			total_weight: 4,
+			daily_weight: 4,
 		},
 		{
 			input_date: '12/18',
 			item_name: 'new item',
-			total_weight: 2,
+			daily_weight: 2,
 		},
 		{
 			input_date: '12/19',
 			item_name: 'single stream',
-			total_weight: 5,
+			daily_weight: 5,
 		},
 		{
 			input_date: '12/19',
 			item_name: 'compost',
-			total_weight: 4,
+			daily_weight: 4,
 		},
 		{
 			input_date: '12/20',
 			item_name: 'new item',
-			total_weight: 2,
+			daily_weight: 2,
 		},
 	];
-
+	// const [itemNames, setItemNames] = useState([])
+	const itemNames = [];
 	async function loadChart(data) {
 		const dates = [];
 		const itemNames = [];
@@ -211,7 +213,7 @@ export default function Graphs() {
 						itemNames.push(entry.item_name);
 						console.log('adding new item', itemNames.length - 1);
 						let newData = [];
-						newData[i] = entry.total_weight;
+						newData[i] = entry.daily_weight;
 						dataConfig.push({
 							label: entry.item_name,
 							data: newData,
@@ -226,7 +228,7 @@ export default function Graphs() {
 						dataConfig.forEach((obj) => {
 							if (obj.label === entry.item_name) {
 								console.log('pushing new value to obj');
-								obj.data[i] = entry.total_weight;
+								obj.data[i] = entry.daily_weight;
 							}
 						});
 					}
@@ -243,7 +245,7 @@ export default function Graphs() {
 		console.log('first day: ' + firstDay);
 		console.log('today: ' + today);
 		loadChart(mockData);
-		// getAllData().then((res) => loadChart(res.data));
+		// getAllData(firstDay, today).then((res) => console.log(res.data));
 		setLoading(false);
 	}, []);
 
@@ -300,7 +302,7 @@ export default function Graphs() {
 						></GraphsSum>
 					</GraphDiv>
 				</TopGraphs>
-
+				<SumsDisplay itemNames={itemNames}></SumsDisplay>
 				<FilterWrapper>
 					<input type='date' id='startDate'></input>
 					<input type='date' id='endDate'></input>
