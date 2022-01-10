@@ -127,67 +127,67 @@ export default function Graphs() {
 		{
 			input_date: '12/12',
 			item_name: 'compost',
-			weight_kg: 3,
+			total_weight: 3,
 		},
 		{
 			input_date: '12/12',
 			item_name: 'coffee chaff',
-			weight_kg: 2,
+			total_weight: 2,
 		},
 		{
 			input_date: '12/12',
 			item_name: 'single stream',
-			weight_kg: 2,
+			total_weight: 2,
 		},
 		// {
 		// 	input_date: '12/16',
 		// 	item_name: 'compost',
-		// 	weight_kg: 2,
+		// 	total_weight: 2,
 		// },
 		{
 			input_date: '12/16',
 			item_name: 'single stream',
-			weight_kg: 2,
+			total_weight: 2,
 		},
 		{
 			input_date: '12/16',
 			item_name: 'coffee chaff',
-			weight_kg: 5,
+			total_weight: 5,
 		},
 		{
 			input_date: '12/17',
 			item_name: 'coffee chaff',
-			weight_kg: 4,
+			total_weight: 4,
 		},
 		{
 			input_date: '12/17',
 			item_name: 'single stream',
-			weight_kg: 5,
+			total_weight: 5,
 		},
 		{
 			input_date: '12/17',
 			item_name: 'compost',
-			weight_kg: 4,
+			total_weight: 4,
 		},
 		{
 			input_date: '12/18',
 			item_name: 'new item',
-			weight_kg: 2,
+			total_weight: 2,
 		},
 		{
 			input_date: '12/19',
 			item_name: 'single stream',
-			weight_kg: 5,
+			total_weight: 5,
 		},
 		{
 			input_date: '12/19',
 			item_name: 'compost',
-			weight_kg: 4,
+			total_weight: 4,
 		},
 		{
 			input_date: '12/20',
 			item_name: 'new item',
-			weight_kg: 2,
+			total_weight: 2,
 		},
 	];
 
@@ -211,7 +211,7 @@ export default function Graphs() {
 						itemNames.push(entry.item_name);
 						console.log('adding new item', itemNames.length - 1);
 						let newData = [];
-						newData[i] = entry.weight_kg;
+						newData[i] = entry.total_weight;
 						dataConfig.push({
 							label: entry.item_name,
 							data: newData,
@@ -226,7 +226,7 @@ export default function Graphs() {
 						dataConfig.forEach((obj) => {
 							if (obj.label === entry.item_name) {
 								console.log('pushing new value to obj');
-								obj.data[i] = entry.weight_kg;
+								obj.data[i] = entry.total_weight;
 							}
 						});
 					}

@@ -27,11 +27,18 @@ export async function getData(startDate, endDate, itemName) {
 	return await authAxios().get(`/api/entries/${itemName}/${startDate}/${endDate}`);
 }
 
+// export async function getAllData(startDate, endDate) {
+// 	if (!startDate || !endDate) {
+// 		return await authAxios().get(`/api/entries`);
+// 	}
+// 	return await authAxios().get(`/api/entries/${startDate}/${endDate}`);
+// }
+
 export async function getAllData(startDate, endDate) {
 	if (!startDate || !endDate) {
 		return await authAxios().get(`/api/entries`);
 	}
-	return await authAxios().get(`/api/entries/${startDate}/${endDate}`);
+	return await authAxios().get(`/api/entries/graphall/${startDate}/${endDate}`);
 }
 
 // Submitting a new entry
