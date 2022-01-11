@@ -6,8 +6,8 @@ function authAxios() {
 	const token = window.localStorage.getItem('token');
 
 	const authInstance = axios.create({
-		// baseURL: 'https://binibin-server.herokuapp.com',
-		baseURL: 'http://localhost:8080',
+		baseURL: 'https://binibin-server.herokuapp.com',
+		// baseURL: 'http://localhost:8080',
 		headers: { Authorization: `Bearer ${token}` },
 	});
 
