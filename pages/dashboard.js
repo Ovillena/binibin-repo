@@ -90,7 +90,7 @@ export default function Dashboard() {
 	const { user } = useContext(UserContext);
 	console.log('------------------dashboard--------------------------');
 	console.log(user);
-	
+
 	  //-------Loading screen-----------
 	  const [loading, setLoading] = useState(false);
 
@@ -103,18 +103,18 @@ export default function Dashboard() {
 
 	return (
 
-		loading ? 
+		loading ?
 		<LoadDiv>
-		  <PulseLoader 
-		  color={'#003274'} 
-		  loading={loading} 
+		  <PulseLoader
+		  color={'#003274'}
+		  loading={loading}
 		  size={20}
 		  />
 		  </LoadDiv>
-		  : 
+		  :
 
 		<PageCont
-		initial={{opacity:0}} 
+		initial={{opacity:0}}
 		animate={{opacity:100, transition:{ease:"easeIn", duration:3, delay:0}}}
 		>
 			<HeaderCont>
@@ -122,7 +122,7 @@ export default function Dashboard() {
 			</HeaderCont>
 
 			<TopIcons
-			initial={{opacity:0}} 
+			initial={{opacity:0}}
 			animate={{opacity:100, transition:{ease:"easeIn", duration:1, delay:0}}}
 			>
 				<IconDiv>
@@ -132,12 +132,12 @@ export default function Dashboard() {
 					<Subhead text='New Entries' fontsize='24px'></Subhead>
 				</IconDiv>
 
-				<IconDiv>
+				{/* <IconDiv>
 					<motion.div whileHover={{scale:1.1 }}>
 					<IconComp iconSymbol='list' routeTo='pastentries'></IconComp>
 					</motion.div>
 					<Subhead text='Past Entries' fontsize='24px'></Subhead>
-				</IconDiv>
+				</IconDiv> */}
 
 				<IconDiv>
 					<motion.div whileHover={{scale:1.1 }}>
@@ -147,8 +147,8 @@ export default function Dashboard() {
 				</IconDiv>
 			</TopIcons>
 
-			<BotRow
-			
+			{/* <BotRow
+
 			>
 				<IconDiv>
 					<motion.div whileHover={{scale:1.1 }}>
@@ -170,7 +170,7 @@ export default function Dashboard() {
 					</motion.div>
 					<Subhead text='Customer Support' fontsize='24px'></Subhead>
 				</IconDiv>
-			</BotRow>
+			</BotRow> */}
 
 			<FooterCont>
 				<Footer></Footer>
