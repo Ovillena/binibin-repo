@@ -11,7 +11,7 @@ import GraphsSum from '../comps/GraphsSum';
 
 import { motion } from 'framer-motion';
 import PulseLoader from 'react-spinners/PulseLoader';
-import { getAllData } from '@/network';
+import { getAllData, getAllSums } from '@/network';
 import SumsDisplay from '../comps/SumsDisplay';
 
 const PageCont = styled(motion.div)`
@@ -191,29 +191,29 @@ export default function Graphs() {
 			daily_weight: 2,
 		},
 	];
-	const [itemNames, setItemNames] = useState([]);
+	// const [itemNames, setItemNames] = useState([]);
 
-	async function loadChartwState(data) {
-		const dates = data.map((entry) => entry.input_date);
-		const uniqueDates = [...new Set(dates)];
-		const itemNames = [];
-		const dataConfig = [];
+	// async function loadChartwState(data) {
+	// 	const dates = data.map((entry) => entry.input_date);
+	// 	const uniqueDates = [...new Set(dates)];
+	// 	const itemNames = [];
+	// 	const dataConfig = [];
 
-		for (let i = 0; i < uniqueDates.length; i++) {
-			for (let j = 0; j < data.length; j++) {
-				if (data[j].input_date === uniqueDates[i]) {
-				}
-			}
-		}
+	// 	for (let i = 0; i < uniqueDates.length; i++) {
+	// 		for (let j = 0; j < data.length; j++) {
+	// 			if (data[j].input_date === uniqueDates[i]) {
+	// 			}
+	// 		}
+	// 	}
 
-		setXAxisLabels(uniqueDates);
-		setDatasets(dataConfig);
-	}
-	// const itemNames = [];
+	// 	setXAxisLabels(uniqueDates);
+	// 	setDatasets(dataConfig);
+	// }
+
+	const dates = [];
+	const itemNames = [];
+	const dataConfig = [];
 	async function loadChart(data) {
-		const dates = [];
-		const itemNames = [];
-		const dataConfig = [];
 		// set the x axis labels
 		data.forEach((entry) => {
 			if (!dates.includes(entry.input_date)) {
@@ -258,13 +258,19 @@ export default function Graphs() {
 		setDatasets(dataConfig);
 	}
 
+	let [sumsData, setSumsData] = useState();
+
 	useEffect(() => {
 		console.log('first day: ' + firstDay);
 		console.log('today: ' + today);
 		// loadChart(mockData);
 		getAllData(firstDay, today).then((res) => {
-			console.log(res.data);
+			// console.log(res.data);
 			loadChart(res.data);
+		});
+		getAllSums(firstDay, today).then((res) => {
+			console.log(res.data);
+			setSumsData(res.data);
 		});
 		setLoading(false);
 	}, []);
@@ -322,7 +328,7 @@ export default function Graphs() {
 						></GraphsSum>
 					</GraphDiv>
 				</TopGraphs>
-				<SumsDisplay itemNames={itemNames}></SumsDisplay>
+				<SumsDisplay sumsData={sumsData} chartConfig={dataConfig}></SumsDisplay>
 				<FilterWrapper>
 					{/* <input type='date' id='startDate'></input>
 					<input type='date' id='endDate'></input> */}
@@ -330,7 +336,6 @@ export default function Graphs() {
 					{/* <ButtonDiv onClick={filterDate}>Filter</ButtonDiv>
 			<ButtonDiv onClick={resetDate}>Reset</ButtonDiv> */}
 				</FilterWrapper>
-
 
 				<FooterCont>
 					<Footer></Footer>
