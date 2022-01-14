@@ -41,6 +41,10 @@ export async function getAllData(startDate, endDate) {
 	return await authAxios().get(`/api/entries/graphall/${startDate}/${endDate}`);
 }
 
+export async function getAllSums(startDate, endDate) {
+	return await authAxios().get(`/api/entries/graphweight/${startDate}/${endDate}`);
+}
+
 // Submitting a new entry
 export async function postEntry(entryContent) {
 	return await authAxios().post(`/api/entries/add`, { data: entryContent });

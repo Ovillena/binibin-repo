@@ -50,10 +50,11 @@ const Text = styled.span`
 		(color === 'recycling' && '#DFEAEF')};
 `;
 
-const Minimized = styled.div`
+const Wrapper = styled.div`
 	display: flex;
 	width: 100%;
 	justify-content: center;
+	margin: 10px;
 `;
 
 const Expand = styled.button`
@@ -69,18 +70,35 @@ const Expand = styled.button`
 		background-color: #e5a500;
 	}
 `;
+const colours = [
+	'rgba(255, 99, 132, 0.7)',
+	'rgba(54, 162, 235, 0.7)',
+	'rgba(255, 206, 86, 0.7)',
+	'rgba(75, 192, 192, 0.7)',
+	'rgba(153, 102, 255, 0.7)',
+	'rgba(255, 159, 64, 0.7)',
+];
 
-const SumsDisplay = ({ itemNames }) => {
-	// alert(itemNames);
+const SumsDisplay = ({ sumsData }) => {
+	// console.log(itemNames);
 	return (
 		<ItemCont>
-			<Minimized>
-				<SingleItem>
-					<Square color='#000' />
-					<ItemName>{itemNames[0]}</ItemName>
-					<ItemQuantity>&times; 5 kg</ItemQuantity>
-				</SingleItem>
-				<SingleItem>
+			<Wrapper>
+				<h2>Total weight for displayed period</h2>
+			</Wrapper>
+			<Wrapper>
+				{sumsData ? (
+					sumsData.map((item, i) => (
+						<SingleItem key={i}>
+							<Square color='#000' />
+							<ItemName>{item.item_name}</ItemName>
+							<ItemQuantity>: { item.weight_total} kg</ItemQuantity>
+						</SingleItem>
+					))
+				) : (
+					<p>Sums are not currently being calculated</p>
+				)}
+				{/* <SingleItem>
 					<Square color='#598B2C' />
 					<ItemName>{itemNames[1]}</ItemName>
 					<ItemQuantity>&times; 6 kg</ItemQuantity>
@@ -89,8 +107,8 @@ const SumsDisplay = ({ itemNames }) => {
 					<Square color='#2C5489' />
 					<ItemName>{itemNames[2]}</ItemName>
 					<ItemQuantity>&times; 7 kg</ItemQuantity>
-				</SingleItem>
-			</Minimized>
+				</SingleItem> */}
+			</Wrapper>
 		</ItemCont>
 	);
 };
