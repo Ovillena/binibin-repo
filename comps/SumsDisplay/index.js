@@ -71,24 +71,24 @@ const Expand = styled.button`
 `;
 
 const SumsDisplay = ({ itemNames }) => {
-
+	// alert(itemNames);
 	return (
 		<ItemCont>
 			<Minimized>
 				<SingleItem>
 					<Square color='#000' />
 					<ItemName>{itemNames[0]}</ItemName>
-					<ItemQuantity>&times; 5</ItemQuantity>
+					<ItemQuantity>&times; 5 kg</ItemQuantity>
 				</SingleItem>
 				<SingleItem>
 					<Square color='#598B2C' />
 					<ItemName>{itemNames[1]}</ItemName>
-					<ItemQuantity>&times; 6</ItemQuantity>
+					<ItemQuantity>&times; 6 kg</ItemQuantity>
 				</SingleItem>
 				<SingleItem>
 					<Square color='#2C5489' />
 					<ItemName>{itemNames[2]}</ItemName>
-					<ItemQuantity>&times; 7</ItemQuantity>
+					<ItemQuantity>&times; 7 kg</ItemQuantity>
 				</SingleItem>
 			</Minimized>
 		</ItemCont>

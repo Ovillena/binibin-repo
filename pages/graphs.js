@@ -191,8 +191,25 @@ export default function Graphs() {
 			daily_weight: 2,
 		},
 	];
-	// const [itemNames, setItemNames] = useState([])
-	const itemNames = [];
+	const [itemNames, setItemNames] = useState([]);
+
+	async function loadChartwState(data) {
+		const dates = data.map((entry) => entry.input_date);
+		const uniqueDates = [...new Set(dates)];
+		const itemNames = [];
+		const dataConfig = [];
+
+		for (let i = 0; i < uniqueDates.length; i++) {
+			for (let j = 0; j < data.length; j++) {
+				if (data[j].input_date === uniqueDates[i]) {
+				}
+			}
+		}
+
+		setXAxisLabels(uniqueDates);
+		setDatasets(dataConfig);
+	}
+	// const itemNames = [];
 	async function loadChart(data) {
 		const dates = [];
 		const itemNames = [];
@@ -244,8 +261,11 @@ export default function Graphs() {
 	useEffect(() => {
 		console.log('first day: ' + firstDay);
 		console.log('today: ' + today);
-		loadChart(mockData);
-		// getAllData(firstDay, today).then((res) => console.log(res.data));
+		// loadChart(mockData);
+		getAllData(firstDay, today).then((res) => {
+			console.log(res.data);
+			loadChart(res.data);
+		});
 		setLoading(false);
 	}, []);
 
@@ -304,44 +324,13 @@ export default function Graphs() {
 				</TopGraphs>
 				<SumsDisplay itemNames={itemNames}></SumsDisplay>
 				<FilterWrapper>
-					<input type='date' id='startDate'></input>
-					<input type='date' id='endDate'></input>
+					{/* <input type='date' id='startDate'></input>
+					<input type='date' id='endDate'></input> */}
 					{/* <ButtonDiv onClick={() => setGraphDate(true)}>Filter</ButtonDiv> */}
 					{/* <ButtonDiv onClick={filterDate}>Filter</ButtonDiv>
 			<ButtonDiv onClick={resetDate}>Reset</ButtonDiv> */}
 				</FilterWrapper>
 
-				{/* <BottomGraphs>
-					<GraphDiv
-						initial={{ opacity: 0 }}
-						animate={{
-							opacity: 100,
-							transition: { ease: 'easeIn', duration: 1, delay: 1.5 },
-						}}
-					>
-						<GraphsCompost today={today} firstDay={firstDay}></GraphsCompost>
-					</GraphDiv>
-
-					<GraphDiv
-						initial={{ opacity: 0 }}
-						animate={{
-							opacity: 100,
-							transition: { ease: 'easeIn', duration: 1, delay: 2 },
-						}}
-					>
-						<RecycleBar today={today} firstDay={firstDay}></RecycleBar>
-					</GraphDiv>
-
-					<GraphDiv
-						initial={{ opacity: 0 }}
-						animate={{
-							opacity: 100,
-							transition: { ease: 'easeIn', duration: 1, delay: 1 },
-						}}
-					>
-						<GraphsGarbage today={today} firstDay={firstDay}></GraphsGarbage>
-					</GraphDiv>
-				</BottomGraphs> */}
 
 				<FooterCont>
 					<Footer></Footer>
