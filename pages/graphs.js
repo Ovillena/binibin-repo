@@ -124,73 +124,6 @@ export default function Graphs() {
 	const [xAxisLabels, setXAxisLabels] = useState([]);
 	const [datasets, setDatasets] = useState([]);
 
-	const mockData = [
-		{
-			input_date: '12/12',
-			item_name: 'compost',
-			daily_weight: 3,
-		},
-		{
-			input_date: '12/12',
-			item_name: 'coffee chaff',
-			daily_weight: 2,
-		},
-		{
-			input_date: '12/12',
-			item_name: 'single stream',
-			daily_weight: 2,
-		},
-		// {
-		// 	input_date: '12/16',
-		// 	item_name: 'compost',
-		// 	daily_weight: 2,
-		// },
-		{
-			input_date: '12/16',
-			item_name: 'single stream',
-			daily_weight: 2,
-		},
-		{
-			input_date: '12/16',
-			item_name: 'coffee chaff',
-			daily_weight: 5,
-		},
-		{
-			input_date: '12/17',
-			item_name: 'coffee chaff',
-			daily_weight: 4,
-		},
-		{
-			input_date: '12/17',
-			item_name: 'single stream',
-			daily_weight: 5,
-		},
-		{
-			input_date: '12/17',
-			item_name: 'compost',
-			daily_weight: 4,
-		},
-		{
-			input_date: '12/18',
-			item_name: 'new item',
-			daily_weight: 2,
-		},
-		{
-			input_date: '12/19',
-			item_name: 'single stream',
-			daily_weight: 5,
-		},
-		{
-			input_date: '12/19',
-			item_name: 'compost',
-			daily_weight: 4,
-		},
-		{
-			input_date: '12/20',
-			item_name: 'new item',
-			daily_weight: 2,
-		},
-	];
 	// const [itemNames, setItemNames] = useState([]);
 
 	// async function loadChartwState(data) {
@@ -220,6 +153,7 @@ export default function Graphs() {
 				dates.push(entry.input_date);
 			}
 		});
+		dates.sort()
 		// set the data values
 		dates.forEach((date, i) => {
 			console.log(date, i);
@@ -254,6 +188,18 @@ export default function Graphs() {
 			});
 		});
 
+		function compare(a, b) {
+			if (a.item_name < b.item_name) {
+				return -1;
+			}
+			if (a.item_name > b.item_name) {
+				return 1;
+			}
+			return 0;
+		}
+
+		dataConfig.sort(compare);
+
 		setXAxisLabels(dates);
 		setDatasets(dataConfig);
 	}
@@ -263,9 +209,8 @@ export default function Graphs() {
 	useEffect(() => {
 		console.log('first day: ' + firstDay);
 		console.log('today: ' + today);
-		// loadChart(mockData);
 		getAllData(firstDay, today).then((res) => {
-			// console.log(res.data);
+			console.log(res.data);
 			loadChart(res.data);
 		});
 		getAllSums(firstDay, today).then((res) => {

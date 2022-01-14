@@ -56,13 +56,13 @@ export default function Modal({ open, children, onClose, router = useRouter() })
 					>
 						Close
 					</button>
-					<button
+					{/* <button
 						className={styles.btnEntries}
 						style={ButtonStyle}
 						onClick={() => router.push('/pastentries')}
 					>
 						View Entries
-					</button>
+					</button> */}
 					<button
 						className={styles.btnEntries}
 						style={ButtonStyle}
