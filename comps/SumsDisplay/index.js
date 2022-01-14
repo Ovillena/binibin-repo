@@ -24,7 +24,7 @@ const ItemName = styled.p`
 `;
 
 const ItemQuantity = styled.p`
-	font-weight: bold;
+	font-weight: normal;
 `;
 
 const SingleItem = styled.div`
@@ -90,9 +90,9 @@ const SumsDisplay = ({ sumsData }) => {
 				{sumsData ? (
 					sumsData.map((item, i) => (
 						<SingleItem key={i}>
-							<Square color='#000' />
-							<ItemName>{item.item_name}</ItemName>
-							<ItemQuantity>: { item.weight_total} kg</ItemQuantity>
+							<Square color={colours[i]} />
+							<ItemName>{item.item_name}:</ItemName>
+							<ItemQuantity> { item.weight_total} kg</ItemQuantity>
 						</SingleItem>
 					))
 				) : (
